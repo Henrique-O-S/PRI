@@ -15,13 +15,16 @@ if response.status_code == 200:
     # Initialize a set to store unique links
     unique_links = set()
 
-    # Find and extract links to articles (adjust the HTML structure based on the specific website)
-    for link in soup.find_all('a', href=True):
-        href = link.get('href')
-        if href.startswith("https://www.cnbc.com/20"):
-            unique_links.add(href)
+    # Find and extract links from <a> elements inside <div> elements with only one child
+    for div_tag in soup.find_all('div'):
+        # Check if the div_tag has only one child and that child is an <a> element
+        if len(div_tag.find_all()) == 1 and div_tag.find('a'):
+            # Get the href attribute of the child <a> element
+            href = div_tag.find('a').get('href')
+            if href and href.startswith("https://www.cnbc.com/20"):
+                unique_links.add(href)
 
-    # Print the unique links to articles
+    # Print the valid links
     for link in unique_links:
         print(link)
 else:
