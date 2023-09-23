@@ -1,7 +1,11 @@
+import requests
+from bs4 import BeautifulSoup
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.inspection import inspect
+
+from datetime import date
 
 Base = declarative_base()
 
@@ -27,12 +31,32 @@ class Database:
 
         if not inspect(self.engine).has_table(Article.__tablename__):
             self.createDatabase()
+    def addArticle(self, articleUrl):
+        response = requests.get(articleUrl)
 
-    def addArticle(self, article):
-        session = self.Session()
-        session.add(article)
-        session.commit()
-        session.close()
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Parse the HTML content of the response using BeautifulSoup
+            soup = BeautifulSoup(response.text, 'html.parser')
+            textdivs = soup.find_all('div', class_='group')
+            title = soup.find('h1', class_='ArticleHeader-headline')
+            if title is None:
+                title = soup.find('h1', class_='ArticleHeader-styles-makeit-headline--l_iUX')
+            text = ""
+            for textdiv in textdivs:
+                text += textdiv.get_text()
+            print(text)
+            print(title.text)
+            #dateParent = soup.find('time', attrs={"datatestid": "lastpublished-timestamp"})
+            #if dateParent is None:
+                #dateParent = soup.find('time', attrs={"datatestid": "published-timestamp"})
+            #articleDate = dateParent.find_all(recursive=False)[-1]
+
+            #print(dateParent)
+            session = self.Session()
+            session.add(Article(title.text, date.today(), text, "unknown"))
+            session.commit()
+            session.close()
 
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
@@ -42,3 +66,25 @@ class Database:
         session.query(Article).delete()
         session.commit()
         session.close()
+
+    def populateDatabase(self):
+        url = "https://www.cnbc.com/finance/"
+
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, 'html.parser')
+
+            unique_links = set()
+
+            for div_tag in soup.find_all('div'):
+                if len(div_tag.find_all()) == 1 and div_tag.find('a'):
+                    href = div_tag.find('a').get('href')
+                    if href and href.startswith("https://www.cnbc.com/20"):
+                        unique_links.add(href)
+
+            for link in unique_links:
+                print(link)
+                self.addArticle(link)
+        else:
+            print(f"Failed to retrieve content. Status code: {response.status_code}")
