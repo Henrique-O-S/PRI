@@ -53,8 +53,12 @@ class Database:
             #articleDate = dateParent.find_all(recursive=False)[-1]
 
             #print(dateParent)
+            author=""
+            authorsA = soup.find_all('a', class_='Author-authorName')
+            for authorA in authorsA:
+                author += (authorA.get_text() + ",")
             session = self.Session()
-            session.add(Article(title.text, date.today(), text, "unknown"))
+            session.add(Article(title.text, date.today(), text, author[:-1]))
             session.commit()
             session.close()
 
@@ -68,6 +72,7 @@ class Database:
         session.close()
 
     def populateDatabase(self):
+        self.cleanDatabase()
         url = "https://www.cnbc.com/finance/"
 
         response = requests.get(url)
