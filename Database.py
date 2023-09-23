@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.inspection import inspect
 
-from datetime import date
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -47,18 +47,17 @@ class Database:
                 text += textdiv.get_text()
             print(text)
             print(title.text)
-            #dateParent = soup.find('time', attrs={"datatestid": "lastpublished-timestamp"})
-            #if dateParent is None:
-                #dateParent = soup.find('time', attrs={"datatestid": "published-timestamp"})
-            #articleDate = dateParent.find_all(recursive=False)[-1]
+            date = soup.find('time', attrs={"data-testid": "lastpublished-timestamp"})
+            if date is None:
+                date = soup.find('time', attrs={"data-testid": "published-timestamp"})
 
-            #print(dateParent)
+            print(date.get("datetime"))
             author=""
             authorsA = soup.find_all('a', class_='Author-authorName')
             for authorA in authorsA:
                 author += (authorA.get_text() + ",")
             session = self.Session()
-            session.add(Article(title.text, date.today(), text, author[:-1]))
+            session.add(Article(title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, author[:-1]))
             session.commit()
             session.close()
 
