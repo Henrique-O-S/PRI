@@ -41,9 +41,6 @@ class ArticlesSpider(scrapy.Spider):
 
             for url in self.unique_links: # TODO check if this really works!!!
                 yield scrapy.Request(url, callback=self.parse_articles)
-                break
-
-            # yield scrapy.Request(url, callback=self.parse_articles)
         else:
             yield scrapy.Request(link, callback=self.parse)
 
