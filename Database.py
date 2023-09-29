@@ -12,12 +12,16 @@ Base = declarative_base()
 class Article(Base):
     __tablename__ = "articles"
     id = Column(Integer, primary_key=True)
+    link = Column(Text)
+    category = Column(Text)
     title = Column(String)
     date = Column(DateTime)
     text = Column(Text)
     author = Column(String)
 
-    def __init__(self, title, date, text, author):
+    def __init__(self, link, category, title, date, text, author):
+        self.link = link
+        self.category = category
         self.title = title
         self.date = date
         self.text = text
@@ -69,8 +73,12 @@ class Database:
             authorsA = soup.find_all('a', class_='Author-authorName')
             for authorA in authorsA:
                 author += (authorA.get_text() + ",")
+
+            type = soup.find('a', class_='ArticleHeader-eyebrow')
+            if type is None:
+                type = soup.find('a', class_='ArticleHeader-styles-makeit-eyebrow--Degp4')
             session = self.Session()
-            session.add(Article(title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, author[:-1]))
+            session.add(Article(articleUrl, type.text, title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, author[:-1]))
             session.commit()
             session.close()
 
