@@ -38,10 +38,23 @@ class Database:
         if response.status_code == 200:
             # Parse the HTML content of the response using BeautifulSoup
             soup = BeautifulSoup(response.text, 'html.parser')
-            textdivs = soup.find_all('div', class_='group')
+            article = soup.find('div', class_='ArticleBody-articleBody')
+            if article is None:
+                article = soup.find('div', class_='ArticleBody-styles-makeit-articleBody--AEqcE')
+            textdivs = article.find_all('div', class_='group')
             title = soup.find('h1', class_='ArticleHeader-headline')
             if title is None:
                 title = soup.find('h1', class_='ArticleHeader-styles-makeit-headline--l_iUX')
+            key_points_text =[]
+            key_points_list = soup.find('div', class_='RenderKeyPoints-list')
+            if key_points_list is None:
+                pass
+            else:
+                key_points_ul = key_points_list.find('div').find('div').find('ul')
+                key_points = key_points_ul.find_all('li')
+                for key_point in key_points:
+                    key_points_text.append(key_point.text)
+                    print(key_point.text)
             text = ""
             for textdiv in textdivs:
                 text += textdiv.get_text()
