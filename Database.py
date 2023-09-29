@@ -95,11 +95,13 @@ class Database:
         while response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
 
-            for div_tag in soup.find_all('div'):
-                if len(div_tag.find_all()) == 1 and div_tag.find('a'):
-                    href = div_tag.find('a').get('href')
-                    if href and href.startswith("https://www.cnbc.com/20"):
-                        unique_links.add(href)
+            articles = soup.find_all('div', class_='PageBuilder-col-9 PageBuilder-col')
+            for article in articles:
+                for div_tag in article.find_all('div'):
+                    if len(div_tag.find_all()) == 1 and div_tag.find('a'):
+                        href = div_tag.find('a').get('href')
+                        if href and href.startswith("https://www.cnbc.com/20"):
+                            unique_links.add(href)
 
             next_page = soup.find('a', class_='LoadMoreButton-loadMore')
 
