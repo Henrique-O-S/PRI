@@ -35,6 +35,13 @@ class Database:
 
         if not inspect(self.engine).has_table(Article.__tablename__):
             self.createDatabase()
+
+    def addArticletoDB(self, articleUrl, title, date, text, keypoints, author):
+        session = self.Session()
+        session.add(Article(articleUrl, title, date, text, keypoints, author))
+        session.commit()
+        session.close()
+
     def addArticle(self, articleUrl):
         response = requests.get(articleUrl)
 
@@ -42,13 +49,18 @@ class Database:
         if response.status_code == 200:
             # Parse the HTML content of the response using BeautifulSoup
             soup = BeautifulSoup(response.text, 'html.parser')
+
+            title = soup.find('h1', class_='ArticleHeader-headline')
+            if title is None:
+                title = soup.find('h1', class_='ArticleHeader-styles-makeit-headline--l_iUX')
             article = soup.find('div', class_='ArticleBody-articleBody')
             if article is None:
                 article = soup.find('div', class_='ArticleBody-styles-makeit-articleBody--AEqcE')
             textdivs = article.find_all('div', class_='group')
-            title = soup.find('h1', class_='ArticleHeader-headline')
-            if title is None:
-                title = soup.find('h1', class_='ArticleHeader-styles-makeit-headline--l_iUX')
+            text = ""
+            for textdiv in textdivs:
+                text += textdiv.get_text()
+                
             key_points_text =""
             key_points_list = soup.find('div', class_='RenderKeyPoints-list')
             if key_points_list is None:
@@ -59,24 +71,17 @@ class Database:
                 for key_point in key_points:
                     key_points_text += key_point.text
                 print(key_points_text)
-            text = ""
-            for textdiv in textdivs:
-                text += textdiv.get_text()
-            #print(text)
-            #print(title.text)
+
             date = soup.find('time', attrs={"data-testid": "lastpublished-timestamp"})
             if date is None:
                 date = soup.find('time', attrs={"data-testid": "published-timestamp"})
 
-            #print(date.get("datetime"))
             author=""
             authorsA = soup.find_all('a', class_='Author-authorName')
             for authorA in authorsA:
                 author += (authorA.get_text() + ",")
-            session = self.Session()
-            session.add(Article(articleUrl, title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, key_points_text, author[:-1]))
-            session.commit()
-            session.close()
+
+            self.addArticletoDB(articleUrl, title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, key_points_text, author[:-1])
 
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
@@ -109,6 +114,7 @@ class Database:
                 print(f"Retrieving {next_page_url}")
             else: 
                 break
+
         else:
             print(f"Failed to retrieve content. Status code: {response.status_code}")
 
