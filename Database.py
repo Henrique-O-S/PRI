@@ -13,18 +13,18 @@ class Article(Base):
     __tablename__ = "articles"
     id = Column(Integer, primary_key=True)
     link = Column(Text)
-    category = Column(Text)
     title = Column(String)
     date = Column(DateTime)
     text = Column(Text)
+    keypoints = Column(Text)
     author = Column(String)
 
-    def __init__(self, link, category, title, date, text, author):
+    def __init__(self, link, title, date, text, keypoints, author):
         self.link = link
-        self.category = category
         self.title = title
         self.date = date
         self.text = text
+        self.keypoints = keypoints
         self.author = author
 
 class Database:
@@ -49,7 +49,7 @@ class Database:
             title = soup.find('h1', class_='ArticleHeader-headline')
             if title is None:
                 title = soup.find('h1', class_='ArticleHeader-styles-makeit-headline--l_iUX')
-            key_points_text =[]
+            key_points_text =""
             key_points_list = soup.find('div', class_='RenderKeyPoints-list')
             if key_points_list is None:
                 pass
@@ -57,28 +57,24 @@ class Database:
                 key_points_ul = key_points_list.find('div').find('div').find('ul')
                 key_points = key_points_ul.find_all('li')
                 for key_point in key_points:
-                    key_points_text.append(key_point.text)
-                    print(key_point.text)
+                    key_points_text += key_point.text
+                print(key_points_text)
             text = ""
             for textdiv in textdivs:
                 text += textdiv.get_text()
-            print(text)
-            print(title.text)
+            #print(text)
+            #print(title.text)
             date = soup.find('time', attrs={"data-testid": "lastpublished-timestamp"})
             if date is None:
                 date = soup.find('time', attrs={"data-testid": "published-timestamp"})
 
-            print(date.get("datetime"))
+            #print(date.get("datetime"))
             author=""
             authorsA = soup.find_all('a', class_='Author-authorName')
             for authorA in authorsA:
                 author += (authorA.get_text() + ",")
-
-            type = soup.find('a', class_='ArticleHeader-eyebrow')
-            if type is None:
-                type = soup.find('a', class_='ArticleHeader-styles-makeit-eyebrow--Degp4')
             session = self.Session()
-            session.add(Article(articleUrl, type.text, title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, author[:-1]))
+            session.add(Article(articleUrl, title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, key_points_text, author[:-1]))
             session.commit()
             session.close()
 
