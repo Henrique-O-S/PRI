@@ -87,16 +87,13 @@ class Database:
         session.commit()
         session.close()
 
-    def populateDatabase(self):
-        self.cleanDatabase()
-        url = "https://www.cnbc.com/finance/"
+    def retrieveAllArticlesURL(self, starting_url):
+        response = requests.get(starting_url)
 
-        response = requests.get(url)
+        unique_links = set()
 
-        if response.status_code == 200:
+        while response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
-
-            unique_links = set()
 
             for div_tag in soup.find_all('div'):
                 if len(div_tag.find_all()) == 1 and div_tag.find('a'):
@@ -104,8 +101,23 @@ class Database:
                     if href and href.startswith("https://www.cnbc.com/20"):
                         unique_links.add(href)
 
-            for link in unique_links:
-                print(link)
-                self.addArticle(link)
+            next_page = soup.find('a', class_='LoadMoreButton-loadMore')
+
+            if next_page:
+                next_page_url = next_page.get('href')
+                response = requests.get(next_page_url)
+                print(f"Retrieving {next_page_url}")
+            else: 
+                break
         else:
             print(f"Failed to retrieve content. Status code: {response.status_code}")
+
+        return unique_links
+
+    def populateDatabase(self):
+        self.cleanDatabase()
+
+        articlesURL = self.retrieveAllArticlesURL(starting_url="https://www.cnbc.com/market-insider/")
+        for link in articlesURL:
+            self.addArticle(link)
+            print(link)
