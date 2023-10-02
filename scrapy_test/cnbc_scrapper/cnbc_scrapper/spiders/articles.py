@@ -47,7 +47,7 @@ class ArticlesSpider(scrapy.Spider):
     def parse_articles(self, response):
         # Extracting article details
         title = response.css('h1.ArticleHeader-headline::text, h1.ArticleHeader-styles-makeit-headline--l_iUX::text').get()
-        
+
         # we need to get the text from the article, it's only possible with bs4 without shenanigans
         soup = BeautifulSoup(response.text, 'html.parser')
         article = soup.find('div', class_='ArticleBody-articleBody')
@@ -76,3 +76,11 @@ class ArticlesSpider(scrapy.Spider):
         print(f"Retrieved article: Title - {title}, Date - {date}")
 
         self.database.addArticletoDB(response.url, title, date, text, key_points_text, author)
+
+        company_links = response.css('a[href^="/quotes/"]::attr(href)').getall()
+        for company_link in company_links:
+            company_url = response.urljoin(company_link)
+        yield scrapy.Request(url=company_url, callback=self.parse_companies)
+
+    def parse_companies(self, response):
+        print(f"Retrieved company: {response.url}")
