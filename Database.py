@@ -27,6 +27,18 @@ class Article(Base):
         self.keypoints = keypoints
         self.author = author
 
+class Company(Base):
+    __tablename__ = "companies"
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    stock_price = Column(String)
+    description = Column(Text)
+
+    def __init__(self, name, stock_price, description):
+        self.name = name
+        self.stock_price = stock_price
+        self.description = description
+
 class Database:
     def __init__(self, url):
         self.url = url
@@ -39,6 +51,12 @@ class Database:
     def addArticletoDB(self, articleUrl, title, date, text, keypoints, author):
         session = self.Session()
         session.add(Article(articleUrl, title, date, text, keypoints, author))
+        session.commit()
+        session.close()
+
+    def addCompanytoDB(self, name, stock_price, description):
+        session = self.Session()
+        session.add(Company(name, stock_price, description))
         session.commit()
         session.close()
 
