@@ -90,6 +90,14 @@ class ArticlesSpider(scrapy.Spider):
         if company_stock_price:
             print(f"Company Stock Price: {company_stock_price}")
 
+        company_description = response.css('div.CompanyProfile-summary span::text').getall()
+        complete_description = ''.join(company_description).strip()
+        if complete_description:
+            print(f"Company Description: {complete_description}")
+
+        self.database.addCompanytoDB(company_name, company_stock_price, complete_description)
+
+    '''
         # click on load more in text (no data-link attribute, needs to use selenium - companies.py)
         more_button = response.css('div.CompanyProfile-summary div button:contains("More")')
         if more_button:
@@ -100,10 +108,9 @@ class ArticlesSpider(scrapy.Spider):
 
     def parse_company_text(self, response):
         # get the complete text and print it
-        company_description = response.css('div.CompanyProfile-descriptionContainer span::text').getall()
+        company_description = response.css('div.CompanyProfile-summary span::text').getall()
         complete_description = ''.join(company_description).strip()
 
         if complete_description:
             print(f"Complete Description: {complete_description}")
-
-        
+    '''

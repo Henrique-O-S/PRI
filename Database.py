@@ -45,7 +45,7 @@ class Database:
         self.engine = create_engine(self.url)
         self.Session = sessionmaker(bind=self.engine)
 
-        if not inspect(self.engine).has_table(Article.__tablename__):
+        if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(Company.__tablename__):
             self.createDatabase()
 
     def addArticletoDB(self, articleUrl, title, date, text, keypoints, author):
@@ -104,9 +104,10 @@ class Database:
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
 
-    def cleanDatabase(self): #call this to delete all articles
+    def cleanDatabase(self): #call this to delete all data
         session = self.Session()
         session.query(Article).delete()
+        #session.query(Company).delete()
         session.commit()
         session.close()
 
