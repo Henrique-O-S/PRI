@@ -10,7 +10,6 @@ class ArticlesSpider(scrapy.Spider):
     unique_links = set()
     database = Database("sqlite:///articles_v2_beta.db")
 
-
     def start_requests(self):
         self.database.cleanDatabase()
         urls = [
@@ -83,4 +82,28 @@ class ArticlesSpider(scrapy.Spider):
         yield scrapy.Request(url=company_url, callback=self.parse_companies)
 
     def parse_companies(self, response):
-        print(f"Retrieved company: {response.url}")
+        company_name = response.css('h1.QuoteStrip-quoteTitle span.QuoteStrip-name::text').get()
+        if company_name:
+            print(f"Company Name: {company_name}")
+
+        company_stock_price = response.css('div.QuoteStrip-lastPriceStripContainer span.QuoteStrip-lastPrice::text').get()
+        if company_stock_price:
+            print(f"Company Stock Price: {company_stock_price}")
+
+        # click on load more in text (no data-link attribute, needs to use selenium - companies.py)
+        more_button = response.css('div.CompanyProfile-summary div button:contains("More")')
+        if more_button:
+            click_action_link = more_button.css('::attr(data-link)').get()
+            if click_action_link:
+                full_action_url = response.urljoin(click_action_link)
+                yield scrapy.Request(url=full_action_url, callback=self.parse_company_text)
+
+    def parse_company_text(self, response):
+        # get the complete text and print it
+        company_description = response.css('div.CompanyProfile-descriptionContainer span::text').getall()
+        complete_description = ''.join(company_description).strip()
+
+        if complete_description:
+            print(f"Complete Description: {complete_description}")
+
+        
