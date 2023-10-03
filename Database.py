@@ -56,7 +56,9 @@ class Database:
 
     def addCompanytoDB(self, name, stock_price, description):
         session = self.Session()
-        session.add(Company(name, stock_price, description))
+        existing_company = session.query(Company).filter_by(name=name).first()
+        if not existing_company:
+            session.add(Company(name, stock_price, description))
         session.commit()
         session.close()
 
@@ -107,7 +109,7 @@ class Database:
     def cleanDatabase(self): #call this to delete all data
         session = self.Session()
         session.query(Article).delete()
-        #session.query(Company).delete()
+        session.query(Company).delete()
         session.commit()
         session.close()
 

@@ -44,7 +44,7 @@ class ArticlesSpider(scrapy.Spider):
             yield scrapy.Request(link, callback=self.parse)
 
     def parse_articles(self, response):
-        # Extracting article details
+        # extracting article details
         title = response.css('h1.ArticleHeader-headline::text, h1.ArticleHeader-styles-makeit-headline--l_iUX::text').get()
 
         # we need to get the text from the article, it's only possible with bs4 without shenanigans
@@ -57,7 +57,7 @@ class ArticlesSpider(scrapy.Spider):
         for textdiv in textdivs:
             text += textdiv.get_text()
 
-        # We need to ensure that after a '.' there's a space, otherwise the key points will be messed up
+        # we need to ensure that after a '.' there's a space, otherwise the key points will be messed up
         text = re.sub(r'\.(?!\s)', '. ', text)
         
         key_points_list = response.css('div.RenderKeyPoints-list')
@@ -79,7 +79,7 @@ class ArticlesSpider(scrapy.Spider):
         company_links = response.css('a[href^="/quotes/"]::attr(href)').getall()
         for company_link in company_links:
             company_url = response.urljoin(company_link)
-        yield scrapy.Request(url=company_url, callback=self.parse_companies)
+            yield scrapy.Request(url=company_url, callback=self.parse_companies)
 
     def parse_companies(self, response):
         company_name = response.css('h1.QuoteStrip-quoteTitle span.QuoteStrip-name::text').get()
