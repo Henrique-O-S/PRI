@@ -43,6 +43,13 @@ The goal of this project that is going to run the whole semester is to develop a
 
 The datasets used in this project are the following:
 
-- [ ] [CNBC News](https://www.kaggle.com/jeet2016/us-financial-news-articles)
+- [CNBC News](https://www.cnbc.com/market-insider/)
 
 
+## Milestone 2 - Information Retrieval
+
+TODO
+
+## Milestone 3 - Search System
+
+TODO
