@@ -40,9 +40,9 @@ class Company(Base):
         self.description = description
 
 class Database:
-    def __init__(self, url):
-        self.url = url
-        self.engine = create_engine(self.url)
+    def __init__(self, db_file = "sqlite:///data/articles.db"):
+        self.db_file = db_file
+        self.engine = create_engine(self.db_file)
         self.Session = sessionmaker(bind=self.engine)
 
         if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(Company.__tablename__):
@@ -106,7 +106,7 @@ class Database:
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
 
-    def cleanDatabase(self): #call this to delete all data
+    def clearDatabase(self): #call this to delete all data
         session = self.Session()
         session.query(Article).delete()
         session.query(Company).delete()
@@ -144,7 +144,7 @@ class Database:
         return unique_links
 
     def populateDatabase(self):
-        self.cleanDatabase()
+        self.clearDatabase()
 
         articlesURL = self.retrieveAllArticlesURL(starting_url="https://www.cnbc.com/market-insider/")
         for link in articlesURL:

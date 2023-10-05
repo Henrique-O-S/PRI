@@ -1,17 +1,17 @@
 import scrapy
 from scrapy.exceptions import CloseSpider
 from datetime import datetime
-from Database import Database
+from src.Database import Database
 from bs4 import BeautifulSoup
 import re
 
 class ArticlesSpider(scrapy.Spider):
     name = "articles"
     unique_links = set()
-    database = Database("sqlite:///articles_v2_beta.db")
+    database = Database()
 
     def start_requests(self):
-        self.database.cleanDatabase()
+        self.database.clearDatabase()
         urls = [
             "https://www.cnbc.com/market-insider/",
         ]
