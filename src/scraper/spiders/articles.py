@@ -96,21 +96,3 @@ class ArticlesSpider(scrapy.Spider):
             print(f"Company Description: {complete_description}")
 
         self.database.addCompanytoDB(company_name, company_stock_price, complete_description)
-
-    '''
-        # click on load more in text (no data-link attribute, needs to use selenium - companies.py)
-        more_button = response.css('div.CompanyProfile-summary div button:contains("More")')
-        if more_button:
-            click_action_link = more_button.css('::attr(data-link)').get()
-            if click_action_link:
-                full_action_url = response.urljoin(click_action_link)
-                yield scrapy.Request(url=full_action_url, callback=self.parse_company_text)
-
-    def parse_company_text(self, response):
-        # get the complete text and print it
-        company_description = response.css('div.CompanyProfile-summary span::text').getall()
-        complete_description = ''.join(company_description).strip()
-
-        if complete_description:
-            print(f"Complete Description: {complete_description}")
-    '''
