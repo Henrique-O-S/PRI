@@ -43,7 +43,13 @@ The goal of this project that is going to run the whole semester is to develop a
 
 The datasets used in this project are the following:
 
-- [CNBC News](https://www.cnbc.com/market-insider/)
+- [CNBC News - Market Insider](https://www.cnbc.com/market-insider/). The dataset scraped from CNBC contains news articles from the CNBC website, which is a world leader in business news and real-time financial market coverage. The dataset is proven to be reliable and trustworthy, as it is a well-known news website. The dataset is composed of **200+** news articles.
+
+- [CNBC NEWS - Quotes](https://www.cnbc.com/quotes/). This dataset contains quotes from the CNBC website for every stock in the market. The desired quotes are obtained from the previous dataset, as it contains the stock symbol for each news article.
+
+### Exploratory Data Analysis
+
+
 
 
 ## Milestone 2 - Information Retrieval
