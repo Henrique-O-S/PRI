@@ -62,47 +62,6 @@ class Database:
         session.commit()
         session.close()
 
-    def addArticle(self, articleUrl):
-        response = requests.get(articleUrl)
-
-        # Check if the request was successful (status code 200)
-        if response.status_code == 200:
-            # Parse the HTML content of the response using BeautifulSoup
-            soup = BeautifulSoup(response.text, 'html.parser')
-
-            title = soup.find('h1', class_='ArticleHeader-headline')
-            if title is None:
-                title = soup.find('h1', class_='ArticleHeader-styles-makeit-headline--l_iUX')
-            article = soup.find('div', class_='ArticleBody-articleBody')
-            if article is None:
-                article = soup.find('div', class_='ArticleBody-styles-makeit-articleBody--AEqcE')
-            textdivs = article.find_all('div', class_='group')
-            text = ""
-            for textdiv in textdivs:
-                text += textdiv.get_text()
-                
-            key_points_text =""
-            key_points_list = soup.find('div', class_='RenderKeyPoints-list')
-            if key_points_list is None:
-                pass
-            else:
-                key_points_ul = key_points_list.find('div').find('div').find('ul')
-                key_points = key_points_ul.find_all('li')
-                for key_point in key_points:
-                    key_points_text += key_point.text
-                print(key_points_text)
-
-            date = soup.find('time', attrs={"data-testid": "lastpublished-timestamp"})
-            if date is None:
-                date = soup.find('time', attrs={"data-testid": "published-timestamp"})
-
-            author=""
-            authorsA = soup.find_all('a', class_='Author-authorName')
-            for authorA in authorsA:
-                author += (authorA.get_text() + ",")
-
-            self.addArticletoDB(articleUrl, title.text, datetime.strptime(date.get("datetime"), "%Y-%m-%dT%H:%M:%S%z"), text, key_points_text, author[:-1])
-
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
 
