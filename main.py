@@ -5,8 +5,25 @@ import scrapy.crawler as crawler
 
 if __name__ == "__main__":
     spider_class = ArticlesSpider
-    #spider_class = BigArticlesSpider call this for the calendar scrapping (NOT FINISHED YET
+    spider_big_class = BigArticlesSpider
 
-    process = crawler.CrawlerProcess()
+    settings = {
+        'FEEDS': {
+            'articles.json': {
+                'format': 'json',
+                'encoding': 'utf8',
+                'store_empty': False,
+                'fields': None,
+            },
+        }
+    }
+
+    process = crawler.CrawlerProcess(settings)
+    process.crawl(spider_big_class)
+    process.start()
+
+    process = crawler.CrawlerProcess(settings)
     process.crawl(spider_class)
     process.start()
+
+
