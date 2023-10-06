@@ -7,16 +7,23 @@ import re
 
 class ArticlesSpider(scrapy.Spider):
     name = "articles"
-    unique_links = set()
+    links_to_save = set()
     database = Database()
 
+    def load_saved_items(self):
+        try:
+            with open("../../../articles.json", "r", encoding='utf-8') as f:
+                for line in f:
+                    #clean_line = unidecode(line.replace("”", "''").replace("“", "''"))
+                    if line == "\n": continue
+                    self.links_to_save.add(line.split('"')[3])  # faster than json.loads
+        except FileNotFoundError:
+            scrapy.exceptions.CloseSpider("File not found. WHY")
     def start_requests(self):
-        self.database.clearDatabase()
-        urls = [
-            "https://www.cnbc.com/market-insider/",
-        ]
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
+        self.load_saved_items()
+
+        for url in self.links_to_save:
+            yield scrapy.Request(url=url, callback=self.parsearticle)
 
     def get_unique_links(self, response):
         for div_tag in response.css('div'):
@@ -25,25 +32,7 @@ class ArticlesSpider(scrapy.Spider):
                 if href and href.startswith("https://www.cnbc.com/20"):
                     self.unique_links.add(href)
 
-    def parse(self, response):
-        if response.status != 200:
-            print(f"Failed to retrieve content. Status code: {response.status}")
-            raise CloseSpider("Failed to retrieve content")
-
-        link = response.css('div.LoadMore-container a::attr(href)').get()
-
-        self.get_unique_links(response)
-
-        if link is None:
-            print(f"Retrieved {len(self.unique_links)} unique links")
-            print("Now retrieving articles information...")
-
-            for url in self.unique_links: # TODO check if this really works!!!
-                yield scrapy.Request(url, callback=self.parse_articles)
-        else:
-            yield scrapy.Request(link, callback=self.parse)
-
-    def parse_articles(self, response):
+    def parse_article(self, response):
         # extracting article details
         title = response.css('h1.ArticleHeader-headline::text, h1.ArticleHeader-styles-makeit-headline--l_iUX::text').get()
 
