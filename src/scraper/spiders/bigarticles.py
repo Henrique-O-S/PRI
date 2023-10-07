@@ -11,14 +11,13 @@ class BigArticlesSpider(scrapy.Spider):
     j = 0
     startYear = "2023"
     new_items = set()
-
     def start_requests(self):
         urls = [
             "https://www.cnbc.com/site-map/",
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
-
+        yield scrapy.Request(url=url, callback=self.gato)
 
     def parse(self, response):
         if response.status != 200:
@@ -79,8 +78,11 @@ class BigArticlesSpider(scrapy.Spider):
             category = response.css('a.ArticleHeader-styles-makeit-eyebrow--Degp4::text').get()
         if category != "Market Insider":
             return # because its a paid article or not market insider category
-        if response.url not in self.saved_items:
+        if response.url not in self.database.saved_items:
             self.new_items.add(response.url)
             yield {
                 'article_link': response.url,
             }
+
+    def gato(self, response):
+        print("aaa")
