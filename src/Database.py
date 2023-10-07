@@ -4,6 +4,8 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.inspection import inspect
+import json
+import os
 
 from datetime import datetime
 
@@ -40,6 +42,8 @@ class Company(Base):
         self.description = description
 
 class Database:
+    saved_items = set()
+    new_items = set()
     def __init__(self, db_file = "sqlite:///data/articles.db"):
         self.db_file = db_file
         self.engine = create_engine(self.db_file)
@@ -47,6 +51,7 @@ class Database:
 
         if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(Company.__tablename__):
             self.createDatabase()
+        self.load_saved_items()
 
     def addArticletoDB(self, articleUrl, title, date, text, keypoints, author):
         session = self.Session()
@@ -109,3 +114,14 @@ class Database:
         for link in articlesURL:
             self.addArticle(link)
             print(link)
+    def load_saved_items(self):
+        print("Aaaaaa")
+        current_directory = os.getcwd()
+        file_path = os.path.join(current_directory, "articles.json")
+        try:
+            with open(file_path, "r", encoding='utf-8') as f:
+                data = json.load(f)
+                for item in data:
+                    self.saved_items.add(item['article_link'])
+        except FileNotFoundError:
+            print("FILE NOT FOUND")

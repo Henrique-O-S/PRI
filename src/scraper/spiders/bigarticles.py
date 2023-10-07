@@ -4,34 +4,21 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import re
 
+
 class BigArticlesSpider(scrapy.Spider):
     name = "articles"
     i = 0
     j = 0
     startYear = "2023"
-    saved_items = set()
     new_items = set()
+
     def start_requests(self):
-        self.load_saved_items()
         urls = [
             "https://www.cnbc.com/site-map/",
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
-    def load_saved_items(self):
-        try:
-            with open("../../../articles.json", "r", encoding='utf-8') as f:
-                for line in f:
-                    #clean_line = unidecode(line.replace("”", "''").replace("“", "''"))
-                    if line == "\n": continue
-                    self.saved_items.add(line.split('"')[3])  # faster than json.loads
-                print("gato")
-                for i in self.saved_items:
-                    print('a{}a').format(i)
-                print("cao")
-        except FileNotFoundError:
-            scrapy.exceptions.CloseSpider("File not found. WHY")
 
     def parse(self, response):
         if response.status != 200:

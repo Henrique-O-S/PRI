@@ -9,19 +9,7 @@ class ArticlesSpider(scrapy.Spider):
     name = "articles"
     links_to_save = set()
     database = Database()
-
-    def load_saved_items(self):
-        try:
-            with open("../../../articles.json", "r", encoding='utf-8') as f:
-                for line in f:
-                    #clean_line = unidecode(line.replace("”", "''").replace("“", "''"))
-                    if line == "\n": continue
-                    self.links_to_save.add(line.split('"')[3])  # faster than json.loads
-        except FileNotFoundError:
-            scrapy.exceptions.CloseSpider("File not found. WHY")
     def start_requests(self):
-        self.load_saved_items()
-
         for url in self.links_to_save:
             yield scrapy.Request(url=url, callback=self.parsearticle)
 
@@ -48,7 +36,7 @@ class ArticlesSpider(scrapy.Spider):
 
         # we need to ensure that after a '.' there's a space, otherwise the key points will be messed up
         text = re.sub(r'\.(?!\s)', '. ', text)
-        
+
         key_points_list = response.css('div.RenderKeyPoints-list')
         key_points_text = ""
         if key_points_list:
@@ -57,7 +45,7 @@ class ArticlesSpider(scrapy.Spider):
 
         date_tag = response.css('time[data-testid="lastpublished-timestamp"], time[data-testid="published-timestamp"]')
         date = datetime.strptime(date_tag.attrib["datetime"], "%Y-%m-%dT%H:%M:%S%z") if date_tag else None
-        
+
         authors = response.css('a.Author-authorName::text').getall()
         author = ','.join(authors)
 
