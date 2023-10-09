@@ -1,9 +1,7 @@
+import scrapy.crawler as crawler
 from src.Database import Database
 from src.scraper.spiders.articles import ArticlesSpider
 from src.scraper.spiders.bigarticles import BigArticlesSpider
-
-import scrapy.crawler as crawler
-
 
 if __name__ == "__main__":
     database = Database()
@@ -34,3 +32,13 @@ if __name__ == "__main__":
     process.crawl(spider_class)
     process.start()
 
+'''
+from src.scraper.spiders.companies import CompaniesSpider
+import scrapy.crawler as crawler
+
+if __name__ == "__main__":
+    spider_class = CompaniesSpider
+    process = crawler.CrawlerProcess()
+    process.crawl(spider_class)
+    process.start()
+'''
