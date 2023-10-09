@@ -35,11 +35,13 @@ class Company(Base):
     name = Column(String)
     stock_price = Column(String)
     description = Column(Text)
+    keywords = Column(Text)
 
-    def __init__(self, name, stock_price, description):
+    def __init__(self, name, stock_price, description, keywords=None):
         self.name = name
         self.stock_price = stock_price
         self.description = description
+        self.keywords = keywords
 
 class Database:
     saved_items = set()
@@ -59,18 +61,18 @@ class Database:
         session.commit()
         session.close()
 
-    def addCompanytoDB(self, name, stock_price, description):
+    def addCompanytoDB(self, name, stock_price, description, keywords=None):
         session = self.Session()
         existing_company = session.query(Company).filter_by(name=name).first()
         if not existing_company:
-            session.add(Company(name, stock_price, description))
+            session.add(Company(name, stock_price, description, keywords))
         session.commit()
         session.close()
 
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
 
-    def clearDatabase(self): #call this to delete all data
+    def clearDatabase(self): 
         session = self.Session()
         session.query(Article).delete()
         session.query(Company).delete()

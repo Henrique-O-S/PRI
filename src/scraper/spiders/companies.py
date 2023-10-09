@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import StaleElementReferenceException
+from ...analyzer import Analyzer
 
 class CompaniesSpider(scrapy.Spider):
     def __init__(self):
@@ -14,6 +15,7 @@ class CompaniesSpider(scrapy.Spider):
         self.unique_links = set()
         self.database = Database("sqlite:///stonks.db")
         self.driver = webdriver.Chrome()
+        self.analyzer = Analyzer()
 
     def start_requests(self):
         self.database.clearDatabase()
@@ -25,10 +27,6 @@ class CompaniesSpider(scrapy.Spider):
 
     def get_unique_links(self, response):
         self.driver.get(response.url)
-        accept_cookies_button = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler"))
-        )
-        accept_cookies_button.click()
 
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'a[href^="//www.cnbc.com/quotes/"]'))
@@ -38,7 +36,6 @@ class CompaniesSpider(scrapy.Spider):
         for link in company_links:
             company_link = link.get_attribute("href")
             self.unique_links.add(company_link)
-            print(f"LINK: {company_link}")
 
     def parse(self, response):
         if response.status != 200:
@@ -48,6 +45,11 @@ class CompaniesSpider(scrapy.Spider):
         self.get_unique_links(response)
         print(f"Retrieved {len(self.unique_links)} unique links")
         print("Now retrieving companies data...")
+
+        accept_cookies_button = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler"))
+        )
+        accept_cookies_button.click()
 
         for url in self.unique_links:
             yield scrapy.Request(url, callback=self.parse_company)
@@ -73,7 +75,8 @@ class CompaniesSpider(scrapy.Spider):
             )
             company_description = self.driver.find_element(By.CSS_SELECTOR, "div.CompanyProfile-summary span").text
             company_description = company_description.strip()
-            self.database.addCompanytoDB(company_name, company_stock_price, company_description)
+            company_keywords = self.analyzer.extract_keywords(company_description)
+            self.database.addCompanytoDB(company_name, company_stock_price, company_description, company_keywords)
         except StaleElementReferenceException:
             print("ERROR: Element is stale.")
 
