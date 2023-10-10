@@ -12,7 +12,6 @@ BOT_NAME = "cnbc_scrapper"
 SPIDER_MODULES = ["cnbc_scrapper.spiders"]
 NEWSPIDER_MODULE = "cnbc_scrapper.spiders"
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "cnbc_scrapper (+http://www.yourdomain.com)"
 
@@ -62,9 +61,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    "cnbc_scrapper.pipelines.CnbcScrapperPipeline": 1,
-}
+# ITEM_PIPELINES = {
+#     "cnbc_scrapper.pipelines.CnbcScrapperPipeline": 1,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
