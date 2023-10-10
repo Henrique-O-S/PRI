@@ -10,7 +10,6 @@ class BigArticlesSpider(scrapy.Spider):
     i = 0
     j = 0
     startYear = "2023"
-    new_items = set()
     def start_requests(self):
         urls = [
             "https://www.cnbc.com/site-map/",
@@ -79,7 +78,6 @@ class BigArticlesSpider(scrapy.Spider):
         if category != "Market Insider":
             return # because its a paid article or not market insider category
         if response.url not in self.database.saved_items:
-            self.new_items.add(response.url)
             yield {
                 'article_link': response.url,
             }

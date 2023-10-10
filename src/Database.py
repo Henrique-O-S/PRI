@@ -56,12 +56,12 @@ class Database:
             self.createDatabase()
         self.load_saved_items()
         self.load_items_to_save()
-
     def addArticletoDB(self, articleUrl, title, date, text, keypoints, author):
         session = self.Session()
         session.add(Article(articleUrl, title, date, text, keypoints, author))
         session.commit()
         session.close()
+        self.saved_items.add(articleUrl)
 
     def addCompanytoDB(self, name, stock_price, description, keywords=None):
         session = self.Session()
@@ -138,5 +138,27 @@ class Database:
                         self.links_to_save.add(item['article_link'])
                 else:
                     print("The JSON file is empty.")
+        except FileNotFoundError:
+            print("FILE NOT FOUND")
+    def write_saved_links(self):
+        current_directory = os.getcwd()
+        file_path = os.path.join(current_directory, "saved_links.json")
+        writing_data = []
+        for item in self.saved_items:
+            writing_data.append({"article_link": item})
+
+        try:
+            with open(file_path, "w", encoding='utf-8') as f:
+                json.dump(writing_data, f, indent=4)
+        except Exception as e:
+            print(f"Error saving data to JSON file: {str(e)}")
+    def erase_links_to_save(self):
+        current_directory = os.getcwd()
+        file_path = os.path.join(current_directory, "links_to_save.json")
+        try:
+            # Open the file in write mode to truncate and erase its contents
+            with open(file_path, "w", encoding='utf-8') as f:
+                f.write('')
+            print("Contents of the JSON file erased.")
         except FileNotFoundError:
             print("FILE NOT FOUND")
