@@ -21,7 +21,7 @@ run_companies:
 	.\venv\Scripts\$(PYTHON) run_companies.py
 
 run_articles:
-	.\venv\Scripts\$(PYTHON) run_articles.py
+	.\venv\Scripts\$(PYTHON) main.py
 
 # Clean up generated files and virtual environment
 clean:

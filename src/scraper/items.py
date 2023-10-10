@@ -7,6 +7,5 @@ import scrapy
 
 
 class CnbcScrapperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    type = scrapy.Field()
+    article_link = scrapy.Field()

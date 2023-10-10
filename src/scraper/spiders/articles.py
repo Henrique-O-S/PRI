@@ -1,15 +1,14 @@
 import scrapy
 from scrapy.exceptions import CloseSpider
 from datetime import datetime
-from src.Database import Database
 from bs4 import BeautifulSoup
 import re
 
 class ArticlesSpider(scrapy.Spider):
     name = "articles"
-    database = Database()
     def start_requests(self):
         for url in self.database.links_to_save:
+            print(f"Retrieving article: {url}")
             yield scrapy.Request(url=url, callback=self.parse_article)
 
     def parse_article(self, response):

@@ -162,3 +162,14 @@ class Database:
             print("Contents of the JSON file erased.")
         except FileNotFoundError:
             print("FILE NOT FOUND")
+
+    def erase_saved_links(self):
+        current_directory = os.getcwd()
+        file_path = os.path.join(current_directory, "saved_links.json")
+        try:
+            # Open the file in write mode to truncate and erase its contents
+            with open(file_path, "w", encoding='utf-8') as f:
+                f.write('')
+            print("Contents of the JSON file erased.")
+        except FileNotFoundError:
+            print("FILE NOT FOUND")
