@@ -10,7 +10,7 @@ class ArticlesSpider(scrapy.Spider):
     database = Database()
     def start_requests(self):
         for url in self.database.links_to_save:
-            yield scrapy.Request(url=url, callback=self.parsearticle)
+            yield scrapy.Request(url=url, callback=self.parse_article)
 
     def parse_article(self, response):
         # extracting article details
@@ -45,10 +45,10 @@ class ArticlesSpider(scrapy.Spider):
 
         self.database.addArticletoDB(response.url, title, date, text, key_points_text, author)
 
-        company_links = response.css('a[href^="/quotes/"]::attr(href)').getall()
-        for company_link in company_links:
-            company_url = response.urljoin(company_link)
-            yield scrapy.Request(url=company_url, callback=self.parse_companies)
+        #company_links = response.css('a[href^="/quotes/"]::attr(href)').getall()
+        #for company_link in company_links:
+            #company_url = response.urljoin(company_link)
+            #yield scrapy.Request(url=company_url, callback=self.parse_companies)
 
     def parse_companies(self, response):
         company_name = response.css('h1.QuoteStrip-quoteTitle span.QuoteStrip-name::text').get()

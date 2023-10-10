@@ -7,8 +7,6 @@ from sqlalchemy.inspection import inspect
 import json
 import os
 
-from datetime import datetime
-
 Base = declarative_base()
 
 class Article(Base):
@@ -51,8 +49,10 @@ class Database:
         self.engine = create_engine(self.db_file)
         self.Session = sessionmaker(bind=self.engine)
 
-        if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(Company.__tablename__):
-            self.createDatabase()
+        try:
+            Base.metadata.create_all(self.engine)  # Try to create tables
+        except OperationalError:
+            pass  # Tables may already exist
         self.load_saved_items()
         self.load_items_to_save()
 
@@ -110,14 +110,6 @@ class Database:
 
         return unique_links
 
-    def populateDatabase(self):
-        self.clearDatabase()
-
-        articlesURL = self.retrieveAllArticlesURL(starting_url="https://www.cnbc.com/market-insider/")
-        for link in articlesURL:
-            self.addArticle(link)
-            print(link)
-
     def load_saved_items(self):
         current_directory = os.getcwd()
         file_path = os.path.join(current_directory, "saved_links.json")
@@ -142,7 +134,7 @@ class Database:
                 if file_content.strip():
                     data = json.loads(file_content)
                     for item in data:
-                        self.saved_items.add(item['article_link'])
+                        self.links_to_save.add(item['article_link'])
                 else:
                     print("The JSON file is empty.")
         except FileNotFoundError:
