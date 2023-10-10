@@ -1,3 +1,5 @@
+from sqlite3 import OperationalError
+
 import requests
 from bs4 import BeautifulSoup
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
@@ -49,10 +51,9 @@ class Database:
         self.engine = create_engine(self.db_file)
         self.Session = sessionmaker(bind=self.engine)
 
-        try:
-            Base.metadata.create_all(self.engine)  # Try to create tables
-        except OperationalError:
-            pass  # Tables may already exist
+        if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(
+                Company.__tablename__):
+            self.createDatabase()
         self.load_saved_items()
         self.load_items_to_save()
 
