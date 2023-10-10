@@ -17,8 +17,11 @@ install: venv
 	.\venv\Scripts\$(PIP) install -r requirements.txt
 
 # Run the Python program
-run:
-	.\venv\Scripts\$(PYTHON) main.py
+run_companies:
+	.\venv\Scripts\$(PYTHON) run_companies.py
+
+run_articles:
+	.\venv\Scripts\$(PYTHON) run_articles.py
 
 # Clean up generated files and virtual environment
 clean:
