@@ -45,7 +45,7 @@ class Company(Base):
 
 class Database:
     saved_items = set()
-    new_items = set()
+    links_to_save = set()
     def __init__(self, db_file = "sqlite:///data/articles.db"):
         self.db_file = db_file
         self.engine = create_engine(self.db_file)
@@ -54,6 +54,7 @@ class Database:
         if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(Company.__tablename__):
             self.createDatabase()
         self.load_saved_items()
+        self.load_items_to_save()
 
     def addArticletoDB(self, articleUrl, title, date, text, keypoints, author):
         session = self.Session()
@@ -116,14 +117,33 @@ class Database:
         for link in articlesURL:
             self.addArticle(link)
             print(link)
+
     def load_saved_items(self):
-        print("Aaaaaa")
         current_directory = os.getcwd()
-        file_path = os.path.join(current_directory, "articles.json")
+        file_path = os.path.join(current_directory, "saved_links.json")
         try:
             with open(file_path, "r", encoding='utf-8') as f:
-                data = json.load(f)
-                for item in data:
-                    self.saved_items.add(item['article_link'])
+                file_content = f.read()
+                if file_content.strip():
+                    data = json.loads(file_content)
+                    for item in data:
+                        self.saved_items.add(item['article_link'])
+                else:
+                    print("The JSON file is empty.")
+        except FileNotFoundError:
+            print("FILE NOT FOUND")
+
+    def load_items_to_save(self):
+        current_directory = os.getcwd()
+        file_path = os.path.join(current_directory, "links_to_save.json")
+        try:
+            with open(file_path, "r", encoding='utf-8') as f:
+                file_content = f.read()
+                if file_content.strip():
+                    data = json.loads(file_content)
+                    for item in data:
+                        self.saved_items.add(item['article_link'])
+                else:
+                    print("The JSON file is empty.")
         except FileNotFoundError:
             print("FILE NOT FOUND")

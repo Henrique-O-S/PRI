@@ -83,6 +83,3 @@ class BigArticlesSpider(scrapy.Spider):
             yield {
                 'article_link': response.url,
             }
-
-    def gato(self, response):
-        print("aaa")

@@ -7,18 +7,10 @@ import re
 
 class ArticlesSpider(scrapy.Spider):
     name = "articles"
-    links_to_save = set()
     database = Database()
     def start_requests(self):
-        for url in self.links_to_save:
+        for url in self.database.links_to_save:
             yield scrapy.Request(url=url, callback=self.parsearticle)
-
-    def get_unique_links(self, response):
-        for div_tag in response.css('div'):
-            if len(div_tag.css('a')) == 1:
-                href = div_tag.css('a::attr(href)').get()
-                if href and href.startswith("https://www.cnbc.com/20"):
-                    self.unique_links.add(href)
 
     def parse_article(self, response):
         # extracting article details

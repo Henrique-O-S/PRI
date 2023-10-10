@@ -12,7 +12,7 @@ spider_class.database = database
 
 settings = {
     'FEEDS': {
-        'articles.json': {
+        'links_to_save.json': {
             'format': 'json',
             'encoding': 'utf8',
             'store_empty': False,
@@ -22,9 +22,4 @@ settings = {
 }
 process = crawler.CrawlerProcess(settings)
 process.crawl(spider_big_class)
-process.start()
-
-process = crawler.CrawlerProcess(settings)
-spider_class.links_to_save = spider_big_class.new_items
-process.crawl(spider_class)
 process.start()
