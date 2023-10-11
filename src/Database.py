@@ -59,6 +59,7 @@ class Company(Base):
 
 class Database:
     saved_urls = set()
+    saved_companies_urls = set()
     def __init__(self, db_file = "sqlite:///data/articles.db"):
         self.db_file = db_file
         self.engine = create_engine(self.db_file)
@@ -69,12 +70,20 @@ class Database:
             self.createDatabase()
         
         self.__store_articles_url()
+        self.__store_companies_url()
 
     def __store_articles_url(self):
         session = self.Session()
         articles = session.query(Article).all()
         for article in articles:
             self.saved_urls.add(article.link)
+        session.close()
+
+    def __store_companies_url(self):
+        session = self.Session()
+        companies = session.query(Company).all()
+        for company in companies:
+            self.saved_companies_urls.add(company.link)
         session.close()
             
     def addArticletoDB(self, articleUrl, title, date, text, keypoints, author, keywords=None):
@@ -108,12 +117,29 @@ class Database:
     def createDatabase(self):
         Base.metadata.create_all(self.engine)
 
-    def clearDatabase(self): 
+    def clearDatabase(self, drop_tables=False): 
         session = self.Session()
         session.query(CompanyArticleAssociation).delete()
         session.query(Article).delete()
         session.query(Company).delete()
         session.commit()
         session.close()
-
         self.saved_urls.clear()
+        self.saved_companies_urls.clear()
+        if drop_tables:
+            self.__dropAllTables()
+
+    def __dropAllTables(self):
+        """Drops all tables in the database."""
+        insp = inspect(self.engine)
+        if insp.has_table(Article.__tablename__):
+            Article.__table__.drop(self.engine)
+        if insp.has_table(Company.__tablename__):
+            Company.__table__.drop(self.engine)
+        if insp.has_table(CompanyArticleAssociation.__tablename__):
+            CompanyArticleAssociation.__table__.drop(self.engine)
+
+    def has_data(self):
+        has_articles = len(self.saved_urls) != 0
+        has_companies = len(self.saved_companies_urls) != 0
+        return has_articles, has_companies

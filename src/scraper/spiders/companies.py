@@ -1,6 +1,5 @@
 import scrapy
 from scrapy.exceptions import CloseSpider
-from src.Database import Database
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,7 +12,6 @@ class CompaniesSpider(scrapy.Spider):
         # init variables
         self.name = "companies"
         self.unique_links = set()
-        self.database = Database()
         self.driver = webdriver.Chrome()
 
     def start_requests(self):
