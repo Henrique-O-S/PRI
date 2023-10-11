@@ -20,6 +20,13 @@ install: venv
 run:
 	.\venv\Scripts\$(PYTHON) .\src\main.py
 
+# You can update any of the following targets to run the Python program with
+# different flags
+# The available flags are:
+# 	-read_stored: Read the stored data from the database (Options: Y/N) (default: N)
+# 	-start: Start the program from a specific year (Options: 2006-2023) (default: 2023)
+# 	-clear_db: Clear the database before running the program (Options: Y/N) (default: N) 
+
 # Run the Python program with the -read_stored flag
 run_reading:
 	.\venv\Scripts\$(PYTHON) .\src\main.py -read_stored Y
@@ -33,8 +40,7 @@ run_cleaning:
 	.\venv\Scripts\$(PYTHON) .\src\main.py -clear_db Y
 
 # Run the Python program with the -read_stored flag amd -clear_db flag
-	# Run the Python program with the -clear_db flag
-run_cleaning:
+run_cleaning_reading:
 	.\venv\Scripts\$(PYTHON) .\src\main.py -clear_db Y -read_stored Y
 
 # Clean up generated files and virtual environment
