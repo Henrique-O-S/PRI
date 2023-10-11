@@ -98,7 +98,7 @@ class Database:
 
     def add_company_article(self, article_id, company_tag):
         session = self.Session()
-        company = session.query(Company).filter(Company.tag.contains([company_tag])).first()
+        company = session.query(Company).filter(Company.tag.like(f"%{company_tag}%")).first()
         if company:
             association = CompanyArticleAssociation(company_id=company.id, article_id=article_id)
             session.add(association)
