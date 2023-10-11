@@ -122,17 +122,15 @@ class Database:
     saved_urls = set()
     saved_companies_urls = set()
 
-    def __init__(self, db_file : str = "sqlite:///data/articles.db"):
+    def __init__(self, db_file : str = "sqlite:///data/articles.db", clear : bool = False):
         self.db_file = db_file
         self.engine = create_engine(self.db_file)
         self.Session = sessionmaker(bind=self.engine)
 
         try:
-            if not inspect(self.engine).has_table(Article.__tablename__) \
-                    or not inspect(self.engine).has_table(Company.__tablename__) \
-                    or not inspect(self.engine).has_table(CompanyArticleAssociation.__tablename__):
-                self.createDatabase()
-
+            if clear:
+                self.clearDatabase(drop_tables=True)
+            self.createDatabase()
             self.__store_articles_url()
             self.__store_companies_url()
         except Exception as e:
@@ -217,7 +215,10 @@ class Database:
     # Public method to create the database
     def createDatabase(self) -> None:
         try:
-            Base.metadata.create_all(self.engine)
+            if not inspect(self.engine).has_table(Article.__tablename__) \
+                    or not inspect(self.engine).has_table(Company.__tablename__) \
+                    or not inspect(self.engine).has_table(CompanyArticleAssociation.__tablename__):
+                Base.metadata.create_all(self.engine)
         except Exception as e:
             print(f"Failed to create database: {e}")
 

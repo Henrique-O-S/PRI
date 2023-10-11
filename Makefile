@@ -17,16 +17,25 @@ install: venv
 	.\venv\Scripts\$(PIP) install -r requirements.txt
 
 # Run the Python program
-run_companies:
-	.\venv\Scripts\$(PYTHON) run_companies.py
+run:
+	.\venv\Scripts\$(PYTHON) .\src\main.py
 
-run_articles:
-	.\venv\Scripts\$(PYTHON) main.py
+# Run the Python program with the -read_stored flag
+run_reading:
+	.\venv\Scripts\$(PYTHON) .\src\main.py -read_stored Y
+
+# Run the Python program with the -start flag
+run_year_2020:
+	.\venv\Scripts\$(PYTHON) .\src\main.py -start 2020
+
+# Run the Python program with the -clear_db flag
+run_cleaning:
+	.\venv\Scripts\$(PYTHON) .\src\main.py -clear_db Y
 
 # Clean up generated files and virtual environment
 clean:
 	rm -rf venv
-	rm -rf __pycache__
+	rm -rf src\__pycache__
 
 # PHONY targets (targets that don't represent files)
 .PHONY: all venv install run clean
