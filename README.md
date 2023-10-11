@@ -100,9 +100,7 @@ The process involved in the Article document preparation consists in the followi
 
 - The domain model was created, in order to have a better understanding of the data and its relations.
 
-<figure>
-    <img src="img/domain_model.png" alt="Domain Model" />
-<figcaption>Domain Model</figcaption>
+![Domain Model](img/domain_model.png)
 
 ### Documents Classification
 
@@ -116,10 +114,7 @@ themselves JSON files.
     - Article
     - CompanyArticleAssociation
 
-<figure>
-    <img src="img/uml.png" alt="Database articles.db UML" />
-    <figcaption>Database articles.db UML</figcaption>
-</figure>
+![Database articles.db UML](img/uml.png)
 
 ## Usage
 
