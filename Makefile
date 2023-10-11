@@ -26,7 +26,7 @@ run_reading:
 
 # Run the Python program with the -start flag
 run_year_2020:
-	.\venv\Scripts\$(PYTHON) .\src\main.py -start 2020
+	.\venv\Scripts\$(PYTHON) .\src\main.py -start 2020 -clear_db Y
 
 # Run the Python program with the -clear_db flag
 run_cleaning:
