@@ -39,12 +39,27 @@ articles_settings = {
     }
 }
 
-def parse_arguments():
+def parse_arguments() -> tuple:
+    """
+    Parse command line arguments and return them as a tuple.
+    
+    Returns:
+        - start_year (int): The starting year. Default is 2023.
+        - clear_database (bool): Clear the database? Default is False.
+        - read_stored_data (bool): Read stored JSON data first? Default is False.
+    """
+     
     parser = argparse.ArgumentParser(description=
             """Scrape articles from CNBC and store them in a database.""")
-    parser.add_argument("-start", "--start_year", type=int, help="The starting year. Default is 2023.")
-    parser.add_argument("-clear_db", "--clear_database", type=str, help="Clear the database? Y/N Default is N")
-    parser.add_argument("-read_stored", "--read_stored_data", type=str, help="Read stored JSON data first? Y/N Default is N")
+    
+    parser.add_argument("-start", "--start_year", type=int, 
+                        help="The starting year. Default is 2023.")
+    
+    parser.add_argument("-clear_db", "--clear_database", type=str, 
+                        help="Clear the database? Y/N Default is N")
+    
+    parser.add_argument("-read_stored", "--read_stored_data", type=str, 
+                        help="Read stored JSON data first? Y/N Default is N")
     
     args = parser.parse_args()
     
@@ -79,7 +94,16 @@ def parse_arguments():
 
     return start_year, clear_database, read_stored_data
 
-def scraper(articles: bool = False, companies: bool = False, start_year: int = DEFAULT_START_YEAR):
+def scraper(articles: bool = False, companies: bool = False, start_year: int = DEFAULT_START_YEAR) -> None:
+    """
+    Start the Scrapy crawling process for articles and/or companies.
+
+    Args:
+        - articles (bool): Flag to scrape articles. Default is False.
+        - companies (bool): Flag to scrape companies. Default is False.
+        - start_year (int): The starting year for articles scraping. Default is 2023.
+    """
+
     if not articles and not companies:
         print("Error: articles and companies can't be both false.")
 
@@ -88,16 +112,28 @@ def scraper(articles: bool = False, companies: bool = False, start_year: int = D
         articles_class = BigArticlesSpider
         articles_class.database = database
         articles_class.startYear = str(start_year)
+        articles_class.custom_settings = articles_settings
+        process.crawl(articles_class)
 
-        process.crawl(articles_class, settings=articles_settings)
     if companies:
         companies_class = CompaniesSpider
         companies_class.database = database
+        companies_class.custom_settings = companies_settings
+        process.crawl(companies_class)
 
-        process.crawl(companies_class, settings=companies_settings)
     process.start()
 
-def store_companies():
+    # This has to be done after the spider is done scraping
+    if not articles:
+        store_articles()
+    if not companies:
+        store_companies()
+
+def store_companies() -> int:
+    """
+    Read data from the companies JSON file and store it in the database.
+    """
+
     with open(companies_json_file_path, 'r') as json_file:
         try:
             companies_data = json.load(json_file)
@@ -120,7 +156,11 @@ def store_companies():
             print(f"Failed to add companies to database: {e}")
             return 0
 
-def store_articles():
+def store_articles() -> int:
+    """
+    Read data from the articles JSON file and store it in the database.
+    """
+
     with open(articles_json_file_path, 'r') as json_file:
         try:
             articles_data = json.load(json_file)
@@ -147,7 +187,11 @@ def store_articles():
             print(f"Failed to add articles to database: {e}")
             return 0
 
-def clear_json_files():
+def clear_json_files() -> None:
+    """
+    Clear the contents of the JSON files.
+    """
+
     try:
         with open(articles_json_file_path, 'w') as json_file:
             json_file.write("")
@@ -158,12 +202,24 @@ def clear_json_files():
         print(f"Failed to clear JSON files: {e}")
         exit(1)
 
-def store_json_files():
+def store_json_files() -> tuple:
+    """
+    Store data from JSON files into the database.
+    
+    Returns:
+        - has_companies (bool): True if companies data is available, else False.
+        - has_articles (bool): True if articles data is available, else False.
+    """
+     
     has_companies = store_companies() == 1
     has_articles = store_articles() == 1
     return has_companies, has_articles
 
-def main():
+def main() -> None:
+    """
+    The main function to control the scraping and data storage process.
+    """
+
     start_year, clear_database, read_stored_data = parse_arguments()
 
     if clear_database:
@@ -174,25 +230,25 @@ def main():
         has_companies, has_articles = store_json_files()
         if not has_articles and not has_companies:
             print("Database is empty. So we need to scrape companies and articles first.")
-            # scraper(articles=True, companies=True, start_year=start_year)
+            scraper(articles=True, companies=True, start_year=start_year)
 
         elif not has_articles:
             print("Database has companies data already. So we will scrape articles only.")
-            # store_companies()
-            # scraper(articles=True, start_year=start_year)
+            store_companies()
+            scraper(articles=True, start_year=start_year)
 
         elif not has_companies:
             print("Database has articles data already. So we will scrape companies only.")
-            # scraper(companies=True, start_year=start_year)
-            # store_articles()
+            scraper(companies=True, start_year=start_year)
+            store_articles()
         
         else:
             print("Sucessfully retrieved companies and articles data from JSON files.")
 
     else:
         print("Scraping companies and articles...")
-        # clear_json_files()
-        # scraper(articles=True, companies=True, start_year=start_year)
+        clear_json_files()
+        scraper(articles=True, companies=True, start_year=start_year)
 
 if __name__ == "__main__":
     main()

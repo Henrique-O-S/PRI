@@ -4,10 +4,20 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy.inspection import inspect
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
+from datetime import datetime
 
 Base = declarative_base()
 
 class CompanyArticleAssociation(Base):
+    """
+    Define a many-to-many relationship between Companies and Articles.
+    
+    Columns:
+    - id: the id of the association
+    - company_id: the id of the company
+    - article_id: the id of the article
+    """
+
     __tablename__ = "company_article_association"
     id = Column(Integer, primary_key=True)
     company_id = Column(Integer, ForeignKey('companies.id'))
@@ -20,6 +30,19 @@ class CompanyArticleAssociation(Base):
         self.article_id = article_id
 
 class Article(Base):
+    """
+    Define the Article table.
+    
+    Columns:
+    - link: the link to the article
+    - title: the title of the article
+    - date: the date of the article
+    - text: the text of the article
+    - keypoints: the keypoints of the article
+    - author: the author('s) of the article
+    - keywords: the keywords extracted from the text
+    """
+
     __tablename__ = "articles"
     id = Column(Integer, primary_key=True)
     link = Column(Text)
@@ -41,6 +64,17 @@ class Article(Base):
         self.keywords = keywords
 
 class Company(Base):
+    """
+    Define the Company table.
+    
+    Columns:
+    - link: the link to the company's page on CNBC
+    - tag: the tag of the company (e.g. AAPL for Apple)
+    - name: the name of the company
+    - description: the description of the company
+    - keywords: the keywords extracted from the description
+    """
+
     __tablename__ = "companies"
     id = Column(Integer, primary_key=True)
     link = Column(Text)
@@ -58,9 +92,37 @@ class Company(Base):
         self.keywords = keywords
 
 class Database:
+    """
+    Define the Database class.
+
+    Attributes:
+    - db_file: the path to the database file
+    - engine: the database engine
+    - Session: the database session
+    - saved_urls: the set of saved article urls
+    - saved_companies_urls: the set of saved company urls
+
+    Private methods:
+
+    - __store_articles_url: store article urls in a set
+    - __store_companies_url: store company urls in a set
+    - __dropAllTables: drop all tables in the database
+
+    Public methods to add data to the database.
+
+    Methods:
+    - addArticletoDB: add an article to the database
+    - addCompanytoDB: add a company to the database
+    - add_company_article: add a company-article association to the database
+    - createDatabase: create the database
+    - clearDatabase: clear the database
+    - has_data: check if the database has data
+    """
+
     saved_urls = set()
     saved_companies_urls = set()
-    def __init__(self, db_file = "sqlite:///data/articles.db"):
+
+    def __init__(self, db_file : str = "sqlite:///data/articles.db"):
         self.db_file = db_file
         self.engine = create_engine(self.db_file)
         self.Session = sessionmaker(bind=self.engine)
@@ -72,28 +134,42 @@ class Database:
         self.__store_articles_url()
         self.__store_companies_url()
 
-    def __store_articles_url(self):
+    # Private method to store article URLs in a set
+    def __store_articles_url(self) -> None:
         session = self.Session()
         articles = session.query(Article).all()
         for article in articles:
             self.saved_urls.add(article.link)
         session.close()
 
-    def __store_companies_url(self):
+    # Private method to store company URLs in a set
+    def __store_companies_url(self) -> None:
         session = self.Session()
         companies = session.query(Company).all()
         for company in companies:
             self.saved_companies_urls.add(company.link)
         session.close()
-            
-    def addArticletoDB(self, articleUrl, title, date, text, keypoints, author, keywords=None):
+
+    # Private method to drop all tables in the database
+    def __dropAllTables(self) -> None:
+        """Drops all tables in the database."""
+        insp = inspect(self.engine)
+        if insp.has_table(Article.__tablename__):
+            Article.__table__.drop(self.engine)
+        if insp.has_table(Company.__tablename__):
+            Company.__table__.drop(self.engine)
+        if insp.has_table(CompanyArticleAssociation.__tablename__):
+            CompanyArticleAssociation.__table__.drop(self.engine)
+    
+    # Public methods to add an article to the database
+    def addArticletoDB(self, articleUrl : str, title : str, date : datetime, text : str, keypoints : str, author : str, keywords=None) -> None:
         session = self.Session()
         session.add(Article(articleUrl, title, date, text, keypoints, author, keywords))
         session.commit()
         session.close()
         self.saved_urls.add(articleUrl)
 
-    def addCompanytoDB(self, link, tag, name, description, keywords=None):
+    def addCompanytoDB(self, link : str, tag : str, name : str, description : str, keywords : str = None) -> None:
         try:
             session = self.Session()
             existing_company = session.query(Company).filter_by(name=name).first()
@@ -105,7 +181,7 @@ class Database:
         finally:
             session.close()
 
-    def add_company_article(self, article_id, company_tag):
+    def add_company_article(self, article_id : str, company_tag : str) -> None:
         session = self.Session()
         company = session.query(Company).filter(Company.tag.like(f"%{company_tag}%")).first()
         if company:
@@ -114,10 +190,10 @@ class Database:
             session.commit()
         session.close()
 
-    def createDatabase(self):
+    def createDatabase(self) -> None:
         Base.metadata.create_all(self.engine)
 
-    def clearDatabase(self, drop_tables=False): 
+    def clearDatabase(self, drop_tables : bool = False): 
         session = self.Session()
         session.query(CompanyArticleAssociation).delete()
         session.query(Article).delete()
@@ -129,17 +205,7 @@ class Database:
         if drop_tables:
             self.__dropAllTables()
 
-    def __dropAllTables(self):
-        """Drops all tables in the database."""
-        insp = inspect(self.engine)
-        if insp.has_table(Article.__tablename__):
-            Article.__table__.drop(self.engine)
-        if insp.has_table(Company.__tablename__):
-            Company.__table__.drop(self.engine)
-        if insp.has_table(CompanyArticleAssociation.__tablename__):
-            CompanyArticleAssociation.__table__.drop(self.engine)
-
-    def has_data(self):
+    def has_data(self) -> tuple:
         has_articles = len(self.saved_urls) != 0
         has_companies = len(self.saved_companies_urls) != 0
         return has_articles, has_companies

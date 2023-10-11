@@ -9,6 +9,7 @@ class BigArticlesSpider(scrapy.Spider):
     i = 0
     j = 0
     startYear = "2023"
+
     def start_requests(self):
         urls = [
             "https://www.cnbc.com/site-map/",
