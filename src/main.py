@@ -17,8 +17,6 @@ analyzer = Analyzer()
 companies_json_file_path = './data/companies.json'
 articles_json_file_path = './data/articles.json'
 
-# TODO : check why for some reason the settings aren't being applied
-
 companies_settings = {
     'FEEDS': {
         companies_json_file_path: {
