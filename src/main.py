@@ -196,8 +196,8 @@ def clear_json_files() -> None:
         with open(articles_json_file_path, 'w') as json_file:
             json_file.write("")
 
-        with open(companies_json_file_path, 'w') as json_file:
-            json_file.write("")
+        # with open(companies_json_file_path, 'w') as json_file:
+        #     json_file.write("")
     except Exception as e:
         print(f"Failed to clear JSON files: {e}")
         exit(1)
