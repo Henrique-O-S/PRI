@@ -127,32 +127,42 @@ class Database:
         self.engine = create_engine(self.db_file)
         self.Session = sessionmaker(bind=self.engine)
 
-        if not inspect(self.engine).has_table(Article.__tablename__) or not inspect(self.engine).has_table(
-                Company.__tablename__):
-            self.createDatabase()
-        
-        self.__store_articles_url()
-        self.__store_companies_url()
+        try:
+            if not inspect(self.engine).has_table(Article.__tablename__) \
+                    or not inspect(self.engine).has_table(Company.__tablename__) \
+                    or not inspect(self.engine).has_table(CompanyArticleAssociation.__tablename__):
+                self.createDatabase()
+
+            self.__store_articles_url()
+            self.__store_companies_url()
+        except Exception as e:
+            print(f"Database initialization failed: {e}")
 
     # Private method to store article URLs in a set
     def __store_articles_url(self) -> None:
         session = self.Session()
-        articles = session.query(Article).all()
-        for article in articles:
-            self.saved_urls.add(article.link)
-        session.close()
+        try:
+            articles = session.query(Article).all()
+            for article in articles:
+                self.saved_urls.add(article.link)
+        except Exception as e:
+            print(f"Failed to store article URLs: {e}")
+        finally:
+            session.close()
 
     # Private method to store company URLs in a set
     def __store_companies_url(self) -> None:
         session = self.Session()
-        companies = session.query(Company).all()
-        for company in companies:
-            self.saved_companies_urls.add(company.link)
-        session.close()
-
+        try:
+            companies = session.query(Company).all()
+            for company in companies:
+                self.saved_companies_urls.add(company.link)
+        except Exception as e:
+            print(f"Failed to store company URLs: {e}")
+        finally:
+            session.close()
     # Private method to drop all tables in the database
     def __dropAllTables(self) -> None:
-        """Drops all tables in the database."""
         insp = inspect(self.engine)
         if insp.has_table(Article.__tablename__):
             Article.__table__.drop(self.engine)
@@ -161,50 +171,75 @@ class Database:
         if insp.has_table(CompanyArticleAssociation.__tablename__):
             CompanyArticleAssociation.__table__.drop(self.engine)
     
-    # Public methods to add an article to the database
+    # Public method to add an article to the database
     def addArticletoDB(self, articleUrl : str, title : str, date : datetime, text : str, keypoints : str, author : str, keywords=None) -> None:
         session = self.Session()
-        session.add(Article(articleUrl, title, date, text, keypoints, author, keywords))
-        session.commit()
-        session.close()
-        self.saved_urls.add(articleUrl)
-
-    def addCompanytoDB(self, link : str, tag : str, name : str, description : str, keywords : str = None) -> None:
         try:
-            session = self.Session()
-            existing_company = session.query(Company).filter_by(name=name).first()
-            if not existing_company:
-                session.add(Company(link, tag, name, description, keywords))
+            session.add(Article(articleUrl, title, date, text, keypoints, author, keywords))
             session.commit()
+            self.saved_urls.add(articleUrl)
         except Exception as e:
-            print(f"Failed to add company {name} to database: {e}")
+            session.rollback()
+            print(f"Failed to add article to database: {e}")
         finally:
             session.close()
 
-    def add_company_article(self, article_id : str, company_tag : str) -> None:
+    # Public method to add a company to the database
+    def addCompanytoDB(self, link : str, tag : str, name : str, description : str, keywords : str = None) -> None:
         session = self.Session()
-        company = session.query(Company).filter(Company.tag.like(f"%{company_tag}%")).first()
-        if company:
-            association = CompanyArticleAssociation(company_id=company.id, article_id=article_id)
-            session.add(association)
-            session.commit()
-        session.close()
+        try:
+            existing_company = session.query(Company).filter_by(name=name).first()
+            if not existing_company:
+                session.add(Company(link, tag, name, description, keywords))
+                session.commit()
+        except Exception as e:
+            session.rollback()
+            print(f"Failed to add company to database: {e}")
+        finally:
+            session.close()
 
+    # Public method to add a company-article association to the database
+    def add_company_article(self, article_id: str, company_tag: str) -> None:
+        session = self.Session()
+        try:
+            company = session.query(Company).filter(Company.tag.like(f"%{company_tag}%")).first()
+            if company:
+                association = CompanyArticleAssociation(company_id=company.id, article_id=article_id)
+                session.add(association)
+                session.commit()
+        except Exception as e:
+            session.rollback()
+            print(f"Failed to add company-article association to the database: {e}")
+        finally:
+            session.close()
+
+
+    # Public method to create the database
     def createDatabase(self) -> None:
-        Base.metadata.create_all(self.engine)
+        try:
+            Base.metadata.create_all(self.engine)
+        except Exception as e:
+            print(f"Failed to create database: {e}")
 
+    # Public method to clear the database
     def clearDatabase(self, drop_tables : bool = False): 
         session = self.Session()
-        session.query(CompanyArticleAssociation).delete()
-        session.query(Article).delete()
-        session.query(Company).delete()
-        session.commit()
-        session.close()
-        self.saved_urls.clear()
-        self.saved_companies_urls.clear()
-        if drop_tables:
-            self.__dropAllTables()
+        try:
+            session.query(CompanyArticleAssociation).delete()
+            session.query(Article).delete()
+            session.query(Company).delete()
+            session.commit()
+            self.saved_urls.clear()
+            self.saved_companies_urls.clear()
+            if drop_tables:
+                self.__dropAllTables()
+        except Exception as e:
+            session.rollback()
+            print(f"Failed to clear database: {e}")
+        finally:
+            session.close()
 
+    # Public method to check if the database has data
     def has_data(self) -> tuple:
         has_articles = len(self.saved_urls) != 0
         has_companies = len(self.saved_companies_urls) != 0
