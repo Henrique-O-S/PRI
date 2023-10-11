@@ -8,7 +8,10 @@ from src.analyzer import Analyzer
 if __name__ == "__main__":
 
     with open('data/companies.json', 'r') as json_file:
-        companies_data = json.load(json_file)
+        try:
+            companies_data = json.load(json_file)
+        except:
+            companies_data = None
 
     database = Database()
 
@@ -33,8 +36,11 @@ if __name__ == "__main__":
         process.crawl(spider_class)
         process.start()
 
-        with open('companies.json', 'r') as json_file:
-            companies_data = json.load(json_file)
+        with open('data/companies.json', 'r') as json_file:
+            try:
+                companies_data = json.load(json_file)
+            except:
+                companies_data = None
         if companies_data is None:
             print("Failed to retrieve companies data")
             exit(1)
@@ -45,7 +51,8 @@ if __name__ == "__main__":
     analyzer = Analyzer()
     for company in companies_data:
         keywords = analyzer.extract_keywords(company['description'])
-        database.addCompanytoDB(company['link'], company['name'], company['description'], keywords)
+        tag = company['link'].split('/')[-1]
+        database.addCompanytoDB(company['link'], tag, company['name'], company['description'], keywords)
         print(f"Added {company['name']} to database successfuly")
 
 

@@ -93,10 +93,12 @@ class BigArticlesSpider(scrapy.Spider):
 
             text = re.sub(r'—', '-', text)
 
+
+
             try:
-                text.encode("windows-1252").decode("utf-8")
+                text = text.replace("\xa0", " ").encode("windows-1252").decode("ISO-8859-1")
             except UnicodeEncodeError:
-                text = text.encode("utf-8").decode("utf-8")
+                print("Failed to encode text")
 
             key_points_list = response.css('div.RenderKeyPoints-list')
             key_points_text = ""
@@ -113,6 +115,16 @@ class BigArticlesSpider(scrapy.Spider):
             print(f"Retrieved article: Title - {title}, Date - {date}")
 
             ## Deal with companies...
+
+            companies = []
+
+            # href_links = [textdiv.find_all('a', href=True) for textdiv in textdivs]
+            href_links = [link['href'] for textdiv in textdivs for link in textdiv.find_all('a', href=True)]
+            href_links = [link for link in href_links if link.startswith('/quotes/')]
+            for link in href_links:
+                companies.append(link.split('/')[-2])
+
+            companies = ", ".join(companies)
             
 
             yield {
@@ -121,8 +133,8 @@ class BigArticlesSpider(scrapy.Spider):
                 'date': date,
                 'text': text,
                 'keypoints': key_points_text,
-                'author': author
-                # 'companies_name': companies
+                'author': author,
+                'companies_name': companies
             }
         else:
             print(f"Article already saved: {response.url}")

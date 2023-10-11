@@ -2,8 +2,6 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.inspection import inspect
-import json
-import os
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 
@@ -17,6 +15,9 @@ class CompanyArticleAssociation(Base):
     company = relationship("Company", backref="company_article_associations")
     article = relationship("Article", backref="article_company_associations")
 
+    def __init__(self, company_id, article_id):
+        self.company_id = company_id
+        self.article_id = article_id
 
 class Article(Base):
     __tablename__ = "articles"
@@ -43,13 +44,15 @@ class Company(Base):
     __tablename__ = "companies"
     id = Column(Integer, primary_key=True)
     link = Column(Text)
+    tag = Column(String)
     name = Column(String)
     description = Column(Text)
     keywords = Column(Text)
     articles = relationship('Article', secondary=CompanyArticleAssociation.__table__, back_populates='companies')
 
-    def __init__(self, link, name, description, keywords=''):
+    def __init__(self, link, tag, name, description, keywords=''):
         self.link = link
+        self.tag = tag
         self.name = name
         self.description = description
         self.keywords = keywords
@@ -81,21 +84,21 @@ class Database:
         session.close()
         self.saved_urls.add(articleUrl)
 
-    def addCompanytoDB(self, link, name, description, keywords=None):
+    def addCompanytoDB(self, link, tag, name, description, keywords=None):
         try:
             session = self.Session()
             existing_company = session.query(Company).filter_by(name=name).first()
             if not existing_company:
-                session.add(Company(link, name, description, keywords))
+                session.add(Company(link, tag, name, description, keywords))
             session.commit()
         except Exception as e:
             print(f"Failed to add company {name} to database: {e}")
         finally:
             session.close()
 
-    def add_company_article(self, article_id, company_name):
+    def add_company_article(self, article_id, company_tag):
         session = self.Session()
-        company = session.query(Company).filter(Company.name.like(f"%{company_name}%")).first()
+        company = session.query(Company).filter(Company.tag.contains([company_tag])).first()
         if company:
             association = CompanyArticleAssociation(company_id=company.id, article_id=article_id)
             session.add(association)

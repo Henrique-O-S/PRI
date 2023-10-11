@@ -51,10 +51,14 @@ if __name__ == "__main__":
 
     analyzer = Analyzer()
 
-    for article in articles_data:
+    for index, article in enumerate(articles_data, start=1):
         keywords = analyzer.extract_keywords(article['text'])
-
         date = datetime.strptime(article['date'], "%Y-%m-%d %H:%M:%S")
-
         database.addArticletoDB(article['link'], article['title'], date, article['text'], article['keypoints'], article['author'], keywords)
+        
+        companies_names = article['companies_name'].split(', ')   
+        for company_name in companies_names:
+            database.add_company_article(index, company_name)
+
+        
         print(f"Added {article['title']} to database successfuly")
