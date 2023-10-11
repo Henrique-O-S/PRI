@@ -23,7 +23,7 @@ run:
 # You can update any of the following targets to run the Python program with
 # different flags
 # The available flags are:
-# 	-read_stored: Read the stored data from the database (Options: Y/N) (default: N)
+# 	-read_stored: Read the stored data from the JSON files (Options: Y/N) (default: N)
 # 	-start: Start the program from a specific year (Options: 2006-2023) (default: 2023)
 # 	-clear_db: Clear the database before running the program (Options: Y/N) (default: N) 
 
