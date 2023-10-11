@@ -43,12 +43,63 @@ The goal of this project that is going to run the whole semester is to develop a
 
 The datasets used in this project are the following:
 
-- [CNBC News - Market Insider](https://www.cnbc.com/market-insider/). The dataset scraped from CNBC contains news articles from the CNBC website, which is a world leader in business news and real-time financial market coverage. The dataset is proven to be reliable and trustworthy, as it is a well-known news website. The dataset is composed of **200+** news articles.
+- [CNBC News - Site map](https://www.cnbc.com/site-map/). The dataset scraped from CNBC contains news articles from the CNBC website, which is a world leader in business news and real-time financial market coverage. The dataset is proven to be reliable and trustworthy, as it is a well-known news website. The dataset is composed of **XXXXX+** news articles regarding the "Market Insider" topic, starting from 2020 to the present days.
 
-- [CNBC NEWS - Quotes](https://www.cnbc.com/quotes/). This dataset contains quotes from the CNBC website for every stock in the market. The desired quotes are obtained from the previous dataset, as it contains the stock symbol for each news article.
+- [CNBC NEWS - Quotes](https://www.cnbc.com/quotes/). This dataset contains quotes from the CNBC website for every stock in the market. The desired quotes are obtained from the previous dataset, as it contains the stock symbol for each news article. The dataset is composed of **XXXXXX** companies.
+
+### Data Characterization
+
+- The utilized data can be divided into two groups: articles and companies information.
+- The articles contain:
+    - Structured data: list of authors, published and edited date, title, topic
+    - Unstructured data: main text, key points
+- The companies information contain:
+    - Structured data: name, tag
+    - Unstructured data: description
 
 ### Exploratory Data Analysis
 
+- In this section patterns and outliers were recognized among the two types of data, which were essential to achieve insightful decision-making.
+- Some keywords were also extracted from some analysis, in order to ease finding future relations between data.
+
+### Data Processing Pipeline
+- The detailed description of both pipelines was made, detailing the steps done regarding both the scrapping and the storage of data.
+
+<figure>
+    <img src="img/companies_pipeline.png" alt="Companies Pipeline" />
+    <figcaption>Companies Pipeline</figcaption>
+</figure>
+
+<figure>
+    <img src="img/articles_pipeline.png" alt="Articles Pipeline" />
+</figure>
+<figure>
+    <img src="img/articles_pipeline2.png" alt="Articles Pipeline" />
+    <figcaption>Articles Pipeline</figcaption>
+</figure>
+
+### Data Domain Model
+
+- INSERT MODELS
+
+### Documents Classification
+
+- At an intermediary stage in the pipeline, there are two document
+collections, prepared and created after the scraping process. In
+both cases, the documents are JSON objects and the collections
+themselves JSON files.
+
+- At a final stage, there are these main document collections, each one being a table in a SQLite database (in articles.db)
+    - Company
+    - Article
+    - CompanyArticleAssociation
+
+<figure>
+    <img src="img/uml.png" alt="Database articles.db UML" />
+    <figcaption>Database articles.db UML</figcaption>
+</figure>
+
+## Usage
 
 
 
@@ -59,3 +110,4 @@ TODO
 ## Milestone 3 - Search System
 
 TODO
+
