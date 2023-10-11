@@ -32,6 +32,11 @@ run_year_2020:
 run_cleaning:
 	.\venv\Scripts\$(PYTHON) .\src\main.py -clear_db Y
 
+# Run the Python program with the -read_stored flag amd -clear_db flag
+	# Run the Python program with the -clear_db flag
+run_cleaning:
+	.\venv\Scripts\$(PYTHON) .\src\main.py -clear_db Y -read_stored Y
+
 # Clean up generated files and virtual environment
 clean:
 	rm -rf venv

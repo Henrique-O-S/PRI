@@ -12,7 +12,7 @@ class BigArticlesSpider(scrapy.Spider):
     Attributes:
         name: The name of the spider.
         startYear: The starting year. Default is 2023.
-        database: The database to store the scraped data. This is passed in from the caller.
+        database: The database that holds the existing data. Passed in from the caller.
 
     Methods:
         start_requests: Creates a request to the CNBC article list.

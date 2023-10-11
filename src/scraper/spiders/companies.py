@@ -16,7 +16,7 @@ class CompaniesSpider(scrapy.Spider):
         name: The name of the spider.
         unique_links: A set of unique company links.
         driver: The Selenium webdriver.
-        database: The database to store the scraped data. This is passed in from the caller.
+        database: The database that holds the existing data. Passed in from the caller.
 
     Methods:
         start_requests: Creates a request to the CNBC company list.
@@ -49,6 +49,9 @@ class CompaniesSpider(scrapy.Spider):
             self.accept_cookies()
 
             for url in self.unique_links:
+                if url in self.database.saved_companies_urls:
+                    logging.info(f"Skipping {url} because it is already in the database.")
+                
                 yield scrapy.Request(url, callback=self.parse_company)
         except Exception as e:
             logging.error(f"Failed to parse company list: {e}")

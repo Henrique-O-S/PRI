@@ -163,13 +163,20 @@ def store_articles(database) -> int:
     Read data from the articles JSON file and store it in the database.
     """
 
-    with open(articles_json_file_path, 'r') as json_file:
-        try:
+    try:
+        with open(articles_json_file_path, 'r', encoding='ISO-8859-1') as json_file:
             articles_data = json.load(json_file)
-        except:
-            articles_data = None
+    except Exception as e:
+        print(f"Failed to retrieve articles data: {e}")
+        try:
+            with open(articles_json_file_path, 'w') as json_file:
+                json_file.write("")
+        except Exception as e:
+            print(f"Failed to clear articles JSON file: {e}")
+        finally:
+            return 0
     if articles_data is None:
-        print("Failed to retrieve articles data.")
+        print("Articles data is empty.")
         return 0
     if articles_data == []:
         print("Articles data is empty.")
