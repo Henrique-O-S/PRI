@@ -8,7 +8,7 @@ from analyzer import Analyzer
 from datetime import datetime
 import logging
 
-DEFAULT_START_YEAR = 2023
+DEFAULT_START_YEAR = 2020
 DEFAULT_CLEAR_DATABASE = False
 DEFAULT_READ_STORED_DATA = False
 
