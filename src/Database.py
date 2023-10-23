@@ -52,7 +52,7 @@ class Article(Base):
     keypoints = Column(Text)
     author = Column(String)
     keywords = Column(Text)
-    companies = relationship('Company', secondary=CompanyArticleAssociation.__table__, back_populates='articles')
+    #companies = relationship('Company', secondary=CompanyArticleAssociation.__table__, back_populates='articles')
 
     def __init__(self, link, title, date, text, keypoints, author, keywords=''):
         self.link = link
@@ -82,7 +82,7 @@ class Company(Base):
     name = Column(String)
     description = Column(Text)
     keywords = Column(Text)
-    articles = relationship('Article', secondary=CompanyArticleAssociation.__table__, back_populates='companies')
+    #articles = relationship('Article', secondary=CompanyArticleAssociation.__table__, back_populates='companies')
 
     def __init__(self, link, tag, name, description, keywords=''):
         self.link = link
@@ -245,3 +245,24 @@ class Database:
         has_articles = len(self.saved_urls) != 0
         has_companies = len(self.saved_companies_urls) != 0
         return has_articles, has_companies
+
+    # Public method to get all associations between companies and articles
+    def get_all_company_article_associations(self):
+        session = self.Session()
+        associations = session.query(CompanyArticleAssociation).all()
+        session.close()
+        return associations
+
+    # Public method to get all articles
+    def get_all_articles(self):
+        session = self.Session()
+        articles = session.query(Article).all()
+        session.close()
+        return articles
+
+    # Public method to get all companies
+    def get_all_companies(self):
+        session = self.Session()
+        companies = session.query(Company).all()
+        session.close()
+        return companies
