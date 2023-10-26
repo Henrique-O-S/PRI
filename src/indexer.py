@@ -1,54 +1,38 @@
-from elasticsearch import Elasticsearch
-from Database import Database, Article, Company, CompanyArticleAssociation
+import pysolr
+from Database import Database
 
 class Indexer:
-    def __init__(self):
-        self.es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-        self.database = Database()
-        self.articles_index_name = "articles_index"
-        self.companies_index_name = "companies_index"
-        self.associations_index_name = "associations_index"
+    def __init__(self, solr_url):
+        self.solr = pysolr.Solr(solr_url, always_commit=True)
+        self.db = Database()
 
     def index_articles(self):
-        articles = self.database.get_all_articles()
+        articles = self.db.get_all_articles()
         for article in articles:
-            doc_id = article.id
-            document = {
+            solr_document = {
+                'id': article.id,
                 'title': article.title,
+                'date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
                 'text': article.text,
-                'date': article.date.strftime('%Y-%m-%d %H:%M:%S'),
                 'keypoints': article.keypoints,
-                'author': article.author,
-                'keywords': article.keywords
+                'keywords': article.keywords,
             }
-            self.es.index(index=self.articles_index_name, id=doc_id, body=document)
-        print(f"Indexed {len(articles)} articles into Elasticsearch.")
+            self.solr.add([solr_document])
+        self.solr.commit()
 
     def index_companies(self):
-        companies = self.database.get_all_companies()
+        companies = self.db.get_all_companies()
         for company in companies:
-            doc_id = company.id
-            document = {
+            solr_document = {
+                'id': company.id,
+                'tag': company.tag,
                 'name': company.name,
                 'description': company.description,
-                'tag': company.tag,
-                'keywords': company.keywords
+                'keywords': company.keywords,
             }
-            self.es.index(index=self.companies_index_name, id=doc_id, body=document)
-        print(f"Indexed {len(companies)} companies into Elasticsearch.")
+            self.solr.add([solr_document])
+        self.solr.commit()
 
-    def index_associations(self):
-        associations = self.database.get_all_company_article_associations()
-        for association in associations:
-            doc_id = f"{association.company_id}_{association.article_id}"
-            document = {
-                'company_id': association.company_id,
-                'article_id': association.article_id
-            }
-            self.es.index(index=self.associations_index_name, id=doc_id, body=document)
-        print(f"Indexed {len(associations)} associations into Elasticsearch.")
-
-    def index_all(self):
-        self.index_articles()
-        self.index_companies()
-        self.index_associations()
+    def clear_data(self):
+        self.solr.delete(q='*:*')
+        self.solr.commit()
