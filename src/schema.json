@@ -1,0 +1,61 @@
+{
+    "add-field-type": [
+      {
+        "name": "text_general",
+        "class": "solr.TextField",
+        "indexAnalyzer": {
+          "tokenizer": {
+            "class": "solr.StandardTokenizerFactory"
+          },
+          "filters": [
+            {
+              "class": "solr.LowerCaseFilterFactory"
+            }
+          ]
+        },
+        "queryAnalyzer": {
+          "tokenizer": {
+            "class": "solr.StandardTokenizerFactory"
+          },
+          "filters": [
+            {
+              "class": "solr.LowerCaseFilterFactory"
+            }
+          ]
+        }
+      }
+    ],
+    "add-field": [
+      {
+        "name": "id",
+        "type": "string",
+        "indexed": true,
+        "stored": true
+      },
+      {
+        "name": "tag",
+        "type": "text_general",
+        "indexed": true,
+        "stored": true
+      },
+      {
+        "name": "name",
+        "type": "text_general",
+        "indexed": true,
+        "stored": true
+      },
+      {
+        "name": "description",
+        "type": "text_general",
+        "indexed": true,
+        "stored": true
+      },
+      {
+        "name": "keywords",
+        "type": "text_general",
+        "indexed": true,
+        "stored": true
+      }
+    ]
+  }
+  

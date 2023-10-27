@@ -9,6 +9,6 @@ services:
       - ./solr_data:/var/solr
     environment:
       - SOLR_HEAP=2g
-    entrypoint:
-      - docker-entrypoint.sh
-      - solr-foreground
+    command:
+      - solr-precreate
+      - articles
