@@ -31,26 +31,32 @@ class SolrManager:
         # test: indexing 10 articles
         counter = 10
         for article in articles:
+            companies = self.db.get_article_companies(article.id)
             if counter == 0:
                 break
-            document = {
+            document = {  
+                'id': article.id,
                 'title': article.title,
                 'date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
                 'text': article.text,
                 'keypoints': article.keypoints,
-                'keywords': article.keywords
+                'keywords': article.keywords,
+                'companies': [
+                    {
+                        #'article_id': article.id,
+                        'tag': company.name,
+                        'name': company.link,
+                        'description': company.description,
+                        'keywords': company.keywords
+                    }
+                    for company in companies
+                ]
             }
-            companies = self.db.get_article_companies(article.id) # TO DO: create this function in db
-            document['companies'] = companies
-            document['companies'] = [{
-                    'tag': company.name,
-                    'name': company.link,
-                    'description': company.description,
-                    'keywords': company.keywords
-                } for company in companies]
+            print(f"Indexing article {article.id}...")
             self.solr.add([document])
             counter -= 1
         self.solr.commit()
+        print("Articles indexed successfully.")
 
     def clear_data(self):
         self.solr_url = self.solr_url.rstrip('/')
@@ -68,7 +74,6 @@ class SolrManager:
     def clear_schema(self):
         api_url = f"{self.solr_url}/schema"
         response = requests.delete(api_url)
-
         if response.status_code == 200:
             print("Schema cleared successfully.")
         else:

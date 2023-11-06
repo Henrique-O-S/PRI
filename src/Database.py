@@ -266,3 +266,16 @@ class Database:
         companies = session.query(Company).all()
         session.close()
         return companies
+    
+    def get_article_companies(self, article_id):
+        session = self.Session()
+        try:
+            associations = session.query(CompanyArticleAssociation).filter_by(article_id=article_id).all()
+            company_ids = [association.company_id for association in associations]
+            companies = session.query(Company).filter(Company.id.in_(company_ids)).all()
+            session.close()
+            return companies
+        except Exception as e:
+            print(f"Failed to get article companies: {e}")
+            session.close()
+            return []

@@ -1,398 +1,812 @@
-2023-10-27 11:23:37.067 INFO  (main) [] o.e.j.s.Server jetty-10.0.17; built: 2023-10-09T18:22:21.150Z; git: af15f12297adf5c5083e1f2f8f4c5974438bca25; jvm 17.0.8.1+1
-2023-10-27 11:23:37.301 WARN  (main) [] o.e.j.u.DeprecationWarning Using @Deprecated Class org.eclipse.jetty.servlet.listener.ELContextCleaner
-2023-10-27 11:23:37.330 INFO  (main) [] o.a.s.s.CoreContainerProvider Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
-2023-10-27 11:23:37.339 INFO  (main) [] o.a.s.s.CoreContainerProvider  ___      _       Welcome to Apache Solr™ version 9.4.0
-2023-10-27 11:23:37.339 INFO  (main) [] o.a.s.s.CoreContainerProvider / __| ___| |_ _   Starting in standalone mode on port 8983
-2023-10-27 11:23:37.339 INFO  (main) [] o.a.s.s.CoreContainerProvider \__ \/ _ \ | '_|  Install dir: /opt/solr-9.4.0
-2023-10-27 11:23:37.339 INFO  (main) [] o.a.s.s.CoreContainerProvider |___/\___/_|_|    Start time: 2023-10-27T11:23:37.339919600Z
-2023-10-27 11:23:37.345 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr started with "-XX:+CrashOnOutOfMemoryError" that will crash on any OutOfMemoryError exception. The cause of the OOME will be logged in the crash file at the following path: /var/solr/logs/jvm_crash_17.log
-2023-10-27 11:23:37.378 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr Home: /var/solr/data (source: system property: solr.solr.home)
-2023-10-27 11:23:37.396 INFO  (main) [] o.a.s.c.SolrXmlConfig solr.xml not found in SOLR_HOME, using built-in default
-2023-10-27 11:23:37.396 INFO  (main) [] o.a.s.c.SolrXmlConfig Loading solr.xml from /opt/solr-9.4.0/server/solr/solr.xml
-2023-10-27 11:23:37.440 INFO  (main) [] o.a.s.c.SolrResourceLoader Added 1 libs to classloader, from paths: [/opt/solr-9.4.0/lib]
-2023-10-27 11:23:38.034 INFO  (main) [] o.a.s.u.t.SimplePropagator Always-on trace id generation enabled.
-2023-10-27 11:23:38.261 WARN  (main) [] o.a.s.u.StartupLoggingUtils Jetty request logging enabled. Will retain logs for last 3 days. See chapter "Configuring Logging" in reference guide for how to configure.
-2023-10-27 11:23:38.263 WARN  (main) [] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
-2023-10-27 11:23:38.431 INFO  (main) [] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath /var/solr/data
-2023-10-27 11:23:38.431 INFO  (main) [] o.a.s.c.CorePropertiesLocator Cores are: [articles]
-2023-10-27 11:23:38.467 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.c.SolrConfig Using Lucene MatchVersion: 9.8.0
-2023-10-27 11:23:38.565 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.s.IndexSchema Schema name=default-config
-2023-10-27 11:23:38.631 WARN  (main) [] o.g.j.m.i.MessagingBinders A class javax.activation.DataSource for a default provider MessageBodyWriter<javax.activation.DataSource> was not found. The provider is not available.
-2023-10-27 11:23:38.935 INFO  (main) [] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
-2023-10-27 11:23:39.076 INFO  (main) [] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@5910de75{solr-jetty-context.xml,/solr,file:///opt/solr-9.4.0/server/solr-webapp/webapp/,AVAILABLE}{/opt/solr-9.4.0/server/solr-webapp/webapp}
-2023-10-27 11:23:39.089 INFO  (main) [] o.e.j.s.RequestLogWriter Opened /var/solr/logs/2023_10_27.request.log
-2023-10-27 11:23:39.093 INFO  (main) [] o.e.j.s.AbstractConnector Started ServerConnector@666b83a4{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
-2023-10-27 11:23:39.094 INFO  (main) [] o.e.j.s.Server Started Server@3e8f7922{STARTING}[10.0.17,sto=0] @3393ms
-2023-10-27 11:23:39.159 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
-2023-10-27 11:23:39.159 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.c.CoreContainer Creating SolrCore 'articles' using configuration from instancedir /var/solr/data/articles, trusted=true
-2023-10-27 11:23:39.188 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.c.SolrCore Opening new SolrCore at [/var/solr/data/articles], dataDir=[/var/solr/data/articles/data/]
-2023-10-27 11:23:39.802 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
-2023-10-27 11:23:39.823 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
-2023-10-27 11:23:39.824 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
-2023-10-27 11:23:39.843 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
-2023-10-27 11:23:39.843 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.CommitTracker Soft AutoCommit: if uncommitted for 3000ms; 
-2023-10-27 11:23:39.909 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: /var/solr/data/articles/conf
-2023-10-27 11:23:39.923 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.s.DirectSolrSpellChecker init: {name=default, field=_text_, classname=solr.DirectSolrSpellChecker, distanceMeasure=internal, accuracy=0.5, maxQueryFrequency=0.01, maxEdits=2, minPrefix=1, maxInspections=5, minQueryLength=4}
-2023-10-27 11:23:39.931 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
-2023-10-27 11:23:39.936 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.UpdateLog Could not find max version in index or recent updates, using new clock 1780907581045211136
-2023-10-27 11:23:39.939 INFO  (searcherExecutor-13-thread-1-processing-articles) [ x:articles] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:39.939 INFO  (searcherExecutor-13-thread-1-processing-articles) [ x:articles] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
-2023-10-27 11:23:39.946 INFO  (searcherExecutor-13-thread-1-processing-articles) [ x:articles] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:53.571 INFO  (qtp738677855-25) [ x:articles t:null-1] o.a.s.s.ManagedIndexSchema Upgraded to managed schema at /var/solr/data/articles/conf/managed-schema.xml
-2023-10-27 11:23:53.844 INFO  (searcherExecutor-13-thread-1-processing-articles null-1) [ x:articles t:null-1] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:53.851 INFO  (searcherExecutor-13-thread-1-processing-articles null-1) [ x:articles t:null-1] o.a.s.c.SolrCore Registered new searcher autowarm time: 3 ms
-2023-10-27 11:23:53.853 INFO  (qtp738677855-25) [ x:articles t:null-1] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[1 (1780907595353030656)], commit=} 0 1554
-2023-10-27 11:23:54.014 INFO  (searcherExecutor-13-thread-1-processing-articles null-2) [ x:articles t:null-2] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:54.018 INFO  (searcherExecutor-13-thread-1-processing-articles null-2) [ x:articles t:null-2] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:54.020 INFO  (qtp738677855-19) [ x:articles t:null-2] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[2 (1780907595653971968)], commit=} 0 152
-2023-10-27 11:23:54.199 INFO  (searcherExecutor-13-thread-1-processing-articles null-3) [ x:articles t:null-3] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:54.203 INFO  (searcherExecutor-13-thread-1-processing-articles null-3) [ x:articles t:null-3] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:54.204 INFO  (qtp738677855-24) [ x:articles t:null-3] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[3 (1780907595819646976)], commit=} 0 178
-2023-10-27 11:23:54.387 INFO  (searcherExecutor-13-thread-1-processing-articles null-4) [ x:articles t:null-4] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:54.391 INFO  (searcherExecutor-13-thread-1-processing-articles null-4) [ x:articles t:null-4] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:54.392 INFO  (qtp738677855-26) [ x:articles t:null-4] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[4 (1780907596011536384)], commit=} 0 182
-2023-10-27 11:23:54.592 INFO  (searcherExecutor-13-thread-1-processing-articles null-5) [ x:articles t:null-5] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:54.595 INFO  (searcherExecutor-13-thread-1-processing-articles null-5) [ x:articles t:null-5] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:54.596 INFO  (qtp738677855-24) [ x:articles t:null-5] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[5 (1780907596209717248)], commit=} 0 198
-2023-10-27 11:23:54.795 INFO  (searcherExecutor-13-thread-1-processing-articles null-6) [ x:articles t:null-6] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:54.799 INFO  (searcherExecutor-13-thread-1-processing-articles null-6) [ x:articles t:null-6] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:54.800 INFO  (qtp738677855-26) [ x:articles t:null-6] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[6 (1780907596422578176)], commit=} 0 199
-2023-10-27 11:23:55.055 INFO  (searcherExecutor-13-thread-1-processing-articles null-7) [ x:articles t:null-7] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:55.059 INFO  (searcherExecutor-13-thread-1-processing-articles null-7) [ x:articles t:null-7] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:55.061 INFO  (qtp738677855-24) [ x:articles t:null-7] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[7 (1780907596636487680)], commit=} 0 256
-2023-10-27 11:23:55.252 INFO  (searcherExecutor-13-thread-1-processing-articles null-8) [ x:articles t:null-8] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:55.256 INFO  (searcherExecutor-13-thread-1-processing-articles null-8) [ x:articles t:null-8] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:55.257 INFO  (qtp738677855-26) [ x:articles t:null-8] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[8 (1780907596909117440)], commit=} 0 191
-2023-10-27 11:23:55.476 INFO  (searcherExecutor-13-thread-1-processing-articles null-9) [ x:articles t:null-9] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:55.479 INFO  (searcherExecutor-13-thread-1-processing-articles null-9) [ x:articles t:null-9] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:55.480 INFO  (qtp738677855-24) [ x:articles t:null-9] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[9 (1780907597115686912)], commit=} 0 218
-2023-10-27 11:23:55.706 INFO  (searcherExecutor-13-thread-1-processing-articles null-10) [ x:articles t:null-10] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:55.709 INFO  (searcherExecutor-13-thread-1-processing-articles null-10) [ x:articles t:null-10] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:55.711 INFO  (qtp738677855-26) [ x:articles t:null-10] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[10 (1780907597349519360)], commit=} 0 226
-2023-10-27 11:23:55.960 INFO  (searcherExecutor-13-thread-1-processing-articles null-11) [ x:articles t:null-11] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:55.963 INFO  (searcherExecutor-13-thread-1-processing-articles null-11) [ x:articles t:null-11] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:56.131 INFO  (qtp738677855-25) [ t:null-13] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405836099} status=0 QTime=0
-2023-10-27 11:23:56.200 INFO  (qtp738677855-24) [ x:articles t:null-11] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[11 (1780907597591740416)], commit=} 0 484
-2023-10-27 11:23:56.380 INFO  (searcherExecutor-13-thread-1-processing-articles null-14) [ x:articles t:null-14] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:56.383 INFO  (searcherExecutor-13-thread-1-processing-articles null-14) [ x:articles t:null-14] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:56.385 INFO  (qtp738677855-26) [ x:articles t:null-14] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[12 (1780907598103445504)], commit=} 0 180
-2023-10-27 11:23:56.533 INFO  (searcherExecutor-13-thread-1-processing-articles null-15) [ x:articles t:null-15] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:56.537 INFO  (searcherExecutor-13-thread-1-processing-articles null-15) [ x:articles t:null-15] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:56.538 INFO  (qtp738677855-24) [ x:articles t:null-15] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[13 (1780907598297432064)], commit=} 0 148
-2023-10-27 11:23:56.725 INFO  (searcherExecutor-13-thread-1-processing-articles null-16) [ x:articles t:null-16] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:56.728 INFO  (searcherExecutor-13-thread-1-processing-articles null-16) [ x:articles t:null-16] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:56.729 INFO  (qtp738677855-26) [ x:articles t:null-16] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[14 (1780907598458912768)], commit=} 0 185
-2023-10-27 11:23:56.935 INFO  (searcherExecutor-13-thread-1-processing-articles null-17) [ x:articles t:null-17] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:56.939 INFO  (searcherExecutor-13-thread-1-processing-articles null-17) [ x:articles t:null-17] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:56.940 INFO  (qtp738677855-24) [ x:articles t:null-17] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[15 (1780907598659190784)], commit=} 0 207
-2023-10-27 11:23:56.993 INFO  (qtp738677855-21) [ t:null-19] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405836099} status=0 QTime=10
-2023-10-27 11:23:57.009 INFO  (qtp738677855-25) [ t:null-20] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405836099} status=0 QTime=7
-2023-10-27 11:23:57.151 INFO  (searcherExecutor-13-thread-1-processing-articles null-18) [ x:articles t:null-18] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:57.154 INFO  (searcherExecutor-13-thread-1-processing-articles null-18) [ x:articles t:null-18] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:57.155 INFO  (qtp738677855-26) [ x:articles t:null-18] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[16 (1780907598880440320)], commit=} 0 210
-2023-10-27 11:23:57.355 INFO  (searcherExecutor-13-thread-1-processing-articles null-21) [ x:articles t:null-21] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:57.358 INFO  (searcherExecutor-13-thread-1-processing-articles null-21) [ x:articles t:null-21] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:57.361 INFO  (qtp738677855-24) [ x:articles t:null-21] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[17 (1780907599105884160)], commit=} 0 200
-2023-10-27 11:23:57.538 INFO  (searcherExecutor-13-thread-1-processing-articles null-22) [ x:articles t:null-22] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:57.541 INFO  (searcherExecutor-13-thread-1-processing-articles null-22) [ x:articles t:null-22] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:57.542 INFO  (qtp738677855-26) [ x:articles t:null-22] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[18 (1780907599320842240)], commit=} 0 177
-2023-10-27 11:23:57.733 INFO  (searcherExecutor-13-thread-1-processing-articles null-23) [ x:articles t:null-23] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:57.736 INFO  (searcherExecutor-13-thread-1-processing-articles null-23) [ x:articles t:null-23] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:57.737 INFO  (qtp738677855-24) [ x:articles t:null-23] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[19 (1780907599511683072)], commit=} 0 190
-2023-10-27 11:23:57.934 INFO  (searcherExecutor-13-thread-1-processing-articles null-24) [ x:articles t:null-24] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:57.938 INFO  (searcherExecutor-13-thread-1-processing-articles null-24) [ x:articles t:null-24] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:58.114 INFO  (qtp738677855-26) [ x:articles t:null-24] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[20 (1780907599716155392)], commit=} 0 372
-2023-10-27 11:23:58.153 INFO  (qtp738677855-19) [ t:null-26] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405836099} status=0 QTime=0
-2023-10-27 11:23:58.164 INFO  (qtp738677855-27) [ x:articles t:null-27] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1698405838157} status=0 QTime=9
-2023-10-27 11:23:58.173 INFO  (qtp738677855-25) [ x:articles t:null-28] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1698405838157} status=0 QTime=11
-2023-10-27 11:23:58.309 INFO  (searcherExecutor-13-thread-1-processing-articles null-25) [ x:articles t:null-25] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:58.312 INFO  (searcherExecutor-13-thread-1-processing-articles null-25) [ x:articles t:null-25] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:58.312 INFO  (qtp738677855-24) [ x:articles t:null-25] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[21 (1780907600110419968)], commit=} 0 194
-2023-10-27 11:23:58.492 INFO  (searcherExecutor-13-thread-1-processing-articles null-29) [ x:articles t:null-29] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:58.494 INFO  (searcherExecutor-13-thread-1-processing-articles null-29) [ x:articles t:null-29] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:58.495 INFO  (qtp738677855-26) [ x:articles t:null-29] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[22 (1780907600319086592)], commit=} 0 178
-2023-10-27 11:23:58.682 INFO  (searcherExecutor-13-thread-1-processing-articles null-30) [ x:articles t:null-30] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:58.684 INFO  (searcherExecutor-13-thread-1-processing-articles null-30) [ x:articles t:null-30] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:58.685 INFO  (qtp738677855-24) [ x:articles t:null-30] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[23 (1780907600509927424)], commit=} 0 186
-2023-10-27 11:23:58.869 INFO  (searcherExecutor-13-thread-1-processing-articles null-31) [ x:articles t:null-31] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:58.872 INFO  (searcherExecutor-13-thread-1-processing-articles null-31) [ x:articles t:null-31] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:58.873 INFO  (qtp738677855-26) [ x:articles t:null-31] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[24 (1780907600710205440)], commit=} 0 183
-2023-10-27 11:23:59.084 INFO  (searcherExecutor-13-thread-1-processing-articles null-32) [ x:articles t:null-32] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:59.087 INFO  (searcherExecutor-13-thread-1-processing-articles null-32) [ x:articles t:null-32] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:59.088 INFO  (qtp738677855-24) [ x:articles t:null-32] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[25 (1780907600907337728)], commit=} 0 210
-2023-10-27 11:23:59.181 INFO  (qtp738677855-18) [ t:null-34] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405836099} status=0 QTime=4
-2023-10-27 11:23:59.298 INFO  (searcherExecutor-13-thread-1-processing-articles null-33) [ x:articles t:null-33] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:59.301 INFO  (searcherExecutor-13-thread-1-processing-articles null-33) [ x:articles t:null-33] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:59.302 INFO  (qtp738677855-26) [ x:articles t:null-33] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[26 (1780907601132781568)], commit=} 0 209
-2023-10-27 11:23:59.514 INFO  (searcherExecutor-13-thread-1-processing-articles null-35) [ x:articles t:null-35] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:59.517 INFO  (searcherExecutor-13-thread-1-processing-articles null-35) [ x:articles t:null-35] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:59.518 INFO  (qtp738677855-24) [ x:articles t:null-35] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[27 (1780907601357176832)], commit=} 0 211
-2023-10-27 11:23:59.735 INFO  (searcherExecutor-13-thread-1-processing-articles null-36) [ x:articles t:null-36] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:59.738 INFO  (searcherExecutor-13-thread-1-processing-articles null-36) [ x:articles t:null-36] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:23:59.739 INFO  (qtp738677855-26) [ x:articles t:null-36] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[28 (1780907601583669248)], commit=} 0 216
-2023-10-27 11:23:59.927 INFO  (searcherExecutor-13-thread-1-processing-articles null-37) [ x:articles t:null-37] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:23:59.929 INFO  (searcherExecutor-13-thread-1-processing-articles null-37) [ x:articles t:null-37] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:00.104 INFO  (qtp738677855-24) [ x:articles t:null-37] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[29 (1780907601815404544)], commit=} 0 360
-2023-10-27 11:24:00.213 INFO  (qtp738677855-24) [ x:articles t:null-39] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1698405838157} status=0 QTime=19
-2023-10-27 11:24:00.265 INFO  (searcherExecutor-13-thread-1-processing-articles null-38) [ x:articles t:null-38] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:00.268 INFO  (searcherExecutor-13-thread-1-processing-articles null-38) [ x:articles t:null-38] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:00.268 INFO  (qtp738677855-26) [ x:articles t:null-38] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[30 (1780907602197086208)], commit=} 0 160
-2023-10-27 11:24:00.434 INFO  (searcherExecutor-13-thread-1-processing-articles null-40) [ x:articles t:null-40] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:00.436 INFO  (searcherExecutor-13-thread-1-processing-articles null-40) [ x:articles t:null-40] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:00.439 INFO  (qtp738677855-25) [ x:articles t:null-40] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[31 (1780907602370101248)], commit=} 0 166
-2023-10-27 11:24:00.612 INFO  (searcherExecutor-13-thread-1-processing-articles null-41) [ x:articles t:null-41] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:00.614 INFO  (searcherExecutor-13-thread-1-processing-articles null-41) [ x:articles t:null-41] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:00.618 INFO  (qtp738677855-26) [ x:articles t:null-41] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[32 (1780907602550456320)], commit=} 0 173
-2023-10-27 11:24:00.789 INFO  (searcherExecutor-13-thread-1-processing-articles null-42) [ x:articles t:null-42] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:00.791 INFO  (searcherExecutor-13-thread-1-processing-articles null-42) [ x:articles t:null-42] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:00.793 INFO  (qtp738677855-25) [ x:articles t:null-42] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[33 (1780907602737102848)], commit=} 0 170
-2023-10-27 11:24:00.974 INFO  (searcherExecutor-13-thread-1-processing-articles null-43) [ x:articles t:null-43] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:00.977 INFO  (searcherExecutor-13-thread-1-processing-articles null-43) [ x:articles t:null-43] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:00.977 INFO  (qtp738677855-26) [ x:articles t:null-43] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[34 (1780907602920603648)], commit=} 0 179
-2023-10-27 11:24:01.184 INFO  (searcherExecutor-13-thread-1-processing-articles null-44) [ x:articles t:null-44] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:01.186 INFO  (searcherExecutor-13-thread-1-processing-articles null-44) [ x:articles t:null-44] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:01.187 INFO  (qtp738677855-25) [ x:articles t:null-44] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[35 (1780907603114590208)], commit=} 0 204
-2023-10-27 11:24:01.397 INFO  (searcherExecutor-13-thread-1-processing-articles null-45) [ x:articles t:null-45] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:01.400 INFO  (searcherExecutor-13-thread-1-processing-articles null-45) [ x:articles t:null-45] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:01.401 INFO  (qtp738677855-26) [ x:articles t:null-45] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[36 (1780907603333742592)], commit=} 0 209
-2023-10-27 11:24:01.614 INFO  (searcherExecutor-13-thread-1-processing-articles null-46) [ x:articles t:null-46] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:01.616 INFO  (searcherExecutor-13-thread-1-processing-articles null-46) [ x:articles t:null-46] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:01.626 INFO  (qtp738677855-25) [ x:articles t:null-46] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[37 (1780907603558137856)], commit=} 0 220
-2023-10-27 11:24:01.807 INFO  (searcherExecutor-13-thread-1-processing-articles null-47) [ x:articles t:null-47] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:01.810 INFO  (searcherExecutor-13-thread-1-processing-articles null-47) [ x:articles t:null-47] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:01.981 INFO  (qtp738677855-26) [ x:articles t:null-47] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[38 (1780907603793018880)], commit=} 0 351
-2023-10-27 11:24:02.151 INFO  (searcherExecutor-13-thread-1-processing-articles null-48) [ x:articles t:null-48] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:02.154 INFO  (searcherExecutor-13-thread-1-processing-articles null-48) [ x:articles t:null-48] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:02.154 INFO  (qtp738677855-25) [ x:articles t:null-48] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[39 (1780907604165263360)], commit=} 0 170
-2023-10-27 11:24:02.215 INFO  (qtp738677855-19) [ x:articles t:null-50] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1698405836099&ts=1698405836099} status=503 QTime=2
-2023-10-27 11:24:02.311 INFO  (searcherExecutor-13-thread-1-processing-articles null-49) [ x:articles t:null-49] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:02.314 INFO  (searcherExecutor-13-thread-1-processing-articles null-49) [ x:articles t:null-49] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:02.315 INFO  (qtp738677855-26) [ x:articles t:null-49] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[40 (1780907604347715584)], commit=} 0 156
-2023-10-27 11:24:02.494 INFO  (searcherExecutor-13-thread-1-processing-articles null-51) [ x:articles t:null-51] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:02.496 INFO  (searcherExecutor-13-thread-1-processing-articles null-51) [ x:articles t:null-51] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:02.497 INFO  (qtp738677855-25) [ x:articles t:null-51] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[41 (1780907604515487744)], commit=} 0 177
-2023-10-27 11:24:02.686 INFO  (searcherExecutor-13-thread-1-processing-articles null-52) [ x:articles t:null-52] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:02.688 INFO  (searcherExecutor-13-thread-1-processing-articles null-52) [ x:articles t:null-52] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:02.689 INFO  (qtp738677855-26) [ x:articles t:null-52] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[42 (1780907604706328576)], commit=} 0 188
-2023-10-27 11:24:02.893 INFO  (searcherExecutor-13-thread-1-processing-articles null-53) [ x:articles t:null-53] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:02.896 INFO  (searcherExecutor-13-thread-1-processing-articles null-53) [ x:articles t:null-53] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:02.896 INFO  (qtp738677855-25) [ x:articles t:null-53] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[43 (1780907604909752320)], commit=} 0 202
-2023-10-27 11:24:03.121 INFO  (searcherExecutor-13-thread-1-processing-articles null-54) [ x:articles t:null-54] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:03.123 INFO  (searcherExecutor-13-thread-1-processing-articles null-54) [ x:articles t:null-54] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:03.124 INFO  (qtp738677855-26) [ x:articles t:null-54] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[44 (1780907605125758976)], commit=} 0 223
-2023-10-27 11:24:03.335 INFO  (searcherExecutor-13-thread-1-processing-articles null-55) [ x:articles t:null-55] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:03.338 INFO  (searcherExecutor-13-thread-1-processing-articles null-55) [ x:articles t:null-55] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:03.339 INFO  (qtp738677855-25) [ x:articles t:null-55] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[45 (1780907605364834304)], commit=} 0 210
-2023-10-27 11:24:03.556 INFO  (searcherExecutor-13-thread-1-processing-articles null-56) [ x:articles t:null-56] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:03.559 INFO  (searcherExecutor-13-thread-1-processing-articles null-56) [ x:articles t:null-56] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:03.560 INFO  (qtp738677855-26) [ x:articles t:null-56] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[46 (1780907605590278144)], commit=} 0 216
-2023-10-27 11:24:03.753 INFO  (searcherExecutor-13-thread-1-processing-articles null-57) [ x:articles t:null-57] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:03.756 INFO  (searcherExecutor-13-thread-1-processing-articles null-57) [ x:articles t:null-57] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:03.930 INFO  (qtp738677855-25) [ x:articles t:null-57] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[47 (1780907605820964864)], commit=} 0 366
-2023-10-27 11:24:04.123 INFO  (searcherExecutor-13-thread-1-processing-articles null-58) [ x:articles t:null-58] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:04.126 INFO  (searcherExecutor-13-thread-1-processing-articles null-58) [ x:articles t:null-58] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:04.126 INFO  (qtp738677855-26) [ x:articles t:null-58] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[48 (1780907606208937984)], commit=} 0 192
-2023-10-27 11:24:04.294 INFO  (searcherExecutor-13-thread-1-processing-articles null-59) [ x:articles t:null-59] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:04.296 INFO  (searcherExecutor-13-thread-1-processing-articles null-59) [ x:articles t:null-59] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:04.297 INFO  (qtp738677855-25) [ x:articles t:null-59] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[49 (1780907606415507456)], commit=} 0 165
-2023-10-27 11:24:04.460 INFO  (searcherExecutor-13-thread-1-processing-articles null-60) [ x:articles t:null-60] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:04.462 INFO  (searcherExecutor-13-thread-1-processing-articles null-60) [ x:articles t:null-60] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:04.463 INFO  (qtp738677855-26) [ x:articles t:null-60] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[50 (1780907606593765376)], commit=} 0 161
-2023-10-27 11:24:04.644 INFO  (searcherExecutor-13-thread-1-processing-articles null-61) [ x:articles t:null-61] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:04.645 INFO  (searcherExecutor-13-thread-1-processing-articles null-61) [ x:articles t:null-61] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:04.657 INFO  (qtp738677855-25) [ x:articles t:null-61] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[51 (1780907606768877568)], commit=} 0 190
-2023-10-27 11:24:04.868 INFO  (searcherExecutor-13-thread-1-processing-articles null-62) [ x:articles t:null-62] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:04.870 INFO  (searcherExecutor-13-thread-1-processing-articles null-62) [ x:articles t:null-62] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:04.871 INFO  (qtp738677855-26) [ x:articles t:null-62] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[52 (1780907606972301312)], commit=} 0 209
-2023-10-27 11:24:05.056 INFO  (searcherExecutor-13-thread-1-processing-articles null-63) [ x:articles t:null-63] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:05.058 INFO  (searcherExecutor-13-thread-1-processing-articles null-63) [ x:articles t:null-63] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:05.059 INFO  (qtp738677855-25) [ x:articles t:null-63] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[53 (1780907607195648000)], commit=} 0 183
-2023-10-27 11:24:05.256 INFO  (searcherExecutor-13-thread-1-processing-articles null-64) [ x:articles t:null-64] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:05.258 INFO  (searcherExecutor-13-thread-1-processing-articles null-64) [ x:articles t:null-64] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:05.259 INFO  (qtp738677855-26) [ x:articles t:null-64] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[54 (1780907607393828864)], commit=} 0 195
-2023-10-27 11:24:05.475 INFO  (searcherExecutor-13-thread-1-processing-articles null-65) [ x:articles t:null-65] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:05.477 INFO  (searcherExecutor-13-thread-1-processing-articles null-65) [ x:articles t:null-65] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:05.478 INFO  (qtp738677855-25) [ x:articles t:null-65] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[55 (1780907607602495488)], commit=} 0 215
-2023-10-27 11:24:05.681 INFO  (searcherExecutor-13-thread-1-processing-articles null-66) [ x:articles t:null-66] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:05.693 INFO  (searcherExecutor-13-thread-1-processing-articles null-66) [ x:articles t:null-66] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:05.863 INFO  (qtp738677855-26) [ x:articles t:null-66] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[56 (1780907607832133632)], commit=} 0 371
-2023-10-27 11:24:06.030 INFO  (searcherExecutor-13-thread-1-processing-articles null-67) [ x:articles t:null-67] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:06.032 INFO  (searcherExecutor-13-thread-1-processing-articles null-67) [ x:articles t:null-67] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:06.033 INFO  (qtp738677855-25) [ x:articles t:null-67] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[57 (1780907608234786816)], commit=} 0 166
-2023-10-27 11:24:06.206 INFO  (searcherExecutor-13-thread-1-processing-articles null-68) [ x:articles t:null-68] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:06.208 INFO  (searcherExecutor-13-thread-1-processing-articles null-68) [ x:articles t:null-68] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:06.209 INFO  (qtp738677855-26) [ x:articles t:null-68] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[58 (1780907608414093312)], commit=} 0 172
-2023-10-27 11:24:06.402 INFO  (searcherExecutor-13-thread-1-processing-articles null-69) [ x:articles t:null-69] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:06.404 INFO  (searcherExecutor-13-thread-1-processing-articles null-69) [ x:articles t:null-69] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:06.404 INFO  (qtp738677855-25) [ x:articles t:null-69] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[59 (1780907608598642688)], commit=} 0 191
-2023-10-27 11:24:06.583 INFO  (searcherExecutor-13-thread-1-processing-articles null-70) [ x:articles t:null-70] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:06.585 INFO  (searcherExecutor-13-thread-1-processing-articles null-70) [ x:articles t:null-70] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:06.586 INFO  (qtp738677855-26) [ x:articles t:null-70] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[60 (1780907608804163584)], commit=} 0 177
-2023-10-27 11:24:06.787 INFO  (searcherExecutor-13-thread-1-processing-articles null-71) [ x:articles t:null-71] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:06.789 INFO  (searcherExecutor-13-thread-1-processing-articles null-71) [ x:articles t:null-71] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:06.790 INFO  (qtp738677855-25) [ x:articles t:null-71] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[61 (1780907608995004416)], commit=} 0 199
-2023-10-27 11:24:06.997 INFO  (searcherExecutor-13-thread-1-processing-articles null-72) [ x:articles t:null-72] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:07.000 INFO  (searcherExecutor-13-thread-1-processing-articles null-72) [ x:articles t:null-72] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:07.000 INFO  (qtp738677855-26) [ x:articles t:null-72] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[62 (1780907609207865344)], commit=} 0 206
-2023-10-27 11:24:07.242 INFO  (searcherExecutor-13-thread-1-processing-articles null-73) [ x:articles t:null-73] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:07.244 INFO  (searcherExecutor-13-thread-1-processing-articles null-73) [ x:articles t:null-73] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:07.245 INFO  (qtp738677855-25) [ x:articles t:null-73] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[63 (1780907609428066304)], commit=} 0 241
-2023-10-27 11:24:07.475 INFO  (searcherExecutor-13-thread-1-processing-articles null-74) [ x:articles t:null-74] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:07.477 INFO  (searcherExecutor-13-thread-1-processing-articles null-74) [ x:articles t:null-74] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:07.478 INFO  (qtp738677855-26) [ x:articles t:null-74] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[64 (1780907609686016000)], commit=} 0 228
-2023-10-27 11:24:07.670 INFO  (searcherExecutor-13-thread-1-processing-articles null-75) [ x:articles t:null-75] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:07.672 INFO  (searcherExecutor-13-thread-1-processing-articles null-75) [ x:articles t:null-75] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:07.837 INFO  (qtp738677855-25) [ x:articles t:null-75] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[65 (1780907609930334208)], commit=} 0 354
-2023-10-27 11:24:07.993 INFO  (searcherExecutor-13-thread-1-processing-articles null-76) [ x:articles t:null-76] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:07.995 INFO  (searcherExecutor-13-thread-1-processing-articles null-76) [ x:articles t:null-76] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:07.996 INFO  (qtp738677855-26) [ x:articles t:null-76] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[66 (1780907610305724416)], commit=} 0 155
-2023-10-27 11:24:08.159 INFO  (searcherExecutor-13-thread-1-processing-articles null-77) [ x:articles t:null-77] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:08.162 INFO  (searcherExecutor-13-thread-1-processing-articles null-77) [ x:articles t:null-77] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:08.162 INFO  (qtp738677855-25) [ x:articles t:null-77] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[67 (1780907610472448000)], commit=} 0 162
-2023-10-27 11:24:08.335 INFO  (searcherExecutor-13-thread-1-processing-articles null-78) [ x:articles t:null-78] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:08.337 INFO  (searcherExecutor-13-thread-1-processing-articles null-78) [ x:articles t:null-78] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:08.338 INFO  (qtp738677855-26) [ x:articles t:null-78] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[68 (1780907610647560192)], commit=} 0 170
-2023-10-27 11:24:08.561 INFO  (searcherExecutor-13-thread-1-processing-articles null-79) [ x:articles t:null-79] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:08.564 INFO  (searcherExecutor-13-thread-1-processing-articles null-79) [ x:articles t:null-79] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:08.564 INFO  (qtp738677855-25) [ x:articles t:null-79] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[69 (1780907610831060992)], commit=} 0 223
-2023-10-27 11:24:08.754 INFO  (searcherExecutor-13-thread-1-processing-articles null-80) [ x:articles t:null-80] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:08.756 INFO  (searcherExecutor-13-thread-1-processing-articles null-80) [ x:articles t:null-80] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:08.757 INFO  (qtp738677855-26) [ x:articles t:null-80] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[70 (1780907611069087744)], commit=} 0 188
-2023-10-27 11:24:08.958 INFO  (searcherExecutor-13-thread-1-processing-articles null-81) [ x:articles t:null-81] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:08.961 INFO  (searcherExecutor-13-thread-1-processing-articles null-81) [ x:articles t:null-81] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:08.962 INFO  (qtp738677855-25) [ x:articles t:null-81] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[71 (1780907611272511488)], commit=} 0 199
-2023-10-27 11:24:09.165 INFO  (searcherExecutor-13-thread-1-processing-articles null-82) [ x:articles t:null-82] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:09.167 INFO  (searcherExecutor-13-thread-1-processing-articles null-82) [ x:articles t:null-82] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:09.168 INFO  (qtp738677855-26) [ x:articles t:null-82] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[72 (1780907611485372416)], commit=} 0 202
-2023-10-27 11:24:09.393 INFO  (searcherExecutor-13-thread-1-processing-articles null-83) [ x:articles t:null-83] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:09.395 INFO  (searcherExecutor-13-thread-1-processing-articles null-83) [ x:articles t:null-83] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:09.396 INFO  (qtp738677855-25) [ x:articles t:null-83] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[73 (1780907611702427648)], commit=} 0 223
-2023-10-27 11:24:09.580 INFO  (searcherExecutor-13-thread-1-processing-articles null-84) [ x:articles t:null-84] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:09.582 INFO  (searcherExecutor-13-thread-1-processing-articles null-84) [ x:articles t:null-84] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:09.740 INFO  (qtp738677855-26) [ x:articles t:null-84] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[74 (1780907611941502976)], commit=} 0 339
-2023-10-27 11:24:09.913 INFO  (searcherExecutor-13-thread-1-processing-articles null-85) [ x:articles t:null-85] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:09.916 INFO  (searcherExecutor-13-thread-1-processing-articles null-85) [ x:articles t:null-85] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:09.917 INFO  (qtp738677855-25) [ x:articles t:null-85] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[75 (1780907612301164544)], commit=} 0 173
-2023-10-27 11:24:10.078 INFO  (searcherExecutor-13-thread-1-processing-articles null-86) [ x:articles t:null-86] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:10.080 INFO  (searcherExecutor-13-thread-1-processing-articles null-86) [ x:articles t:null-86] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:10.081 INFO  (qtp738677855-26) [ x:articles t:null-86] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[76 (1780907612487811072)], commit=} 0 159
-2023-10-27 11:24:10.267 INFO  (searcherExecutor-13-thread-1-processing-articles null-87) [ x:articles t:null-87] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:10.270 INFO  (searcherExecutor-13-thread-1-processing-articles null-87) [ x:articles t:null-87] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:10.271 INFO  (qtp738677855-25) [ x:articles t:null-87] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[77 (1780907612659777536)], commit=} 0 185
-2023-10-27 11:24:10.450 INFO  (searcherExecutor-13-thread-1-processing-articles null-88) [ x:articles t:null-88] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:10.452 INFO  (searcherExecutor-13-thread-1-processing-articles null-88) [ x:articles t:null-88] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:10.453 INFO  (qtp738677855-26) [ x:articles t:null-88] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[78 (1780907612857958400)], commit=} 0 178
-2023-10-27 11:24:10.657 INFO  (searcherExecutor-13-thread-1-processing-articles null-89) [ x:articles t:null-89] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:10.660 INFO  (searcherExecutor-13-thread-1-processing-articles null-89) [ x:articles t:null-89] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:10.660 INFO  (qtp738677855-25) [ x:articles t:null-89] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[79 (1780907613049847808)], commit=} 0 203
-2023-10-27 11:24:10.862 INFO  (searcherExecutor-13-thread-1-processing-articles null-90) [ x:articles t:null-90] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:10.864 INFO  (searcherExecutor-13-thread-1-processing-articles null-90) [ x:articles t:null-90] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:10.864 INFO  (qtp738677855-26) [ x:articles t:null-90] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[80 (1780907613266903040)], commit=} 0 199
-2023-10-27 11:24:11.083 INFO  (searcherExecutor-13-thread-1-processing-articles null-91) [ x:articles t:null-91] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:11.085 INFO  (searcherExecutor-13-thread-1-processing-articles null-91) [ x:articles t:null-91] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:11.088 INFO  (qtp738677855-25) [ x:articles t:null-91] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[81 (1780907613479763968)], commit=} 0 219
-2023-10-27 11:24:11.335 INFO  (searcherExecutor-13-thread-1-processing-articles null-92) [ x:articles t:null-92] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:11.337 INFO  (searcherExecutor-13-thread-1-processing-articles null-92) [ x:articles t:null-92] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:11.338 INFO  (qtp738677855-26) [ x:articles t:null-92] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[82 (1780907613714644992)], commit=} 0 246
-2023-10-27 11:24:11.524 INFO  (searcherExecutor-13-thread-1-processing-articles null-93) [ x:articles t:null-93] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:11.526 INFO  (searcherExecutor-13-thread-1-processing-articles null-93) [ x:articles t:null-93] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:11.693 INFO  (qtp738677855-25) [ x:articles t:null-93] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[83 (1780907613977837568)], commit=} 0 350
-2023-10-27 11:24:11.849 INFO  (searcherExecutor-13-thread-1-processing-articles null-94) [ x:articles t:null-94] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:11.852 INFO  (searcherExecutor-13-thread-1-processing-articles null-94) [ x:articles t:null-94] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:11.855 INFO  (qtp738677855-26) [ x:articles t:null-94] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[84 (1780907614347984896)], commit=} 0 158
-2023-10-27 11:24:12.032 INFO  (searcherExecutor-13-thread-1-processing-articles null-95) [ x:articles t:null-95] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:12.034 INFO  (searcherExecutor-13-thread-1-processing-articles null-95) [ x:articles t:null-95] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:12.036 INFO  (qtp738677855-25) [ x:articles t:null-95] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[85 (1780907614518902784)], commit=} 0 177
-2023-10-27 11:24:12.211 INFO  (searcherExecutor-13-thread-1-processing-articles null-96) [ x:articles t:null-96] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:12.213 INFO  (searcherExecutor-13-thread-1-processing-articles null-96) [ x:articles t:null-96] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:12.215 INFO  (qtp738677855-26) [ x:articles t:null-96] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[86 (1780907614709743616)], commit=} 0 174
-2023-10-27 11:24:12.402 INFO  (searcherExecutor-13-thread-1-processing-articles null-97) [ x:articles t:null-97] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:12.405 INFO  (searcherExecutor-13-thread-1-processing-articles null-97) [ x:articles t:null-97] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:12.405 INFO  (qtp738677855-25) [ x:articles t:null-97] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[87 (1780907614896390144)], commit=} 0 186
-2023-10-27 11:24:12.584 INFO  (searcherExecutor-13-thread-1-processing-articles null-98) [ x:articles t:null-98] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:12.585 INFO  (searcherExecutor-13-thread-1-processing-articles null-98) [ x:articles t:null-98] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:12.589 INFO  (qtp738677855-26) [ x:articles t:null-98] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[88 (1780907615096668160)], commit=} 0 179
-2023-10-27 11:24:12.817 INFO  (searcherExecutor-13-thread-1-processing-articles null-99) [ x:articles t:null-99] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:12.818 INFO  (searcherExecutor-13-thread-1-processing-articles null-99) [ x:articles t:null-99] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:12.821 INFO  (qtp738677855-25) [ x:articles t:null-99] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[89 (1780907615288557568)], commit=} 0 227
-2023-10-27 11:24:13.039 INFO  (searcherExecutor-13-thread-1-processing-articles null-100) [ x:articles t:null-100] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:13.041 INFO  (searcherExecutor-13-thread-1-processing-articles null-100) [ x:articles t:null-100] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:13.044 INFO  (qtp738677855-26) [ x:articles t:null-100] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[90 (1780907615531827200)], commit=} 0 219
-2023-10-27 11:24:13.286 INFO  (searcherExecutor-13-thread-1-processing-articles null-101) [ x:articles t:null-101] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:13.288 INFO  (searcherExecutor-13-thread-1-processing-articles null-101) [ x:articles t:null-101] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:13.291 INFO  (qtp738677855-25) [ x:articles t:null-101] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[91 (1780907615765659648)], commit=} 0 242
-2023-10-27 11:24:13.477 INFO  (searcherExecutor-13-thread-1-processing-articles null-102) [ x:articles t:null-102] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:13.478 INFO  (searcherExecutor-13-thread-1-processing-articles null-102) [ x:articles t:null-102] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:13.617 INFO  (qtp738677855-26) [ x:articles t:null-102] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[92 (1780907616024657920)], commit=} 0 322
-2023-10-27 11:24:13.757 INFO  (searcherExecutor-13-thread-1-processing-articles null-103) [ x:articles t:null-103] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:13.759 INFO  (searcherExecutor-13-thread-1-processing-articles null-103) [ x:articles t:null-103] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:13.759 INFO  (qtp738677855-25) [ x:articles t:null-103] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[93 (1780907616366493696)], commit=} 0 138
-2023-10-27 11:24:13.923 INFO  (searcherExecutor-13-thread-1-processing-articles null-104) [ x:articles t:null-104] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:13.925 INFO  (searcherExecutor-13-thread-1-processing-articles null-104) [ x:articles t:null-104] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:13.926 INFO  (qtp738677855-26) [ x:articles t:null-104] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[94 (1780907616516440064)], commit=} 0 162
-2023-10-27 11:24:14.104 INFO  (searcherExecutor-13-thread-1-processing-articles null-105) [ x:articles t:null-105] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:14.106 INFO  (searcherExecutor-13-thread-1-processing-articles null-105) [ x:articles t:null-105] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:14.106 INFO  (qtp738677855-25) [ x:articles t:null-105] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[95 (1780907616690503680)], commit=} 0 176
-2023-10-27 11:24:14.280 INFO  (searcherExecutor-13-thread-1-processing-articles null-106) [ x:articles t:null-106] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:14.283 INFO  (searcherExecutor-13-thread-1-processing-articles null-106) [ x:articles t:null-106] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:14.283 INFO  (qtp738677855-26) [ x:articles t:null-106] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[96 (1780907616880295936)], commit=} 0 172
-2023-10-27 11:24:14.477 INFO  (searcherExecutor-13-thread-1-processing-articles null-107) [ x:articles t:null-107] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:14.479 INFO  (searcherExecutor-13-thread-1-processing-articles null-107) [ x:articles t:null-107] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:14.480 INFO  (qtp738677855-25) [ x:articles t:null-107] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[97 (1780907617065893888)], commit=} 0 192
-2023-10-27 11:24:14.676 INFO  (searcherExecutor-13-thread-1-processing-articles null-108) [ x:articles t:null-108] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:14.679 INFO  (searcherExecutor-13-thread-1-processing-articles null-108) [ x:articles t:null-108] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:14.679 INFO  (qtp738677855-26) [ x:articles t:null-108] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[98 (1780907617271414784)], commit=} 0 195
-2023-10-27 11:24:14.893 INFO  (searcherExecutor-13-thread-1-processing-articles null-109) [ x:articles t:null-109] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:14.896 INFO  (searcherExecutor-13-thread-1-processing-articles null-109) [ x:articles t:null-109] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:14.896 INFO  (qtp738677855-25) [ x:articles t:null-109] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[99 (1780907617481129984)], commit=} 0 212
-2023-10-27 11:24:15.105 INFO  (searcherExecutor-13-thread-1-processing-articles null-110) [ x:articles t:null-110] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:15.107 INFO  (searcherExecutor-13-thread-1-processing-articles null-110) [ x:articles t:null-110] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:15.127 INFO  (qtp738677855-26) [ x:articles t:null-110] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[100 (1780907617709719552)], commit=} 0 226
-2023-10-27 11:24:15.309 INFO  (searcherExecutor-13-thread-1-processing-articles null-111) [ x:articles t:null-111] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:15.311 INFO  (searcherExecutor-13-thread-1-processing-articles null-111) [ x:articles t:null-111] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:15.501 INFO  (qtp738677855-25) [ x:articles t:null-111] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[101 (1780907617949843456)], commit=} 0 370
-2023-10-27 11:24:15.661 INFO  (searcherExecutor-13-thread-1-processing-articles null-112) [ x:articles t:null-112] o.a.s.c.QuerySenderListener QuerySenderListener done.
-2023-10-27 11:24:15.662 INFO  (searcherExecutor-13-thread-1-processing-articles null-112) [ x:articles t:null-112] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
-2023-10-27 11:24:15.666 INFO  (qtp738677855-26) [ x:articles t:null-112] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[102 (1780907618342010880)], commit=} 0 161
-2023-10-27 11:24:15.689 INFO  (qtp738677855-25) [ x:articles t:null-113] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=, commit=} 0 20
-2023-10-27 11:24:28.898 INFO  (qtp738677855-26) [ t:null-116] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:24:28.900 INFO  (qtp738677855-27) [ x:articles t:null-117] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:24:28.904 INFO  (qtp738677855-21) [ x:articles t:null-119] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1698405868875&ts=1698405868875} status=503 QTime=0
-2023-10-27 11:24:28.907 INFO  (qtp738677855-25) [ t:null-115] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=8
-2023-10-27 11:24:28.915 INFO  (qtp738677855-24) [ x:articles t:null-120] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1698405868893} status=0 QTime=11
-2023-10-27 11:24:28.932 INFO  (qtp738677855-20) [ x:articles t:null-118] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1698405868894} status=0 QTime=33
-2023-10-27 11:24:30.888 INFO  (qtp738677855-26) [ t:null-122] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:24:30.892 INFO  (qtp738677855-24) [ x:articles t:null-124] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=3
-2023-10-27 11:24:30.894 INFO  (qtp738677855-18) [ t:null-123] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=6
-2023-10-27 11:24:30.895 INFO  (qtp738677855-19) [ x:articles t:null-121] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=7
-2023-10-27 11:24:30.939 INFO  (qtp738677855-25) [ x:articles t:null-125] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=8
-2023-10-27 11:24:37.083 INFO  (qtp738677855-19) [ t:null-127] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:24:37.083 INFO  (qtp738677855-25) [ x:articles t:null-129] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=0
-2023-10-27 11:24:37.085 INFO  (qtp738677855-20) [ x:articles t:null-128] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:24:37.092 INFO  (qtp738677855-21) [ t:null-126] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=10
-2023-10-27 11:24:37.114 INFO  (qtp738677855-24) [ x:articles t:null-130] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:24:41.923 INFO  (qtp738677855-18) [ x:articles t:null-132] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=0
-2023-10-27 11:24:41.923 INFO  (qtp738677855-20) [ t:null-131] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:24:41.928 INFO  (qtp738677855-21) [ x:articles t:null-134] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=4
-2023-10-27 11:24:41.930 INFO  (qtp738677855-26) [ t:null-133] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=7
-2023-10-27 11:24:41.953 INFO  (qtp738677855-25) [ x:articles t:null-135] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:24:47.850 INFO  (qtp738677855-21) [ t:null-138] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:24:47.850 INFO  (qtp738677855-24) [ x:articles t:null-139] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=0
-2023-10-27 11:24:47.852 INFO  (qtp738677855-19) [ x:articles t:null-137] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:24:47.856 INFO  (qtp738677855-25) [ t:null-136] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=6
-2023-10-27 11:24:47.874 INFO  (qtp738677855-26) [ x:articles t:null-140] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=1
-2023-10-27 11:25:15.415 INFO  (qtp738677855-19) [ t:null-141] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:25:15.415 INFO  (qtp738677855-26) [ x:articles t:null-144] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=0
-2023-10-27 11:25:15.417 INFO  (qtp738677855-20) [ x:articles t:null-142] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=3
-2023-10-27 11:25:15.420 INFO  (qtp738677855-18) [ t:null-143] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=5
-2023-10-27 11:25:15.438 INFO  (qtp738677855-24) [ x:articles t:null-145] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=1
-2023-10-27 11:25:19.910 INFO  (qtp738677855-20) [ t:null-146] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:25:19.910 INFO  (qtp738677855-25) [ x:articles t:null-149] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=0
-2023-10-27 11:25:19.912 INFO  (qtp738677855-24) [ x:articles t:null-147] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:25:19.915 INFO  (qtp738677855-21) [ t:null-148] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=5
-2023-10-27 11:25:19.942 INFO  (qtp738677855-26) [ x:articles t:null-150] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=1
-2023-10-27 11:25:22.694 INFO  (qtp738677855-24) [ t:null-153] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1698405868875} status=0 QTime=0
-2023-10-27 11:25:22.694 INFO  (qtp738677855-18) [ x:articles t:null-154] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1698405870879} status=0 QTime=0
-2023-10-27 11:25:22.696 INFO  (qtp738677855-19) [ x:articles t:null-152] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1698405868893} status=0 QTime=2
-2023-10-27 11:25:22.699 INFO  (qtp738677855-26) [ t:null-151] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1698405868875} status=0 QTime=5
-2023-10-27 11:25:22.718 INFO  (qtp738677855-25) [ x:articles t:null-155] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1698405868893} status=0 QTime=1
+2023-11-06 21:25:40.670 INFO  (main) [] o.e.j.s.Server jetty-10.0.17; built: 2023-10-09T18:22:21.150Z; git: af15f12297adf5c5083e1f2f8f4c5974438bca25; jvm 17.0.9+9
+2023-11-06 21:25:41.526 WARN  (main) [] o.e.j.u.DeprecationWarning Using @Deprecated Class org.eclipse.jetty.servlet.listener.ELContextCleaner
+2023-11-06 21:25:41.623 INFO  (main) [] o.a.s.s.CoreContainerProvider Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2023-11-06 21:25:41.638 INFO  (main) [] o.a.s.s.CoreContainerProvider  ___      _       Welcome to Apache Solr™ version 9.4.0
+2023-11-06 21:25:41.638 INFO  (main) [] o.a.s.s.CoreContainerProvider / __| ___| |_ _   Starting in standalone mode on port 8983
+2023-11-06 21:25:41.639 INFO  (main) [] o.a.s.s.CoreContainerProvider \__ \/ _ \ | '_|  Install dir: /opt/solr-9.4.0
+2023-11-06 21:25:41.639 INFO  (main) [] o.a.s.s.CoreContainerProvider |___/\___/_|_|    Start time: 2023-11-06T21:25:41.639582366Z
+2023-11-06 21:25:41.649 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr started with "-XX:+CrashOnOutOfMemoryError" that will crash on any OutOfMemoryError exception. The cause of the OOME will be logged in the crash file at the following path: /var/solr/logs/jvm_crash_12.log
+2023-11-06 21:25:41.703 INFO  (main) [] o.a.s.s.CoreContainerProvider Solr Home: /var/solr/data (source: system property: solr.solr.home)
+2023-11-06 21:25:41.750 INFO  (main) [] o.a.s.c.SolrXmlConfig solr.xml not found in SOLR_HOME, using built-in default
+2023-11-06 21:25:41.750 INFO  (main) [] o.a.s.c.SolrXmlConfig Loading solr.xml from /opt/solr-9.4.0/server/solr/solr.xml
+2023-11-06 21:25:41.850 INFO  (main) [] o.a.s.c.SolrResourceLoader Added 1 libs to classloader, from paths: [/opt/solr-9.4.0/lib]
+2023-11-06 21:25:43.452 INFO  (main) [] o.a.s.u.t.SimplePropagator Always-on trace id generation enabled.
+2023-11-06 21:25:44.126 WARN  (main) [] o.a.s.u.StartupLoggingUtils Jetty request logging enabled. Will retain logs for last 3 days. See chapter "Configuring Logging" in reference guide for how to configure.
+2023-11-06 21:25:44.132 WARN  (main) [] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2023-11-06 21:25:44.740 INFO  (main) [] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath /var/solr/data
+2023-11-06 21:25:44.742 INFO  (main) [] o.a.s.c.CorePropertiesLocator Cores are: [articles]
+2023-11-06 21:25:44.904 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.c.SolrConfig Using Lucene MatchVersion: 9.8.0
+2023-11-06 21:25:45.161 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.s.IndexSchema Schema name=default-config
+2023-11-06 21:25:45.258 WARN  (main) [] o.g.j.m.i.MessagingBinders A class javax.activation.DataSource for a default provider MessageBodyWriter<javax.activation.DataSource> was not found. The provider is not available.
+2023-11-06 21:25:46.035 INFO  (main) [] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-11-06 21:25:46.425 INFO  (main) [] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@1df98368{solr-jetty-context.xml,/solr,file:///opt/solr-9.4.0/server/solr-webapp/webapp/,AVAILABLE}{/opt/solr-9.4.0/server/solr-webapp/webapp}
+2023-11-06 21:25:46.457 INFO  (main) [] o.e.j.s.RequestLogWriter Opened /var/solr/logs/2023_11_06.request.log
+2023-11-06 21:25:46.467 INFO  (main) [] o.e.j.s.AbstractConnector Started ServerConnector@618c5d94{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2023-11-06 21:25:46.471 INFO  (main) [] o.e.j.s.Server Started Server@2c3dec30{STARTING}[10.0.17,sto=0] @9268ms
+2023-11-06 21:25:47.594 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2023-11-06 21:25:47.594 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.c.CoreContainer Creating SolrCore 'articles' using configuration from instancedir /var/solr/data/articles, trusted=true
+2023-11-06 21:25:47.641 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.c.SolrCore Opening new SolrCore at [/var/solr/data/articles], dataDir=[/var/solr/data/articles/data/]
+2023-11-06 21:25:48.740 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2023-11-06 21:25:48.778 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2023-11-06 21:25:48.779 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2023-11-06 21:25:48.862 INFO  (qtp693267461-28) [ t:null-2] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699305948735} status=0 QTime=14
+2023-11-06 21:25:48.893 INFO  (qtp693267461-56) [ t:null-3] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699305948736} status=0 QTime=46
+2023-11-06 21:25:48.928 INFO  (qtp693267461-51) [ t:null-4] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699305948736} status=0 QTime=19
+2023-11-06 21:25:49.006 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2023-11-06 21:25:49.007 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.u.CommitTracker Soft AutoCommit: if uncommitted for 3000ms; 
+2023-11-06 21:25:49.193 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: /var/solr/data/articles/conf
+2023-11-06 21:25:49.222 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.s.DirectSolrSpellChecker init: {maxEdits=2, minPrefix=1, maxInspections=5, minQueryLength=4, accuracy=0.5, maxQueryFrequency=0.01, name=default, field=_text_, classname=solr.DirectSolrSpellChecker, distanceMeasure=internal}
+2023-11-06 21:25:49.236 INFO  (coreLoadExecutor-11-thread-1) [ x:articles] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2023-11-06 21:25:49.263 INFO  (searcherExecutor-13-thread-1-processing-articles) [ x:articles] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:25:49.263 INFO  (searcherExecutor-13-thread-1-processing-articles) [ x:articles] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
+2023-11-06 21:25:49.278 INFO  (searcherExecutor-13-thread-1-processing-articles) [ x:articles] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:25:53.956 INFO  (qtp693267461-51) [ t:null-6] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699305953869} status=0 QTime=1
+2023-11-06 21:25:53.991 INFO  (qtp693267461-27) [ t:null-7] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699305953869} status=0 QTime=35
+2023-11-06 21:25:54.035 INFO  (qtp693267461-55) [ t:null-8] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699305953869} status=0 QTime=29
+2023-11-06 21:25:56.290 INFO  (qtp693267461-51) [ t:null-9] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699305953869} status=0 QTime=1
+2023-11-06 21:25:56.374 INFO  (qtp693267461-50) [ t:null-10] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699305953869} status=0 QTime=76
+2023-11-06 21:25:57.425 INFO  (qtp693267461-30) [ x:articles t:null-12] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1699305956269} status=0 QTime=14
+2023-11-06 21:25:57.452 INFO  (qtp693267461-29) [ x:articles t:null-11] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1699305956269} status=0 QTime=42
+2023-11-06 21:25:58.491 INFO  (qtp693267461-32) [ x:articles t:null-14] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1699305953870&ts=1699305953870} status=503 QTime=6
+2023-11-06 21:25:58.520 INFO  (qtp693267461-31) [ x:articles t:null-13] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1699305956269} status=0 QTime=40
+2023-11-06 21:27:33.748 INFO  (qtp693267461-33) [ x:articles t:null-15] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{deleteByQuery=*:* (-1781851544533073920), commit=} 0 159
+2023-11-06 21:27:34.867 INFO  (qtp693267461-26) [ x:articles t:null-16] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=0 QTime=24
+2023-11-06 21:28:20.710 INFO  (qtp693267461-28) [ x:articles t:null-17] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{} 0 56
+2023-11-06 21:28:20.710 ERROR (qtp693267461-28) [ x:articles t:null-17] o.a.s.h.RequestHandlerBase Client exception => org.apache.solr.common.SolrException: ERROR: [doc=1/companies#0] unknown field 'article_id'
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:268)
+org.apache.solr.common.SolrException: ERROR: [doc=1/companies#0] unknown field 'article_id'
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:268) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:233) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1545) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1521) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1062) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:421) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:374) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:311) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:268) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:544) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:356) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:353) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:234) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.handleAdds(JsonLoader.java:553) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.processUpdate(JsonLoader.java:183) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.load(JsonLoader.java:151) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader.load(JsonLoader.java:86) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:102) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:100) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:29:06.883 ERROR (qtp693267461-29) [ x:articles t:null-18] o.a.s.s.ManagedIndexSchema Field type 'text_general' already exists.
+2023-11-06 21:29:06.883 ERROR (qtp693267461-29) [ x:articles t:null-18] o.a.s.s.SchemaManager Could not add field type. => org.apache.solr.common.SolrException: Field type 'text_general' already exists.
+	at org.apache.solr.schema.ManagedIndexSchema.newFieldType(ManagedIndexSchema.java:1426)
+org.apache.solr.common.SolrException: Field type 'text_general' already exists.
+	at org.apache.solr.schema.ManagedIndexSchema.newFieldType(ManagedIndexSchema.java:1426) ~[?:?]
+	at org.apache.solr.schema.SchemaManager$OpType$1.perform(SchemaManager.java:216) ~[?:?]
+	at org.apache.solr.schema.SchemaManager.doOperations(SchemaManager.java:116) ~[?:?]
+	at org.apache.solr.schema.SchemaManager.performOperations(SchemaManager.java:96) ~[?:?]
+	at org.apache.solr.handler.SchemaHandler.handleRequestBody(SchemaHandler.java:91) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:29:06.884 ERROR (qtp693267461-29) [ x:articles t:null-18] o.a.s.h.RequestHandlerBase Client exception => org.apache.solr.api.ApiBag$ExceptionWithErrObject: error processing commands, errors: [{add-field-type={name=text_general, class=solr.TextField, analyzer={tokenizer={class=solr.StandardTokenizerFactory}, filters=[{class=solr.LowerCaseFilterFactory}]}}, errorMessages=[Field type 'text_general' already exists.
+]}, {fields={name=id, type=string, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=title, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=date, type=tdate, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=text, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keypoints, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=companies, type=nested, multiValued=true, indexed=true, stored=true, fields=[{name=article_id, type=string, indexed=true, stored=true}, {name=tag, type=string, indexed=true, stored=true}, {name=name, type=string, indexed=true, stored=true}, {name=description, type=text_general, indexed=true, stored=true}, {name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}]}, errorMessages=[No such operation : fields]}], 
+org.apache.solr.api.ApiBag$ExceptionWithErrObject: error processing commands, errors: [{add-field-type={name=text_general, class=solr.TextField, analyzer={tokenizer={class=solr.StandardTokenizerFactory}, filters=[{class=solr.LowerCaseFilterFactory}]}}, errorMessages=[Field type 'text_general' already exists.
+]}, {fields={name=id, type=string, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=title, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=date, type=tdate, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=text, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keypoints, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=companies, type=nested, multiValued=true, indexed=true, stored=true, fields=[{name=article_id, type=string, indexed=true, stored=true}, {name=tag, type=string, indexed=true, stored=true}, {name=name, type=string, indexed=true, stored=true}, {name=description, type=text_general, indexed=true, stored=true}, {name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}]}, errorMessages=[No such operation : fields]}], 
+	at org.apache.solr.handler.SchemaHandler.handleRequestBody(SchemaHandler.java:93) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:29:06.884 INFO  (qtp693267461-29) [ x:articles t:null-18] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=400 QTime=14
+2023-11-06 21:29:08.148 INFO  (qtp693267461-50) [ x:articles t:null-19] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{} 0 4
+2023-11-06 21:29:08.148 ERROR (qtp693267461-50) [ x:articles t:null-19] o.a.s.h.RequestHandlerBase Client exception => org.apache.solr.common.SolrException: ERROR: [doc=1/companies#0] unknown field 'article_id'
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:268)
+org.apache.solr.common.SolrException: ERROR: [doc=1/companies#0] unknown field 'article_id'
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:268) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:233) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1545) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1521) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1062) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:421) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:374) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:311) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:268) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:544) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:356) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:353) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:234) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.handleAdds(JsonLoader.java:553) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.processUpdate(JsonLoader.java:183) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.load(JsonLoader.java:151) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader.load(JsonLoader.java:86) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:102) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:100) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:29:41.911 INFO  (searcherExecutor-13-thread-1-processing-articles null-20) [ x:articles t:null-20] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:29:41.936 INFO  (searcherExecutor-13-thread-1-processing-articles null-20) [ x:articles t:null-20] o.a.s.c.SolrCore Registered new searcher autowarm time: 16 ms
+2023-11-06 21:29:41.945 INFO  (qtp693267461-55) [ x:articles t:null-20] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{deleteByQuery=*:* (-1781851678905991168), commit=} 0 127
+2023-11-06 21:29:43.046 INFO  (qtp693267461-30) [ x:articles t:null-21] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=0 QTime=4
+2023-11-06 21:29:46.483 INFO  (qtp693267461-56) [ t:null-23] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306186399} status=0 QTime=1
+2023-11-06 21:29:46.517 INFO  (qtp693267461-27) [ t:null-24] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306186399} status=0 QTime=34
+2023-11-06 21:29:47.612 INFO  (qtp693267461-28) [ x:articles t:null-25] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1699306186465} status=0 QTime=6
+2023-11-06 21:29:47.633 INFO  (qtp693267461-32) [ x:articles t:null-26] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1699306186465} status=0 QTime=28
+2023-11-06 21:29:48.689 INFO  (qtp693267461-29) [ x:articles t:null-28] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1699306186399&ts=1699306186399} status=503 QTime=0
+2023-11-06 21:29:48.717 INFO  (qtp693267461-50) [ x:articles t:null-27] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1699306186465} status=0 QTime=28
+2023-11-06 21:29:50.952 INFO  (qtp693267461-28) [ t:null-29] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306186399} status=0 QTime=0
+2023-11-06 21:29:50.983 INFO  (qtp693267461-56) [ x:articles t:null-32] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1699306190917} status=0 QTime=15
+2023-11-06 21:29:50.986 INFO  (qtp693267461-32) [ t:null-30] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306186399} status=0 QTime=34
+2023-11-06 21:29:51.012 INFO  (qtp693267461-27) [ x:articles t:null-31] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1699306186465} status=0 QTime=59
+2023-11-06 21:29:51.110 INFO  (qtp693267461-57) [ x:articles t:null-33] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1699306186465} status=0 QTime=6
+2023-11-06 21:36:22.107 INFO  (qtp693267461-56) [ x:articles t:null-34] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{deleteByQuery=*:* (-1781852098612166656), commit=} 0 28
+2023-11-06 21:36:23.208 INFO  (qtp693267461-30) [ x:articles t:null-35] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=0 QTime=4
+2023-11-06 21:36:33.217 INFO  (qtp693267461-51) [ t:null-37] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306186399} status=0 QTime=2
+2023-11-06 21:36:33.231 INFO  (qtp693267461-57) [ x:articles t:null-36] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1699306186465} status=0 QTime=17
+2023-11-06 21:36:33.271 INFO  (qtp693267461-55) [ x:articles t:null-38] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1699306186465} status=0 QTime=3
+2023-11-06 21:36:34.291 INFO  (qtp693267461-29) [ x:articles t:null-39] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1699306190917} status=0 QTime=0
+2023-11-06 21:36:34.309 INFO  (qtp693267461-32) [ t:null-40] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306186399} status=0 QTime=19
+2023-11-06 21:36:37.607 INFO  (qtp693267461-55) [ t:null-41] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306186399} status=0 QTime=0
+2023-11-06 21:36:37.634 INFO  (qtp693267461-27) [ x:articles t:null-44] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1699306190917} status=0 QTime=1
+2023-11-06 21:36:37.653 INFO  (qtp693267461-51) [ x:articles t:null-43] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1699306186465} status=0 QTime=29
+2023-11-06 21:36:37.665 INFO  (qtp693267461-57) [ t:null-42] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306186399} status=0 QTime=41
+2023-11-06 21:36:37.747 INFO  (qtp693267461-55) [ x:articles t:null-45] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1699306186465} status=0 QTime=7
+2023-11-06 21:36:49.331 INFO  (qtp693267461-51) [ t:null-47] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306186399} status=0 QTime=3
+2023-11-06 21:36:49.340 INFO  (qtp693267461-33) [ x:articles t:null-48] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&show=index&wt=json&_=1699306186465} status=0 QTime=11
+2023-11-06 21:36:49.369 INFO  (qtp693267461-29) [ t:null-46] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306186399} status=0 QTime=42
+2023-11-06 21:36:49.372 INFO  (qtp693267461-32) [ x:articles t:null-49] o.a.s.c.S.Request webapp=/solr path=/replication params={wt=json&command=details&_=1699306186465} status=0 QTime=43
+2023-11-06 21:36:50.460 INFO  (qtp693267461-26) [ x:articles t:null-51] o.a.s.c.S.Request webapp=/solr path=/admin/ping params={action=status&wt=json&_=1699306186399&ts=1699306186399} status=503 QTime=0
+2023-11-06 21:36:50.482 INFO  (qtp693267461-28) [ x:articles t:null-50] o.a.s.c.S.Request webapp=/solr path=/admin/system params={wt=json&_=1699306186465} status=0 QTime=23
+2023-11-06 21:36:57.037 ERROR (qtp693267461-60) [ x:articles t:null-52] o.a.s.s.ManagedIndexSchema Field type 'text_general' already exists.
+2023-11-06 21:36:57.038 ERROR (qtp693267461-60) [ x:articles t:null-52] o.a.s.s.SchemaManager Could not add field type. => org.apache.solr.common.SolrException: Field type 'text_general' already exists.
+	at org.apache.solr.schema.ManagedIndexSchema.newFieldType(ManagedIndexSchema.java:1426)
+org.apache.solr.common.SolrException: Field type 'text_general' already exists.
+	at org.apache.solr.schema.ManagedIndexSchema.newFieldType(ManagedIndexSchema.java:1426) ~[?:?]
+	at org.apache.solr.schema.SchemaManager$OpType$1.perform(SchemaManager.java:216) ~[?:?]
+	at org.apache.solr.schema.SchemaManager.doOperations(SchemaManager.java:116) ~[?:?]
+	at org.apache.solr.schema.SchemaManager.performOperations(SchemaManager.java:96) ~[?:?]
+	at org.apache.solr.handler.SchemaHandler.handleRequestBody(SchemaHandler.java:91) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:36:57.038 ERROR (qtp693267461-60) [ x:articles t:null-52] o.a.s.h.RequestHandlerBase Client exception => org.apache.solr.api.ApiBag$ExceptionWithErrObject: error processing commands, errors: [{add-field-type={name=text_general, class=solr.TextField, analyzer={tokenizer={class=solr.StandardTokenizerFactory}, filters=[{class=solr.LowerCaseFilterFactory}]}}, errorMessages=[Field type 'text_general' already exists.
+]}, {fields={name=id, type=string, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=title, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=date, type=tdate, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=text, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keypoints, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=companies, type=nested, multiValued=true, indexed=true, stored=true, fields=[{name=article_id, type=string, indexed=true, stored=true}, {name=tag, type=string, indexed=true, stored=true}, {name=name, type=string, indexed=true, stored=true}, {name=description, type=text_general, indexed=true, stored=true}, {name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}]}, errorMessages=[No such operation : fields]}], 
+org.apache.solr.api.ApiBag$ExceptionWithErrObject: error processing commands, errors: [{add-field-type={name=text_general, class=solr.TextField, analyzer={tokenizer={class=solr.StandardTokenizerFactory}, filters=[{class=solr.LowerCaseFilterFactory}]}}, errorMessages=[Field type 'text_general' already exists.
+]}, {fields={name=id, type=string, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=title, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=date, type=tdate, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=text, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keypoints, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=companies, type=nested, multiValued=true, indexed=true, stored=true, fields=[{name=article_id, type=string, indexed=true, stored=true}, {name=tag, type=string, indexed=true, stored=true}, {name=name, type=string, indexed=true, stored=true}, {name=description, type=text_general, indexed=true, stored=true}, {name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}]}, errorMessages=[No such operation : fields]}], 
+	at org.apache.solr.handler.SchemaHandler.handleRequestBody(SchemaHandler.java:93) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:36:57.038 INFO  (qtp693267461-60) [ x:articles t:null-52] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=400 QTime=2
+2023-11-06 21:36:58.221 INFO  (qtp693267461-30) [ x:articles t:null-53] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{} 0 5
+2023-11-06 21:36:58.221 ERROR (qtp693267461-30) [ x:articles t:null-53] o.a.s.h.RequestHandlerBase Client exception => org.apache.solr.common.SolrException: ERROR: [doc=1/companies#0] unknown field 'article_id'
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:268)
+org.apache.solr.common.SolrException: ERROR: [doc=1/companies#0] unknown field 'article_id'
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:268) ~[?:?]
+	at org.apache.solr.update.DocumentBuilder.toDocument(DocumentBuilder.java:100) ~[?:?]
+	at org.apache.solr.update.AddUpdateCommand.lambda$makeLuceneDocs$0(AddUpdateCommand.java:233) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source) ~[?:?]
+	at java.util.ArrayList$ArrayListSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.lambda$initPartialTraversalState$0(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.fillBuffer(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$AbstractWrappingSpliterator.doAdvance(Unknown Source) ~[?:?]
+	at java.util.stream.StreamSpliterators$WrappingSpliterator.tryAdvance(Unknown Source) ~[?:?]
+	at java.util.Spliterators$1Adapter.hasNext(Unknown Source) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:233) ~[?:?]
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:432) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1545) ~[?:?]
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1521) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.updateDocOrDocValues(DirectUpdateHandler2.java:1062) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.doNormalUpdate(DirectUpdateHandler2.java:421) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc0(DirectUpdateHandler2.java:374) ~[?:?]
+	at org.apache.solr.update.DirectUpdateHandler2.addDoc(DirectUpdateHandler2.java:311) ~[?:?]
+	at org.apache.solr.update.processor.RunUpdateProcessorFactory$RunUpdateProcessor.processAdd(RunUpdateProcessorFactory.java:76) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.NestedUpdateProcessorFactory$NestedUpdateProcessor.processAdd(NestedUpdateProcessorFactory.java:79) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doLocalAdd(DistributedUpdateProcessor.java:268) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.doVersionAdd(DistributedUpdateProcessor.java:544) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.lambda$versionAdd$0(DistributedUpdateProcessor.java:356) ~[?:?]
+	at org.apache.solr.update.VersionBucket.runWithLock(VersionBucket.java:51) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.versionAdd(DistributedUpdateProcessor.java:353) ~[?:?]
+	at org.apache.solr.update.processor.DistributedUpdateProcessor.processAdd(DistributedUpdateProcessor.java:234) ~[?:?]
+	at org.apache.solr.update.processor.LogUpdateProcessorFactory$LogUpdateProcessor.processAdd(LogUpdateProcessorFactory.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.AddSchemaFieldsUpdateProcessorFactory$AddSchemaFieldsUpdateProcessor.processAdd(AddSchemaFieldsUpdateProcessorFactory.java:535) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldNameMutatingUpdateProcessorFactory$1.processAdd(FieldNameMutatingUpdateProcessorFactory.java:71) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.FieldMutatingUpdateProcessor.processAdd(FieldMutatingUpdateProcessor.java:111) ~[?:?]
+	at org.apache.solr.update.processor.UpdateRequestProcessor.processAdd(UpdateRequestProcessor.java:54) ~[?:?]
+	at org.apache.solr.update.processor.AbstractDefaultValueUpdateProcessorFactory$DefaultValueUpdateProcessor.processAdd(AbstractDefaultValueUpdateProcessorFactory.java:82) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.handleAdds(JsonLoader.java:553) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.processUpdate(JsonLoader.java:183) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader$SingleThreadedJsonLoader.load(JsonLoader.java:151) ~[?:?]
+	at org.apache.solr.handler.loader.JsonLoader.load(JsonLoader.java:86) ~[?:?]
+	at org.apache.solr.handler.UpdateRequestHandler$1.load(UpdateRequestHandler.java:102) ~[?:?]
+	at org.apache.solr.handler.ContentStreamHandlerBase.handleRequestBody(ContentStreamHandlerBase.java:100) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:38:29.317 INFO  (qtp693267461-32) [ t:null-56] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306186399} status=0 QTime=5
+2023-11-06 21:38:29.317 INFO  (qtp693267461-57) [ x:articles t:null-57] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1699306190917} status=0 QTime=4
+2023-11-06 21:38:29.340 INFO  (qtp693267461-56) [ x:articles t:null-55] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1699306186465} status=0 QTime=28
+2023-11-06 21:38:29.349 INFO  (qtp693267461-29) [ t:null-54] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306186399} status=0 QTime=38
+2023-11-06 21:38:29.443 INFO  (qtp693267461-33) [ x:articles t:null-58] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1699306186465} status=0 QTime=5
+2023-11-06 21:38:33.024 INFO  (qtp693267461-33) [ t:null-61] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306712907} status=0 QTime=1
+2023-11-06 21:38:33.035 INFO  (qtp693267461-51) [ x:articles t:null-63] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1699306712999} status=0 QTime=1
+2023-11-06 21:38:33.040 INFO  (qtp693267461-28) [ x:articles t:null-62] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1699306712999} status=0 QTime=10
+2023-11-06 21:38:33.054 INFO  (qtp693267461-26) [ t:null-60] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306712907} status=0 QTime=30
+2023-11-06 21:38:33.141 INFO  (qtp693267461-32) [ x:articles t:null-64] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1699306712999} status=0 QTime=4
+2023-11-06 21:40:26.317 INFO  (searcherExecutor-13-thread-1-processing-articles null-65) [ x:articles t:null-65] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:26.334 INFO  (searcherExecutor-13-thread-1-processing-articles null-65) [ x:articles t:null-65] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:26.336 INFO  (qtp693267461-33) [ x:articles t:null-65] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{deleteByQuery=*:* (-1781852354641920000), commit=} 0 87
+2023-11-06 21:40:27.436 INFO  (qtp693267461-26) [ x:articles t:null-66] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=0 QTime=3
+2023-11-06 21:40:32.695 ERROR (qtp693267461-32) [ x:articles t:null-67] o.a.s.s.ManagedIndexSchema Field type 'text_general' already exists.
+2023-11-06 21:40:32.695 ERROR (qtp693267461-32) [ x:articles t:null-67] o.a.s.s.SchemaManager Could not add field type. => org.apache.solr.common.SolrException: Field type 'text_general' already exists.
+	at org.apache.solr.schema.ManagedIndexSchema.newFieldType(ManagedIndexSchema.java:1426)
+org.apache.solr.common.SolrException: Field type 'text_general' already exists.
+	at org.apache.solr.schema.ManagedIndexSchema.newFieldType(ManagedIndexSchema.java:1426) ~[?:?]
+	at org.apache.solr.schema.SchemaManager$OpType$1.perform(SchemaManager.java:216) ~[?:?]
+	at org.apache.solr.schema.SchemaManager.doOperations(SchemaManager.java:116) ~[?:?]
+	at org.apache.solr.schema.SchemaManager.performOperations(SchemaManager.java:96) ~[?:?]
+	at org.apache.solr.handler.SchemaHandler.handleRequestBody(SchemaHandler.java:91) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:40:32.695 ERROR (qtp693267461-32) [ x:articles t:null-67] o.a.s.h.RequestHandlerBase Client exception => org.apache.solr.api.ApiBag$ExceptionWithErrObject: error processing commands, errors: [{add-field-type={name=text_general, class=solr.TextField, analyzer={tokenizer={class=solr.StandardTokenizerFactory}, filters=[{class=solr.LowerCaseFilterFactory}]}}, errorMessages=[Field type 'text_general' already exists.
+]}, {fields={name=id, type=string, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=title, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=date, type=tdate, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=text, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keypoints, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=companies, type=nested, multiValued=true, indexed=true, stored=true, fields=[{name=article_id, type=string, indexed=true, stored=true}, {name=tag, type=string, indexed=true, stored=true}, {name=name, type=string, indexed=true, stored=true}, {name=description, type=text_general, indexed=true, stored=true}, {name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}]}, errorMessages=[No such operation : fields]}], 
+org.apache.solr.api.ApiBag$ExceptionWithErrObject: error processing commands, errors: [{add-field-type={name=text_general, class=solr.TextField, analyzer={tokenizer={class=solr.StandardTokenizerFactory}, filters=[{class=solr.LowerCaseFilterFactory}]}}, errorMessages=[Field type 'text_general' already exists.
+]}, {fields={name=id, type=string, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=title, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=date, type=tdate, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=text, type=text_general, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keypoints, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}, errorMessages=[No such operation : fields]}, {fields={name=companies, type=nested, multiValued=true, indexed=true, stored=true, fields=[{name=article_id, type=string, indexed=true, stored=true}, {name=tag, type=string, indexed=true, stored=true}, {name=name, type=string, indexed=true, stored=true}, {name=description, type=text_general, indexed=true, stored=true}, {name=keywords, type=text_general, multiValued=true, indexed=true, stored=true}]}, errorMessages=[No such operation : fields]}], 
+	at org.apache.solr.handler.SchemaHandler.handleRequestBody(SchemaHandler.java:93) ~[?:?]
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:226) ~[?:?]
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:2901) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.executeCoreRequest(HttpSolrCall.java:875) ~[?:?]
+	at org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:561) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.dispatch(SolrDispatchFilter.java:262) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.lambda$doFilter$0(SolrDispatchFilter.java:219) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.traceHttpRequestExecution2(ServletUtils.java:246) ~[?:?]
+	at org.apache.solr.servlet.ServletUtils.rateLimitRequest(ServletUtils.java:215) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:213) ~[?:?]
+	at org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:195) ~[?:?]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:210) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1635) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:527) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:131) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:598) ~[jetty-security-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:223) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1384) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:149) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.InetAccessHandler.handle(InetAccessHandler.java:228) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:141) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:301) ~[jetty-rewrite-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:822) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-10.0.17.jar:10.0.17]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-10.0.17.jar:10.0.17]
+	at java.lang.Thread.run(Unknown Source) [?:?]
+2023-11-06 21:40:32.695 INFO  (qtp693267461-32) [ x:articles t:null-67] o.a.s.c.S.Request webapp=/solr path=/schema params={} status=400 QTime=1
+2023-11-06 21:40:34.736 INFO  (searcherExecutor-13-thread-1-processing-articles null-68) [ x:articles t:null-68] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:34.757 INFO  (searcherExecutor-13-thread-1-processing-articles null-68) [ x:articles t:null-68] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:34.760 INFO  (qtp693267461-27) [ x:articles t:null-68] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[1 (1781852362654089216)], commit=} 0 871
+2023-11-06 21:40:35.499 INFO  (searcherExecutor-13-thread-1-processing-articles null-69) [ x:articles t:null-69] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:35.521 INFO  (searcherExecutor-13-thread-1-processing-articles null-69) [ x:articles t:null-69] o.a.s.c.SolrCore Registered new searcher autowarm time: 1 ms
+2023-11-06 21:40:35.526 INFO  (qtp693267461-28) [ x:articles t:null-69] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[2 (1781852363587321856)], commit=} 0 746
+2023-11-06 21:40:36.243 INFO  (searcherExecutor-13-thread-1-processing-articles null-70) [ x:articles t:null-70] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:36.254 INFO  (searcherExecutor-13-thread-1-processing-articles null-70) [ x:articles t:null-70] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:36.256 INFO  (qtp693267461-27) [ x:articles t:null-70] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[3 (1781852364391579648)], commit=} 0 710
+2023-11-06 21:40:36.909 INFO  (searcherExecutor-13-thread-1-processing-articles null-71) [ x:articles t:null-71] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:36.924 INFO  (searcherExecutor-13-thread-1-processing-articles null-71) [ x:articles t:null-71] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:36.926 INFO  (qtp693267461-28) [ x:articles t:null-71] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[4 (1781852365147602944)], commit=} 0 658
+2023-11-06 21:40:37.595 INFO  (searcherExecutor-13-thread-1-processing-articles null-72) [ x:articles t:null-72] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:37.607 INFO  (searcherExecutor-13-thread-1-processing-articles null-72) [ x:articles t:null-72] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:37.612 INFO  (qtp693267461-27) [ x:articles t:null-72] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[5 (1781852365850148864)], commit=} 0 675
+2023-11-06 21:40:38.473 INFO  (searcherExecutor-13-thread-1-processing-articles null-73) [ x:articles t:null-73] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:38.489 INFO  (searcherExecutor-13-thread-1-processing-articles null-73) [ x:articles t:null-73] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:38.491 INFO  (qtp693267461-28) [ x:articles t:null-73] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[6 (1781852366571569152)], commit=} 0 866
+2023-11-06 21:40:39.371 INFO  (searcherExecutor-13-thread-1-processing-articles null-74) [ x:articles t:null-74] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:39.383 INFO  (searcherExecutor-13-thread-1-processing-articles null-74) [ x:articles t:null-74] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:39.385 INFO  (qtp693267461-27) [ x:articles t:null-74] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[7 (1781852367493267456)], commit=} 0 881
+2023-11-06 21:40:40.283 INFO  (searcherExecutor-13-thread-1-processing-articles null-75) [ x:articles t:null-75] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:40.294 INFO  (searcherExecutor-13-thread-1-processing-articles null-75) [ x:articles t:null-75] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:40.297 INFO  (qtp693267461-28) [ x:articles t:null-75] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[8 (1781852368427548672)], commit=} 0 900
+2023-11-06 21:40:41.237 INFO  (searcherExecutor-13-thread-1-processing-articles null-76) [ x:articles t:null-76] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:41.246 INFO  (searcherExecutor-13-thread-1-processing-articles null-76) [ x:articles t:null-76] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:41.250 INFO  (qtp693267461-27) [ x:articles t:null-76] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[9 (1781852369384898560)], commit=} 0 940
+2023-11-06 21:40:42.269 INFO  (searcherExecutor-13-thread-1-processing-articles null-77) [ x:articles t:null-77] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2023-11-06 21:40:42.276 INFO  (searcherExecutor-13-thread-1-processing-articles null-77) [ x:articles t:null-77] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2023-11-06 21:40:42.279 INFO  (qtp693267461-28) [ x:articles t:null-77] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[10 (1781852370383142912)], commit=} 0 1018
+2023-11-06 21:40:42.293 INFO  (qtp693267461-27) [ x:articles t:null-78] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{commit=, commit=} 0 4
+2023-11-06 21:40:50.017 INFO  (qtp693267461-28) [ t:null-80] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306849917} status=0 QTime=0
+2023-11-06 21:40:50.038 INFO  (qtp693267461-33) [ t:null-81] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306849917} status=0 QTime=21
+2023-11-06 21:40:51.105 INFO  (qtp693267461-30) [ x:articles t:null-82] o.a.s.c.S.Request webapp=/solr path=/config params={wt=json&_=1699306849992} status=0 QTime=1
+2023-11-06 21:40:51.114 INFO  (qtp693267461-60) [ x:articles t:null-83] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={show=schema&wt=json&_=1699306849992} status=0 QTime=8
+2023-11-06 21:40:51.185 INFO  (qtp693267461-28) [ x:articles t:null-84] o.a.s.c.S.Request webapp=/solr path=/admin/luke params={numTerms=0&wt=json&_=1699306849992} status=0 QTime=27
+2023-11-06 21:41:00.520 INFO  (qtp693267461-60) [ t:null-86] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306849917} status=0 QTime=1
+2023-11-06 21:41:00.521 INFO  (qtp693267461-62) [ x:articles t:null-87] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1699306860476} status=0 QTime=0
+2023-11-06 21:41:00.538 INFO  (qtp693267461-33) [ t:null-85] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306849917} status=0 QTime=21
+2023-11-06 21:41:04.574 INFO  (qtp693267461-29) [ x:articles t:null-88] o.a.s.c.S.Request webapp=/solr path=/config/params params={wt=json&_=1699306860476} status=0 QTime=0
+2023-11-06 21:41:04.574 INFO  (qtp693267461-30) [ t:null-89] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1699306849917} status=0 QTime=0
+2023-11-06 21:41:04.601 INFO  (qtp693267461-55) [ t:null-90] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1699306849917} status=0 QTime=27
+2023-11-06 21:41:04.618 INFO  (qtp693267461-28) [ x:articles t:null-91] o.a.s.c.S.Request webapp=/solr path=/select params={q=*:*&indent=true&q.op=OR&useParams=&_=1699306860475} hits=45 status=0 QTime=44
