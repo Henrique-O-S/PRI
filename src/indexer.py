@@ -4,10 +4,10 @@ import requests
 from Database import Database
 
 class Indexer:
-    def __init__(self, solr_url):
+    def __init__(self, solr_url, db_file = "sqlite:///data/articles.db"):
         self.solr_url = solr_url
-        self.solr = pysolr.Solr(self.solr_url, always_commit=True)
-        self.db = Database()
+        self.solr = pysolr.Solr(self.solr_url, always_commit=True, timeout=10)
+        self.db = Database(db_file)
 
     def create_schema(self, schema_file_path):
         with open(schema_file_path, 'r') as schema_file:
@@ -75,3 +75,29 @@ class Indexer:
         else:
             print(f"Failed to clear the schema. Status code: {response.status_code}")
             print(response.text)
+
+    def query_articles(self, query_value = "*", query_fields = [], query_operator = ' OR ', return_fields = [], rows = 10):
+        """
+        The query must be of the type: 'field:value'.
+        We can also use boolean operators like AND, OR, NOT. EX: 'field1:value1 AND field2:value2'
+        The default query is '*:*' which returns all the documents.
+        It is NOT possible to have a query like: "*:value", but "field:*" is possible.
+        """
+
+        if query_fields == []:
+            query = str("*:" + ','.join(query_value))
+        else:
+            query = str(query_operator.join([f"{field}:{value}" for field, value in zip(query_fields, query_value)]))
+
+
+
+        if return_fields == []:
+            results = self.solr.search(query,**{
+                'rows': rows,
+            })
+        else:
+            results = self.solr.search(query, **{
+                'rows': rows,
+                'fl': ','.join(return_fields),
+            })
+        return results.docs
