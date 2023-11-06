@@ -3,7 +3,7 @@ import json
 import requests
 from Database import Database
 
-class Indexer:
+class SolrManager:
     def __init__(self, solr_url, db_file = "sqlite:///data/articles.db"):
         self.solr_url = solr_url
         self.solr = pysolr.Solr(self.solr_url, always_commit=True, timeout=10)
@@ -28,29 +28,28 @@ class Indexer:
 
     def index_articles(self):
         articles = self.db.get_all_articles()
+        # test: indexing 10 articles
+        counter = 10
         for article in articles:
-            solr_document = {
-                'id': article.id,
+            if counter == 0:
+                break
+            document = {
                 'title': article.title,
                 'date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
                 'text': article.text,
                 'keypoints': article.keypoints,
-                'keywords': article.keywords,
+                'keywords': article.keywords
             }
-            self.solr.add([solr_document])
-        self.solr.commit()
-
-    def index_companies(self):
-        companies = self.db.get_all_companies()
-        for company in companies:
-            solr_document = {
-                'id': company.id,
-                'tag': company.tag,
-                'name': company.name,
-                'description': company.description,
-                'keywords': company.keywords,
-            }
-            self.solr.add([solr_document])
+            companies = self.db.get_article_companies(article.id) # TO DO: create this function in db
+            document['companies'] = companies
+            document['companies'] = [{
+                    'tag': company.name,
+                    'name': company.link,
+                    'description': company.description,
+                    'keywords': company.keywords
+                } for company in companies]
+            self.solr.add([document])
+            counter -= 1
         self.solr.commit()
 
     def clear_data(self):
