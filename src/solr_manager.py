@@ -1,25 +1,26 @@
 import pysolr
 import json
 import requests
+import os
+import subprocess
+import time
 from Database import Database
 
 class SolrManager:
-    def __init__(self, solr_url, db_file = "sqlite:///data/articles.db"):
-        self.solr_url = solr_url
-        self.solr = pysolr.Solr(self.solr_url, always_commit=True, timeout=10)
+    def __init__(self, url, core, db_file = "sqlite:///data/articles.db"):
+        self.url = url
+        self.core = core
+        self.solr = pysolr.Solr(self.url + self.core, always_commit=True, timeout=10)
         self.db = Database(db_file)
 
-    def create_schema(self, schema_file_path):
+    def submit_schema(self, schema_file_path):
         with open(schema_file_path, 'r') as schema_file:
             schema_json = json.load(schema_file)
-
-        api_url = f"{self.solr_url}/schema"
-
+        api_url = f"{self.url + self.core}/schema"
         headers = {'Content-type': 'application/json'}
         with open(schema_file_path, 'r') as schema_file:
             schema_json = schema_file.read()
         response = requests.post(api_url, data=schema_json, headers=headers)
-
         if response.status_code == 200:
             print("Schema uploaded successfully.")
         else:
@@ -43,11 +44,10 @@ class SolrManager:
                 'keywords': article.keywords,
                 'companies': [
                     {
-                        #'article_id': article.id,
-                        'tag': company.name,
-                        'name': company.link,
-                        'description': company.description,
-                        'keywords': company.keywords
+                        'company_tag': company.tag,
+                        'company_name': company.name,
+                        'company_description': company.description,
+                        'company_keywords': company.keywords
                     }
                     for company in companies
                 ]
@@ -58,27 +58,32 @@ class SolrManager:
         self.solr.commit()
         print("Articles indexed successfully.")
 
-    def clear_data(self):
-        self.solr_url = self.solr_url.rstrip('/')
-        clear_url = f"{self.solr_url}/update?commit=true"
-        data = '<delete><query>*:*</query></delete>'
-        headers = {'Content-type': 'text/xml; charset=utf-8'}
-        response = requests.post(clear_url, data=data, headers=headers)
-
-        if response.status_code == 200:
-            print("Data cleared successfully.")
-        else:
-            print(f"Failed to clear data. Status code: {response.status_code}")
-            print(response.text)
-
-    def clear_schema(self):
-        api_url = f"{self.solr_url}/schema"
-        response = requests.delete(api_url)
-        if response.status_code == 200:
-            print("Schema cleared successfully.")
-        else:
-            print(f"Failed to clear the schema. Status code: {response.status_code}")
-            print(response.text)
+    def delete_core(self):
+        try:
+            unload_url = f"{self.url}admin/cores?action=UNLOAD&core={self.core}&deleteDataDir=true&deleteInstanceDir=true"
+            response = requests.get(unload_url)
+            if response.status_code == 200:
+                print(f"Core {self.core} unloaded successfully.")
+            else:
+                print(f"Failed to unload core {self.core}. Status code: {response.status_code}")
+                print(response.text)
+                return
+            solr_data_dir = "../solr_data"
+            if os.path.exists(solr_data_dir):
+                subprocess.run(["rmdir", "/s", "/q", solr_data_dir], shell=True)
+            subprocess.run(["docker-compose", "down"], cwd="../")
+            time.sleep(5)
+            print(f"Solr container with core {self.core} and associated data deleted successfully.")
+        except Exception as e:
+            print(f"Failed to delete Solr core and data: {str(e)}")
+            
+    def create_core(self):
+        try:
+            subprocess.run(["docker-compose", "up", "-d"], cwd="../")
+            time.sleep(5)
+            print(f"Solr container with core {self.core} started successfully.")
+        except Exception as e:
+            print(f"Failed to start Solr container with core {self.core}: {str(e)}")
 
     def query_articles(self, query_value = "*", query_fields = [], query_operator = ' OR ', return_fields = [], rows = 10):
         """
@@ -87,13 +92,10 @@ class SolrManager:
         The default query is '*:*' which returns all the documents.
         It is NOT possible to have a query like: "*:value", but "field:*" is possible.
         """
-
         if query_fields == []:
             query = str("*:" + ','.join(query_value))
         else:
             query = str(query_operator.join([f"{field}:{value}" for field, value in zip(query_fields, query_value)]))
-
-
 
         if return_fields == []:
             results = self.solr.search(query,**{

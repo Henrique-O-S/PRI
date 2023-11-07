@@ -1,28 +1,37 @@
 {
-  "add-field-type": {
-    "name": "text_general",
-    "class": "solr.TextField",
-    "analyzer": {
-      "tokenizer": {
-        "class": "solr.StandardTokenizerFactory"
-      },
-      "filters": [
-        {
-          "class": "solr.LowerCaseFilterFactory"
-        }
-      ]
-    }
-  },
-  "fields": [
+  "add-field-type": [
     {
-      "name": "id",
-      "type": "string",
-      "indexed": true,
-      "stored": true
+      "name": "text_type",
+      "class": "solr.TextField",
+      "analyzer": {
+        "tokenizer": {
+          "class": "solr.StandardTokenizerFactory"
+        },
+        "filters": [
+          {
+            "class": "solr.LowerCaseFilterFactory"
+          }
+        ]
+      }
     },
     {
+      "name": "tdate",
+      "class": "solr.TrieDateField",
+      "precisionStep": 6
+    }
+  ],
+  "add-dynamic-field": [
+    {
+      "name": "company_*",
+      "type": "text_type",
+      "indexed": true,
+      "stored": true
+    }
+  ],
+  "add-field": [
+    {
       "name": "title",
-      "type": "text_general",
+      "type": "text_type",
       "indexed": true,
       "stored": true
     },
@@ -34,63 +43,55 @@
     },
     {
       "name": "text",
-      "type": "text_general",
+      "type": "text_type",
       "indexed": true,
       "stored": true
     },
     {
       "name": "keypoints",
-      "type": "text_general",
+      "type": "text_type",
       "multiValued": true,
       "indexed": true,
       "stored": true
     },
     {
       "name": "keywords",
-      "type": "text_general",
+      "type": "text_type",
+      "multiValued": true,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "company_tag",
+      "type": "string",
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "company_name",
+      "type": "string",
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "company_description",
+      "type": "text_type",
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "company_keywords",
+      "type": "text_type",
       "multiValued": true,
       "indexed": true,
       "stored": true
     },
     {
       "name": "companies",
-      "type": "nested",
+      "type": "text_type",
       "multiValued": true,
       "indexed": true,
-      "stored": true,
-      "fields": [
-        {
-          "name": "article_id",
-          "type": "string",
-          "indexed": true,
-          "stored": true
-        },
-        {
-          "name": "tag",
-          "type": "string",
-          "indexed": true,
-          "stored": true
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "indexed": true,
-          "stored": true
-        },
-        {
-          "name": "description",
-          "type": "text_general",
-          "indexed": true,
-          "stored": true
-        },
-        {
-          "name": "keywords",
-          "type": "text_general",
-          "multiValued": true,
-          "indexed": true,
-          "stored": true
-        }
-      ]
+      "stored": true
     }
   ]
 }
