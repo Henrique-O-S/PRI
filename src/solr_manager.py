@@ -10,8 +10,45 @@ class SolrManager:
     def __init__(self, url, core, db_file = "sqlite:///data/articles.db"):
         self.url = url
         self.core = core
-        self.solr = pysolr.Solr(self.url + self.core, always_commit=True, timeout=10)
+        self.solr = None
+        self.build()
         self.db = Database(db_file)
+
+    def build(self):
+        try:
+            subprocess.run(["docker-compose", "up", "-d"], cwd="../")
+            time.sleep(5)
+            self.solr = pysolr.Solr(self.url + self.core, always_commit=True, timeout=10)
+            print(f"Solr container with core {self.core} started successfully.")
+        except Exception as e:
+            print(f"Failed to start Solr container with core {self.core}: {str(e)}")
+
+    def close(self):
+        try:
+            subprocess.run(["docker-compose", "down"], cwd="../")
+            time.sleep(5)
+            print(f"Solr container with core {self.core} stopped successfully.")
+        except Exception as e:
+            print(f"Failed to stop Solr container with core {self.core}: {str(e)}")
+
+    def reset_core(self):
+        try:
+            unload_url = f"{self.url}admin/cores?action=UNLOAD&core={self.core}&deleteDataDir=true&deleteInstanceDir=true"
+            response = requests.get(unload_url)
+            if response.status_code == 200:
+                print(f"Core {self.core} unloaded successfully.")
+            else:
+                print(f"Failed to unload core {self.core}. Status code: {response.status_code}")
+                print(response.text)
+                return
+            solr_data_dir = "../solr_data"
+            if os.path.exists(solr_data_dir):
+                subprocess.run(["rmdir", "/s", "/q", solr_data_dir], shell=True)
+            print(f"Solr data deleted successfully.")
+            self.close()
+            self.build()
+        except Exception as e:
+            print(f"Failed to delete Solr core and data: {str(e)}")
 
     def submit_schema(self, schema_file_path):
         with open(schema_file_path, 'r') as schema_file:
@@ -57,33 +94,6 @@ class SolrManager:
             counter -= 1
         self.solr.commit()
         print("Articles indexed successfully.")
-
-    def delete_core(self):
-        try:
-            unload_url = f"{self.url}admin/cores?action=UNLOAD&core={self.core}&deleteDataDir=true&deleteInstanceDir=true"
-            response = requests.get(unload_url)
-            if response.status_code == 200:
-                print(f"Core {self.core} unloaded successfully.")
-            else:
-                print(f"Failed to unload core {self.core}. Status code: {response.status_code}")
-                print(response.text)
-                return
-            solr_data_dir = "../solr_data"
-            if os.path.exists(solr_data_dir):
-                subprocess.run(["rmdir", "/s", "/q", solr_data_dir], shell=True)
-            subprocess.run(["docker-compose", "down"], cwd="../")
-            time.sleep(5)
-            print(f"Solr container with core {self.core} and associated data deleted successfully.")
-        except Exception as e:
-            print(f"Failed to delete Solr core and data: {str(e)}")
-            
-    def create_core(self):
-        try:
-            subprocess.run(["docker-compose", "up", "-d"], cwd="../")
-            time.sleep(5)
-            print(f"Solr container with core {self.core} started successfully.")
-        except Exception as e:
-            print(f"Failed to start Solr container with core {self.core}: {str(e)}")
 
     def query_articles(self, query_value = "*", query_fields = [], query_operator = ' OR ', return_fields = [], rows = 10):
         """
