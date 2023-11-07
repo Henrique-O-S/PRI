@@ -1,7 +1,6 @@
 import pysolr
 import json
 import requests
-import os
 import subprocess
 import time
 from Database import Database
@@ -41,10 +40,6 @@ class SolrManager:
                 print(f"Failed to unload core {self.core}. Status code: {response.status_code}")
                 print(response.text)
                 return
-            solr_data_dir = "../solr_data"
-            if os.path.exists(solr_data_dir):
-                subprocess.run(["rmdir", "/s", "/q", solr_data_dir], shell=True)
-            print(f"Solr data deleted successfully.")
             self.close()
             self.build()
         except Exception as e:
