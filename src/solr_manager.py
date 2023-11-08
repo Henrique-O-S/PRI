@@ -69,12 +69,12 @@ class SolrManager:
                 break
             document = {  
                 'id': article.id,
-                'title': article.title,
-                'date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
-                'text': article.text,
-                'keypoints': article.keypoints,
-                'keywords': article.keywords,
-                'companies': [
+                'article_title': article.title,
+                'article_date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                'article_text': article.text,
+                'article_keypoints': article.keypoints,
+                'article_keywords': article.keywords,
+                'article_companies': [
                     {
                         'company_tag': company.tag,
                         'company_name': company.name,

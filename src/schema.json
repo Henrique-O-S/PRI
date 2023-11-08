@@ -1,65 +1,72 @@
 {
   "add-field-type": [
     {
-      "name": "text_type",
-      "class": "solr.TextField",
-      "analyzer": {
-        "tokenizer": {
-          "class": "solr.StandardTokenizerFactory"
-        },
-        "filters": [
-          {
-            "class": "solr.LowerCaseFilterFactory"
-          }
-        ]
-      }
-    },
-    {
       "name": "tdate",
       "class": "solr.TrieDateField",
       "precisionStep": 6
-    }
-  ],
-  "add-dynamic-field": [
+    },
     {
-      "name": "company_*",
-      "type": "text_type",
-      "indexed": true,
-      "stored": true
+      "name": "nested_doc",
+      "class": "solr.NestPathField"
+    },
+    {
+      "name": "stock_content",
+      "class": "solr.TextField",
+      "indexAnalyzer": {
+          "tokenizer": {
+              "class":"solr.StandardTokenizerFactory"
+          },
+          "filters": [
+              {"class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true},
+              {"class": "solr.LowerCaseFilterFactory"}
+          ]
+      },
+      "queryAnalyzer": {
+          "tokenizer" :{
+              "class": "solr.StandardTokenizerFactory"
+          },
+          "filters":[
+              {"class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true},
+              {"class": "solr.LowerCaseFilterFactory"}
+          ]
+      }
     }
   ],
   "add-field": [
     {
-      "name": "title",
-      "type": "text_type",
+      "name": "article_title",
+      "type": "stock_content",
       "indexed": true,
       "stored": true
     },
     {
-      "name": "date",
+      "name": "article_date",
       "type": "tdate",
       "indexed": true,
       "stored": true
     },
     {
-      "name": "text",
-      "type": "text_type",
+      "name": "article_text",
+      "type": "stock_content",
       "indexed": true,
       "stored": true
     },
     {
-      "name": "keypoints",
-      "type": "text_type",
-      "multiValued": true,
+      "name": "article_keypoints",
+      "type": "stock_content",
       "indexed": true,
       "stored": true
     },
     {
-      "name": "keywords",
-      "type": "text_type",
-      "multiValued": true,
+      "name": "article_keywords",
+      "type": "stock_content",
       "indexed": true,
       "stored": true
+    },
+    {
+      "name": "article_companies",
+      "type": "nested_doc",
+      "multiValued": true
     },
     {
       "name": "company_tag",
@@ -75,21 +82,13 @@
     },
     {
       "name": "company_description",
-      "type": "text_type",
+      "type": "stock_content",
       "indexed": true,
       "stored": true
     },
     {
       "name": "company_keywords",
-      "type": "text_type",
-      "multiValued": true,
-      "indexed": true,
-      "stored": true
-    },
-    {
-      "name": "companies",
-      "type": "text_type",
-      "multiValued": true,
+      "type": "stock_content",
       "indexed": true,
       "stored": true
     }
