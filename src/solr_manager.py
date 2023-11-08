@@ -30,7 +30,7 @@ class SolrManager:
         except Exception as e:
             print(f"Failed to stop Solr container with core {self.core}: {str(e)}")
 
-    def reset_core(self):
+    def reload_core(self):
         try:
             unload_url = f"{self.url}admin/cores?action=UNLOAD&core={self.core}&deleteDataDir=true&deleteInstanceDir=true"
             response = requests.get(unload_url)
@@ -44,6 +44,17 @@ class SolrManager:
             self.build()
         except Exception as e:
             print(f"Failed to delete Solr core and data: {str(e)}")
+
+    def clear_documents(self):
+        clear_url = f"{self.url + self.core}/update?commit=true"
+        data = '<delete><query>*:*</query></delete>'
+        headers = {'Content-type': 'text/xml; charset=utf-8'}
+        response = requests.post(clear_url, data=data, headers=headers)
+        if response.status_code == 200:
+            print("Data cleared successfully.")
+        else:
+            print(f"Failed to clear data. Status code: {response.status_code}")
+            print(response.text)
 
     def submit_schema(self, schema_file_path):
         with open(schema_file_path, 'r') as schema_file:
@@ -64,10 +75,10 @@ class SolrManager:
         # test: indexing 10 articles
         counter = 10
         for article in articles:
-            companies = self.db.get_article_companies(article.id)
             if counter == 0:
                 break
-            document = {  
+            companies = self.db.get_article_companies(article.id)
+            article_document = {  
                 'id': article.id,
                 'article_title': article.title,
                 'article_date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
@@ -76,16 +87,18 @@ class SolrManager:
                 'article_keywords': article.keywords,
                 'article_companies': [
                     {
-                        'company_tag': company.tag,
-                        'company_name': company.name,
-                        'company_description': company.description,
-                        'company_keywords': company.keywords
+                    'company_tag': company.tag,
+                    'company_name': company.name,
+                    'company_description': company.description,
+                    'company_keywords': company.keywords
                     }
                     for company in companies
                 ]
             }
+            if len(article_document['article_companies']) == 1:
+                article_document['article_companies'] = [article_document['article_companies']]
             print(f"Indexing article {article.id}...")
-            self.solr.add([document])
+            self.solr.add([article_document])
             counter -= 1
         self.solr.commit()
         print("Articles indexed successfully.")
