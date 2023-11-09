@@ -80,6 +80,8 @@ class SolrManager:
             companies = self.db.get_article_companies(article.id)
             article_document = {  
                 'id': article.id,
+                'doc_type': 'article',
+                'article_link': article.link,
                 'article_title': article.title,
                 'article_date': article.date.strftime('%Y-%m-%dT%H:%M:%SZ'),
                 'article_text': article.text,
@@ -87,6 +89,7 @@ class SolrManager:
                 'article_keywords': article.keywords,
                 'article_companies': [
                     {
+                    'doc_type': 'company',
                     'company_tag': company.tag,
                     'company_name': company.name,
                     'company_description': company.description,
