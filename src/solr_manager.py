@@ -6,7 +6,7 @@ import time
 from Database import Database
 
 class SolrManager:
-    def __init__(self, url, core, db_file = "sqlite:///data/articles.db"):
+    def __init__(self, url, core, db_file = "sqlite:///../../data/articles.db"):
         self.url = url
         self.core = core
         self.solr = None
@@ -70,6 +70,20 @@ class SolrManager:
             print(f"Failed to upload the schema. Status code: {response.status_code}")
             print(response.text)
 
+    def apply_stopwords(self, stopwords_file):
+        with open(stopwords_file, 'r') as file:
+            stopwords = file.read()
+        with open("../solr_data/data/articles/conf/stopwords.txt", 'w') as file:
+            file.write(stopwords)
+        print("Stopwords stored successfully.")
+
+    def apply_synonyms(self, synonyms_file):
+        with open(synonyms_file, 'r') as file:
+            synonyms = file.read()
+        with open("../solr_data/data/articles/conf/synonyms.txt", 'w') as file:
+            file.write(synonyms)
+        print("Synonyms stored successfully.")
+
     def index_articles(self):
         articles = self.db.get_all_articles()
         # test: indexing 10 articles
@@ -89,11 +103,11 @@ class SolrManager:
                 'article_keywords': article.keywords,
                 'article_companies': [
                     {
-                    'doc_type': 'company',
-                    'company_tag': company.tag,
-                    'company_name': company.name,
-                    'company_description': company.description,
-                    'company_keywords': company.keywords
+                        'doc_type': 'company',
+                        'company_tag': company.tag,
+                        'company_name': company.name,
+                        'company_description': company.description,
+                        'company_keywords': company.keywords
                     }
                     for company in companies
                 ]
