@@ -1,2 +1,3 @@
 gained, rose, soared, popped, jumped, surged, added, skyrocketed, rallied, up
 fell, dropped, slid, sank, dipped
+IT, Information Technology, Tech, Computing, Computer Science, Information Systems, ICT, Digital Technology, Cyber Technology, Computing Science, Data Technology, Computer Engineering, Cybernetics, Computer Systems, IT Sector, Network Technology

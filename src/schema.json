@@ -49,9 +49,6 @@
             "class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal": true
           },
           {
-            "class": "solr.LowerCaseFilterFactory"
-          },
-          {
             "class": "solr.StopFilterFactory",
             "ignoreCase": true,
             "words": "stopwords.txt",
