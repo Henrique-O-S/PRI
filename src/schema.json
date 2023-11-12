@@ -55,11 +55,6 @@
             "format": "snowball"
           },
           {
-            "class": "solr.SynonymGraphFilterFactory",
-            "synonyms": "synonyms.txt",
-            "expand": "true"
-          },
-          {
             "class": "solr.SnowballPorterFilterFactory",
             "language": "English"
           }
