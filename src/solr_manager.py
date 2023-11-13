@@ -86,7 +86,7 @@ class SolrManager:
 
     def index_articles(self):
         articles = self.db.get_all_articles()
-        # test: indexing 10 articles
+        # sample: index 10 articles
         counter = 10
         for article in articles:
             if counter == 0:
