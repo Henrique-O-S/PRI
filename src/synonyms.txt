@@ -1,3 +1,30 @@
 gained, rose, soared, popped, jumped, surged, added, skyrocketed, rallied, up
 fell, dropped, slid, sank, dipped
 software, framework, code, program, application, app, api, ai, cybersecurity
+fall, decrease, drop, decline, slump, plummet, dive, collapse, sink
+rise, increase, climb, surge, jump, rally, ascend, soar, spike
+volatility, fluctuation, instability, variability, unpredictability, choppiness
+profit, earnings, gain, return, yield, revenue, income
+loss, deficit, shortfall, depletion, erosion
+invest, fund, finance, back, stake
+dividend, payout, yield, return
+merge, consolidation, amalgamation, union, fusion, blend
+acquisition, takeover, buyout, purchase, annexation, procurement
+forecast, prediction, projection, estimation, outlook, anticipation
+liquidity, fluidity, solvency
+debt, liability, obligation, loan, borrowing
+equity, ownership, shares, stock, interest, stake
+recession, downturn, slump, contraction, depression
+inflation, devaluation
+growth, expansion, development, progress, advancement, improvement
+yield, return, profit, gain, output, dividend
+valuation, appraisal, assessment, estimation, worth, evaluation
+speculation, gambling, forecasting
+leverage, influence, power, control, advantage, clout
+capital, funds, resources, assets, wealth, investment
+portfolio, holdings, collection
+risk, hazard, danger, uncertainty, exposure, jeopardy
+bankruptcy, insolvency, failure, ruin, liquidation, collapse
+divest, rid, liquidate, unload
+consolidation, merger, unification, amalgamation, integration, centralization
+hedge, protect, safeguard, secure, shield, guard
