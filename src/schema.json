@@ -30,7 +30,7 @@
             "format": "snowball"
           },
           {
-            "class": "solr.SynonymGraphFilterFactory",
+            "class": "solr.SynonymFilterFactory",
             "synonyms": "synonyms.txt",
             "expand": "true"
           },
