@@ -1,6 +1,4 @@
-Query: doc_type:article AND article_text:(AI rises)
-Fields: article_title, article_text
-Parameters: {'fl': 'article_title, article_text', 'rows': 10}
+Parameters: {'defType': 'edismax', 'qf': 'article_title article_text', 'q': 'AI rises', 'rows': 100}
 
 --------------------------------------------------
 Number of results: 8
