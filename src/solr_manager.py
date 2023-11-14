@@ -84,12 +84,11 @@ class SolrManager:
             file.write(synonyms)
         print("Synonyms stored successfully.")
 
-    def index_articles(self):
+    def index_articles(self, sample = 100):
         articles = self.db.get_all_articles()
-        # sample: index 10 articles
-        counter = 10
+        articles_to_index = [] 
         for article in articles:
-            if counter == 0:
+            if sample == 0:
                 break
             companies = self.db.get_article_companies(article.id)
             article_document = {  
@@ -114,9 +113,10 @@ class SolrManager:
             }
             if len(article_document['article_companies']) == 1:
                 article_document['article_companies'] = [article_document['article_companies']]
-            print(f"Indexing article {article.id}...")
-            self.solr.add([article_document])
-            counter -= 1
+            articles_to_index.append(article_document) 
+            sample -= 1
+        print(f"Indexing {len(articles_to_index)} articles...")
+        self.solr.add(articles_to_index) 
         self.solr.commit()
         print("Articles indexed successfully.")
 
@@ -124,7 +124,7 @@ class SolrManager:
         lines = text.split('. ')
         combined_lines = []
         for line in lines:
-            if combined_lines and combined_lines[-1][-1].isdigit() and line[0].isdigit():
+            if combined_lines and combined_lines[-1] and combined_lines[-1][-1].isdigit() and line and line[0].isdigit():
                 combined_lines[-1] += '. ' + line
             else:
                 combined_lines.append(line)
