@@ -120,25 +120,13 @@ class SolrManager:
         self.solr.commit()
         print("Articles indexed successfully.")
 
-    def query_articles(self, query_value = "*", query_fields = [], query_operator = ' OR ', return_fields = [], rows = 10):
-        """
-        The query must be of the type: 'field:value'.
-        We can also use boolean operators like AND, OR, NOT. EX: 'field1:value1 AND field2:value2'
-        The default query is '*:*' which returns all the documents.
-        It is NOT possible to have a query like: "*:value", but "field:*" is possible.
-        """
-        if query_fields == []:
-            query = str("*:" + ','.join(query_value))
-        else:
-            query = str(query_operator.join([f"{field}:{value}" for field, value in zip(query_fields, query_value)]))
-
-        if return_fields == []:
-            results = self.solr.search(query,**{
-                'rows': rows,
-            })
-        else:
-            results = self.solr.search(query, **{
-                'rows': rows,
-                'fl': ','.join(return_fields),
-            })
-        return results.docs
+    def print_text(self, text):
+        lines = text.split('. ')
+        combined_lines = []
+        for line in lines:
+            if combined_lines and combined_lines[-1][-1].isdigit() and line[0].isdigit():
+                combined_lines[-1] += '. ' + line
+            else:
+                combined_lines.append(line)
+        for line in combined_lines:
+            print(line + '.')
