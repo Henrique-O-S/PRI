@@ -120,7 +120,7 @@ class SolrManager:
         self.solr.commit()
         print("Articles indexed successfully.")
 
-    def print_text(self, text):
+    def write_text(self, file, text):
         lines = text.split('. ')
         combined_lines = []
         for line in lines:
@@ -129,4 +129,4 @@ class SolrManager:
             else:
                 combined_lines.append(line)
         for line in combined_lines:
-            print(line + '.')
+            file.write(line + '.\n')
