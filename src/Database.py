@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.inspection import inspect
@@ -279,3 +279,17 @@ class Database:
             print(f"Failed to get article companies: {e}")
             session.close()
             return []
+        
+    def get_tesla_mentions(self):
+        session = self.Session()
+        try:
+            tesla_articles_dates = session.query(Article.date).\
+                join(CompanyArticleAssociation, Article.id == CompanyArticleAssociation.article_id).\
+                join(Company, Company.id == CompanyArticleAssociation.company_id).\
+                filter(Company.tag == "TSLA").all()
+            return tesla_articles_dates
+        except Exception as e:
+            print(f"Failed to run query: {e}")
+            return None
+        finally:
+            session.close()

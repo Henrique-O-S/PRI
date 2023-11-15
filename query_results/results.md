@@ -1,145 +1,70 @@
-Parameters: {'defType': 'edismax', 'qf': 'article_title article_text', 'q': 'Tesla dipped', 'bq': 'article_text:Tesla^2', 'rows': 20}
+Parameters: {'defType': 'edismax', 'qf': 'article_title article_text', 'q': 'Advanced Micro Devices stocks', 'rows': 20}
 
 --------------------------------------------------
 Number of results: 20
 ------------------------ Result: 1 --------------------------
 
-Stocks making the biggest premarket moves: Colgate-Palmolive, Kohl's, Boot Barn and more
+Stocks making the biggest moves after hours: Airbnb, Advanced Micro Devices, Match Group and more 
 
-Check out the companies making the biggest moves in premarket trading:Colgate-Palmolive - The maker of household and personal care products saw shares add more than 1% premarket after Morgan Stanley analysts upgraded the stock to overweight from equal weight.
-The Wall Street investment firm said the recent dropdown in shares create an attractive entry point for investors.
-Boot Barn - The retailer was downgraded to neutral from outperform by Baird, which cited concerns over macroeconomic risks for the sector.
-Boot Barn shed 2. 5% during premarket trading.
-Retail stocks - Shares of Macy's rose 0. 35% in early trading after Goldman Sachs said it is best-positioned in retail with solid upside.
-Kohl's dipped 2. 4% after the firm rated it a sell, and Nordstrom shares ticked lower after Goldman downgraded it to neutral.
-Tesla - The electric-vehicle maker was upgraded by Berenberg, which said Tesla's price cuts are part of a broader strategy and that battery cell production is another opportunity for the company to scale.
-Tesla was down less than 1% in the premarket.
-Salesforce - Morgan Stanley boosted its price target on the software stock to $236 from $228 per share, implying 43% upside from Friday's close.
-The stock, however, was down more than 1% in premarket trading.
-Intel - The chipmaker shed 1. 5% in the premarket, after its fourth-quarter financial results missed Wall Street's expectations Friday.
-Intel, which lost 9% on Friday, also forecast a loss for the current quarter.
-Coinbase - JMP Securities reiterated its outperform rating on the stock, which has rallied 85% since the start of trading Jan.
-9, analysts said in a note Friday.
-Coinbase, however, was down 2. 7% in the premarket.
-- CNBC's Samantha Subin, Carmen Reinicke and Michael Bloom contributed reporting.
+Check out the companies making headlines in extended trading.
+Airbnb - The lodging stock fell about 6. 6% after hours even after the company reported better-than-expected quarterly earnings and revenue.
+On Airbnb's earnings call, management said trends in its recovery vary by region and that global cancellation rates for the third quarter were higher than 2019 levels, but below 2021 and 2020 levels.
+Advanced Micro Devices - The chipmaker saw its shares rise more than 4% despite reporting quarterly results and issuing guidance that missed analysts' expectations.
+Results from all four of the company's business segments were better than the company had called in its October warning.
+Match Group - Shares of the dating app operator jumped 13% after the company posted higher-than-expected revenue for the third quarter, according to StreetAccount.
+Current quarter guidance for adjusted operating income also came in above StreetAccount's estimates.
+Intuit - The TurboTax operator saw its shares bounce by 3% after the company reported its quarterly financial results.
+Intuit now expects non-GAAP earnings per share and revenue for the fiscal first quarter to be above its prior guidance range despite "deterioration" in Credit Karma verticals.
+It also reaffirmed its full-year guidance.
 .
 ------------------------ Result: 2 --------------------------
 
-Stocks making the biggest moves in the premarket: Snowflake, Carnival, Tesla, Moderna & more
+Stocks making the biggest moves after hours: Snap, Electronic Arts, Advanced Micro Devices and more
 
-Check out the companies making headlines before the bell:Snowflake (SNOW) - Shares of Snowflake dropped more than 6% after the cloud company's shares more than doubled at its market debut on the New York Stock Exchange.
-The initial public offering marked the largest software debut ever.
-Snowflake was worth $70. 4 billion at the end of Wednesday's trading, more than five times its $12. 4 billion valuation in February.
-Carnival (CCL), Norwegian Cruise Line (NCLH), United Airlines (UAL) - Shares of airlines and cruise operators came under pressure amid conflicting messages about the timeline of a coronavirus vaccine.
-President Donald Trump said late Wednesday that the U.
-S.
-could distribute a vaccine as early as October, while the director of the Centers for Disease Control and Prevention said vaccinations would be in limited quantities this year and not widely distributed for six to nine months.
-Carnival and Norwegian both fell more than 3%, while United Airlines and American Airlines (AAL) dipped at least 1% each.
-Moderna (MRNA) - Shares of Moderna gained nearly 3% after the biotech firm CEO Stephane Bancel said it should have enough data from its late-stage trial to know whether its coronavirus vaccine works in November.
-Separately, the company announced a collaboration with Vertex Pharmaceuticals (VRTX) to develop a treatment for cystic fibrosis.
-Eastman Kodak (KODK) - Shares of Kodak gained another 5% after an independent review found the company didn't break any laws related to its disclosure of a $765 million loan from the U.
-S.
-government to help produce drug ingredients.
-The stock surged 36% on Wednesday alone.
-Tesla (TSLA), Apple (AAPL), Amazon (AMZN) - Technology stocks are set to resume their recent sell-off with the so-called FANG block all dipping at least 1% in premarket.
-Apple and Amazon led the declines, both falling 1. 5%.
-Meanwhile, Tesla dropped more than 3%.
-The tech-heavy Nasdaq Composite last week dipped into correction territory, falling more than 10% from a record high.
-CVS Health (CVS) - Shares of CVS rose slightly after Piper Sandler initiated the drugstore chain with an "overweight" rating.
-The Wall Street firm said CVS is "well positioned to transform health care access, quality, reduce costs.
-" The stock is down more than 20% this year.
-Penn National Gaming (PENN) - Shares of Penn National Gaming fell slightly even after Stifel hiked its price target on the sports-betting company to a Street high of $85 per share, representing a 25% gain from here.
-The stock has surged more than 14% this week alone.
-Subscribe to CNBC PRO for exclusive insights and analysis, and live business day programming from around the world.
+Check out the companies making headlines in after hours trading.
+Snap Â Shares of social media company Snap sank 14% after the company reported quarterly revenue that was lower than Wall Street expected.
+Adjusted earnings per share were $0. 14 on revenue of $1. 30 billion.
+Analysts expected $0. 11 in adjusted earnings on $1. 31 billion in revenue, per Refinitiv.
+The company didn't give a forecast for the upcoming year.
+Shares of Meta also fell 1. 4% and Pinterest dipped 1. 8%.
+Electronic Arts Â Shares of entertainment company Electronic Arts shed 6. 7% after the company reported $2. 34 billion in revenue, less than the $2. 51 billion analysts expected, per Refinitiv.
+The company also said it expects bookings to be lower than previously expected going forward.
+Western Digital Â Western Digital fell 5. 6% after reporting quarterly revenue of $3. 11 billion, more than analysts $2. 99 billion estimate, according to Refinitiv.
+The company said it expects revenue in the upcoming quarter to be lower than it previously guided.
+Match Group Â Shares of Match Group slid 7. 6% after the company reported quarterly revenue of $786 million, less than the $787 million Wall Street expected, per Refinitiv.
+The company also had $0. 30 loss per share that wasn't immediately comparable to previous quarter.
+Match said first-quarter revenue will likely be lower than it expected.
+Advanced Micro Devices Â Shares of AMD rose 3% after the company reported earnings that beat Wall Street's sales and profit expectations.
+The chipmaker had adjusted earnings per share of $0. 69 on $5. 6 billion in revenue where analysts expected $0. 67 per share adjusted and $5. 5 billion in revenue, according to Refinitiv.
+Still, the company said it expects revenue to dip in the first quarter.
 .
 ------------------------ Result: 3 --------------------------
 
-Stocks making the biggest moves after hours: Lululemon, Slack, Lyft and more
+Stocks making the biggest moves midday: Carvana, Colgate-Palmolive, Tesla and more
 
-Check out the companies making headlines after the bell:Slack - Shares of the messaging platform tanked 14% in after hours trading on Tuesday despite its better-than-expected quarterly results.
-Revenue came in at $215. 9 million, higher than the estimated $209. 1 million, according to Refinitiv.
-Slack reported a loss of 0 cents per share, while analysts expected a loss of 3 cents per share.
- Slack did not reinstate billings guidance due to the volatile environment, which could be denting the stock.
-Lululemon - Shares of the athletic retailer dipped as much as 2% in extended trading on Tuesday following its quarterly earnings report.
-The maker of yoga pants earned an adjusted 74 cents per share, which didn't compare to analyst estimates.
-Revenue came is at $903 million, topping the $843 million expected on the Street, according to Refinitiv.
-Lululemon did not give full year guidance.
-Lyft - Shares of the ride hailing company rose 1. 5% after the bell on Tuesday after the company released a business update that showed in the first week of September, rides reached a high since April.
-September's first week level showed rides down less than 50% year-over-year.
-Coupa Software -Shares of the software company dropped more than 6% in extended trading on Tuesday after providing disappointing earnings guidance for the third quarter.
-The company, however, beat on the top and bottom lines of its second quarter results.
-Coupa earned 21 cents per share on revenue of $125. 9 million.
-Analysts expected earnings of 8 cents per share on revenue of $118. 8 million, according to Refinitiv.
-Tesla - Shares of the electric automaker roses slightly in extended trading on Tuesday following the stock's largest one day drop in history.
-After S&P Dow Jones Indices decided against adding Tesla to the S&P 500, the Elon Musk-led company tanked more than 21% on Tuesday.
+Check out the companies making headlines in midday trading Monday.
+Colgate-Palmolive - Shares gained 2. 8% after Morgan Stanley upgraded the stock to overweight from equal weight and named it the top pick in the household and personal care industry.
+The firm said the stock was at a good price point after a recent selloff.
+Tesla - Shares dropped 2. 8% after Berenberg lowered its earnings estimate for Tesla by around 25% for 2023 following the company's price cuts for its electric vehicles.
+However, the firm upgraded the stock to buy from hold.
+GE HealthCare Technologies - The stock rose 4% after the company reported its first earnings after being spun off as a public company from General Electric.
+GE Healthcare's revenue came in at $4. 9 billion, an 8% year-over-year increase, and its fourth-quarter adjusted EPS was $1. 31.
+Ford Motor Company - Shares fell nearly 1. 4% after the company announced price cuts for its electric Mustang Mach-E crossover.
+The move in Ford comes after Tesla said earlier this month it would trim prices to counteract dwindling demand.
+Macy's - Goldman Sachs said Macy's is the best-positioned retailer and initiated coverage with a buy rating.
+The stock advanced 1. 8%.
+AMC Entertainment - Common shares of the theater chain fell by more than 7% after AMC announced a shareholder meeting in March for a potential change to its capital structure.
+The special meeting would allow shareholders to vote on increasing the total number of shares the company can issue and on a reverse stock split to convert its preferred shares to common shares.
+The preferred or "APE" shares, which trade at a large discount to the common shares, jumped by more than 16%.
+Carvana - Shares surged 28. 5% as an apparent short squeeze boosted the beleaguered stock.
+It was also briefly paused in early morning trading due to the rapid runup.
+Moderna - The vaccine producer fell another 3. 2%.
+The company's stock price has fallen about 7% since last week, after a Reuters report said the European Union is in talks with Pfizer and BioNTech to reduce the number of Covid-19 vaccine doses it's committed to purchasing this year in exchange for paying a higher price per dose.
+Advanced Micro Devices - Shares of semiconductor AMD fell 2. 1% after a slew of Wall Street analysts said they are worried about the company's upcoming earnings report following Intel's disastrous release.
+The company is scheduled to report Tuesday.
+- CNBC's Hakyung Kim, Jesse Pound, Alex Harring, Carmen Reinicke, Michelle Fox Theobald, and Samantha Subin contributed reporting.
 .
 ------------------------ Result: 4 --------------------------
-
-Stocks making the biggest moves in the premarket: Nvidia, Amazon, Lennar, Walmart & more
-
-Check out the companies making headlines before the bell:Nvidia (NVDA) - Shares of the chip stock rose in premarket trading after Needham raised its price target to a Street high of $700 per share from $600 per share.
-The Wall Street firm - which has a "buy" rating on Nvidia - said the company's acquisition of Arm could potentially add $1. 20 to $1. 65 a share to earnings in 2022.
-Lennar (LEN) - Shares of the homebuilding company dipped in premarket trading despite reporting earnings and revenue that beat analysts' forecasts.
-Lennar earned $2. 12 per share on revenue of $5. 87 billion.
-Wall Street expected earnings of $1. 55 per share on revenue of $5. 48 billion, according to Refinitiv.
-The company said the home average sale price was expected to decline in the fiscal fourth quarter.
-Walmart (WMT) - The big-box retailer's membership program, Walmart+, officially launches on Tuesday, as a competitor to Amazon.
-com's Prime.
-The membership includes unlimited free delivery on orders over $35, and discounts on gas, among other things.
-Amazon.
-com (AMZN) - The e-commerce giant jumped in premarket trading after announcing a new shopping platform called "luxury stores.
-" The high-end shopping experience will be available Tuesday on the Amazon app by invitation.
-Oscar de la Renta marks the first store featuring its pre-fall and fall/winter 2020 collections.
-Tesla (TSLA) - Shares of the electric vehicle company popped in the premarket, extending Monday's 12% gain.
-Tesla lost more than 10% last week as the technology-heavy Nasdaq Composite had its worst week since March.
-VF Corp.
-(VFC) - Shares of the retailer rose in the premarket trading after BTIG upgraded the stock to "buy" from "neutral.
-" The Wall Street firm said it sees tailwinds in brands Vans and The North Face, as well as improvement in online traffic.
-BTIG has a $88 per share price target on VF Corp.
-Sony (SNE) - Shares of the company ticked lower in premarket trading after saying it was cutting production targets for its upcoming Playstation 5 by 20%, due to issues with the consoles' chips.
-Kraft Heinz (KHC) - Shares of the food and beverage company popped in premarket trading after The Wall Street Journal reported Kraft Heinz is planning to cut $2 billion in costs over the next five years.
-Nikola (NKLA) - Shares of the electric truck company fell in premarket trading on a report the Securities and Exchange Commission is investigating the company on allegations from a Wall Street research shop Hindenburg Research that Nikola deceived investors about it business products.
-.
------------------------- Result: 5 --------------------------
-
-Stocks making the biggest moves midday: Tesla, Nikola, Disney, Apple and more
-
-Check out the companies making headlines in midday trading.
-Tesla Â Shares of the electric vehicle company slid 21. 1% after it was not added to the S&P 500, despite widespread speculation that it would be.
-On Friday, S&P Dow Jones Indices said it was adding Etsy, Teradyne and Catalent to the benchmark index.
-Tesla shares are still up more than 320% this year.
-Facebook, Amazon, Apple, Alphabet, Microsoft, Netflix - Shares of the largest tech companies were under pressure once again as traders took profits from this year's biggest advancers.
-Facebook and Amazon were both down more than 4%.
-Apple and Microsoft slid 6. 7% and 5. 4%, respectively.
-Netflix was the relative outperformer, dipping 1. 8%.
-Nikola Â Shares of the electric truck maker jumped 40. 8% after the company announced a partnership with General Motors, whereby the legacy automaker will take an 11% stake in Nikola, and produce its hydrogen fuel cell electric pickup truck the Badger by the end of 2022.
-Shares of GM rose 7. 9%.
-Disney - Shares of the media giant jumped 1. 6% following an upgrade to buy from hold from Deutsche Bank.
-The Wall Street firm said Disney is "succeeding in the land grade phase of Direct-To-Consumer" with its streaming service Disney+.
-Deutsche also hiked its 12-month price target to $163 per share from $128 per share.
-Peloton - Shares of Peloton jumped 6. 2% after the exercise equipment maker announced a slew of new gears, including a lower-priced, high-tech treadmill and a more expensive bike option with a rotating screen.
-The company's new Bike+ will cost $2,495 and will be available Wednesday and the original Peloton bike's price will drop to $1,895 from $2,245.
-The company emerged as a popular stay-at-home bet amid the market turmoil earlier this year.
-The stock is up more than 200% in 2020.
-JPMorgan, Bank of America, Goldman Sachs - Bank stocks struggled on Tuesday as bond yields fell.
-Shares of JPMorgan, Bank of America and Goldman Sachs all fell more than 3%.
-The declines mark a shift from the sell-offs on Thursday and Friday, when the KBW Bank Index outperformed the broader market.
-Boeing - Shares of the aviation company fell 5. 8% after the company announced that inspections into production problems with the 787 Dreamliners would slow deliveries.
-The Federal Aviation Administration said it is investigating issues found on some of the planes.
-The company also said that it delivered just 13 planes last month.
-Applied Materials, LAM Research, KLA Â Semiconductor stocks sold off in unison after the U.
-S.
-Department of Defense said it's in discussions about blacklisting China's largest chipmaker SMIC, a move that could U.
-S.
-companies that sell chip-making technology to China manufacturers.
-Shares of KLA tumbled 9. 8%, while Applied Materials and LAM Research fell 8. 7% and 9. 1%.
-Foot Locker - Shares of the shoe retailer popped 1. 4% after Goldman Sachs started covering the stock with a buy rating.
-The Wall Street firm said it believe's Foot Locker has a "solid balance sheet, net cash position, and national footprint positions the shares for outperformance.
-"Roku - Shares of Roku jumped more than 6% but closed up 1. 7% after Wells Fargo initiated coverage of the stock with an overweight rating.
-The Wall Street firm said the digital streaming media company is a "future advertising heavyweight.
-"- with reporting from Pippa Stevens, Yun Li, Fred Imbert and Jesse Pound.
-.
------------------------- Result: 6 --------------------------
 
 Stocks making the biggest premarket moves: ChargePoint, Ford, Nvidia, Tesla and more
 
@@ -170,271 +95,386 @@ Paramount Global - The media stock rose 2. 4% Tuesday morning, extending a gain 
 The company's majority shareholder National Amusements announced a $125 million preferred equity investment from BDT Capital Partners last week.
 - CNBC's Jesse Pound, Tanaya Macheel and Yun Li contributed reporting.
 .
------------------------- Result: 7 --------------------------
+------------------------ Result: 5 --------------------------
 
-Stocks making the biggest moves midday: Tesla, Spotify, Netflix, Beyond Meat and more
+Stocks making the biggest moves premarket: Hormel Foods, Campbell Soup, Ciena and others
+
+Check out the companies making headlines before the bell:Hormel Foods (HRL) Â Hormel fell 4. 2% in the premarket after issuing a mixed batch of quarterly results and guidance.
+The food producer's quarterly revenue beat forecasts, but earnings were slightly short.
+The same was also true for its full-year outlook as Hormel expects higher operational costs to persist.
+Campbell Soup (CPB) Â Campbell Soup lost 2. 4% in the premarket after its quarterly profit and sales matched Wall Street estimates.
+Campbell issued an upbeat forecast, saying it expects continued elevated demand for its soup and other food products.
+Ciena (CIEN) Â Ciena tumbled 11. 6% in premarket trading after the networking equipment maker missed estimates on the top and bottom lines for its latest quarter.
+Ciena is still seeing strong customer demand but its sales continue to be impacted by component shortages.
+Lands' End (LE) Â The apparel retailer's stock slid 8. 3% in premarket action in spite of a narrower-than-expected quarterly loss and sales that beat consensus.
+Lands' End cut its full-year outlook as global supply chain challenges elevate expenses.
+Signet Jewelers (SIG) Â Signet jumped 4% in premarket trading after its quarterly profit beat estimates, even amid a bigger-than-expected drop in same-store sales.
+The company also affirmed its prior full-year guidance.
+Okta (OKTA) Â Okta skidded 16. 1% in the premarket despite better-than-expected quarterly results and an improved outlook.
+The identity management software company said it was running into unexpected integration issues following its acquisition of rival Auth0 last year.
+Pure Storage (PSTG) Â Pure Storage rallied 5. 7% in premarket trading after the data storage company reported upbeat quarterly earnings amid mixed results from its industry rivals.
+Nutanix (NTNX) Â Nutanix shares surged 16. 3% in premarket action as the cloud computing company beat analyst forecasts for its latest quarter.
+The company also saw an increase in billings and annual recurring revenue.
+Five Below (FIVE) Â Five Below gained 3. 2% in the premarket despite top and bottom line misses for its latest quarter.
+The jump in the discount retailer's shares comes after Chief Financial Officer Kenneth Bull said Five Below is poised to benefit this coming holiday season from consumer efforts to save money in the face of high inflation.
+MongoDB (MDB) Â MongoDB shares slumped 16. 8% in premarket trading after the cloud computing company predicted a wider-than-expected loss for the second half of the year.
+MongoDB reported a smaller loss in its most recent quarter than analysts anticipated, and revenue beat forecasts as well.
+Nvidia (NVDA) Â Nvidia slid 4. 3% in the premarket after the graphics chip maker warned it expects a sales hit of as much as $400 million from new U.
+S.
+licensing requirements.
+Those rules will impose restrictions on shipments of its most advanced chips to China.
+Advanced Micro Devices (AMD) said some of its chips would be impacted by those new requirements, and its stock fell 2. 6% in off-hours trading.
+.
+------------------------ Result: 6 --------------------------
+
+Stocks making the biggest moves midday: Nvidia, Okta, Five Below, Bed Bath & Beyond and more
 
 Check out the companies making headlines in midday trading.
-Tesla - Tesla shares surged 10. 7% after Credit Suisse upgraded the stock to outperform from neutral.
-The firm said the pullback in technology stocks this month has created a buying opportunity.
-"With robust fundamentals ahead and with the stock having been caught in the market decline, we believe the stock should recover," Credit Suisse said.
-Spotify - Shares of the streaming platform are on watch after influential podcaster Joe Rogan apologized to Spotify amid a boycott over his content.
-Neil Young and Joni Mitchell pulled their music from Spotify after the company continued to host "The Joe Rogan Experience," which medical professionals have called out for spreading Covid misinformation.
-The stock also received an upgrade from Citi.
-Spotify shares surged more than 13. 5%.
-Netflix Â Shares of Netflix jumped 11. 1% after Citi upgraded the stock to buy from neutral, saying that the streaming service has ample pricing power to weather high inflation, and that prevailing equity values don't reflect material subscriber growth prospects beyond 2023.
-Beyond Meat Â The alternative meat stock surged 15. 2% on Monday following a double upgrade from Barclays.
-The investment firm said that Beyond Meat's partnership with restaurant chains should help it stand out in a competitive industry.
-Boeing Â Shares of Boeing popped 5. 1% after the aircraft maker won an order from Qatar Airways on Monday.
-The airline signed a provisional order for 25 737 Max 10 jets.
-Stock picks and investing trends from CNBC Pro:Goldman says corrections are buying opportunities and rarely turn into bear marketsWharton's Jeremy Siegel says don't panic if the stock market goes down another 10%Earnings playbook: An investor's guide to reports from Alphabet, Amazon, Meta and moreGoldman says corrections are buying opportunities and rarely turn into bear marketsWharton's Jeremy Siegel says don't panic if the stock market goes down another 10%Earnings playbook: An investor's guide to reports from Alphabet, Amazon, Meta and moreIntuitive Surgical Â Shares of Intuitive Surgical rose 4. 6% after Piper Sandler on Monday upgraded the medical stock to overweight from neutral.
-The firm said the "recent pullback offers investors an attractive entry point into a premier medtech name.
-"Align Technology - Shares of the dental company popped 6. 7% in trading after Morgan Stanley initiated coverage of Align Technology as overweight.
-"ALGN is well positioned in the fastest-growing segment of the Dental market with its leading position in clear aligners," the firm said.
-The bank gave the stock a $575 per share price target.
-Kellogg - Shares of the food company ticked 3. 5% lower after BMO downgraded Kellogg to market perform from outperform.
-The Wall Street firm said that it sees cereal "challenges" ahead.
-Enphase Energy - Enphase Energy shares surged 13. 4% after the company, which makes microinverters and backup energy storage for solar systems, announced an expansion of battery storage in Massachusetts.
-Citrix Systems - Citrix shares fell 3. 4% after reports that the cloud-computing company will be taken private in an all-cash deal worth $16. 5 billion, including debt.
-Vista Equity Partners and an affiliate of Elliott Management are acquiring Citrix for $104 per share, according to The Wall Street Journal.
-BlackBerry Â BlackBerry shares added 4. 4% after the communications software company announced a deal to sell its legacy patents for $600 million.
-The noncore patent assets include mobile devices, messaging and wireless networking.
-Catapult, a special purpose vehicle, was formed to acquire the BlackBerry patents.
-Otis Worldwide Â Shares of the elevator company rose 3. 2% after Otis reported 72 cents in earnings per share for the fourth quarter, four cents ahead of estimates, according to Refinitiv.
-The company missed on revenue estimates but said it expected sales and operating margins to grow in 2022.
-Walgreens Â Walgreens shares dipped about 1. 4% after Bloomberg reported the company has started the sales process for its Boots international drugstore unit.
-Additional buyout firms, such as Sycamore Partners, are reportedly considering bids.
-- CNBC's Leslie Joseph, Yun Li, Tanaya Macheel, Margaret Fitzgerald and Jesse Pound contributed reporting.
+Nvidia - Nvidia's stock sank 7. 7% amid news that the government is restricting the sale of some of its chips to China.
+Shares of Advanced Micro Devices, which was also ordered to stop selling artificial intelligence chips to China, fell 6%.
+Micron Technology lost more than 1%.
+Broadcom dropped more than 2%, and Qualcomm slid 4%.
+Bed Bath & Beyond - Shares of home retailer and meme stock fell 8. 6% midday after a handful of analysts said its turnaround plan, announced Wednesday, isn't enough to fix its struggling business.
+Raymond James downgraded the stock Thursday, saying new financing and company plans to close stores and lay off employees "only kicks the can down the road.
+" Hormel Foods - Shares of Hormel dropped 6. 5% after the company lowered its earnings outlook for the year.
+The maker of Spam and Skippy, among others, dropped its EPS guidance to a range of $1. 78 - $1. 85 from $1. 87 - $1. 97.
+CEO Jim Snee cited elevated cost inflation as a factor, but said the pressures are transient and likely to subside over the coming quarters.
+Okta - Okta shares cratered 33. 7% despite a top and bottom line beat in the recent quarter.
+A slew of Wall Street banks downgraded shares of the cybersecurity software company, citing troubles as it integrates Auth0, which it acquired last year.
+HP - Shares of the PC maker fell 1. 8% as Loop Capital downgraded the stock to a hold rating from buy.
+The Wall Street firm cited potentially softening commercial PC demand and the need for investors to assess the company's pending transformation plan.
+Earlier this week, HP reported a revenue miss amid a slowdown in spending on electronics.
+Campbell Soup - Campbell Soup lost 2% after sharing results that fell in line with Wall Street's expectations in the recent quarter.
+The company said it expects continued demand for its products as inflation remains elevated.
+Five Below - Shares of the value retailer rose 6. 3% even after earnings and revenue for the recent quarter fell short of Wall Street's expectations.
+Five Below also issued weak guidance for the third quarter and the full year.
+MongoDB - MongoDB's stock shed 25. 3% after the cloud computing company said it expects a wider-than-expected loss in the third quarter.
+The company beat Wall Street's top and bottom line expectations and shared strong revenue guidance.
+Nutanix - Nutanix's stock soared 29% following a revenue beat in the recent quarter.
+The company also shared a smaller-than-expected loss and shared strong guidance.
+Ciena Corporation Â Shares of telecommunications company Ciena Corporation slipped 10. 4% Thursday after it reported quarterly earnings that missed Wall Street expectations.
+The company disappointed on both the top and bottom lines.
+The firm said that while it's seeing strong customer demand, component shortages have affected sales.
+Signet Jewelers - Shares of the jewelry retailer sank 12% despite better-than-expected earnings in the recent quarter.
+Comparable store sales were down more than anticipated.
+Lands' End - The apparel stock slid 15. 3% despite the company posting a smaller-than-expected quarterly loss and revenue that beat expectations.
+It came as Lands' End cut its guidance for the full year as it grapples with ongoing supply chain issues.
+Pure Storage - Shares of Pure Storage traded 2. 6% lower despite a second-quarter top and bottom line beat.
+The company also shared strong revenue guidance for the third quarter and full year.
+- CNBC's Michelle Fox, Yun Li, Carmen Reinicke and Tanaya Macheel contributed reporting.
+.
+------------------------ Result: 7 --------------------------
+
+Stocks making the biggest moves midday: Eli Lilly, Caterpillar, Chegg, Harley-Davidson and more
+
+Check out the companies making headlines in midday trading.
+Shopify Â Shares jumped more than 4% after  the Canadian e-commerce company unveiled a partnership with TikTok to help its clients advertise on the Chinese social media platform The deal allows TikTok users to click on an ad to buy products sold through Shopify merchants.
+Harley-Davidson - The motorcycle maker rallied more than 25% on the back of much better-than-expected results for the previous quarter.
+The company reported earnings per share of 78 cents on revenue of $964 million.
+Analysts had forecast a profit of 21 cents per share on revenue of $844 million, according to Refinitiv.
+Revenue from Harley-Davidson's motorcycles was higher than expected along with sales from parts and accessories.
+Caterpillar Â Shares dropped 3% after the heavy machine maker reported a big decline in earnings.
+Caterpillar posted adjusted earnings per share of $1. 34 on revenue of $9. 9 billion in the quarter.
+Its third-quarter profit per share dropped 54% year over year.
+Still, the results came in above Wall Street's expectations.
+Analysts were expecting earnings per share of $1. 18 on revenue of $9. 798 billion, according to Refinitiv.
+Advanced Micro Devices -The chipmaker slid 3. 1% after ity announced that it would acquire Xilinx in a $35 billion deal.
+Shares of Xilinx rose about 10% following the news.
+AMD also reported third quarter results that topped Wall Street estimates.
+Stanley Black & Decker Â Shares of the tool maker slid 4% after the company said it earned $3. 85 billion during the third quarter, which was short of the $3. 99 billion expected by analysts polled by FactSet.
+Earnings per share of $2. 89 on an adjusted basis was, however, ahead of the expected $2. 69 per share.
+The company said shipments for some of its segments were shifted into the current quarter from September.
+Chegg - The online education company plunged 10% despite its strong earnings and positive outlook.
+Chegg reported earnings of 17 cents per share on revenue of $154. 0 million.
+Wall Street expected earnings of 10 cents per share on revenue of $143. 7 million, according to Refinitiv.
+Chegg also gave strong fourth quarter and 2021 revenue guidance.
+Restaurant Brands International - The chain restaurant stock fell 2. 4% despite better-than-expected results for the Burger King owner in the third quarter.
+The company reported 68 cents in adjusted earnings per share and $1. 34 billion in revenue.
+Analysts surveyed by FactSet were expecting 63 cents per share and $1. 33 billion in revenue.
+The company did report sales declines for Burger King and Tim Hortons.
+Raytheon Technologies - Shares dropped 4% after the defense contractor reported mixed third-quarter numbers.
+The company's earnings beat analyst expectations, but sales from its missiles and intelligence divisions were lower than anticipated.
+JetBlue Airways Â The airline slid more than 3% as the coronavirus pandemic continues to roil the airline industry.
+During the third quarter, JetBlue lost $1. 75 per share on an adjusted basis, which was smaller than the expected loss of $1. 96 per share, according to estimates from Refinitiv.
+The company also beat revenue expectations and said it was encouraged by upcoming holiday bookings.
+AIG - Shares of the insurance giant popped 2% after announcing it intends to separate its life and retirement business.
+The company's executive team said "a simplified corporate structure will unlock significant value for shareholders and other stakeholders.
+"Eli Lilly - Shares of the pharmaceutical company fell 5% after missing on the top and bottom lines of its earnings report.
+Eli Lilly reported earnings of $1. 54, below the $1. 71 forecast by analysts, according to Refinitiv.
+Revenue came in at $5. 74 billion, missing estimates of $5. 88 billion.
+Centene - The healthcare company fell 3. 5% despite reporting strong quarterly earnings.
+Centene earned $1. 26 per share on revenue of $29. 09 billion.
+Wall Street expected earnings of 96 cents per share on revenue of $28. 23 billion.
+3M - Shares of the manufacturing giant fell more than 1% despite the release of better-than-expected results for the previous quarter.
+3M said its earned $2. 43 per share on revenue of $8. 35 billion.
+Analysts polled by Refinitiv expected a profit of $2. 26 per share on revenue of $8. 32 billion.
+However, the company also warned it sees poor economic conditions ahead, with fourth-quarter GDP expected to decline year over year.
+Twilio- The communications company fell 1. 5% despite reporting better-than-expected third-quarter earnings.
+Twilio reported earnings of 4 cents, topping the loss of 3 cents per share expected by analysts, according to Refinitiv.
+Revenue came in at $448. 0 million, above the forecast $409. 9 million.
+Charles Schwab - Shares on the e-broker dropped 1. 6% after announcing it plans to lay off 1,000 workers.
+- with reporting from CNBC's Yun Li, Fred Imbert, Jesse Pound and Pippa Stevens.
+.
 ------------------------ Result: 8 --------------------------
 
-Stocks making the biggest moves premarket: Shaw Communications, Li Auto, Southwest and others
+Stocks making the biggest moves in the premarket: Xilinx, Merck, Caterpillar, 3M & more
 
-Check out the companies making headlines before the bell:Shaw Communications (SJR) Â Canada's Competition Tribunal dismissed an attempt by the country's competition watchdog to block the $26 billion acquisition of the telecom company by rival Rogers Communications (RCI).
-Shaw surged 10. 1% in the premarket, while Rogers gained 0. 4%.
-Li Auto (LI) Â Li Auto said it expected to deliver more than 20,000 of its electric vehicles this month, higher than the 14,087 the China-based EV maker delivered in December 2021.
-Southwest Airlines (LUV) Â Southwest said it planned to return to a regular flight schedule Friday and promised to reimburse customers for any reasonable expenses they incurred due to the airline canceling thousands of flights over the past week.
-Tesla (TSLA) Â Tesla is down 1% in the premarket after posting its first back-to-back gains since November 22 to 23.
-Tesla has not risen three days in a row since a four-day win streak from October 25 to 28.
-The stock is still down 65% for 2022.
-Audacy (AUD) - Audacy stock rallied 9. 7% in the premarket after the small-cap radio station operator said it will auction off the radio.
-com internet domain with a reported minimum bid of $2. 5 million.
-Mesa Air Group (MESA) Â The regional air carrier reported a bigger-than-expected quarterly loss and revenue that fell short of analyst estimates.
-Mesa shares fell 3% in premarket trading.
-Enovix (ENVX) Â The lithium-ion battery manufacturer appointed Raj Talluri as its chief executive officer, effective January 18.
-Talluri was senior vice president and general manager of Micron Technology's (MU) mobile business unit.
-Enovix jumped 5. 1% in premarket action.
+Take a look at some of the biggest movers in the premarket:Xilinx (XLNX) Â The chipmaker agreed to be bought by Advanced Micro Devices (AMD) for $35 billion in stock, a deal valued at $143 per share.
+The deal is expected to close by the end of 2021.
+Separately, AMD reported better-than-expected profit and revenue for its latest quarter.
+Xilinx rose 11%, while AMD lost 2% in premarket trading as of 7:35 a.
+m.
+ET.
+Merck (MRK) Â The drugmaker reported quarterly earnings of $1. 74 per share, 30 cents a share above estimates.
+Revenue also beat forecasts and Merck raised its full-year forecast.
+Results received a boost from rising sales of its cancer drug Keytruda.
+Merck was higher by 1. 5% in premarket trading as of 7:35 a.
+m.
+ET.
+Caterpillar (CAT) Â Caterpillar came in 16 cents a share above estimates, with quarterly profit of $1. 34 per share.
+Revenue came in above estimates as well.
+The heavy equipment maker is still not issuing guidance amid continued global economic uncertainty.
+The shares fell slightly in premarket trading.
+3M (MMM) Â 3M earned $2. 43 per share for its latest quarter, compared to a consensus estimate of $2. 26 a share.
+Revenue also topped forecasts.
+3M expects sales to be flat to up low single digits in October, although it did not give any other guidance.
+3M shares fell slightly in premarket trading.
+Stanley Black & Decker (SWK) Â The toolmaker reported quarterly earnings of $2. 89 per share, beating the consensus estimate of $2. 73 a share.
+Revenue came in below Wall Street forecasts, however, with the company saying shipments in its tools and storage segment were shifted into the current quarter from September.
+The shares lost 5% in premarket trading as of 7:35 a.
+m.
+ET.
+Harley-Davidson (HOG) Â The motorcycle maker earned 78 cents per share for the third quarter, well above the consensus estimate of 21 cents a share.
+Revenue also came in well above forecasts.
+Profit improved from a year ago as Harley continues its turnaround effort.
+Harley shares jumped 7% in premarket trading as of 7:35 a.
+m.
+ET.
+Eli Lilly (LLY) Â The drugmaker missed estimates by 17 cents, with quarterly profit of $1. 54 per share, with revenue below estimates as well.
+Lilly was impacted by slowing sales of diabetes drugs, but CEO David Ricks also pointed out to CNBC that investments in Covid-19 treatments that were not in its prior guidance also hurt results.
+Separately, an independent committee said a combination of Eli Lilly's Covid-19 antibody drug and the Gilead Sciences (GILD) antiviral treatment remdesivir did not show a benefit, leading to a halt in testing.
+The decision does not affect the FDA's evaluation of the Lilly drug as a standalone treatment.
+The shares lost 3. 8% in premarket trading as of 7:35 a.
+m.
+ET.
+JetBlue (JBLU) Â The airline lost $1. 75 per share for the third quarter, smaller than the loss of $1. 96 a share that analysts were anticipating.
+Revenue was above Wall Street forecasts, and JetBlue said it was encouraged by upcoming holiday bookings.
+JetBlue shares rose 3% in premarket trading as of 7:35 a.
+m.
+ET.
+American International Group (AIG) Â AIG is on watch after a flurry of after-the-bell news, including the insurance company's intention to spin off its life insurance business into a separate company, and a planned CEO change.
+Current CEO Brian Duperreault will be replaced by AIG President Peter Zaffino on March 1, 2021.
+The shares jumped 6% in premarket trading as of 7:35 a.
+m.
+ET.
+Twilio (TWLO) Â Twilio reported profit of 4 cents per share for the third quarter, surprising analysts who had expected the cloud communications company to report a loss of 3 cents per share.
+Twilio also gave an upbeat current-quarter sales forecast, as it benefits from the continued shift to remote working and education.
+Chegg (CHGG) Â Chegg beat estimates by 7 cents a share, with quarterly earnings of 17 cents per share.
+The online education company's revenue also topped Wall Street forecasts and Chegg issued a better-than-expected outlook.
+BP (BP) Â BP reported an unexpected profit for its latest quarter, but warned that the pandemic will continue to impact the pace of the energy giant's recovery.
+Las Vegas Sands (LVS) Â Las Vegas Sands is in talks to sell its Las Vegas casino properties for about $6 billion, according to multiple reports.
+The company issued a statement to CNBC saying it had held early discussions with unnamed entities, but did not provide any more specifics about which properties were being discussed.
+Charles Schwab (SCHW) Â Charles Schwab will lay off about 1,000 workers, or 3% of its workforce, with the announcement coming a few weeks after Schwab completed the acquisition of rival brokerage firm TD Ameritrade.
+JM Smucker (SJM) Â Smucker is selling its Crisco shortening brand to B&G Foods (BGS) for $550 million in cash.
+B&G is the company behind food brands like Green Giant and Cream of Wheat.
+Tiffany (TIF) Â Tiffany said its deal to be acquired by French luxury goods maker LVMH has received European Commission clearance, completing all the regulatory approvals required for the deal.
+LVMH is currently suing to stop the deal, saying Tiffany mismanaged its business during the pandemic and that its value has substantially dropped.
+AstraZeneca (AZN) Â The Covid-19 vaccine being developed by AstraZeneca and Oxford University showed upbeat results in an interim analysis of study data.
+Wells Fargo (WFC) Â Wells Fargo is exploring the sale of its corporate trust unit for more than $1 billion, according to a Bloomberg report.
+The bank is also said to be mulling whether to put its $10 billion student loan portfolio up for sale.
 .
 ------------------------ Result: 9 --------------------------
 
-Stocks making the biggest moves midday: Apple, Meta Platforms, Carnival, Nike and more
+Stocks making the biggest moves premarket: Advance Auto Parts, SoFi, Twilio and more
 
-Check out the companies making headlines in midday trading Friday.
-Apple - Shares of the tech giant gained more than 1%, bringing the company's market value to more than $3 trillion, a milestone first achieved in January 2022.
-Citi also slapped a $240 price target on the stock, the highest on Wall Street.
-Coinbase - Shares of the crypto services company slid 4% midday, pressured by a dip in the bitcoin price that followed a Wall Street Journal report that the U.
+Check out the companies making headlines in premarket trading.
+SoFi - The financial services platform added nearly 7%.
+A deal to raise the U.
 S.
-Securities and Exchange Commission is calling recent bitcoin exchange-traded funds filings inadequate.
-Coinbase is the crypto custody partner for BlackRock, whose bitcoin ETF filing earlier this month set off a wave of followers and a rally in the price of bitcoin and Coinbase shares.
-Pacific Biosciences - The biotech stock popped 5. 8% after Goldman Sachs initiated coverage at a buy, noting the company could be at an inflection point with a new sequencing instrument.
-SolarEdge - The solar stock rose 3. 3% after Bank of America raised its price target to $396 from $379.
-The new target implies upside of more than 50% from Thursday's close.
-The bank also said it has a healthy diversified structural growth story.
-Bright Health Group - Shares added 2. 6% in midday trading after the health insurer announced a deal to sell its California Medicare Advantage business to Molina Healthcare for roughly $600 million.
-Nike - Shares of the sneaker giant fell 2. 5% after Nike posted its first earnings miss in three years and reported a decline in margins for its fiscal fourth quarter, which it attributed to higher product input costs, elevated freight and logistics costs, an uptick in promotions and unfavorable currency exchange rates.
-Meta Platforms - The social media stock added 2. 1% after the U.
-K.
-'s Competition and Markets Authority closed its investigation into the company's sale of Giphy to Shutterstock.
-Xpeng - The Chinese electric-vehicle maker surged more than 12% after unveiling its G6 SUV, which Xpeng is pricing competitively with Tesla's popular Model Y.
-Carnival - The cruise stock climbed more than 8% after an upgrade from Jefferies to buy from hold, citing leadership changes and an improved outlook.
-- CNBC's Alex Harring, Tanaya Macheel and Sarah Min contributed reporting.
+debt ceiling on track for a vote Wednesday would resume student loan payments.
+Carvana - Shares fell nearly 4% in premarket trading.
+Carvana stock has been on fire so far this year with a 189% gain from the start of 2023.
+Anheuser-Busch - The beer giant declined 1. 7%.
+Lower sales volume across the company's portfolio of products underpinned the decline, with Bud Light leading the charge with a 25. 7% fall for the week ending May 20, according to Evercore.
+Hewlett Packard Enterprise - Hewlett Packard Enterprise fell nearly 8% on the back of mixed quarterly numbers.
+The company earned an adjusted 52 cents per share, beating a Refinitiv forecast of 48 cents per share.
+However, revenue of $6. 97 billion was below a consensus estimate of $7. 31 billion.
+Twilio - Shares gained 3. 6% after a report that Legion Partners is looking to make changes to the automated communications company's board, as well as divestitures.
+Ambarella - The chip stock shed 18% after Ambarella shared disappointing guidance for the second quarter.
+Ambarella expects second-quarter revenue between $60 million and $64 million.
+Analysts expected guidance around $66. 9 million, according to StreetAccount.
+Advance Auto Parts - The car parts retailer plummeted more than 25% after a wide earnings miss.
+The company reported an adjusted 72 cents per share against a Refinitiv consensus forecast of $2. 57 per share.
+Advance Auto Parts also slashed its quarterly dividend.
+C3.
+ai - The artificial intelligence stock declined 5. 8% ahead of quarterly results Wednesday.
+Analysts polled by FactSet forecast an adjusted quarterly profit of 3 cents per share.
+American Airlines - Shares of the air carrier rose about 2% premarket after the company raised expectations for the second quarter.
+American Airlines increased its earnings per share expectation from between $1. 20 and $1. 40 to between $1. 45 and $1. 65.
+It also increased its margin expectation to between 12. 5% and 14. 5% from between 11% and 13%.
+- CNBC's Samantha Subin, Fred Imbert and Tanaya Macheel contributed reporting.
 .
 ------------------------ Result: 10 --------------------------
 
-Stocks making the biggest moves after hours: Broadcom, DocuSign & more
+Stocks making the biggest moves midday: Intel, C3.ai, Advance Auto Parts, HP and more
 
-Check out the companies making headlines after hours on Thursday:Broadcom - Shares of the semiconductor builder rose 1% in after-hours trading on the back of better-than-expected results for the previous quarter.
-Broadcom posted a profit of $5. 40 per share on revenue of $5. 82 billion.
-Analysts polled by Refinitiv expected earnings of $5. 24 per share on sales of $5. 76 billion.
-Revenues for the company's semiconductor solutions division topped a FactSet estimate while sales from infrastructure software were in line with expectations.
-DocuSign - DocuSign shares climbed more than 1% after-hours as the company reported second-quarter results that beat analyst expectations.
-The cloud-based document manager posted earnings per share of 17 cents on revenue of $342. 2 million.
-Wall Street analysts expected a profit of 8 cents per share on revenue of $318. 6 million, according to Refinitiv.
-The lion's share of the company's revenue came from subscriptions, DocuSign said.
-"In an accelerating digital world where business can be conducted from anywhere, the need to agree electronically and remotely has never been stronger," CEO Dan Springer said in a statement.
-Domo - Shares of the cloud software company jumped more than 5% after the release of second-quarter results that beat analyst expectations.
-Domo reported a loss of 37 cents per share.
-Analysts polled by FactSet expected a loss of 50 cents per share.
-The company's revenue for the quarter also topped a FactSet forecast.
-"Domo was built for this new world of work where business agility is imperative to surviving and thriving," said Josh James in a release.
-Tesla - Tesla shares fell more than 1% in after-hours trading, building on its sharp losses from the regular session.
-The electric car maker's stock dropped 9% during regular trading hours as traders sold unwound positions in companies that had recently outperformed.
-Month to date, Tesla is down more than 18% through Thursday's close.
+Check out the companies making the biggest moves midday.
+Intel - Shares popped 4. 83% after the chipmaker's finance chief said the company could soon see a turnaround.
+Speaking at a conference, CFO David Zinsner said the company's data center division is starting to "turn the corner," while adding that China inventory should start to ease after the third quarter.
+He also said second-quarter revenue will come in at the high end of its guidance.
+Advance Auto Parts - Shares sank 35. 04% after the car parts retailer reported an adjusted earnings per share of 72 cents, widely missing analysts' estimates of $2. 57, per Refinitiv.
+The company also missed on revenue and cut its quarterly dividend and full-year guidance.
+Avis Budget - The car rental company's shares gained 2. 77% Wednesday after Deutsche Bank upgraded shares to buy.
+The bank said a likely share-repurchase announcement later in 2023 could be a positive catalyst for shares.
+Nvidia - Shares retreated 5. 68%, taking a breather from its recent run.
+Nvidia rallied Tuesday, which briefly pulled the tech stock's market cap above $1 trillion.
+The stock has been a focus of excitement amid booming interest in artificial intelligence.
+C3.
+ai - Shares slipped 8. 96% ahead of the AI software maker's quarterly results after the bell.
+C3.
+ai has soared more than 250% so far this year.
+Ambarella - The chip stock fell 11. 76%.
+On Tuesday, Ambarella said it expected second-quarter revenue to range between $60 million and $64 million, below the $67. 2 million guidance expected by analysts, according to Refinitiv.
+KeyBanc downgraded the stock to sector weight from overweight after the report.
+The fall came despite Ambarella reporting a smaller-than-expected adjusted loss in the first quarter.
+Hewlett Packard Enterprise - Shares of the tech company slid 7. 09% a day after the company posted a mixed quarterly report.
+Although earnings per share beat analysts' estimates, revenue for the quarter came in below expectations, according to Refinitiv.
+HP - The stock fell 6. 05%.
+The action came a day after the tech hardware company reported mixed quarterly results.
+HP's revenue of $12. 91 billion fell short of the $13. 07 billion expected from analysts polled by Refinitiv.
+Its adjusted earnings per share of 80 cents topped the 76 cents per share expected.
+SoFi Technologies - Shares in the student loan refinancing firm gained 15. 09%.
+The House is slated to vote on the debt ceiling bill Wednesday.
+The package includes a measure that would end the student loan payment pause.
+Micron Technology - The chip stock dropped 4. 87% following the company's presentation at the Goldman Sachs Global Semiconductor Conference.
+Micron said its third-quarter trends have been consistent with guidance and the company sees no need to raise it.
+However, Micron noted revenue growth guidance near the high end of its previously stated range.
+Carvana - Shares dropped 5. 83%, erasing some of the big gains it has seen so far this year.
+Earlier this month, the stock surged after Carvana said it will achieve adjusted profit sooner than expected.
+Carvana is up nearly 160% year to date.
+Twilio - The tech stock rallied 11. 09%.
+On Tuesday, a news report indicated activist investor Legion Partners has met several times with Twilio's board of directors and management.
+Legion is looking to make changes to the board, and asking the company to consider divestitures, according to The Information, which cited people familiar with the matter.
+Regional banks - Regional banks fell Wednesday, adding to their steep losses for the month of May.
+KeyCorp lost 5. 94% and Zions Bancorp shed 5. 6%, while Citizens Financial Group fell 5. 12% and Truist Financial slipped 1. 99%.
+- CNBC's Hakyung Kim, Jesse Pound, Brian Evans, Tanaya Macheel and Fred Imbert contributed reporting.
+Correction: An earlier version of this story incorrectly said C3.
+ai was behind ChatGPT.
 .
 ------------------------ Result: 11 --------------------------
 
-Stocks making the biggest moves after hours: Tesla, Peloton, Align & more
+Stocks making the biggest moves midday: Uber, Abiomed, Peloton, Carvana, Molson Coors and more
 
-Check out the companies making headlines after hours Wednesday.
-Tesla - The electric car maker's stock popped 3% after Tesla reported third-quarter earnings and revenue that topped analysts' expectations at 76 cents per share and $8. 77 billion, respectively.
-The profit results represent Tesla's fifth consecutive quarter of positive earnings, the result of a record 139,300 delivered vehicles in the three months ended Sept.
-30.
-Chipotle Mexican Grill - The burrito chain saw its stock drop more than 5% in after-hours trading after the company said a shift to delivery orders ballooned costs and led to reduced drink sales in the third quarter.
-Chipotle topped profit expectations with per-share earnings of $3. 76, but its net income fell to $80. 2 million from $98. 6 million in the year-ago period.
-Las Vegas Sands - Shares of Las Vegas Sands rose about 5% in after-hours trading after the casino operator posted a smaller-than-expected loss for the third quarter and revenues larger than Wall Street's consensus estimate.
-It reported a third-quarter loss of 67 cents per share on revenues of $586 million.
-Analysts had expected a loss per share of 73 cents on revenues of $579 million.
-Align Technology - Shares of Align, the company that owns Invisalign teeth aligners, soared more than 20% after the bell thanks to better-than-expected shipments of its clear aligners in the third quarter.
-Align reported a profit of $2. 25 per share, far exceeding consensus estimates of less than $1.
-Peloton - Shares of the exercise equipment company shed 3% after Goldman Sachs downgraded the stock to neutral from buy.
-While Goldman analyst Heath Terry said he's still optimistic in Peloton in the longer term, he advised clients to steer clear of the richly-valued equity over the next few months as investors have already pushed its price up more than 330% in 2020.
-Subscribe to CNBC PRO for exclusive insights and analysis, and live business day programming from around the world.
+Check out the companies making headlines in midday trading Tuesday.
+Uber Â Shares of Uber jumped 12% after the company reported revenue that exceeded Wall Street's expectations.
+The company also gave better-than-anticipated guidance for its fourth quarter, projecting strong bookings growth and adjusted EBITDA of $600 million to $630 million.
+Analysts surveyed by Refinitiv expected $568 million in adjusted EBITDA.
+Abiomed Â Shares of the heart pump maker surged 50% after the company announced it has agreed to be acquired by Johnson & Johnson for $16. 6 billion in cash.
+Johnson & Johnson is looking to boost growth at its medical devices unit after it completes plans for a spinoff of its consumer health business next year.
+J&J shares fell 1%.
+Pfizer Â Shares of the pharmaceutical giant jumped 3. 1% after the company reported stronger-than-expected earnings and issued an improved financial outlook.
+Pfizer said strong demand for its older drugs helped offset a drop in sales of its Covid-related products.
+The stock is still down about 19% this year.
+Peloton Â Shares of the struggling home fitness company were up 6. 4% as its products went live on the Dick's website Tuesday.
+Dick's shares added 2. 4%.
+Fox Â Shares jumped 5. 2% following the company's earnings showing its free, ad-supported streaming service helped boost advertising revenue.
+Molson Coors Beverage Â Shares of Molson Coors fell 3. 2% after the beer giant reported earnings that fell short of expectations.
+The brewer of Coors Light, Miller Light and Blue Moon had third-quarter earnings per share of $1. 32, versus a StreetAccount estimate of $1. 35.
+Goodyear Tire Â Shares fell 14. 9% after the tire company's earnings fell short of expectations due in part to higher costs and a surging dollar.
+Amazon Â Shares of the e-commerce giant lost 5. 5%.
+Deutsche Bank reiterated the stock as a buy and said it was well positioned, but did concede that macro challenges were hurting advertising budgets.
+Carvana - Shares advanced 12. 9% after JPMorgan upgraded Carvana to neutral from underweight, saying the company and investors have a better handle on the risks in the used car seller after its decline this year.
+SoFi Â The fintech company jumped 5. 3% on the back of a smaller-than-expected quarterly loss and revenue that exceeded analysts' forecasts.
+SoFi also issued upbeat guidance and said added about 424,000 members during the quarter.
+Stryker Â The medical technology company dropped 4% after cutting its outlook due to inflation and foreign exchange pressures.
+Eli Lilly Â The drug manufacturer dropped 2,6% after it cut its full-year forecast, citing the stronger dollar and increased competition.
+Hologic Â The medical equipment maker popped 9. 3% following its report of quarterly profit that was above expectations.
+Hologic also issued a strong outlook.
+Avis Budget Â Shares of the rental car company slid 6. 7% despite Avis beating expectations on quarterly earnings amid a resurgence of travel.
+Gartner Â The research firm was up 7. 6% after it beat per-share earnings expectations, according to StreetAccount, and issued positive full-year guidance.
+Trex Â The decking and railing maker lost 8. 3% after posting weaker-than-expected earnings and revenue.
+Trex also said it reduced production levels and laid off staff as sales declined.
+Sealed Air Â The packaging company slid 6. 7% after posting disappointing quarterly figures.
+Sealed Air also brought down its revenue guidance for the full year.
+Ecolab Â Shares of the science company lost 8. 9%.
+Revenue came in slightly above expectations when reporting earnings, but the company said it is expecting negative headwinds from foreign conversion rates that will weigh on full-year guidance.
+Deckers Outdoor - Shares jumped 3. 7% after Bank of America reinstated coverage of Deckers Outdoor with a buy rating, saying the footwear company has a strong portfolio of brands led by Hoka and Ugg that will help the stock outperform.
+IDEXX Laboratories Â Shares added 9. 8% after the company gave full-year guidance showing earnings per share between $7. 74 and $7. 98 compared to a FactSet estimate of $7. 89.
+Expected revenue was set at $3. 325 billion to 3. 365 billion against FactSet's $3. 35 billion forecast.
+- CNBC's Sarah Min, Carmen Reinicke, Tanaya Macheel, Yun LI, Michelle Fox and Jack Stebbins contributed reporting.
 .
 ------------------------ Result: 12 --------------------------
 
-Stocks making the biggest moves in the premarket: Nike, General Mills, J&J, KKR, KB Home & more
+Stocks making the biggest moves in the premarket: FedEx, Adobe, Kodak, Tapestry, DraftKings & more
 
-Take a look at some of the biggest movers in the premarket:Nike (NKE) Â Nike reported quarterly earnings of 95 cents per share, more than doubling the consensus estimate of 47 cents.
-Revenue also beat forecasts, with online sales surging 82 percent and now making up nearly a third of the athletic apparel and footwear maker's total revenue.
-General Mills (GIS) Â The food producer earned $1. 00 per share for its latest quarter, beating estimates by 13 cents a share.
-Revenue also beat forecasts as demand for at-home packaged foods remained elevated due to the Covid-19 pandemic.
-General Mills also announced a 4% hike in its quarterly dividend to 51 cents per share.
-Johnson & Johnson (JNJ) Â J&J's Covid-19 vaccine candidate has entered late-stage testing, making it the fourth company backed by the White House's "Operation Warp Speed" program to achieve that status following Moderna (MRNA), Pfizer (PFE) and AstraZeneca (AZN).
-KKR (KKR) Â The private-equity firm struck a deal to buy contact lens seller 1-800 Contacts from current owner AEA Investors.
-Terms were not disclosed, but Bloomberg had reported that the two sides were discussing a price higher than $3 billion.
-Gores Holding (GHIV) Â The special purpose acquisition company will merge with wholesale mortgage originator United Wholesale Mortgage and take it public.
-The deal values United Wholesale at $16. 1 billon, a record high for a SPAC-related transaction.
-KB Home (KBH) Â KB Home beat estimates by 30 cents a share, with quarterly profit of 83 cents per share.
-The home builder's revenue also came in above Wall Street forecasts.
-Net new orders were up 27% from a year earlier, as the pandemic and an increase in stay-at-home workers boost demand for homes.
-Stitch Fix (SFIX) Â Stitch Fix lost 44 cents per share for its latest quarter, wider than the 16 cents a share loss anticipated by analysts.
-The online clothing styling company's revenue beat estimates, with a 9% increase in active clients compared to a year earlier.
-Shopify (SHOP) Â Shopify disclosed a data breach which it said affected fewer than 200 merchants who use its e-commerce platform.
-Shopify said the breach was an attempt by two now-fired workers to gain transaction records, and that so far, it has not found any evidence of the data being utilized for any purpose.
-Cubic Corp.
-(CUB) Â Cubic received a takeover bid of an undisclosed amount from Elliott Management and buyout firm Veritas Capital, according to people familiar with the matter who spoke to Reuters.
-The bid follows weeks of private talks with the provider of defense and transportation technology.
-Earlier this week, Cubic announced the adoption of a so-called "poison pill" after Elliott took a 15% stake.
-Tesla (TSLA) Â The stock was named a "bearish Fresh Pick" at Baird, which said that although the advancements announced at Tesla's "Battery Day" were impressive, the stock's current price already reflects Tesla's disruption potential.
-However, Deutsche Bank is taking an opposite view, upgrading Tesla to "buy" from "hold" and saying the "Battery Day" presentation showcased an impressive trajectory for Tesla's technology.
-3M (MMM) Â 3M is exploring the sale of its food safety business, according to a Bloomberg report.
-The unit could draw up to $3. 5 billion in a sale, according to people with knowledge of the matter.
-Walmart (WMT) Â Walmart plans to hire more than 20,000 holiday season workers for its e-commerce fulfillment centers, anticipating a significant increase in online holiday shopping.
-Oracle (ORCL) Â Oracle did not engage in intentional compensation discrimination, according to a ruling from a Labor Department Administration Law judge.
-The case against the business software giant took four years to resolve, with the business software giant saying it should not have been brought in the first place.
-Lululemon (LULU) Â Lululemon resumed a stock buyback program that had been halted due to the COVID-19 pandemic.
-The athletic apparel maker's buyback program has $263. 6 million left in a program that is due to expire on January 31.
+Check out the companies making headlines premarket Wednesday:FedEx (FDX) - FedEx shares popped more than 9% in the premarket on the back of quarterly numbers that beat analysts' expectations.
+The shipping giant reported earnings per share of $4. 87 on revenue of $19. 32 billion.
+Analysts expected a profit of $2. 69 per share on revenue of $17. 55 billion.
+The company said its average daily package volume jumped 31% to 11. 6 million in its fiscal first quarter.
+Adobe (ADBE) - Adobe reported earnings per share of $2. 57 on revenue of $3. 23 billion.
+Analysts polled by Refinitiv expected a profit of $2. 41 per share on sales of $3. 16 billion.
+The company said its Digital Media business saw 19% year-over-year growth for the fiscal third quarter while its Digital Experience segment grew by 7% year-over-year.
+Zillow (ZG) - A Deutsche Bank analyst named Zillow a "catalyst call buy," noting the $4. 8 billion SPAC deal for real estate start-up Opendoor "sets the stage for Zillow to get more value attribution for the Homes segment of its business.
+" Zillow shares were up 1. 2% in the premarket.
+Eastman Kodak (KODK) - Shares of Eastman Kodak popped more than 42% after a law firm hired by the one-time photography giant said transactions made by CEO Jim Continenza around the time the company learned about a $765 million government loan did not go against internal policies.
+KB Home (KBH) - An Evercore ISI analyst upgraded to the homebuilder to "outperform," noting that "amidst  rising  fear  and  insecurity,  the  instinct  to  retreat to the sanctuary of one's home is implacable.
+" KB Home shares traded higher by 1. 5%.
+Tapestry (TPR) - Shares of the Coach and Kate Spade parent company were up by more than 3% after a Deutsche Bank analyst upgraded the stock to "buy" from "hold.
+" The analyst also hiked his price target on the stock to $21 per share from $18 per share.
+The new price target implies a 24. 7% upside from Tuesday's close of $16. 84.
+"We have seen strong digital trends across the retail landscape, and believe TPR will be a beneficiary of the current trend that appears to be accelerating the shift to digital," the analyst said.
+Overstock.
+com (OSTK) - Wedbush initiated Overstock with an "outperform" rating and a price target of $92 per share, sending the stock up more than 2% in the premarket.
+That price target implies an upside of 25. 4% over the next 12 months.
+"We see multiple catalysts, both on the macro and micro level that we believe can drive continued upside to revenue and EBITDA estimates," Wedbush said.
+DraftKings - Shares of the online sports betting site rose 3% after the company announced a deal with the National Football League's New York Giants.
+The deal makes DraftKings the team's exclusive operator of sports betting, iGaming and daily fantasy sports.
 .
 ------------------------ Result: 13 --------------------------
 
-Stocks making the biggest moves midday: Carvana, Colgate-Palmolive, Tesla and more
+Stocks making the biggest moves midday: Moderna, IHS Markit, Nikola, Carnival & more
 
-Check out the companies making headlines in midday trading Monday.
-Colgate-Palmolive - Shares gained 2. 8% after Morgan Stanley upgraded the stock to overweight from equal weight and named it the top pick in the household and personal care industry.
-The firm said the stock was at a good price point after a recent selloff.
-Tesla - Shares dropped 2. 8% after Berenberg lowered its earnings estimate for Tesla by around 25% for 2023 following the company's price cuts for its electric vehicles.
-However, the firm upgraded the stock to buy from hold.
-GE HealthCare Technologies - The stock rose 4% after the company reported its first earnings after being spun off as a public company from General Electric.
-GE Healthcare's revenue came in at $4. 9 billion, an 8% year-over-year increase, and its fourth-quarter adjusted EPS was $1. 31.
-Ford Motor Company - Shares fell nearly 1. 4% after the company announced price cuts for its electric Mustang Mach-E crossover.
-The move in Ford comes after Tesla said earlier this month it would trim prices to counteract dwindling demand.
-Macy's - Goldman Sachs said Macy's is the best-positioned retailer and initiated coverage with a buy rating.
-The stock advanced 1. 8%.
-AMC Entertainment - Common shares of the theater chain fell by more than 7% after AMC announced a shareholder meeting in March for a potential change to its capital structure.
-The special meeting would allow shareholders to vote on increasing the total number of shares the company can issue and on a reverse stock split to convert its preferred shares to common shares.
-The preferred or "APE" shares, which trade at a large discount to the common shares, jumped by more than 16%.
-Carvana - Shares surged 28. 5% as an apparent short squeeze boosted the beleaguered stock.
-It was also briefly paused in early morning trading due to the rapid runup.
-Moderna - The vaccine producer fell another 3. 2%.
-The company's stock price has fallen about 7% since last week, after a Reuters report said the European Union is in talks with Pfizer and BioNTech to reduce the number of Covid-19 vaccine doses it's committed to purchasing this year in exchange for paying a higher price per dose.
-Advanced Micro Devices - Shares of semiconductor AMD fell 2. 1% after a slew of Wall Street analysts said they are worried about the company's upcoming earnings report following Intel's disastrous release.
-The company is scheduled to report Tuesday.
-- CNBC's Hakyung Kim, Jesse Pound, Alex Harring, Carmen Reinicke, Michelle Fox Theobald, and Samantha Subin contributed reporting.
+Check out the companies making headlines midday Monday:Moderna - Shares rallied 20. 2% after the drugmaker said its coronavirus vaccine candidate was more than 94% effective in preventing Covid-19 during a trial.
+The company added it would seek emergency use approval from the Food and Drug Administration.
+S&P Global, IHS Markit - S&P Global said it would buy IHS Markit for $44 billion, including debt, in a deal that is expected to close in the second half of 2021.
+S&P Global investors will receive 67. 75% of the combined company once the deal closes.
+"This merger increases scale while rounding out our combined capabilities," S&P CEO Douglas Peterson said.
+Shares of S&P Global rose 3% and IHS advanced 7. 4%.
+Nikola - Shares of Nikola dropped 27% after General Motors gave up its equity stake in the electric vehicle maker as part of a smaller deal between the two companies.
+In September, the two companies announced a $2 billion deal that gave GM an 11% stake in Nikola to supply battery and fuel-cell technologies.
+GM had also agreed to build Nikola's Badger pickup truck.
+Under the new deal, GM will not build the truck.
+Apple - The tech giant advanced more than 2% after bullish comments from Wall Street.
+Loop Capital Markets upgraded the stock to a buy rating and set a $131 per share target, which is about 12% above where the stock closed Friday.
+Separately, Morgan Stanley said early signs indicate that iPhone 12 sales are surpassing expectations.
+Salesforce, Slack - The messaging platform popped more than 5% after CNBC's David Faber reported Salesforce's deal to buy Slack is expected to be announced Tuesday after the market close.
+Shares of Salesforce lost 0. 7%.
+Delta Air Lines - Shares of the airline ticked nearly 2% lower after Raymond James downgraded the stock to market perform from outperform.
+The call was mainly due to valuation.
+Bank of America - The bank was downgraded to underweight from overweight by an analyst at Morgan Stanley.
+The analyst said Bank of America's "tighter underwriting standards post crisis limit both their downside going into a recession and their relative upside coming out of one.
+" Bank of America shares slipped 2. 9%.
+Carnival Corp Â Shares of the cruise operator fell more than 7% amid a sell-off in companies sensitive to the economy reopening.
+Royal Caribbean and Norwegian Cruise Line each slid more than 3%, while retailers Gap and Macy's declined by 3. 6% and 5. 9%, respectively.
+The energy sector, which is by far the best-performing S&P 500 grouping this month, also declined, with Chevron and Exxon dipping at least 4. 5% each.
+-CNBC's Pippa Stevens and Maggie Fitzgerald contributed to this report.
 .
 ------------------------ Result: 14 --------------------------
 
-Stocks making the biggest moves in the premarket: Oracle, Tesla, Home Depot, Beyond Meat & more
+Stocks making the biggest moves after hours: Tesla, Dollar Tree, Jefferies Financial Group & more
 
-Check out the companies making headlines in the premarket Friday:Home Depot (HD), Lowe's (LOW) - An analyst at Oppenheimer downgraded both of the home improvement companies to "perform" from "outperform.
-" He also lowered his price targets on the two stocks, noting that, near term, "we're increasingly concerned that the market is becoming too lax toward chances of a post-Covid-19 sales growth downshift at HD/LOW and potential impact on shares.
-" Home Depot and Lowe's fell 1% and 1. 4%, respectively.
-Oracle (ORCL) - Oracle shares were down more than 1% after the Commerce Department said it will block U.
-S.
-users from downloading TikTok or WeChat starting Sept.
-20.
-The announcement comes as Oracle tries to finalize a deal in which it will become the U.
-S.
-business partner of TikTok-parent ByteDance.
-Ambarella (AMBA) - Ambarella shares rose more than 1% in the premarket after a Berenberg analyst initiated the semiconductor design company with a "buy" rating and a price target of $67 per share.
-That price target implies a 28. 4% upside over the next 12 months.
-"Although AMBA's stock has reflected recent concerns over the impact of revenue churn in non-focus areas, we think the company is through the worst of this," the analyst said.
-Dave & Buster's (PLAY) - Dave & Buster's popped nearly 10% as several analysts upgraded the stock even after the company reportedly warned about a potential bankruptcy if a deal with its lenders is not reached.
-Stifel and Raymond James were two of the firms upgrading Dave & Buster's.
-In a note, Stifel said the recent pullback in the stock "creates an attractive entry point for investors with higher levels of risk tolerance.
-Meanwhile, Raymond James said Thursday's pullback on bankruptcy concerns "seems overdone.
-"Beyond Meat (BYND) - A JPMorgan analyst downgraded Beyond Meat to "underweight" from "neutral," sending the stock down more than 4%.
-"The stock is ahead of itself and we view Street estimates as too high, thanks to chief rival Impossible Foods taking share at grocery and restaurants hesitating to add menu complexity during the Covid-19 crisis," the analyst said.
-Tesla (TSLA) - Tesla shares were up 4% in the premarket after an analyst at Piper Sandler hiked his price target on the electric car maker to $515 per share from $480 per share.
-The new target implies a 21. 6% upside from Thursday's close of $423. 43 per share.
-The analyst said the target hike came after examining Tesla's energy segment and noting: "We anticipate sharply higher demand for these products.
-"Foot Locker (FL) - Argus Research upgraded Foot Locker shares to "buy" from "hold," highlighting that "have returned to stores with intentions to buy merchandise" while digital sales are still strong.
+Check out the companies making headlines after the bell: Jefferies Financial Group - Shares of the financial services firm jumped more than 14% following the company's third quarter earnings results.
+Jefferies earned $1. 07 per diluted share, up from 15 cents in the same quarter a year ago.
+Revenue came in at $1. 62 billion, and the company also increased its stock buyback program to $250 million.
+Dollar Tree - The bargain retailer gained more than 1% after the company said it will resume its share repurchase program.
+Dollar Tree currently has $800 million remaining under the Board's previously authorized program, which was suspended in March 2020 in repose to uncertainties around Covid-19.
+New Residential Investment - Shares of the REIT advanced 5% after the company said it was increasing its quarterly dividend by 50%.
+The new dividend, which will be distributed on October 30, will be 15 cents.
+Tesla - Shares of the electric vehicle company slid 1%, building on the stock's 10. 34% decline during the normal trading session.
+The steep loss followed the company's "Battery Day," during which CEO Elon Musk announced production developments including a more than 50% reduction in the cost of battery manufacturing.
+ Subscribe to CNBC PRO for exclusive insights and analysis, and live business day programming from around the world.
 .
 ------------------------ Result: 15 --------------------------
-
-Stocks making the biggest moves midday: Tesla, AMC, DraftKings, Peloton & more
-
-Check out the companies making headlines in midday trading.
-Tesla - Shares of the electric car maker dropped 10% following its massive run-up after its stock split announcement.
-The electric car-maker skyrocketed more than 70% following the 5-for-1 stock split announcement on Aug.
-11.
-The weakness also came after Baillie Gifford, the company's largest outside investor, trimmed its Tesla holdings.
-The firm cited portfolio restrictions for the reduction.
-Tesla also said Tuesday it will sell up to $5 billion in new shares.
-AMC Entertainment - AMC shares popped more than 9% after the movie theater chain said 70% of its locations will open by Friday with about 140 additional locations resuming operations this week.
-The company said it expects to make announcements about further reopenings in California, New Jersey and other areas of the country in the coming weeks.
-DraftKings - Shares of DraftKings rose 2% after the sports gambling company announced that basketball great Michael Jordan will join the company's board as an advisor.
-Jordan, a member of the NBA's Hall of Fame and owner of the Charlotte Hornets, will offer DraftKings his expertise on sports company strategy, product development and diversity, DraftKings said.
-He will have an equity interest in the company as part of the deal.
-Peloton Â Shares of the exercise equipment maker jumped more than 3% after JPMorgan called the company a "top pick.
-" The firm raised its price target on the stock to a Street high of $105 based on ongoing demand.
-Shares are up more than 200% this year.
-At Home Group - The retail stock plunged 26% after the company reported lower-than-expected revenue for its second quarter and declined to give forward guidance.
-At Home said it earned $1. 41 in adjusted earnings per share on $512. 5 million of revenue.
-Analysts surveyed by FactSet were looking for $1. 31 in earnings per share and $515 million in revenue.
-Macy's - Shares of the retailer rose 2. 5% after the company reported better-than-expected results on the top and bottom lines for its fiscal second quarter.
-Macy's also announced that it was planning to test several smaller retail locations as it shifts from struggling malls.
-Apple - Shares of Apple fell more than 4% following its big run-up sparked by its 4-for-1 stock split announcement.
-Apple, the only U.
-S.
-company with a market cap over $2 trillion, soared nearly 40% since the tech giant declared the corporate action on July 30.
-The split took place on Monday, sending shares up more than 3%.
-Guess - Shares of Guess jumped more than 12% after the retailer reported a much narrower loss than expected.
-The company posted a loss of one cent in the second quarter, compared to a loss of 58 cents expected, according to FacetSet.
-Its revenue also came in above Street expectations.
-CNBC's Fred Imbert, Pippa Stevens, Jesse Pound and Thomas Franck contributed reporting.
-Subscribe to CNBC PRO for exclusive insights and analysis, and live business day programming from around the world.
-.
------------------------- Result: 16 --------------------------
-
-Stocks making the biggest moves midday: Tesla, Wayfair, Moderna & more
-
-Check out the companies making headlines in midday trading.
-Tesla - Tesla shares whipsawed in midday trading, trading higher by 0. 5% after falling as much as 8. 5% and into bear-market territory earlier in the session.
-The stock of the electric car maker has come under marked pressure in recent session amid a sell-off in high-flying growth stocks.
-DocuSign - The work-from-home stock continued its fall on Friday despite beating Wall Street estimates for second quarter earnings, revenue and future guidance on Thursday night.
-Deutsche Bank downgraded the stock to hold from buy, saying the share price already reflected strong future growth.
-Shares were down more than 12% on Friday.
-Moderna - Shares of the pharmaceutical company fell more than 4% after its CEO announced that Moderna was slowing enrollment  in its phase three vaccine trial to ensure a diverse patient pool.
-The most recent data from the company shows that its patient pool is has fewer Black and Latino Americans than the country as a whole, according to Census Bureau estimates.
-Wayfair - Shares of Wayfair slid 6. 5% after Bank of America downgraded the online retailer to neutral from buy.
-The band cited elevated expectations and valuation, saying there could be a revenue deceleration ahead.
-The stock has soared more than 170% this year amid a surge in e-commerce demand.
-Lululemon Athletica -  Shares of Lululemon dropped more than 4% after a Citi analyst downgraded the apparel company to neutral from buy, noting the stock is currently "priced to perfection.
-" "As we approach earnings with the stock near $400 we have to ask ourselves if we can realistically recommend buying LULU at $400 with a call it can go to at least $460 over the next 12 months.
-And we just can't do it," the analyst said.
-- CNBC's Fred Imbert, Yun Li and Jesse Pound contributed reporting.
-Subscribe to CNBC PRO for exclusive insights and analysis, and live business day programming from around the world.
-.
------------------------- Result: 17 --------------------------
 
 Stocks making the biggest moves after hours: Nikola, Comcast, Roku & more
 
@@ -454,7 +494,92 @@ These stocks were among Monday's biggest laggards as fears of a worsening corona
 Carnival gained 0. 8% after dropping 6. 6%, while United Airlines rose 0. 9% following a 8. 6% decline.
 Disclosure: Comcast is the owner of NBCUniversal, parent company of CNBC.
 .
+------------------------ Result: 16 --------------------------
+
+Stocks making the biggest moves midday: Hasbro, Dunkin' Brands, AstraZeneca, Delta & more
+
+Check out the companies making headlines midday Monday:Dunkin' Brands - Shares of the restaurant chain spiked more than 16% after the company said it held preliminary talks regarding its potential acquisition by Inspire Brands, although the company said there's "no certainty that any agreement will be reached.
+" The New York Times reported that the deal could value the restaurant chain at nearly $9 billion.
+SAP - SAP plunged more than 23% for its worst trading day in at least 12 years after Europe's biggest software company by sales slashed its revenue and profit forecast for 2020.
+The German company said coronavirus lockdowns would affect demand for its business relations and customer management software well into 2021.
+JPMorgan cut its rating on the company to neutral from overweight.
+American Airlines, United Airlines, Delta Air Lines - Shares of the major U.
+S.
+airlines sold off on Monday amid a surge in Covid-19 cases and little hope of a fiscal stimulus deal.
+American and Delta lose more than 6% a piece.
+United fell 7%.
+Southwest and Alaska Air ticked 3. 95% and 7. 2% lower, respectively.
+AstraZeneca - AstraZeneca shares rose 2. 1% after the company said its coronavirus vaccine candidate triggered an immune response in younger and older adults alike.
+The company also said adverse responses to the vaccine were found to be lower among the elderly.
+Hasbro - Hasbro dropped 9. 4% even after the toy company reported third-quarter earnings and revenue that beat analysts' expectations.
+Hasbro posted a profit of $1. 88 per share on revenue of $1. 78 billion, while Wall Street was expecting $1. 63 per share on revenue of $1. 74 billion, according to FactSet.
+However, the company's sales for its TV, film and entertainment division fell short of estimates.
+Lordstown Motors - Shares of the Ohio-based electric vehicle maker briefly jumped nearly 20% before easing to close just 4. 2% higher in the company's public-market debut.
+The stock began trading on Monday after a reverse merger with DiamondPeak Holdings, a special purpose acquisition company, or SPAC.
+Apple - Evercore ISI added Apple to its tactical outperform list, briefly sending the stock up as much as 1. 3%.
+The Wall Street firm said Apple's stock should keep working higher thanks to the "iPhone super cycle" and demand for other devices like Macbooks and Airpods.
+Apple reports earnings on Thursday.
+Apple shares closed flat.
+Mirati Therapeutics - Shares of Mirati Therapeutics jumped 9. 2% after releasing preliminary data on adagrasib, a drug aimed at treating lung cancer.
+According to the data, the drug shrank tumors in 45% of the patients participating in the trial.
+-CNBC's Pippa Stevens, Maggie Fitzgerald and Yun Li contributed.
+.
+------------------------ Result: 17 --------------------------
+
+Stocks making the biggest moves in the premarket: Abiomed, Uber, SoFi, Pfizer and more
+
+Take a look at some of the biggest movers in the premarket:Abiomed (ABMD) Â Abiomed stock soared 51. 6% in premarket trading after agreeing to be acquired by Johnson & Johnson (JNJ) in a nearly $16. 6 billion deal.
+J&J will pay $380 per share for the maker of heart, lung and kidney treatments, and will add a contingent value right worth up to $35 per share if certain milestones are achieved.
+J&J shares fell 0. 7%.
+Uber Technologies (UBER) Â Uber rallied 8. 8% in the premarket after it reported better-than-expected quarterly revenue as gross bookings surged compared to a year ago.
+Uber did report a quarterly loss, but that was largely due to unrealized losses on equity investments such as its stake in Didi Global.
+SoFi Technologies (SOFI) Â SoFi surged 14. 3% in premarket trading, following a smaller-than-expected quarterly loss and revenue that exceeded analysts' forecasts.
+The fintech company also lifted its outlook after adding nearly 424,000 new members during the quarter, bringing its total to more than 4. 7 million.
+Pfizer (PFE) Â Pfizer jumped 4% in premarket trading following a better-than-expected quarter and an improved financial outlook.
+Strong demand for Pfizer's older drugs helped offset a drop in sales of its Covid-19-related products.
+Goodyear Tire (GT) Â Goodyear tumbled 8. 3% in the premarket following a third-quarter earnings miss.
+The tire maker said its results were impacted by higher costs and a stronger U.
+S.
+dollar, although that was partially offset by higher prices.
+Eli Lilly (LLY) Â Eli Lilly beat top and bottom line estimates for its latest quarter, but the drugmaker's stock fell 2. 2% in the premarket as it cut its full-year forecast.
+Lilly is seeing a negative impact from a stronger dollar, increased cancer drug competition and lower insulin prices.
+Hologic (HOLX) Â Hologic rallied 7. 6% in the premarket after the medical equipment maker reported better-than-expected quarterly profit and issued an upbeat outlook.
+Hologic said it saw "unprecedented strength" across its core businesses.
+Stryker (SYK) Â Stryker lost 4. 9% in premarket action after the surgical equipment and medical device maker cut its financial outlook, citing the impact of inflation and a stronger U.
+S.
+dollar.
+Avis Budget (CAR) Â Avis Budget shares gained 3. 7% in the premarket following better-than-expected quarterly earnings from the rental car giant amid continued strong travel demand.
+Trex (TREX) Â Trex shares tumbled 7. 5% in premarket trading after the maker of decking and railing materials missed both top and bottom line estimates for its latest quarter.
+Trex said it reduced production levels and implemented layoffs during the quarter as it adjusted to falling sales.
+.
 ------------------------ Result: 18 --------------------------
+
+Stocks making the biggest moves premarket: Dell, MongoDB, Lululemon and more
+
+Check out the companies making headlines before the bell:Dell Technologies - Dell Technologies surged 10. 5% after exceeding analysts' second-quarter expectations.
+The computer company reported adjusted earnings per share of $1. 74 and revenue of $22. 93 billion.
+Analysts polled by Refinitiv anticipated earnings per share of $1. 14 and $20. 85 billion.
+Morgan Stanley named Dell a top pick in IT hardware.
+MongoDB - MongoDB advanced 5% after topping Wall Street expectations in its latest quarter.
+The database software maker posted adjusted earnings of 93 cents per share on revenue totaling $423. 8 million for the second quarter.
+Those results topped expectations of 46 cents in earnings per share and $393 million in revenue, according to a consensus estimate from Refinitiv.
+Lululemon Athletica - Shares added 2. 3% in premarket trading after the athletic apparel retailer reported an earnings beat.
+Earnings per share for its second fiscal quarter came in at $2. 68, topping the Refinitiv consensus estimate of $2. 54.
+Revenue was $2. 21 billion, versus the $2. 17 expected.
+Lululemon also upped its guidance for the year.
+Walgreens Boots Alliance - The drugstore chain rose 0. 4% in early trading.
+Walgreens said Friday that Roz Brewer had stepped down as the company's chief executive and left the board.
+Vale - The metals and mining stock rose nearly 2% after JPMorgan upgraded Vale to overweight from neutral, saying shares look too cheap to ignore after a recent pullback and valuation reset.
+VMware - The cloud services company slid 1. 9% before the bell.
+VMware gave a mixed second-quarter report Thursday, beating expectations for earnings per share while missing on revenue.
+The company also said it entered a definitive agreement to be acquired by Broadcom.
+Broadcom - Shares of the chipmaker fell 4% despite Broadcom's fiscal third-quarter results beating expectations.
+The semiconductor company generated $10. 54 in adjusted earnings per share on $8. 88 billion of revenue.
+Analysts surveyed by Refinitiv were expecting $10. 42 per share on $8. 86 billion of revenue.
+Fourth-quarter revenue guidance of $9. 27 billion was roughly in line with estimates.
+- CNBC's Michelle Fox, Alex Harring, Jesse Pound and Samantha Subin contributed reporting.
+.
+------------------------ Result: 19 --------------------------
 
 Stocks making the biggest moves midday: Nvidia, Tesla, Coinbase and more 
 
@@ -487,67 +612,37 @@ S.
 Food and Drug Administration accepted its license application for an advanced skin cancer treatment.
 - CNBC's Tanaya Macheel, Yun Li, Michelle Fox, Alexander Harring and Jesse Pound contributed reporting.
 .
------------------------- Result: 19 --------------------------
-
-Stocks making the biggest moves in the premarket: Facebook, Tesla, Kansas City Southern, Costco & more
-
-Take a look at some of the biggest movers in the premarket:Facebook (FB) Â Facebook announced it would not accept new political ads in the week before Election Day, and will remove posts that claim people will get Covid-19 if they take part in voting.
-Facebook will also add informational labels to any posts that seek to delegitimize election results.
-Tesla (TSLA) Â The automaker's largest shareholder, investment management firm Baillie Gifford, has cut its stake in Tesla to less than 5% from 6. 32%.
-Baillie Gifford said it took the action due to portfolio restrictions after the rapid runup in Tesla shares increased its overall percentage of the firm's holdings.
-Kansas City Southern (KSU) Â Private-equity firms Blackstone (BX) and Global Infrastructure Partners have made a takeover offer for the rail operator, according to people familiar with the matter who spoke to The Wall Street Journal.
-Kansas City Southern currently has a market value of nearly $18. 3 billion, and the paper said the value of the takeover bid could not be learned.
-Beyond Meat (BYND) Â Baird initiated coverage of the plant-based burger maker with an "outperform" rating, saying increased distribution should give Beyond Meat substantial growth over the next several years.
-Eli Lilly (LLY) Â Morgan Stanley upgraded the drug maker's stock to "overweight" from "equal weight," pointing to prospects in the areas of diabetes and Alzheimer's.
-Verizon (VZ), Amazon.
-com (AMZN) Â Verizon and Amazon are considering a $4 billion investment in India-based telecom company Vodafone Idea, according to a report in India's Mint newspaper.
-Vodafone Idea is a joint venture between Britain's Vodafone (VOD) and India's Idea Cellular, and such an investment might help it pay $6. 8 billion that it owes to the Indian government.
-Costco (COST) Â The warehouse retailer reported a 13. 2% rise in August comparable-store sales, compared to the 10. 7% consensus estimate.
-Costco's e-commerce sales more than doubled during the month compared to a year earlier.
-PVH (PVH) Â The company behind the Tommy Hilfiger and Calvin Klein apparel brands reported quarterly profit of 13 cents per share, compared to analysts' forecasts of a loss of $2. 43 per share.
-PVH's results were driven by strong demand for casual clothing as employees continued to work from home amid the pandemic.
-JPMorgan Chase (JPM), Bank of America (BAC) Â Deutsche Bank upgraded both stocks to "buy" from "hold," noting the extreme lag for bank stocks amid the overall market rally and positive catalysts including a macroeconomic recovery.
-FedEx (FDX), United Parcel Service (UPS) Â Berenberg upgraded FedEx to "buy" from "hold," while downgrading UPS to "sell" from "hold.
-" Berenberg sees margins and free cash flow improving for FedEx, while saying recent gains in UPS shares have run way ahead of the company's profit trajectory.
-CrowdStrike (CRWD) Â The cybersecurity company surprised Wall Street with a quarterly profit of 3 cents per share, with analysts having predicted a loss of 1 cent per share.
-Revenue also beat forecasts, and CrowdStrike issued an upbeat outlook.
-Rocket Companies (RKT) Â The parent of Quicken Loans reported a profit of $3. 5 billion in its first quarter as a public company, compared to a year-ago loss.
-Rocket benefited from increased loan volume driven by lower interest rates.
-Cloudera (CLDR) Â The cloud data company beat estimates by 4 cents a share, with quarterly profit of 10 cents per share.
-Revenue also topped Street forecasts, boosted by a 17% increase in subscription revenue.
-Cloudera issued a better-than-expected current-quarter and full-year outlook as well.
-PagerDuty (PD) Â The provider of cloud-based help desk software lost 4 cents per share for its latest quarter, smaller than the 7 cents a share loss that analysts were expecting.
-Revenue matched forecasts, however its full-year projections were below Street forecasts.
-Novavax (NVAX) Â A study published in the New England Journal of Medicine showed the drugmaker's Covid-19 vaccine candidate is safe and elicits an immune response.
-.
 ------------------------ Result: 20 --------------------------
 
-Stocks making the biggest moves midday: PagerDuty, Dell, Tesla, Broadcom and more
+Stocks making the biggest moves midday: Nikola, JPMorgan Chase, Roku, Apple, Delta & more
 
-Check out the companies making headlines in midday trading:VMware - The cloud services company slid 2. 8%, a day after giving a mixed second-quarter report.
-While VMware surpassed expectations for earnings per share, it missed on revenue.
-Lululemon Athletica - The stock popped 6% on Friday after the athletic apparel retailer reported an earnings beat following Thursday's close.
-Fiscal second-quarter earnings per share came in at $2. 68, versus the $2. 54 expected from analysts polled by Refinitiv.
-Revenue was $2. 21 billion, topping estimates of $2. 17 billion.
-Lululemon also upped its guidance for the year.
- Broadcom - The chip stock lost 5. 5% after the company issued fiscal fourth-quarter revenue guidance that was slightly below Wall Street estimates amid concerns about competition in the networking chip space.
-Broadcom did report better-than-expected earnings and revenue for the latest quarter, however.
-Papa John's - The pizza chain climbed 1. 9% following a Wedbush upgrade to outperform from neutral.
-The firm said shares were too cheap.
-PagerDuty - The stock declined 7. 7% after PagerDuty issued third-quarter earnings guidance that missed analysts' expectations.
-The company expects earnings per share between 13 cents and 14 cents for the quarter, below a StreetAccount consensus of 15 cents per share.
-Baird also downgraded PagerDuty to neutral from outperform, saying its shares are in the "penalty box.
-"A-Mark Precious Metals - Shares of the precious metals trading company soared 10. 9% during Friday's trading session after the company posted its latest quarterly results and announced a $1 per share special dividend.
-Revenue totaled $3. 16 billion, exceeding expectations of $2. 31 billion.
-The company's earnings per share came out at $1. 71, however, which was lower than analysts' expectations of $1. 76, according to StreetAccount.
-Dell Technologies - Dell Technologies surged 21. 3% Friday after exceeding analysts' second-quarter expectations.
-The computer company reported adjusted earnings per share of $1. 74 and revenue of $22. 93 billion.
-Analysts polled by Refinitiv anticipated earnings per share of $1. 14 and $20. 85 billion.
-Morgan Stanley also named Dell a top pick in IT hardware.
-Walgreens Boots Alliance - The drugstore chain declined 7. 4% after the company announced Roz Brewer had stepped down as the company's chief executive and left the board.
-Tesla - Shares of Tesla dropped nearly 5. 1% after the electric vehicle maker cut prices for some Model S and Model X vehicles in China.
-MongoDB - MongoDB gained just above 3% on Friday after topping Wall Street expectations in its latest quarter.
-The database software maker posted adjusted earnings of 93 cents per share on revenue totaling $423. 8 million for the second quarter.
-Those results topped expectations of 46 cents in earnings per share and $393 million in revenue, according to a consensus estimate from Refinitiv.
-- CNBC's Yun Li, Alex Harring and Michelle Fox Theobald contributed reporting.
+Check out the companies making headlines midday Monday:Nikola, General Motors - Nokola tanked more than 20% after announcing its founder Trevor Milton is voluntarily resigning.
+Earlier this month, the electric carmaker was accused by Hindenburg Research of making false statements about Nikola's technology in order to grow and secure partnerships with auto companies, including General Motors.
+GM announced earlier this month that it's taking an 11% stake in Nikola worth about $2 billion.
+Shares of GM lost more than 6%.
+Deutsche Bank, JPMorgan Chase -Deutsche Bank dropped more than 7%, while JPMorgan Chase fell over 4%, leading the declines in the financial sector after a new report found that several global banks allegedly moved illicit funds over the past two decades.
+Citing confidential documents submitted by banks to the U.
+S.
+government, BuzzFeed and the International Consortium of Investigative Journalists reported the banks' internal compliance officers flagged a total of more than $2 trillion in transactions between 1999 and 2017 as possible money laundering or other criminal activity.
+Microsoft, Amazon, Apple, Facebook, Alphabet - Shares of mega-cap technology companies fell broadly on Monday, continuing their spiral that started in early September.
+Microsoft and Apple lost 1% and Amazon fell nearly 2%.
+Facebook dipped 2. 3% and Alphabet lost fell 2. 5%.
+Oracle, Walmart - Oracle and Walmart shares rose 1. 9% and 0. 7%, respectively after President Donald Trump said over the weekend he approved a deal in which the two companies would partner with social video app TikTok in the U.
+S.
+"I approved the deal in concept," Trump said Saturday.
+Roku - The streaming video stock jumped nearly 15% after Roku struck a deal with NBCUniversal, CNBC's parent company.
+The deal will make NBC's Peacock streaming service available on Roku devices.
+Comcast CEO Brian Roberts said last week that the new streaming service has 15 million sign-ups.
+Illumina - Shares of the biotech company fell more than 8% after the company announced an $8 billion deal for Grail, a cancer screening company.
+Illumina founded Grail in 2016 before later spinning it off.
+Grail shareholders will get a mix of stock and cash at the close of the deal and future payments tied to Grail's revenue, according to a news release.
+Norwegian Cruise Line - The cruise operator slipped more than 8%, as did shares of Royal Caribbean, on the back of rising coronavirus numbers.
+The two companies submitted a report to the U.
+S.
+Centers for Disease Control and Prevention providing a set of health and safety protocols, aimed at allowing their return to sea, according to Reuters.
+Carnival Corporation slid more than 7%.
+Delta Air Lines - The airline company's stock slid more than 9% amid broad weakness in the sector as Covid-19 cases climb.
+United Airlines was also down 9%, while JetBlue shed 8%.
+Southwest fell 7%, while American slid more than 6%.
+-CNBC's Yun Li, Maggie Fitzgerald, Pippa Stevens and Jesse Pound contributed to this report.
 .
