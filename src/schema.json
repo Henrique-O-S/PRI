@@ -30,10 +30,12 @@
             "format": "snowball"
           },
           {
-            "class": "solr.SynonymFilterFactory",
+            "class": "solr.SynonymGraphFilterFactory",
             "synonyms": "synonyms.txt",
-            "expand": "true"
-          },
+            "expand": "true",
+            "ignoreCase": true
+          }
+          ,
           {
             "class": "solr.SnowballPorterFilterFactory",
             "language": "English"
@@ -58,9 +60,10 @@
             "format": "snowball"
           },
           {
-            "class": "solr.SynonymFilterFactory",
+            "class": "solr.SynonymGraphFilterFactory",
             "synonyms": "synonyms.txt",
-            "expand": "true"
+            "expand": "true",
+            "ignoreCase": true
           },
           {
             "class": "solr.SnowballPorterFilterFactory",
