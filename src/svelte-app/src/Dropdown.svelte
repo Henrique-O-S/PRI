@@ -1,14 +1,20 @@
 <!-- src/Dropdown.svelte -->
 <script>
-  let selectedQuery = '';
-
-  function handleChange(event) {
-    selectedQuery = event.target.value;
-  }
-</script>
-
-<select bind:value={selectedQuery} on:change={handleChange}>
-  <option value="query1">Query 1</option>
-  <option value="query2">Query 2</option>
-  <!-- Add more options as needed -->
-</select>
+    let selectedQuery = '';
+  
+    function handleChange(event) {
+      selectedQuery = event.target.value;
+    }
+  </script>
+  
+  <section class="section">
+    <div class="container">
+      <div class="field">
+        <label class="label">Enter your query:</label>
+        <div class="control">
+          <input class="input" type="text" bind:value={selectedQuery} on:input={handleChange} placeholder="Search...">
+        </div>
+      </div>
+    </div>
+  </section>
+  
