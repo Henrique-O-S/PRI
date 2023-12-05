@@ -1,7 +1,8 @@
 <!-- src/App.svelte -->
 <script>
+  import { Router, Route } from 'svelte-routing';
   import MainPageInput from './MainPageInput.svelte';
-  import Results from './Results.svelte';
+  import ResultsPage from './ResultsPage.svelte';
 
   let selectedQuery = '';
 
@@ -11,52 +12,13 @@
   }
 </script>
 
-<main>
-  <header>
-    <h1>Stocks Guru</h1>
-  </header>
+<Router>
+  <Route path="/">
+    <MainPageInput on:change={handleQueryChange} {selectedQuery} />
+  </Route>
 
-  <div class="main-container">
-    <div class="content">
-      <MainPageInput on:change={handleQueryChange} />
-    </div>
-  </div>
+  <Route path="/results/:query" let:params>
+    <ResultsPage {selectedQuery} />
+  </Route>
+</Router>
 
-  <footer>
-    <p>&copy; 2023 G82 @FEUP-PRI</p>
-  </footer>
-</main>
-
-<style>
-  body {
-    padding: 0;
-    margin: 0;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Ensure the main container takes the full viewport height */
-  }
-
-  header, footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    width: 100%;
-    flex-shrink: 0; /* Prevent header and footer from shrinking */
-    text-align: center;
-  }
-
-  .main-container {
-    display: flex;
-    flex: 1; /* Allow the main container to take up remaining vertical space */
-    overflow-y: auto; /* Enable vertical scrolling for the main container content */
-  }
-
-  .content {
-    text-align: center;
-    margin: auto; /* Center the content horizontally */
-    width: 100%;
-  }
-</style>
