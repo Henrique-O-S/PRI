@@ -143,8 +143,8 @@ class SolrManager:
 
 # --------------------------------------------------------------------
 
-    def query(self, query):
-        results = self.solr.search(query)
+    def query(self, params):
+        results = self.solr.search(**params)
         return results
 
 # --------------------------------------------------------------------
