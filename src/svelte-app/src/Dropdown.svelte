@@ -1,20 +1,29 @@
 <!-- src/Dropdown.svelte -->
 <script>
   export let performSearch = "";
-
-  let recentSearches = ["Apple", "Tesla", "Amazon", "Recent Search 1", "Recent Search 2"];
-
-  let selectedQuery = "";
+  let recentSearches = [
+    { query: "Apple" },
+    { query: "Tesla" },
+    { query: "Amazon" },
+    { query: "Recent Search 1" },
+    { query: "Recent Search 2" },
+  ];
+  export let selectedQuery = "";
 
   function handleRecentSearchClick(query) {
     selectedQuery = query;
     performSearch(selectedQuery);
   }
+
+  // Add computed property for filtered searches
+  $: filteredSearches = recentSearches.filter(({ query }) =>
+    query.toLowerCase().includes(selectedQuery.toLowerCase())
+  );
 </script>
 
 <div class="dropdown">
-  {#each recentSearches as query (query)}
-    <div on:click={() => handleRecentSearchClick(query)}>{query}</div>
+  {#each filteredSearches as query (query)}
+    <div on:click={() => handleRecentSearchClick(query.query)}>{query.query}</div>
   {/each}
 </div>
 

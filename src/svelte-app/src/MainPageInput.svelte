@@ -36,7 +36,7 @@
       />
       {#if showDropdown}
         <!-- Call the Dropdown component and pass the required props -->
-        <Dropdown {performSearch} />
+        <Dropdown {performSearch} {selectedQuery}/>
       {/if}
     </div>
     <button on:click={() => performSearch(selectedQuery)}>Search</button>
