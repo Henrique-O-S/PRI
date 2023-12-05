@@ -7,3 +7,5 @@ sqlalchemy~=2.0.21
 textblob~=0.17.1
 bs4~=0.0.1
 elasticsearch~=7.14.0
+pysolr
+sentence-transformers

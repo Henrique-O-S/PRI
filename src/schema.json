@@ -10,6 +10,13 @@
       "class": "solr.NestPathField"
     },
     {
+      "name": "stock_vector",
+      "class": "solr.DenseVectorField",
+      "vectorDimension": 384,
+      "similarityFunction": "cosine",
+      "knnAlgorithm": "hnsw"
+    },
+    {
       "name": "stock_content",
       "class": "solr.TextField",
       "indexAnalyzer": {
@@ -143,6 +150,12 @@
     {
       "name": "company_keywords",
       "type": "stock_content",
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "vector",
+      "type": "stock_vector",
       "indexed": true,
       "stored": true
     }

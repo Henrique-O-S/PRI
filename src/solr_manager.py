@@ -1,9 +1,14 @@
+# --------------------------------------------------------------------
+
 import pysolr
 import json
 import requests
 import subprocess
 import time
+from sentence_transformers import SentenceTransformer
 from Database import Database
+
+# --------------------------------------------------------------------
 
 class SolrManager:
     def __init__(self, url, core, db_file = "sqlite:///../../data/articles.db"):
@@ -12,6 +17,9 @@ class SolrManager:
         self.solr = None
         self.build()
         self.db = Database(db_file)
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+
+# --------------------------------------------------------------------
 
     def build(self):
         try:
@@ -29,6 +37,8 @@ class SolrManager:
             print(f"Solr container with core {self.core} stopped successfully.")
         except Exception as e:
             print(f"Failed to stop Solr container with core {self.core}: {str(e)}")
+
+# --------------------------------------------------------------------
 
     def reload_core(self):
         try:
@@ -55,6 +65,8 @@ class SolrManager:
         else:
             print(f"Failed to clear data. Status code: {response.status_code}")
             print(response.text)
+
+# --------------------------------------------------------------------
 
     def submit_schema(self, schema_file_path):
         with open(schema_file_path, 'r') as schema_file:
@@ -84,6 +96,11 @@ class SolrManager:
             file.write(synonyms)
         print("Synonyms stored successfully.")
 
+# --------------------------------------------------------------------
+
+    def get_embedding(self, text):
+        return self.model.encode(text, convert_to_tensor=False).tolist()
+
     def index_articles(self, sample = 100):
         articles = self.db.get_all_articles()
         articles_to_index = [] 
@@ -91,6 +108,9 @@ class SolrManager:
             if sample == 0:
                 break
             companies = self.db.get_article_companies(article.id)
+            combined_text = article.text
+            for company in companies:
+                combined_text += " " + company.description
             article_document = {  
                 'id': article.id,
                 'doc_type': 'article',
@@ -109,7 +129,8 @@ class SolrManager:
                         'company_keywords': company.keywords
                     }
                     for company in companies
-                ]
+                ],
+                'vector': self.get_embedding(combined_text)
             }
             if len(article_document['article_companies']) == 1:
                 article_document['article_companies'] = [article_document['article_companies']]
@@ -119,6 +140,14 @@ class SolrManager:
         self.solr.add(articles_to_index) 
         self.solr.commit()
         print("Articles indexed successfully.")
+
+# --------------------------------------------------------------------
+
+    def query(self, query):
+        results = self.solr.search(query)
+        return results
+
+# --------------------------------------------------------------------
 
     def write_text(self, file, text):
         lines = text.split('. ')
@@ -130,3 +159,5 @@ class SolrManager:
                 combined_lines.append(line)
         for line in combined_lines:
             file.write(line + '.\n')
+
+# --------------------------------------------------------------------
