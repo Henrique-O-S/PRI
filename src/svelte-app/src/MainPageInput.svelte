@@ -48,14 +48,19 @@
   }
 
   input {
-    padding: 0.5rem;
-    font-size: 1rem;
+    padding: 1rem;
+    font-size: 1.4rem;
     margin-right: 1rem;
+    /* make it more rounded  */
+    border-radius: 0.8rem;
+    border-color: black;
   }
 
   button {
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    border-color: black;
     cursor: pointer;
   }
 </style>
