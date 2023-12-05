@@ -1,6 +1,6 @@
 <!-- src/App.svelte -->
 <script>
-  import Dropdown from './Dropdown.svelte';
+  import MainPageInput from './MainPageInput.svelte';
   import Results from './Results.svelte';
 
   let selectedQuery = '';
@@ -15,9 +15,12 @@
   <header>
     <h1>Stocks Guru</h1>
   </header>
-  
-  <Dropdown on:change={handleQueryChange} />
-  <Results {selectedQuery} />
+
+  <div class="main-container">
+    <div class="content">
+      <MainPageInput on:change={handleQueryChange} />
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2023 G82 @FEUP-PRI</p>
@@ -25,29 +28,35 @@
 </main>
 
 <style>
-  body{
-	padding: 0;
-	margin: 0;
+  body {
+    padding: 0;
+    margin: 0;
   }
+
   main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure the main container takes the full viewport height */
+  }
+
+  header, footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    flex-shrink: 0; /* Prevent header and footer from shrinking */
     text-align: center;
   }
 
-  header {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    width: 100%;
-    top: 0;
-    z-index: 1000; /* Ensures the header stays above other content */
+  .main-container {
+    display: flex;
+    flex: 1; /* Allow the main container to take up remaining vertical space */
+    overflow-y: auto; /* Enable vertical scrolling for the main container content */
   }
 
-  footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    position: fixed;
+  .content {
+    text-align: center;
+    margin: auto; /* Center the content horizontally */
     width: 100%;
-    bottom: 0;
   }
 </style>
