@@ -1,6 +1,9 @@
 <!-- src/MainPageInput.svelte -->
 <script>
+    import { time_ranges_to_array } from "svelte/internal";
+  import Dropdown from "./Dropdown.svelte";
   let selectedQuery = "";
+  let showDropdown = false; // Initialize showDropdown variable
 
   function handleChange(event) {
     selectedQuery = event.target.value;
@@ -8,15 +11,15 @@
 
   function handleKeyDown(event) {
     if (event.key === "Enter") {
-      // Call a function or perform an action when Enter is pressed
-      performSearch();
+      performSearch(selectedQuery);
     }
   }
 
-  function performSearch() {
-    // You can perform your search action here
-    alert(`Performing search for: ${selectedQuery}`);
+  function performSearch(query) {
+    selectedQuery = query;
+    alert(`Searching for ${selectedQuery}...`)
   }
+
 </script>
 
 <section class="main-page-center-section">
@@ -29,15 +32,20 @@
         on:input={handleChange}
         on:keydown={handleKeyDown}
         placeholder="Search for stock news..."
+        on:click={() => (showDropdown = !showDropdown)}
       />
+      {#if showDropdown}
+        <!-- Call the Dropdown component and pass the required props -->
+        <Dropdown {performSearch} />
+      {/if}
     </div>
-    <button on:click={performSearch}>Search</button>
+    <button on:click={() => performSearch(selectedQuery)}>Search</button>
   </div>
 </section>
 
 <style>
   section.main-page-center-section {
-    
+    position: relative;
   }
 
   div.row {
@@ -51,16 +59,13 @@
     padding: 1rem;
     font-size: 1.4rem;
     margin-right: 1rem;
-    /* make it more rounded  */
     border-radius: 0.8rem;
-    border-color: black;
   }
 
   button {
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    border-color: black;
     cursor: pointer;
   }
 </style>
