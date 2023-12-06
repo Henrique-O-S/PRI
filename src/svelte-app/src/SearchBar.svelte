@@ -3,6 +3,7 @@
   import Dropdown from "./Dropdown.svelte";
   import { push } from "svelte-spa-router";
   export let selectedQuery = "";
+  export let width = "";
   let showDropdown = false; // Initialize showDropdown variable
 
   function handleChange(event) {
@@ -20,7 +21,7 @@
   }
 </script>
 
-<div class="search">
+<div class="search" style="width: {width};">
   <div class="control">
     <input
       class="searchInput"
@@ -49,7 +50,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	width: 60%;
 	gap: 1rem;
 }
 

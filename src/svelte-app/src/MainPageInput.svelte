@@ -2,13 +2,14 @@
 <script>
   import SearchBar from "./SearchBar.svelte";
   let selectedQuery = "";
+  let width = "60%";
 </script>
 
 <div class="content">
   <section class="main-page-center-section">
     <div class="col">
       <img src="/img/test.jpg" alt="logo" width="400px" />
-      <SearchBar {selectedQuery}/>
+      <SearchBar {selectedQuery} {width}/>
     </div>
   </section>
 </div>

@@ -5,6 +5,7 @@
   console.log(params);
   let searchResults = [];
   $: selectedQuery = params.query;
+  let width = "70%";
   function performSearch() {
     // Perform search logic here (dummy data for illustration)
     searchResults = ["Result 1", "Result 2", "Result 3"];
@@ -15,7 +16,7 @@
   <section class="resultsPageSearch">
     <div class="col">
       <h2 class="searchLogo">Stocks Guru</h2>
-      <SearchBar {selectedQuery}/>
+      <SearchBar {selectedQuery} {width}/>
     </div>
   </section>
 
