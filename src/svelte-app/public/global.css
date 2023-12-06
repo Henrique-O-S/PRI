@@ -60,3 +60,11 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+.main-container {
+    display: flex;
+    flex: 1; /* Allow the main container to take up remaining vertical space */
+    overflow-y: auto; /* Enable vertical scrolling for the main container content */
+  }
+
+  

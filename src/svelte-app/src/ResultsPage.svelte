@@ -4,14 +4,13 @@
   console.log(params);
   let query = params.query;
   let searchResults = [];
-  let a = "gato"
+  let a = "gato";
   function performSearch() {
     // Perform search logic here (dummy data for illustration)
     searchResults = ["Result 1", "Result 2", "Result 3"];
   }
 </script>
 
-<main>
   <header>
     <h1>Results Page</h1>
     <h2>{query}</h2>
@@ -41,8 +40,7 @@
       <p>No results found.</p>
     {/if}
   </section>
-</main>
 
 <style>
-  /* Add your styling here */
+  
 </style>

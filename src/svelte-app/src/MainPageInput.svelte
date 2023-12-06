@@ -1,7 +1,7 @@
 <!-- src/MainPageInput.svelte -->
 <script>
   import Dropdown from "./Dropdown.svelte";
-  import {push} from "svelte-spa-router";
+  import { push } from "svelte-spa-router";
   let selectedQuery = "";
   let showDropdown = false; // Initialize showDropdown variable
 
@@ -21,48 +21,46 @@
   }
 </script>
 
-<main>
-  <header>
-    <h1>Stocks Guru</h1>
-  </header>
-
-  <div class="main-container">
-    <div class="content">
-      <section class="main-page-center-section">
-        <div class="row">
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              bind:value={selectedQuery}
-              on:input={handleChange}
-              on:keydown={handleKeyDown}
-              placeholder="Search for stock news..."
-              on:click={() => (showDropdown = !showDropdown)}
-            />
-            {#if showDropdown}
-              <!-- Call the Dropdown component and pass the required props -->
-              <Dropdown {performSearch} {selectedQuery} />
-            {/if}
-          </div>
-          <button on:click={() => performSearch(selectedQuery)}>Search</button>
+<div class="content">
+  <section class="main-page-center-section">
+    <div class="col">
+      <img src="/img/test.jpg" alt="gato" width="400px">
+      <div class="row">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            bind:value={selectedQuery}
+            on:input={handleChange}
+            on:keydown={handleKeyDown}
+            placeholder="Search for stock news..."
+            on:click={() => (showDropdown = !showDropdown)}
+          />
+          {#if showDropdown}
+            <!-- Call the Dropdown component and pass the required props -->
+            <Dropdown {performSearch} {selectedQuery} />
+          {/if}
         </div>
-      </section>
+        <button on:click={() => performSearch(selectedQuery)}>Search</button>
+      </div>
     </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2023 G82 @FEUP-PRI</p>
-  </footer>
-</main>
+  </section>
+</div>
 
 <style>
-
+  div.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
 
   div.row {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 60%;
     gap: 1rem;
   }
 
@@ -80,31 +78,13 @@
     cursor: pointer;
   }
 
-  main {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    height: 100vh; /* Ensure the main container takes the full viewport height */
-  }
-
-  header, footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    width: 100%;
-    flex-shrink: 0; /* Prevent header and footer from shrinking */
-  }
-
-  .main-container {
-    display: flex;
-    flex: 1; /* Allow the main container to take up remaining vertical space */
-    overflow-y: auto; /* Enable vertical scrolling for the main container content */
-  }
-
   .content {
     text-align: center;
     margin: auto; /* Center the content horizontally */
     width: 100%;
   }
 
+  .control{
+    flex: 1;
+  }
 </style>
