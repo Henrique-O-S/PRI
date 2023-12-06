@@ -1,8 +1,10 @@
 <!-- src/ResultsPage.svelte -->
 <script>
-  export let selectedQuery = "";
+  export let params = {};
+  console.log(params);
+  let query = params.query;
   let searchResults = [];
-
+  let a = "gato"
   function performSearch() {
     // Perform search logic here (dummy data for illustration)
     searchResults = ["Result 1", "Result 2", "Result 3"];
@@ -12,6 +14,7 @@
 <main>
   <header>
     <h1>Results Page</h1>
+    <h2>{query}</h2>
   </header>
 
   <section class="main-page-center-section">
@@ -20,7 +23,7 @@
         <input
           class="input"
           type="text"
-          bind:value={selectedQuery}
+          bind:value={query}
           placeholder="Search results..."
         />
         <button on:click={performSearch}>Search</button>
@@ -43,4 +46,3 @@
 <style>
   /* Add your styling here */
 </style>
-

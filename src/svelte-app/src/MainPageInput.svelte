@@ -1,6 +1,5 @@
 <!-- src/MainPageInput.svelte -->
 <script>
-  import { navigate } from "svelte-routing";
   import Dropdown from "./Dropdown.svelte";
   let selectedQuery = "";
   let showDropdown = false; // Initialize showDropdown variable
@@ -17,7 +16,7 @@
 
   function performSearch(query) {
     selectedQuery = query;
-    window.location = `/results/${selectedQuery}`;
+    window.location.href = `/results/${selectedQuery}`;
   }
 </script>
 
@@ -78,11 +77,6 @@
     font-size: 1.2rem;
     border-radius: 0.5rem;
     cursor: pointer;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
   }
 
   main {
