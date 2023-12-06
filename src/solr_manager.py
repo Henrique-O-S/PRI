@@ -7,6 +7,7 @@ import subprocess
 import time
 from sentence_transformers import SentenceTransformer
 from Database import Database
+from analyzer import Analyzer
 
 # --------------------------------------------------------------------
 
@@ -18,6 +19,7 @@ class SolrManager:
         self.build()
         self.db = Database(db_file)
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.analyzer = Analyzer()
 
 # --------------------------------------------------------------------
 
@@ -146,6 +148,49 @@ class SolrManager:
     def query(self, params):
         results = self.solr.search(**params)
         return results
+    
+    def user_query(self, input):
+        params = {
+            'q': input,
+            'rows': 20,
+            'fl': self.boost_query(input)
+        }
+        results = self.query(params)
+        return results
+
+    def boost_query(self, query):
+        entities = self.analyzer.extract_entities(query)
+        proper_nouns = 0
+        nouns = 0
+        for entity in entities:
+            type = entity[0][1]
+            if type == "NNP":
+                proper_nouns += 1
+            elif type == "NN" or type == "NNS":
+                nouns += 1
+        total_entities = proper_nouns + nouns
+        NNP_factor = 1 + proper_nouns / total_entities
+        NN_factor = 1 + nouns / total_entities
+        # TODO: define values for each field
+        boosts = {
+            'article_title': 1 * NNP_factor,
+            'article_text': 1 * NN_factor,
+            'article_keypoints': 1 * NN_factor,
+            'article_keywords': 1 * (NNP_factor * 0.4 + NN_factor * 0.6),
+            'company_tag': 1 * NNP_factor,
+            'company_name': 1 * NNP_factor,
+            'company_description': 1 * NN_factor,
+            'company_keywords': 1 * NN_factor,
+            'vector': 1
+        }
+        max_boost_value = 20
+        boosts = {field: min(boosts[field], max_boost_value) for field in boosts}
+        fields = ""
+        for field in boosts:
+            #if field == "article_keywords":
+            #    field += "article_companies [child] "
+            fields += f"{field}^{boosts[field]} "
+        return fields
 
 # --------------------------------------------------------------------
 

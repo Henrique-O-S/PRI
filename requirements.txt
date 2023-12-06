@@ -9,3 +9,4 @@ bs4~=0.0.1
 elasticsearch~=7.14.0
 pysolr
 sentence-transformers
+textblob

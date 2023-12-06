@@ -3,22 +3,18 @@ import json
 from nltk import word_tokenize, pos_tag, ne_chunk
 from textblob import TextBlob
 import collections
-# import nltk
+import nltk
 
 class Analyzer:
     """
     This class is used to extract entities and keywords from text.
     """
     def __init__(self):
-        pass
-        # The following lines are commented out because they are not needed for this part of the project
-        # But will be used later on
-        
-        # Download necessary NLTK resources
-        #nltk.download('brown')
-        #nltk.download('punkt')
-        #nltk.download('maxent_ne_chunker')
-        #nltk.download('words')
+        nltk.download('brown')
+        nltk.download('punkt')
+        nltk.download('averaged_perceptron_tagger')
+        nltk.download('maxent_ne_chunker')
+        nltk.download('words')
 
     def extract_entities(self, text : str) -> str:
         """
