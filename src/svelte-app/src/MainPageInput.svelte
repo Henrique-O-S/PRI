@@ -24,11 +24,11 @@
 <div class="content">
   <section class="main-page-center-section">
     <div class="col">
-      <img src="/img/test.jpg" alt="gato" width="400px">
-      <div class="row">
+      <img src="/img/test.jpg" alt="gato" width="400px" />
+      <div class="search">
         <div class="control">
           <input
-            class="input"
+            class="searchInput"
             type="text"
             bind:value={selectedQuery}
             on:input={handleChange}
@@ -41,13 +41,20 @@
             <Dropdown {performSearch} {selectedQuery} />
           {/if}
         </div>
-        <button on:click={() => performSearch(selectedQuery)}>Search</button>
+        <button
+          class="searchButton"
+          on:click={() => performSearch(selectedQuery)}>Search</button
+        >
       </div>
     </div>
   </section>
 </div>
 
 <style>
+  .control{
+    display: flex;
+    flex: 1;
+  }
   div.col {
     display: flex;
     flex-direction: column;
@@ -56,35 +63,8 @@
     gap: 3rem;
   }
 
-  div.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 60%;
-    gap: 1rem;
-  }
-
-  input {
-    padding: 1rem;
-    font-size: 1.4rem;
-    margin-right: 1rem;
-    border-radius: 0.8rem;
-  }
-
-  button {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-
   .content {
-    text-align: center;
     margin: auto; /* Center the content horizontally */
     width: 100%;
-  }
-
-  .control{
-    flex: 1;
   }
 </style>

@@ -4,28 +4,24 @@
   console.log(params);
   let query = params.query;
   let searchResults = [];
-  let a = "gato";
   function performSearch() {
     // Perform search logic here (dummy data for illustration)
     searchResults = ["Result 1", "Result 2", "Result 3"];
   }
 </script>
 
-  <header>
-    <h1>Results Page</h1>
-    <h2>{query}</h2>
-  </header>
-
-  <section class="main-page-center-section">
-    <div class="row">
-      <div class="control">
+<div class="content">
+  <section class="resultsPageSearch">
+    <div class="col">
+      <h2 class="searchLogo">Stocks Guru</h2>
+      <div class="search">
         <input
-          class="input"
+          class="searchInput"
           type="text"
           bind:value={query}
           placeholder="Search results..."
         />
-        <button on:click={performSearch}>Search</button>
+        <button class="searchButton" on:click={performSearch}>Search</button>
       </div>
     </div>
   </section>
@@ -40,7 +36,29 @@
       <p>No results found.</p>
     {/if}
   </section>
+</div>
 
 <style>
-  
+  .content {
+    width: 100%;
+    margin: 2rem;
+  }
+  div.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  section.resultsPageSearch {
+    margin-bottom: 5rem;
+  }
+
+  h2.searchLogo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0;
+    padding-left: 0.5rem;
+    text-align: start;
+  } 
 </style>
