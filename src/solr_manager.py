@@ -149,48 +149,55 @@ class SolrManager:
         results = self.solr.search(**params)
         return results
     
-    def user_query(self, input):
+    def user_query(self, input, from_date = None, to_date = None, category = None, rows = 20):
         params = {
+            'defType': 'edismax',
             'q': input,
-            'rows': 20,
-            'fl': self.boost_query(input)
+            'fq': 'doc_type:article',
+            'qf': '',
+            'fl': 'article_title article_link article_date article_text',
+            'bf': 'recip(ms(NOW,article_date),1.65e-9,20,1)',
+            'rows': rows
         }
-        results = self.query(params)
-        return results
-
-    def boost_query(self, query):
-        entities = self.analyzer.extract_entities(query)
-        proper_nouns = 0
-        nouns = 0
-        for entity in entities:
-            type = entity[0][1]
-            if type == "NNP":
-                proper_nouns += 1
-            elif type == "NN" or type == "NNS":
-                nouns += 1
-        total_entities = proper_nouns + nouns
-        NNP_factor = 1 + proper_nouns / total_entities
-        NN_factor = 1 + nouns / total_entities
-        # TODO: define values for each field
+        if from_date and to_date:
+            params['fq'] += f" article_date:[{from_date} TO {to_date}]"
+        elif from_date:
+            params['fq'] += f" article_date:[{from_date} TO *]"
+        elif to_date:
+            params['fq'] += f" article_date:[* TO {to_date}]"
+        if category:
+            params['fq'] += " {!parent which='doc_type:article'}company_keywords:(" + category + ")^20" 
+        fields = ""
         boosts = {
-            'article_title': 1 * NNP_factor,
-            'article_text': 1 * NN_factor,
-            'article_keypoints': 1 * NN_factor,
-            'article_keywords': 1 * (NNP_factor * 0.4 + NN_factor * 0.6),
-            'company_tag': 1 * NNP_factor,
-            'company_name': 1 * NNP_factor,
-            'company_description': 1 * NN_factor,
-            'company_keywords': 1 * NN_factor,
+            'article_title': 1,
+            'article_text': 1,
+            'article_keypoints': 1,
+            'article_keywords': 1,
             'vector': 1
         }
-        max_boost_value = 20
-        boosts = {field: min(boosts[field], max_boost_value) for field in boosts}
-        fields = ""
+        entities = self.analyzer.extract_entities(input)
+        for entity in entities:
+            if isinstance(entity, list) and len(entity) > 0:
+                if isinstance(entity[0], list):
+                    entity = entity[0]
+                if len(entity) >= 2 and entity[1] == "NNP":
+                    boosts['article_title'] += 4
+                    boosts['article_keywords'] += 2
+                    params['fq'] += " {!parent which='doc_type:article'}company_name:(" + entity[0] + ")^2"
+                    params['fq'] += " {!parent which='doc_type:article'}company_tag:(" + entity[0] + ")^1"
+                elif len(entity) >= 2 and entity[1] in ["NN", "NNS"]:
+                    boosts['article_text'] += 3
+                    boosts['article_keywords'] += 3
+                    boosts['article_keypoints'] += 1
+                    params['fq'] += " {!parent which='doc_type:article'}company_description:(" + entity[0] + ")"
+                    params['fq'] += " {!parent which='doc_type:article'}company_keywords:(" + entity[0] + ")"
         for field in boosts:
-            #if field == "article_keywords":
-            #    field += "article_companies [child] "
             fields += f"{field}^{boosts[field]} "
-        return fields
+        params['qf'] = fields
+        if len(entities) >= 7:
+            params['mm'] = '75%'
+        results = self.query(params)
+        return results
 
 # --------------------------------------------------------------------
 
