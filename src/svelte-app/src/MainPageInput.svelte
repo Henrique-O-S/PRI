@@ -1,6 +1,7 @@
 <!-- src/MainPageInput.svelte -->
 <script>
   import Dropdown from "./Dropdown.svelte";
+  import {push} from "svelte-spa-router";
   let selectedQuery = "";
   let showDropdown = false; // Initialize showDropdown variable
 
@@ -16,7 +17,7 @@
 
   function performSearch(query) {
     selectedQuery = query;
-    window.location.href = `/results/${selectedQuery}`;
+    push(`/results/${selectedQuery}`);
   }
 </script>
 
