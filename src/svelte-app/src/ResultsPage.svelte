@@ -1,9 +1,10 @@
 <!-- src/ResultsPage.svelte -->
 <script>
+  import SearchBar from "./SearchBar.svelte";
   export let params = {};
   console.log(params);
-  let query = params.query;
   let searchResults = [];
+  $: selectedQuery = params.query;
   function performSearch() {
     // Perform search logic here (dummy data for illustration)
     searchResults = ["Result 1", "Result 2", "Result 3"];
@@ -14,20 +15,12 @@
   <section class="resultsPageSearch">
     <div class="col">
       <h2 class="searchLogo">Stocks Guru</h2>
-      <div class="search">
-        <input
-          class="searchInput"
-          type="text"
-          bind:value={query}
-          placeholder="Search results..."
-        />
-        <button class="searchButton" on:click={performSearch}>Search</button>
-      </div>
+      <SearchBar {selectedQuery}/>
     </div>
   </section>
 
   <section>
-    <h2>Search Results</h2>
+    <h2>Search Results for {selectedQuery}</h2>
     {#if searchResults.length > 0}
       {#each searchResults as result (result)}
         <p>{result}</p>
