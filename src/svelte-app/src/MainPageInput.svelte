@@ -8,7 +8,8 @@
 <div class="content">
   <section class="main-page-center-section">
     <div class="col">
-      <img src="/img/test.jpg" alt="logo" width="400px" />
+      <img src="/img/gurulogo.jpg" alt="logo" width="300px" />
+      <h1>Stocks Guru</h1>
       <SearchBar {selectedQuery} {width}/>
     </div>
   </section>
@@ -20,11 +21,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
+  }
+
+  div.col h1{
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
   }
 
   .content {
     margin: auto; /* Center the content horizontally */
     width: 100%;
+    padding-bottom: 15rem;
   }
 </style>
