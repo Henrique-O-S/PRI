@@ -1,30 +1,41 @@
 <!-- src/ResultsPage.svelte -->
 <script>
+  import Result from "./Result.svelte";
   import SearchBar from "./SearchBar.svelte";
   export let params = {};
   console.log(params);
-  let searchResults = [];
-  $: selectedQuery = params.query;
-  let width = "70%";
-  function performSearch() {
-    // Perform search logic here (dummy data for illustration)
-    searchResults = ["Result 1", "Result 2", "Result 3"];
+  let selectedQuery;
+  let searchResults;
+  $: {
+    selectedQuery = params.query;
+    searchResults = [
+      {
+        icon: "path/to/facebook-icon.png",
+        companyName: "Facebook",
+        url: "https://www.facebook.com/tools/ads-manager",
+        title: "Ads Manager",
+        description:
+          "Ads Manager is your starting point for running ads on Facebook, Instagram, Messenger, or Audience Network. It's an all-in-one tool for creating ads.",
+      },
+      // Add more result objects as needed
+    ];
   }
+  let width = "50%";
 </script>
 
 <div class="content">
   <section class="resultsPageSearch">
     <div class="col">
       <h2 class="searchLogo">Stocks Guru</h2>
-      <SearchBar {selectedQuery} {width}/>
+      <SearchBar {selectedQuery} {width} />
     </div>
   </section>
 
   <section>
     <h2>Search Results for {selectedQuery}</h2>
     {#if searchResults.length > 0}
-      {#each searchResults as result (result)}
-        <p>{result}</p>
+      {#each searchResults as result}
+        <Result {result} />
       {/each}
     {:else}
       <p>No results found.</p>
@@ -54,5 +65,5 @@
     margin-bottom: 0;
     padding-left: 0.5rem;
     text-align: start;
-  } 
+  }
 </style>
