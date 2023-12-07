@@ -1,12 +1,14 @@
 <!-- src/ResultsPage.svelte -->
 <script>
   import Category from "./Category.svelte";
+  import DateFilter from "./DateFilter.svelte";
   import Result from "./Result.svelte";
   import SearchBar from "./SearchBar.svelte";
   export let params = {};
   console.log(params);
   let selectedQuery;
   let searchResults;
+  let showDates = false;
   $: {
     selectedQuery = params.query;
     searchResults = [
@@ -75,6 +77,9 @@
     category.selected = !category.selected;
     categories = [...categories];
   }
+  function applyFilter(startDate, endDate) {
+    console.log(startDate, endDate);
+  }
 </script>
 
 <div class="content">
@@ -86,6 +91,12 @@
         {#each categories as category}
           <Category {category} {selectCategory} />
         {/each}
+        <div class="col" style="gap: 0rem; flex:1">
+          <span on:click={() => (showDates = !showDates)}>Filter by date</span>
+          {#if showDates}
+            <DateFilter {applyFilter} />
+          {/if}
+        </div>
       </div>
     </div>
   </section>
@@ -123,7 +134,7 @@
     flex-direction: row;
   }
   section.resultsPageSearch {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
   }
 
   h2.searchLogo {
@@ -144,6 +155,7 @@
     opacity: 0.4;
     font-size: 0.9rem;
     padding-left: 1rem;
+    margin-bottom: 0.2rem;
   }
 
   section.companyInfo div {
@@ -151,5 +163,8 @@
   }
   section.companyInfo {
     flex: 1;
+  }
+  span{
+    cursor: pointer;
   }
 </style>
