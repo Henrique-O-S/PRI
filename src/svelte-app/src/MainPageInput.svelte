@@ -3,6 +3,7 @@
   import SearchBar from "./SearchBar.svelte";
   let selectedQuery = "";
   let width = "60%";
+  let padding = "1rem";
 </script>
 
 <div class="content">
@@ -10,7 +11,7 @@
     <div class="col">
       <img src="/img/gurulogo.jpg" alt="logo" width="300px" />
       <h1>Stocks Guru</h1>
-      <SearchBar {selectedQuery} {width}/>
+      <SearchBar {selectedQuery} {width} {padding}/>
     </div>
   </section>
 </div>

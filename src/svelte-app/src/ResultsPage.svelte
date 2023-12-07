@@ -1,5 +1,6 @@
 <!-- src/ResultsPage.svelte -->
 <script>
+  import Category from "./Category.svelte";
   import Result from "./Result.svelte";
   import SearchBar from "./SearchBar.svelte";
   export let params = {};
@@ -9,6 +10,45 @@
   $: {
     selectedQuery = params.query;
     searchResults = [
+      {
+        companyName: "Facebook",
+        url: "https://www.facebook.com/tools/ads-manager",
+        title: "Ads Manager",
+        description:
+          "Ads Manager is your starting point for running ads on Facebook, Instagram, Messenger, or Audience Network. It's an all-in-one tool for creating ads.",
+      },
+      {
+        icon: "path/to/facebook-icon.png",
+        companyName: "Facebook",
+        url: "https://www.facebook.com/tools/ads-manager",
+        title: "Ads Manager",
+        description:
+          "Ads Manager is your starting point for running ads on Facebook, Instagram, Messenger, or Audience Network. It's an all-in-one tool for creating ads.",
+      },
+      {
+        icon: "path/to/facebook-icon.png",
+        companyName: "Facebook",
+        url: "https://www.facebook.com/tools/ads-manager",
+        title: "Ads Manager",
+        description:
+          "Ads Manager is your starting point for running ads on Facebook, Instagram, Messenger, or Audience Network. It's an all-in-one tool for creating ads.",
+      },
+      {
+        icon: "path/to/facebook-icon.png",
+        companyName: "Facebook",
+        url: "https://www.facebook.com/tools/ads-manager",
+        title: "Ads Manager",
+        description:
+          "Ads Manager is your starting point for running ads on Facebook, Instagram, Messenger, or Audience Network. It's an all-in-one tool for creating ads.",
+      },
+      {
+        icon: "path/to/facebook-icon.png",
+        companyName: "Facebook",
+        url: "https://www.facebook.com/tools/ads-manager",
+        title: "Ads Manager",
+        description:
+          "Ads Manager is your starting point for running ads on Facebook, Instagram, Messenger, or Audience Network. It's an all-in-one tool for creating ads.",
+      },
       {
         icon: "path/to/facebook-icon.png",
         companyName: "Facebook",
@@ -21,26 +61,50 @@
     ];
   }
   let width = "50%";
+  let padding = "0.6rem";
+  let time = 0.28;
+  let categories = [
+    { name: "All", selected: false },
+    { name: "News", selected: false },
+    { name: "Images", selected: false },
+    { name: "Videos", selected: false },
+    { name: "Maps", selected: false },
+    { name: "Shopping", selected: false },
+  ];
+  function selectCategory(category) {
+    category.selected = !category.selected;
+    categories = [...categories];
+  }
 </script>
 
 <div class="content">
   <section class="resultsPageSearch">
     <div class="col">
       <h2 class="searchLogo">Stocks Guru</h2>
-      <SearchBar {selectedQuery} {width} />
+      <SearchBar {selectedQuery} {width} {padding} />
+      <div class="row" style="gap: 0.5rem;">
+        {#each categories as category}
+          <Category {category} {selectCategory} />
+        {/each}
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Search Results for {selectedQuery}</h2>
-    {#if searchResults.length > 0}
-      {#each searchResults as result}
-        <Result {result} />
-      {/each}
-    {:else}
-      <p>No results found.</p>
-    {/if}
-  </section>
+  <div class="row">
+    <section class="results">
+      <h5 class="time">{searchResults.length} Results in {time} seconds</h5>
+      {#if searchResults.length > 0}
+        {#each searchResults as result}
+          <Result {result} />
+        {/each}
+      {:else}
+        <p>No results found.</p>
+      {/if}
+    </section>
+    <section class="companyInfo">
+      <div>Company info</div>
+    </section>
+  </div>
 </div>
 
 <style>
@@ -54,8 +118,12 @@
     justify-content: center;
     gap: 1rem;
   }
+  div.row {
+    display: flex;
+    flex-direction: row;
+  }
   section.resultsPageSearch {
-    margin-bottom: 5rem;
+    margin-bottom: 1.5rem;
   }
 
   h2.searchLogo {
@@ -65,5 +133,23 @@
     margin-bottom: 0;
     padding-left: 0.5rem;
     text-align: start;
+  }
+
+  section.results {
+    width: 60%;
+  }
+
+  section.results h5.time {
+    text-align: start;
+    opacity: 0.4;
+    font-size: 0.9rem;
+    padding-left: 1rem;
+  }
+
+  section.companyInfo div {
+    background-color: aqua;
+  }
+  section.companyInfo {
+    flex: 1;
   }
 </style>

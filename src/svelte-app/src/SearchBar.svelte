@@ -4,6 +4,7 @@
   import { push } from "svelte-spa-router";
   export let selectedQuery = "";
   export let width = "";
+  export let padding = "";
   let showDropdown = false; // Initialize showDropdown variable
 
   function handleChange(event) {
@@ -26,6 +27,7 @@
     <input
       class="searchInput"
       type="text"
+      style="padding: {padding};"
       bind:value={selectedQuery}
       on:input={handleChange}
       on:keydown={handleKeyDown}
@@ -59,13 +61,12 @@ button.searchButton {
 	font-size: 1.2rem;
 	border-radius: 0.5rem;
 	cursor: pointer;
-	border-color: black;
+	border-color: darkgray;
 }
 
 input.searchInput {
 	flex: 1;
-	padding: 1rem;
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 	border-radius: 0.8rem;
 	border-color: darkgray;
 }
