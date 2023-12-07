@@ -132,7 +132,17 @@ class SolrManager:
                     }
                     for company in companies
                 ],
-                'vector': self.get_embedding(combined_text)
+                'vector': self.get_embedding(combined_text),
+                'suggestions': [
+                    "cybersecurity",
+                    "artificial intelligence",
+                    "machine learning",
+                    "biotechnology",
+                    "blockchain",
+                    "cryptocurrency",
+                    "data analytics",
+                    "stock skyrocketing"
+                ]
             }
             if len(article_document['article_companies']) == 1:
                 article_document['article_companies'] = [article_document['article_companies']]
@@ -166,7 +176,8 @@ class SolrManager:
         elif to_date:
             params['fq'] += f" article_date:[* TO {to_date}]"
         if category:
-            params['fq'] += " {!parent which='doc_type:article'}company_keywords:(" + category + ")^20" 
+            params['fq'] += " {!parent which='doc_type:article'}company_keywords:(" + category + ")^15"
+            params['fq'] += f" article_keywords:({category})^10"
         fields = ""
         boosts = {
             'article_title': 1,
@@ -198,6 +209,68 @@ class SolrManager:
             params['mm'] = '75%'
         results = self.query(params)
         return results
+    
+# --------------------------------------------------------------------
+    
+    def configure_suggester(self):
+        data = {
+            "add-searchcomponent": {
+                "name": "suggest",
+                "class": "solr.SuggestComponent",
+                "suggester": [
+                    {
+                        "name": "stock_suggester",
+                        "lookupImpl": "FuzzyLookupFactory",
+                        "dictionaryImpl": "DocumentDictionaryFactory",
+                        "field": "suggestions",
+                        "suggestAnalyzerFieldType": "stock_content"
+                    }
+                ]
+            },
+            "add-requesthandler": {
+                "name": "/suggest",
+                "class": "solr.SearchHandler",
+                "startup": "lazy",
+                "defaults": {
+                    "suggest": True,
+                    "suggest.dictionary": "stock_suggester",
+                    "suggest.count": 10
+                },
+                "components": ["suggest"]
+            }
+        }
+        url = f"{self.url}{self.core}/config"
+        headers = {'Content-Type': 'application/json'}
+        try:
+            response = requests.post(url, data=json.dumps(data), headers=headers)
+            if response.status_code == 200:
+                print("Suggester configured successfully.")
+            else:
+                print(f"Failed to configure Suggester. Status code: {response.status_code}")
+                print(response.text)
+        except Exception as e:
+            print(f"Exception occurred: {str(e)}")
+    
+    def suggest(self, input):
+        try:
+            params = {
+                'suggest': 'true',
+                'suggest.q': input,
+                'suggest.dictionary': 'stock_suggester',
+                'suggest.count': 5,
+                'suggest.build': 'true'
+            }
+            url = f"{self.url}{self.core}/suggest"
+            response = requests.get(url, params=params)
+            if response.status_code == 200:
+                suggestions = response.json()['suggest']['stock_suggester'][input]['suggestions']
+                return suggestions
+            else:
+                print(f"Failed to retrieve suggestions. Status code: {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"Exception occurred during suggestion retrieval: {str(e)}")
+            return []
 
 # --------------------------------------------------------------------
 

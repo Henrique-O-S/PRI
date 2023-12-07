@@ -158,6 +158,13 @@
       "type": "stock_vector",
       "indexed": true,
       "stored": true
+    },
+    {
+      "name": "suggestions",
+      "type": "stock_content",
+      "multiValued": true,
+      "stored": true,
+      "indexed": true
     }
   ]
 }
