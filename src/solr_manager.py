@@ -113,6 +113,33 @@ class SolrManager:
             combined_text = article.text
             for company in companies:
                 combined_text += " " + company.description
+            suggestions = [
+                "energy stocks slide in market",
+                "stocks fall post price cuts",
+                "surge in AI-focused companies",
+                "CEO visit boosts stock price",
+                "legacy automaker gains investor confidence",
+                "crypto services see market rise",
+                "Disney media stock soars",
+                "electric vehicle chargers get upgrade",
+                "energy stocks hit by oil prices",
+                "AI-focused tech stock soars",
+                "FDA accepts cancer treatment",
+                "cybersecurity solutions get analyst upgrade",
+                "semiconductor companies see mixed results",
+                "Tesla stock impacted by short squeeze",
+                "biotech company impacted by vaccine dose talks",
+                "semiconductor giant faces earnings concerns",
+                "tech company's quarterly performance",
+                "positive reaction to software solutions",
+                "computer company's earnings beat",
+                "database software gets top pick status",
+                "Fortinet reports earnings beat",
+                "pharmacy chain sees leadership change",
+                "mining company gets metals upgrade",
+                "cloud services impacted by acquisition deal",
+                "semiconductor company's market response"
+            ]
             article_document = {  
                 'id': article.id,
                 'doc_type': 'article',
@@ -133,16 +160,7 @@ class SolrManager:
                     for company in companies
                 ],
                 'vector': self.get_embedding(combined_text),
-                'suggestions': [
-                    "cybersecurity",
-                    "artificial intelligence",
-                    "machine learning",
-                    "biotechnology",
-                    "blockchain",
-                    "cryptocurrency",
-                    "data analytics",
-                    "stock skyrocketing"
-                ]
+                'suggestions': suggestions
             }
             if len(article_document['article_companies']) == 1:
                 article_document['article_companies'] = [article_document['article_companies']]
@@ -160,13 +178,12 @@ class SolrManager:
         return results
     
     def user_query(self, input, from_date = None, to_date = None, category = None, rows = 20):
+        start_time = time.time()
         params = {
             'defType': 'edismax',
             'q': input,
             'fq': 'doc_type:article',
-            'qf': '',
             'fl': 'article_title article_link article_date article_text',
-            'bf': 'recip(ms(NOW,article_date),1.65e-9,20,1)',
             'rows': rows
         }
         if from_date and to_date:
@@ -176,15 +193,21 @@ class SolrManager:
         elif to_date:
             params['fq'] += f" article_date:[* TO {to_date}]"
         if category:
-            params['fq'] += " {!parent which='doc_type:article'}company_keywords:(" + category + ")^15"
-            params['fq'] += f" article_keywords:({category})^10"
-        fields = ""
+            if params['fq'] != 'doc_type:article':
+                params['fq'] += " AND"
+            params['fq'] += " (article_keywords:" + category + " OR {!parent which='doc_type:article'}company_keywords:" + category + ")"
         boosts = {
             'article_title': 1,
             'article_text': 1,
             'article_keypoints': 1,
             'article_keywords': 1,
             'vector': 1
+        }
+        child_boosts = {
+            'company_tag': 1,
+            'company_name': 1,
+            'company_description': 1,
+            'company_keywords': 1
         }
         entities = self.analyzer.extract_entities(input)
         for entity in entities:
@@ -194,20 +217,26 @@ class SolrManager:
                 if len(entity) >= 2 and entity[1] == "NNP":
                     boosts['article_title'] += 4
                     boosts['article_keywords'] += 2
-                    params['fq'] += " {!parent which='doc_type:article'}company_name:(" + entity[0] + ")^2"
-                    params['fq'] += " {!parent which='doc_type:article'}company_tag:(" + entity[0] + ")^1"
+                    child_boosts['company_name'] += 2
+                    child_boosts['company_tag'] += 1
                 elif len(entity) >= 2 and entity[1] in ["NN", "NNS"]:
                     boosts['article_text'] += 3
                     boosts['article_keywords'] += 3
                     boosts['article_keypoints'] += 1
-                    params['fq'] += " {!parent which='doc_type:article'}company_description:(" + entity[0] + ")"
-                    params['fq'] += " {!parent which='doc_type:article'}company_keywords:(" + entity[0] + ")"
+                    child_boosts['company_description'] += 1
+                    child_boosts['company_keywords'] += 2
         for field in boosts:
-            fields += f"{field}^{boosts[field]} "
-        params['qf'] = fields
+            params['qf'] += f"{field}^{boosts[field]} "
+        for field in child_boosts:
+            params['bq'] = " {!parent which='doc_type:article'}" + field + "^" + child_boosts[field]
         if len(entities) >= 7:
             params['mm'] = '75%'
         results = self.query(params)
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"Query execution time: {elapsed_time} seconds")
+        for param in params:
+            print(f"{param}: {params[param]}")
         return results
     
 # --------------------------------------------------------------------
