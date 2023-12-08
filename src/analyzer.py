@@ -1,22 +1,16 @@
 
-import json
-from nltk import word_tokenize, pos_tag, ne_chunk
 from textblob import TextBlob
 import collections
-import nltk
+import spacy
 
 class Analyzer:
     """
     This class is used to extract entities and keywords from text.
     """
     def __init__(self):
-        nltk.download('brown')
-        nltk.download('punkt')
-        nltk.download('averaged_perceptron_tagger')
-        nltk.download('maxent_ne_chunker')
-        nltk.download('words')
+        self.nlp = spacy.load("en_core_web_sm")
 
-    def extract_entities(self, text : str) -> str:
+    def extract_pos_tags(self, text : str) -> str:
         """
         Extract entities from text.
         
@@ -24,11 +18,22 @@ class Analyzer:
         - text: the text to extract entities from
         """
 
-        tokens = word_tokenize(text)
-        pos_tags = pos_tag(tokens)
-        ner_result = ne_chunk(pos_tags)
-        ner_json = json.dumps(ner_result)
-        return ner_json
+        doc = self.nlp(text)
+        pos_tags = [(token.text, token.pos_) for token in doc]
+        return pos_tags
+    
+    def is_org(self, term : str) -> bool:
+        """
+        Check if entity is an organization.
+
+        Parameters:
+        - term: the term to check
+        """
+
+        doc = self.nlp(term)
+        if doc.ents:
+            return doc.ents[0].label_ == "ORG"
+        return False
     
     def extract_keywords(self, text : str, top_n : int = 30) -> str:
         """

@@ -1,6 +1,5 @@
 beautifulsoup4~=4.12.2
 itemadapter~=0.8.0
-nltk~=3.8.1
 scrapy~=2.11.0
 selenium~=4.14.0
 sqlalchemy~=2.0.21
@@ -10,3 +9,4 @@ elasticsearch~=7.14.0
 pysolr
 sentence-transformers
 textblob
+spacy~=3.1.3

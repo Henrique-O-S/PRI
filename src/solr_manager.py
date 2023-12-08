@@ -181,8 +181,10 @@ class SolrManager:
         start_time = time.time()
         params = {
             'defType': 'edismax',
-            'q': input,
+            'q': '',
+            'qf': '',
             'fq': 'doc_type:article',
+            'bq': '',
             'fl': 'article_title article_link article_date article_text',
             'rows': rows
         }
@@ -192,52 +194,115 @@ class SolrManager:
             params['fq'] += f" article_date:[{from_date} TO *]"
         elif to_date:
             params['fq'] += f" article_date:[* TO {to_date}]"
-        if category:
-            if params['fq'] != 'doc_type:article':
-                params['fq'] += " AND"
-            params['fq'] += " (article_keywords:" + category + " OR {!parent which='doc_type:article'}company_keywords:" + category + ")"
-        boosts = {
-            'article_title': 1,
-            'article_text': 1,
-            'article_keypoints': 1,
-            'article_keywords': 1,
-            'vector': 1
-        }
-        child_boosts = {
-            'company_tag': 1,
-            'company_name': 1,
-            'company_description': 1,
-            'company_keywords': 1
-        }
-        entities = self.analyzer.extract_entities(input)
+        if from_date or to_date:
+            params['sort'] = 'article_date desc'
+        company_results = []
+        unique_tags = set()
+        boosts = {'article_title': 1, 'article_text': 1, 'article_keypoints': 1, 'article_keywords': 1, 'vector': 1}
+        child_boosts = {'company_tag': 1, 'company_name': 1, 'company_description': 1, 'company_keywords': 1}
+        entities = self.analyzer.extract_pos_tags(input)
         for entity in entities:
-            if isinstance(entity, list) and len(entity) > 0:
-                if isinstance(entity[0], list):
-                    entity = entity[0]
-                if len(entity) >= 2 and entity[1] == "NNP":
-                    boosts['article_title'] += 4
-                    boosts['article_keywords'] += 2
-                    child_boosts['company_name'] += 2
-                    child_boosts['company_tag'] += 1
-                elif len(entity) >= 2 and entity[1] in ["NN", "NNS"]:
-                    boosts['article_text'] += 3
-                    boosts['article_keywords'] += 3
-                    boosts['article_keypoints'] += 1
-                    child_boosts['company_description'] += 1
-                    child_boosts['company_keywords'] += 2
+            word = entity[0]
+            if word.islower():
+                word = word.capitalize()
+            if self.analyzer.is_org(word):
+                results = self.company_query(word)
+                for result in results:
+                    company_tag = result.get('company_tag')
+                    if company_tag not in unique_tags:
+                        company_results.append(result)
+                        unique_tags.add(company_tag)
+                    break
+                boosts['article_title'] += 9
+                boosts['article_keywords'] += 6
+                child_boosts['company_name'] += 3
+                child_boosts['company_tag'] += 2
+                params['q'] += str(entity[0]) + "~1 "
+            elif entity[1] == 'NOUN':
+                boosts['article_text'] += 1
+                boosts['article_keywords'] += 1
+                child_boosts['company_description'] += 1
+                child_boosts['company_keywords'] += 1
+                params['q'] += str(entity[0]) + " "
+            else:
+                params['q'] += str(entity[0]) + " "
+        if category:
+            params['fq'] += " AND (article_keywords:" + category + " OR {!parent which='doc_type:article'}company_keywords:" + category + ")"
+            results = self.sector_query(category)
+            for result in results:
+                company_tag = result.get('company_tag')
+                if company_tag not in unique_tags:
+                    company_results.append(result)
+                    unique_tags.add(company_tag)
         for field in boosts:
-            params['qf'] += f"{field}^{boosts[field]} "
+            params['qf'] += f"{field}^{str(boosts[field])} "
         for field in child_boosts:
-            params['bq'] = " {!parent which='doc_type:article'}" + field + "^" + child_boosts[field]
+            params['bq'] += " {!parent which='doc_type:article'}" + field + "^" + str(child_boosts[field])
         if len(entities) >= 7:
             params['mm'] = '75%'
+        if params['q'] == '':
+            params['q'] = '*:*'
         results = self.query(params)
         end_time = time.time()
         elapsed_time = end_time - start_time
-        print(f"Query execution time: {elapsed_time} seconds")
-        for param in params:
-            print(f"{param}: {params[param]}")
+        return {
+            'results': results,
+            'company_results': company_results,
+            'params': params,
+            'time': elapsed_time
+        }
+    
+    def company_query(self, company):
+        params = {
+            'defType': 'edismax',
+            'q': company + '~1',
+            'qf': 'company_tag company_name',
+            'fq': 'doc_type:company',
+            'fl': 'company_name company_tag company_description',
+            'rows': 1
+        }
+        results = self.query(params)
         return results
+    
+    def sector_query(self, sector):
+        params = {
+            'defType': 'edismax',
+            'q': sector,
+            'qf': 'company_keywords',
+            'fq': 'doc_type:company',
+            'fl': 'company_name company_tag company_description',
+            'rows': 20,
+        }
+        results = self.query(params)
+        return results
+    
+    def semantic_query(self, input, from_date = None, to_date = None, category = None, rows = 20):
+        start_time = time.time()
+        embedding = self.get_embedding(input)
+        embedding = "[" + ",".join(map(str, embedding)) + "]"
+        params = {
+                'q': f"{{!knn f=vector topK=20}}{embedding}",
+                'fl': 'article_title article_link article_date article_text',
+                'rows': rows
+        }
+        if from_date and to_date:
+            params['fq'] += f" article_date:[{from_date} TO {to_date}]"
+        elif from_date:
+            params['fq'] += f" article_date:[{from_date} TO *]"
+        elif to_date:
+            params['fq'] += f" article_date:[* TO {to_date}]"
+        if from_date or to_date:
+            params['sort'] = 'article_date desc'
+        if category:
+            params['fq'] += " AND (article_keywords:" + category + " OR {!parent which='doc_type:article'}company_keywords:" + category + ")"
+        results = self.query(params)
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        return {
+            'results': results,
+            'params': params,
+            'time': elapsed_time
+        }
     
 # --------------------------------------------------------------------
     
