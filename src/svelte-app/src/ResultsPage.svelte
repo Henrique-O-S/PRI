@@ -100,8 +100,8 @@
       </div>
     </div>
   </section>
-
-  <div class="row">
+  <hr />
+  <div class="row" style="gap:5rem;">
     <section class="results">
       <h5 class="time">{searchResults.length} Results in {time} seconds</h5>
       {#if searchResults.length > 0}
@@ -164,7 +164,14 @@
   section.companyInfo {
     flex: 1;
   }
-  span{
+  span {
     cursor: pointer;
+  }
+  hr {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: silver;
+    height: 1.5px;
+    opacity: 30%;
   }
 </style>
