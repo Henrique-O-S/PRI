@@ -1,5 +1,6 @@
 <!-- src/ResultsPage.svelte -->
 <script>
+  import { push } from "svelte-spa-router";
   import Category from "./Category.svelte";
   import Company from "./Company.svelte";
   import DateFilter from "./DateFilter.svelte";
@@ -177,7 +178,9 @@
 <div class="content">
   <section class="resultsPageSearch">
     <div class="col">
-      <h2 class="searchLogo">Stocks Guru</h2>
+      <div class="row">
+        <h2 class="searchLogo" on:click={() => push("/")}>Stocks Guru</h2>
+      </div>
       <SearchBar {selectedQuery} {width} {padding} />
       <div class="row" style="gap: 0.5rem;">
         {#each categories as category}
@@ -231,6 +234,7 @@
     margin-bottom: 0;
     padding-left: 0.5rem;
     text-align: start;
+    cursor: pointer;
   }
 
   section.results {
