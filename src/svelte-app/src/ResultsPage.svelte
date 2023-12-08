@@ -1,6 +1,7 @@
 <!-- src/ResultsPage.svelte -->
 <script>
   import Category from "./Category.svelte";
+  import Company from "./Company.svelte";
   import DateFilter from "./DateFilter.svelte";
   import Result from "./Result.svelte";
   import SearchBar from "./SearchBar.svelte";
@@ -8,7 +9,9 @@
   console.log(params);
   let selectedQuery;
   let searchResults;
-  let showDates = false;
+  let companies;
+  let company;
+  let company_index = 0;
   $: {
     selectedQuery = params.query;
     searchResults = [
@@ -61,6 +64,87 @@
       },
       // Add more result objects as needed
     ];
+    companies = [
+      {
+        name: "Facebook",
+        tag: "FB",
+        description:
+          "Facebook, Inc. is an American technology conglomerate based in Menlo Park, California.",
+      },
+      {
+        name: "Apple",
+        tag: "AAPL",
+        description:
+          "Apple Inc. is an American multinational technology company headquartered in Cupertino, California.",
+      },
+      {
+        name: "Amazon",
+        tag: "AMZN",
+        description:
+          "Amazon.com, Inc. is an American multinational technology company based in Seattle, Washington.",
+      },
+      {
+        name: "Netflix",
+        tag: "NFLX",
+        description:
+          "Netflix, Inc. is an American over-the-top content platform and production company headquartered in Los Gatos, California.",
+      },
+      {
+        name: "Google",
+        tag: "GOOGL",
+        description:
+          "Google LLC is an American multinational technology company that specializes in Internet-related services and products.",
+      },
+      {
+        name: "Microsoft",
+        tag: "MSFT",
+        description:
+          "Microsoft Corporation is an American multinational technology company with headquarters in Redmond, Washington.",
+      },
+      {
+        name: "Tesla",
+        tag: "TSLA",
+        description:
+          "Tesla, Inc. is an American electric vehicle and clean energy company based in Palo Alto, California.",
+      },
+      {
+        name: "Twitter",
+        tag: "TWTR",
+        description:
+          "Twitter is an American microblogging and social networking service on which users post and interact with messages known as tweets.",
+      },
+      {
+        name: "Alphabet",
+        tag: "GOOGL",
+        description:
+          "Alphabet Inc. is an American multinational conglomerate headquartered in Mountain View, California.",
+      },
+      {
+        name: "Intel",
+        tag: "INTC",
+        description:
+          "Intel Corporation is an American multinational corporation and technology company headquartered in Santa Clara, California.",
+      },
+      {
+        name: "Nvidia",
+        tag: "NVDA",
+        description:
+          "Nvidia Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California.",
+      },
+      {
+        name: "PayPal",
+        tag: "PYPL",
+        description:
+          "PayPal Holdings, Inc. is an American company operating an online payments system in majority of countries that supports online money transfers.",
+      },
+      {
+        name: "Adobe",
+        tag: "ADBE",
+        description:
+          "Adobe Inc. is an American multinational computer software company headquartered in San Jose, California.",
+      },
+    ];
+    company = companies[company_index];
   }
   let width = "50%";
   let padding = "0.6rem";
@@ -80,6 +164,14 @@
   function applyFilter(startDate, endDate) {
     console.log(startDate, endDate);
   }
+  function updateCompany(inc) {
+    company_index += inc;
+    if (company_index < 0) {
+      company_index = companies.length - 1;
+    } else if (company_index >= companies.length) {
+      company_index = 0;
+    }
+  }
 </script>
 
 <div class="content">
@@ -91,17 +183,12 @@
         {#each categories as category}
           <Category {category} {selectCategory} />
         {/each}
-        <div class="col" style="gap: 0rem; flex:1">
-          <span on:click={() => (showDates = !showDates)}>Filter by date</span>
-          {#if showDates}
-            <DateFilter {applyFilter} />
-          {/if}
-        </div>
+        <DateFilter {applyFilter} />
       </div>
     </div>
   </section>
   <hr />
-  <div class="row" style="gap:5rem;">
+  <div class="row" style="gap:10rem; padding-right:3rem;">
     <section class="results">
       <h5 class="time">{searchResults.length} Results in {time} seconds</h5>
       {#if searchResults.length > 0}
@@ -113,7 +200,7 @@
       {/if}
     </section>
     <section class="companyInfo">
-      <div>Company info</div>
+      <Company {company} {updateCompany} />
     </section>
   </div>
 </div>
@@ -164,9 +251,7 @@
   section.companyInfo {
     flex: 1;
   }
-  span {
-    cursor: pointer;
-  }
+
   hr {
     margin-bottom: 1rem;
     margin-top: 1rem;
