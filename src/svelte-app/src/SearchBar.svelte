@@ -1,11 +1,12 @@
 <!-- src/SearchBar.svelte -->
 <script>
+  import { onMount } from 'svelte';
   import Dropdown from "./Dropdown.svelte";
   import { push } from "svelte-spa-router";
   export let selectedQuery = "";
   export let width = "";
   export let padding = "";
-  let showDropdown = false; // Initialize showDropdown variable
+  let showDropdown = false;
 
   function handleChange(event) {
     selectedQuery = event.target.value;
@@ -20,6 +21,19 @@
   function performSearch(query) {
     push(`/results/${query}`);
   }
+
+  // Function to show dropdown
+  function handleFocus() {
+    showDropdown = true;
+  }
+
+  // Function to hide dropdown
+  function handleBlur(event) {
+    // Use a timeout to allow click events to process
+    setTimeout(() => {
+      showDropdown = false;
+    }, 50);
+  }
 </script>
 
 <div class="search" style="width: {width};">
@@ -31,11 +45,11 @@
       bind:value={selectedQuery}
       on:input={handleChange}
       on:keydown={handleKeyDown}
+      on:focus={handleFocus}
+      on:blur={handleBlur}
       placeholder="Search for stock news..."
-      on:click={() => (showDropdown = !showDropdown)}
     />
     {#if showDropdown}
-      <!-- Call the Dropdown component and pass the required props -->
       <Dropdown {performSearch} {selectedQuery} />
     {/if}
   </div>

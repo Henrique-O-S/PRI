@@ -9,7 +9,7 @@
 <div class="content">
   <section class="main-page-center-section">
     <div class="col">
-      <img src="/img/gurulogo.jpg" alt="logo" width="300px" />
+      <img src="/img/gurulogo.jpg" alt="logo" width="20%" />
       <h1>Stocks Guru</h1>
       <SearchBar {selectedQuery} {width} {padding}/>
     </div>
