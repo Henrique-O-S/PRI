@@ -217,15 +217,12 @@ class SolrManager:
                 boosts['article_keywords'] += 6
                 child_boosts['company_name'] += 3
                 child_boosts['company_tag'] += 2
-                params['q'] += str(entity[0]) + "~1 "
             elif entity[1] == 'NOUN':
                 boosts['article_text'] += 1
                 boosts['article_keywords'] += 1
                 child_boosts['company_description'] += 1
                 child_boosts['company_keywords'] += 1
-                params['q'] += str(entity[0]) + " "
-            else:
-                params['q'] += str(entity[0]) + " "
+            params['q'] += str(entity[0]) + " "
         if category:
             params['fq'] += " AND (article_keywords:" + category + " OR {!parent which='doc_type:article'}company_keywords:" + category + ")"
             results = self.sector_query(category)
@@ -366,6 +363,42 @@ class SolrManager:
             print(f"Exception occurred during suggestion retrieval: {str(e)}")
             return []
 
+# --------------------------------------------------------------------
+
+    def more_like_this(self, id=None, content=None, mltfl='article_title', rows=10):
+        if not id and not content:
+            print("Please provide either id or content to find similar documents.")
+            return []
+        if id:
+            try:
+                document = self.query({
+                    "q": f"id:{id}",
+                    "fq": "doc_type:article",
+                    "rows": 1
+                })
+                if len(document) == 0:
+                    print(f"Document with ID {id} not found.")
+                    return []
+                content = document.docs[0][mltfl]
+            except Exception as e:
+                print(f"An error occurred while fetching document: {str(e)}")
+                return []
+        content = content.replace(':', '')
+        try:
+            similar_docs = self.query({
+                'q': mltfl + ':(' + content + ')',
+                'fq': 'doc_type:article',
+                'mlt': 'true',
+                'mlt.fl': mltfl,
+                'mlt.mindf': 1,
+                'mlt.mintf': 1,
+                'rows': rows
+            })
+            return similar_docs
+        except Exception as e:
+            print(f"An error occurred during More Like This query: {str(e)}")
+            return []
+        
 # --------------------------------------------------------------------
 
     def write_text(self, file, text):
