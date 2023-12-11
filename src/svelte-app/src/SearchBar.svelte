@@ -1,11 +1,13 @@
 <!-- src/SearchBar.svelte -->
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import Dropdown from "./Dropdown.svelte";
   import { push } from "svelte-spa-router";
   export let selectedQuery = "";
   export let width = "";
   export let padding = "";
+  let searchInput;
+  let dropdown;
   let showDropdown = false;
 
   function handleChange(event) {
@@ -22,23 +24,29 @@
     push(`/results/${query}`);
   }
 
-  // Function to show dropdown
-  function handleFocus() {
-    showDropdown = true;
+  function handleClickOutside(event) {
+    if (searchInput && dropdown && !searchInput.contains(event.target) && !dropdown.contains(event.target)) {
+      showDropdown = false;
+    }
   }
 
-  // Function to hide dropdown
-  function handleBlur(event) {
-    // Use a timeout to allow click events to process
-    setTimeout(() => {
-      showDropdown = false;
-    }, 50);
+  onMount(() => {
+    document.addEventListener('click', handleClickOutside);
+  });
+
+  onDestroy(() => {
+    document.removeEventListener('click', handleClickOutside);
+  });
+
+  function handleFocus() {
+    showDropdown = true;
   }
 </script>
 
 <div class="search" style="width: {width};">
   <div class="control">
     <input
+      bind:this={searchInput}
       class="searchInput"
       type="text"
       style="padding: {padding};"
@@ -46,11 +54,12 @@
       on:input={handleChange}
       on:keydown={handleKeyDown}
       on:focus={handleFocus}
-      on:blur={handleBlur}
       placeholder="Search for stock news..."
     />
     {#if showDropdown}
-      <Dropdown {performSearch} {selectedQuery} />
+      <div bind:this={dropdown}>
+        <Dropdown {performSearch} {selectedQuery} />
+      </div>
     {/if}
   </div>
   <button class="searchButton" on:click={() => performSearch(selectedQuery)}
