@@ -9,6 +9,10 @@ class Analyzer:
     """
     def __init__(self):
         self.nlp = spacy.load("en_core_web_sm")
+        """
+        IF IT DIES HERE, RUN THIS IN TERMINAL:
+        python -m spacy download en_core_web_sm
+        """
 
     def extract_pos_tags(self, text : str) -> str:
         """
