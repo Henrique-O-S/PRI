@@ -14,8 +14,6 @@
 
   function handleRecentSearchClick(query) {
     selectedQuery = query;
-    console.log('selectedQuery: ', selectedQuery)
-    console.log('isEmpty: ', isEmpty)
     performSearch(selectedQuery);
   }
 

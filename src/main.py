@@ -8,7 +8,7 @@ db = 'sqlite:///../data/articles.db'
 solr = SolrManager(db_file=db)
 
 def init_solr():
-    if 1: # Set to 0 to skip Solr initialization, if you have already initialized Solr
+    if 0: # Set to 0 to skip Solr initialization, if you have already initialized Solr
         print("Initializing Solr...")
         solr.reload_core()
         schema = 'solr/schema.json'
@@ -64,7 +64,7 @@ def post_query(item: dict):
     Expects data in the following format:
     {
         "text": "input",
-        "category": "category",     // can be ""
+        "category": "category",               // can be ""
         "from_date": "YYYY-MM-DDTHH:MM:SSZ",  // can be ""
         "to_date": "YYYY-MM-DDTHH:MM:SSZ"     // can be ""
     }
@@ -99,13 +99,16 @@ def post_query(item: dict):
             raise HTTPException(status_code=422, detail="Incorrect date range, 'from_date' should be before 'to_date'")
 
     result = solr.user_query(input=input_text, category=input_category, from_date=input_from_date, to_date=input_to_date)
-    # print(f"result parameters: {result['params']}")
-    # delete params from result
+
     del result['params']
 
-    if 'raw_response' in result['results']:
-        del result['raw_response']['responseHeader']
-
+    if hasattr(result['results'], 'docs'):
+        new_response = {
+            'docs': result['results'].docs,
+            'hits': result['results'].hits
+        }
+        result['results'] = new_response
+    
     return {"response": result}
 
 @app.post("/semantic_query")
@@ -114,7 +117,7 @@ def post_semantic_query(item: dict):
     Expects data in the following format:
     {
         "text": "input",
-        "category": "category",     // can be ""
+        "category": "category",               // can be ""
         "from_date": "YYYY-MM-DDTHH:MM:SSZ",  // can be ""
         "to_date": "YYYY-MM-DDTHH:MM:SSZ"     // can be ""
     }
@@ -149,13 +152,16 @@ def post_semantic_query(item: dict):
             raise HTTPException(status_code=422, detail="Incorrect date range, 'from_date' should be before 'to_date'")
 
     result = solr.semantic_query(input=input_text, category=input_category, from_date=input_from_date, to_date=input_to_date)
-    # print(f"result parameters: {result['params']}")
-    # delete params from result
+
     del result['params']
 
-    if 'raw_response' in result['results']:
-        del result['raw_response']['responseHeader']
-
+    if hasattr(result['results'], 'docs'):
+        new_response = {
+            'docs': result['results'].docs,
+            'hits': result['results'].hits
+        }
+        result['results'] = new_response
+    
     return {"response": result}
 
 if __name__ == "__main__":
