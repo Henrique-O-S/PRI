@@ -8,7 +8,7 @@ db = 'sqlite:///../data/articles.db'
 solr = SolrManager(db_file=db)
 
 def init_solr():
-    if 0: # Set to 0 to skip Solr initialization, if you have already initialized Solr
+    if 1: # Set to 0 to skip Solr initialization, if you have already initialized Solr
         print("Initializing Solr...")
         solr.reload_core()
         schema = 'solr/schema.json'

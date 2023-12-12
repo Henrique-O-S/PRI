@@ -151,15 +151,17 @@
   let padding = "0.6rem";
   let time = 0.28;
   let categories = [
-    { name: "All", selected: false },
-    { name: "News", selected: false },
-    { name: "Images", selected: false },
-    { name: "Videos", selected: false },
-    { name: "Maps", selected: false },
-    { name: "Shopping", selected: false },
+    { name: "All", selected: true },
+    { name: "cybersecurity", selected: false },
+    { name: "software", selected: false },
+    { name: "hardware", selected: false },
+    { name: "semiconductors", selected: false },
+    { name: "finance", selected: false },
   ];
   function selectCategory(category) {
-    category.selected = !category.selected;
+    for (let category_el of categories) {
+      category_el.selected = category === category_el;
+    }
     categories = [...categories];
   }
   function applyFilter(startDate, endDate) {
