@@ -9,9 +9,13 @@
     { query: "Recent Search 2" },
   ];
   export let selectedQuery = "";
+  export let suggestions = [];
+  export let isEmpty = true;
 
   function handleRecentSearchClick(query) {
     selectedQuery = query;
+    console.log('selectedQuery: ', selectedQuery)
+    console.log('isEmpty: ', isEmpty)
     performSearch(selectedQuery);
   }
 
@@ -22,9 +26,15 @@
 </script>
 
 <div class="dropdown">
-  {#each filteredSearches as query (query)}
-    <div on:click={() => handleRecentSearchClick(query.query)}>{query.query}</div>
-  {/each}
+  {#if isEmpty}
+    {#each recentSearches as search}
+      <div on:click={() => handleRecentSearchClick(search.query)}>{search.query}</div>
+    {/each}
+  {:else}
+    {#each suggestions as suggestion}
+      <div on:click={() => handleRecentSearchClick(suggestion)}>{suggestion}</div>
+    {/each}
+  {/if}
 </div>
 
 <style>

@@ -11,14 +11,15 @@
   let dropdown;
   let showDropdown = false;
   let suggestions = [];
+  let isEmpty = true;
 
 
   async function handleChange(event) {
     selectedQuery = event.target.value;
+    isEmpty = selectedQuery === "";
 
     try {
       suggestions = await getSuggestions(selectedQuery);
-      console.log('suggestions: ', suggestions);
     } catch (error) {
       console.error('Error fetching suggestions:', error);
     }
@@ -68,7 +69,7 @@
     />
     {#if showDropdown}
       <div bind:this={dropdown}>
-        <Dropdown {suggestions} {performSearch} {selectedQuery} />
+        <Dropdown {isEmpty} {suggestions} {performSearch} {selectedQuery} />
       </div>
     {/if}
   </div>
