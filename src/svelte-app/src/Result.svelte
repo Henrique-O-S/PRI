@@ -1,35 +1,29 @@
 <!-- src/Result.svelte -->
 <script>
     export let result = {};
-    console.log(result);
+    import { convertDateString } from "./general_functions.js";
 </script>
 
 <div class="result">
     <div class="result-header">
-        <img src="/img/cnbc.png" alt={result.companyName} />
-        <div class="company-info">
-            <h3>{result.companyName}</h3>
-            <p>{result.url}</p>
-        </div>
+        <img src="/img/cnbc.png" alt={"cbnc.logo"} />
+        <a href={result.article_link} class="link">{result.article_title}</a>
     </div>
     <div class="result-content">
-        <a href={result.url} class="link">{result.title}</a>
-        <p>{result.description}</p>
+        <p>
+            <b>{convertDateString(result.article_date)} -</b>
+            {result.article_text.slice(0,200)}...
+        </p>
     </div>
 </div>
 
 <style>
-    h3,
     a,
     p {
         text-align: left;
         width: fit-content;
     }
-    .result-content a {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 0;
-    }
+
     p {
         font-weight: 500;
     }
@@ -46,14 +40,6 @@
         align-items: center;
         margin-bottom: 0.2rem;
         gap: 1rem;
-    }
-
-    .company-info h3 {
-        font-size: 1.3rem;
-    }
-
-    .company-info p {
-        font-size: 1rem;
     }
 
     .result-header * {

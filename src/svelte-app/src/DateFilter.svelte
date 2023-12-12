@@ -1,7 +1,10 @@
 <!-- src/DateFilter.svelte -->
 <script>
   export let applyFilter;
-  let startDate = new Date().toISOString().split("T")[0]; // Default to current date
+  export let resetFilter;
+  var yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  let startDate = yesterday.toISOString().split("T")[0]; // Default to current date
   let endDate = new Date().toISOString().split("T")[0]; // Default to current date
   let showDates = false;
 </script>
@@ -25,12 +28,17 @@
             </div>
             <div class="row">
               <label for="endDate">End Date:</label>
-              <input type="date" bind:value={endDate} id="endDate" />
+              <input type="date" bind:value={endDate} id="endDate" min={startDate}/>
             </div>
           </div>
-          <button on:click={applyFilter(startDate, endDate)}
-            >Apply Filter</button
-          >
+          <div class ="buttons">
+            <button on:click={applyFilter(startDate, endDate)}
+              >Apply Filter</button
+            >
+            <button on:click={resetFilter()}
+              >Reset Filter</button
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -75,6 +83,13 @@
     border-radius: 0.5rem;
     cursor: pointer;
     border-color: darkgray;
+  }
+
+  div.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
   }
 
   input {

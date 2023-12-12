@@ -5,6 +5,9 @@
   import { push } from "svelte-spa-router";
   import { getSuggestions } from './general_functions.js'
   export let selectedQuery = "";
+  export let selectedCategory = "";
+  export let selectedStartDate = "";
+  export let selectedEndDate = "";
   export let width = "";
   export let padding = "";
   let searchInput;
@@ -31,7 +34,7 @@
     }
   }
 
-  function performSearch(query) {
+  function performSearch(query, category="", startDate="", endDate="") {
     push(`/results/${query}`);
   }
 
@@ -69,11 +72,11 @@
     />
     {#if showDropdown}
       <div bind:this={dropdown}>
-        <Dropdown {isEmpty} {suggestions} {performSearch} {selectedQuery} />
+        <Dropdown {isEmpty} {suggestions} {performSearch} {selectedQuery} {selectedCategory} {selectedStartDate} {selectedEndDate} />
       </div>
     {/if}
   </div>
-  <button class="searchButton" on:click={() => performSearch(selectedQuery)}
+  <button class="searchButton" on:click={() => performSearch(selectedQuery, selectedCategory, selectedStartDate, selectedEndDate)}
     >Search</button>
 </div>
 

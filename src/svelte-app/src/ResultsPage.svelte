@@ -11,37 +11,43 @@
   export let params = {};
   console.log(params);
   let selectedQuery;
-  let searchResults;
+  let searchResults = [];
   let companies;
   let company;
   let company_index = 0;
   let results;
+  let time = 0.0;
+  let length = 0;
+  let selectedCategory = "";
+  let selectedStartDate = ""
+  let selectedEndDate = ""
   $: {
     selectedQuery = params.query;
-    console.log('GOT THIS QUERY: ', selectedQuery)
-    searchResults = getSearchResults();
     companies = getCompanyResults();
-    company = companies[company_index];
-    results = getResults(selectedQuery);
+    getResults(selectedQuery, selectedCategory, selectedStartDate, selectedEndDate);
   }
   let width = "50%";
   let padding = "0.6rem";
-  let time = 0.28;
   let categories = [
-    { name: "All", selected: true },
-    { name: "cybersecurity", selected: false },
-    { name: "software", selected: false },
-    { name: "hardware", selected: false },
-    { name: "semiconductors", selected: false },
-    { name: "finance", selected: false },
+    { name: "All", subName: "", selected: true },
+    { name: "cybersecurity", subName: "cybersecurity", selected: false },
+    { name: "software", subName: "software", selected: false },
+    { name: "hardware", subName: "hardware", selected: false },
+    { name: "semiconductors", subName: "semiconductors", selected: false },
+    { name: "finance", subName: "finance", selected: false },
   ];
 
-  async function getResults(query) {
+  async function getResults(query, category, startDate, endDate) {
     try {
-      results = await getQuery(query);
+      results = await getQuery(query, category, startDate, endDate);
+      time = results.time.toFixed(2)
+      length = results.results.docs.length
+      searchResults = results.results.docs
+      companies = results.company_results
+      company = companies[company_index]
       console.log(results);
     } catch (error) {
-      console.error('Error fetching suggestions:', error);
+      console.error('Error fetching query results:', error);
     }
   }
 
@@ -50,10 +56,22 @@
       category_el.selected = category === category_el;
     }
     categories = [...categories];
+    selectedCategory = category.subName;
+    console.log(selectedCategory)
   }
 
   function applyFilter(startDate, endDate) {
-    console.log(startDate, endDate);
+    if (endDate <= startDate) {
+      alert("End date must be after start date.")
+      return
+    }
+    selectedStartDate = startDate + "T00:00:00Z"
+    selectedEndDate = endDate + "T00:00:00Z"
+  }
+
+  function resetFilter() {
+    selectedStartDate = ""
+    selectedEndDate = ""
   }
 
   function updateCompany(inc) {
@@ -63,6 +81,7 @@
     } else if (company_index >= companies.length) {
       company_index = 0;
     }
+    company = companies[company_index];
   }
 </script>
 
@@ -72,19 +91,19 @@
       <div class="row">
         <h2 class="searchLogo" on:click={() => push("/")}>Stocks Guru</h2>
       </div>
-      <SearchBar {selectedQuery} {width} {padding} />
+      <SearchBar {selectedQuery} {width} {padding} {selectedCategory} {selectedStartDate} {selectedEndDate} />
       <div class="row" style="gap: 0.5rem;">
         {#each categories as category}
           <Category {category} {selectCategory} />
         {/each}
-        <DateFilter {applyFilter} />
+        <DateFilter {applyFilter} {resetFilter} />
       </div>
     </div>
   </section>
   <hr />
   <div class="row" style="gap:10rem; padding-right:3rem;">
     <section class="results">
-      <h5 class="time">{searchResults.length} Results in {time} seconds</h5>
+      <h5 class="time">{length} Results in {time} seconds</h5>
       {#if searchResults.length > 0}
         {#each searchResults as result}
           <Result {result} />
@@ -94,7 +113,11 @@
       {/if}
     </section>
     <section class="companyInfo">
-      <Company {company} {updateCompany} />
+      {#if company}
+        <Company {company} {updateCompany} />
+      {:else}
+        <p>No company found.</p>
+      {/if}
     </section>
   </div>
 </div>

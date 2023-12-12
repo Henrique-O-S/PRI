@@ -8,12 +8,12 @@
   <div class="outer">
     <div class="col">
       <div class="row">
-        <a class="companyName" href="https://www.cnbc.com/quotes/{company.tag}">{company.name} </a>
+        <a class="companyName" href="https://www.cnbc.com/quotes/{company.company_tag}">{company.company_name} </a>
       </div>
-      <span class="companyTag">{company.tag}</span>
+      <span class="companyTag">{company.company_tag}</span>
     </div>
     <hr />
-    <span class="companyDescription">{company.description}</span>
+    <span class="companyDescription">{company.company_description.slice(0,450)}...</span>
   </div>
   <div class="row">
     <button on:click={() => updateCompany(-1)}>&#9664; </button>

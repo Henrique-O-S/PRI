@@ -18,7 +18,7 @@ export async function getSuggestions(input) {
 }
 
 export async function getQuery(input, category = "", fromDate = "", toDate = "") {
-    console.log("GOT THIS INPUT: ", input)
+    console.log("Input: ", input, "Category: ", category, "From: ", fromDate, "To: ", toDate)
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,6 +30,8 @@ export async function getQuery(input, category = "", fromDate = "", toDate = "")
         })
     };
 
+    console.log("Request options: ", requestOptions.body)
+
     try {
     const response = await fetch('http://localhost:8001/user_query', requestOptions);
     if (!response.ok) {
@@ -40,5 +42,10 @@ export async function getQuery(input, category = "", fromDate = "", toDate = "")
         console.error('Error fetching query response:', error);
         return [];
     }
+}
+
+export function convertDateString(dateStr) {
+    let date = new Date(dateStr);
+    return date.toISOString().replace('T', ' ').slice(0, 19);
 }
 
