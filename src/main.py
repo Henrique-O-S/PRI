@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from solr.final_solr_manager import SolrManager
 import uvicorn
 from datetime import datetime
@@ -7,7 +8,7 @@ db = 'sqlite:///../data/articles.db'
 solr = SolrManager(db_file=db)
 
 def init_solr():
-    if 1 == 1: # Set to 0 to skip Solr initialization, if you have already initialized Solr
+    if 0: # Set to 0 to skip Solr initialization, if you have already initialized Solr
         print("Initializing Solr...")
         solr.reload_core()
         schema = 'solr/schema.json'
@@ -22,6 +23,19 @@ def init_solr():
         print("Done.")
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")

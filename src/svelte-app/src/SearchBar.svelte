@@ -3,15 +3,30 @@
   import { onMount, onDestroy } from 'svelte';
   import Dropdown from "./Dropdown.svelte";
   import { push } from "svelte-spa-router";
+  import { getSuggestions } from './general_functions.js'
   export let selectedQuery = "";
   export let width = "";
   export let padding = "";
   let searchInput;
   let dropdown;
   let showDropdown = false;
+  let suggestions = [];
 
+  /*
   function handleChange(event) {
+    console.log('input value: ', event.target.value)
     selectedQuery = event.target.value;
+  } */
+
+  async function handleChange(event) {
+    selectedQuery = event.target.value;
+
+    try {
+      suggestions = await getSuggestions(selectedQuery);
+      console.log('suggestions: ', suggestions);
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+    }
   }
 
   function handleKeyDown(event) {
