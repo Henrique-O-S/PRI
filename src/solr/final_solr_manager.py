@@ -283,6 +283,7 @@ class SolrManager:
         params = {
                 'q': f"{{!knn f=vector topK=20}}{embedding}",
                 'fl': 'article_title article_link article_date article_text',
+                'fq': '',
                 'rows': rows
         }
         if from_date and to_date:
