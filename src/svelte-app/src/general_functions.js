@@ -1,4 +1,4 @@
-async function getSuggestions(input) {
+export async function getSuggestions(input) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
