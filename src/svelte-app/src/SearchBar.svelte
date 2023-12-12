@@ -12,11 +12,6 @@
   let showDropdown = false;
   let suggestions = [];
 
-  /*
-  function handleChange(event) {
-    console.log('input value: ', event.target.value)
-    selectedQuery = event.target.value;
-  } */
 
   async function handleChange(event) {
     selectedQuery = event.target.value;
@@ -73,7 +68,7 @@
     />
     {#if showDropdown}
       <div bind:this={dropdown}>
-        <Dropdown {performSearch} {selectedQuery} />
+        <Dropdown {suggestions} {performSearch} {selectedQuery} />
       </div>
     {/if}
   </div>
