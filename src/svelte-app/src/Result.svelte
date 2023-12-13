@@ -32,13 +32,9 @@
         width: fit-content;
     }
 
-    .result-content span {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 0;
-    }
     p {
         font-weight: 500;
+        text-align: justify;
     }
     .result {
         border-bottom: 1px solid #dedada;
@@ -73,7 +69,7 @@
     .link {
         color: rgb(81, 81, 225);
         margin-bottom: 0.5rem;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 600;
     }
 

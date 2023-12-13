@@ -2,20 +2,54 @@
 <script>
   export let company;
   export let updateCompany;
+  let expanded;
+  let height = false;
+  $: {
+    height = expanded ? "auto" : "600px";
+  } 
 </script>
 
 <div class="col" style="margin-top: 2rem; gap: 2rem;">
-  <div class="outer">
+  <div class="outer" style="height: {height};">
     <div class="col">
-      <div class="row">
-        <a class="companyName" href="https://www.cnbc.com/quotes/{company.company_tag}">{company.company_name} </a>
+      <div class="row" style="justify-content: center;">
+        <a
+          class="companyName"
+          href="https://www.cnbc.com/quotes/{company.company_tag}"
+          >{company.company_name}
+        </a>
       </div>
       <span class="companyTag">{company.company_tag}</span>
     </div>
     <hr />
-    <span class="companyDescription">{company.company_description.slice(0,450)}...</span>
+    <span class="companyDescription">
+      {#if expanded}
+        {company.company_description}
+      {:else}
+        {company.company_description.slice(0, 450)}...
+      {/if}
+    </span>
+    <div class="row" style="justify-content: center;">
+      {#if expanded}
+        <h6
+          on:click={() => {
+            expanded = !expanded;
+          }}
+        >
+          Read less &#9650
+        </h6>
+      {:else}
+        <h6
+          on:click={() => {
+            expanded = !expanded;
+          }}
+        >
+          Read more &#9660
+        </h6>
+      {/if}
+    </div>
   </div>
-  <div class="row">
+  <div class="row" style="justify-content: center;">
     <button on:click={() => updateCompany(-1)}>&#9664; </button>
     <button on:click={() => updateCompany(1)}>&#9654; </button>
   </div>
@@ -27,7 +61,6 @@
     border: 1px solid lightgray;
     border-radius: 15px;
     padding: 2rem;
-    height: 600px;
   }
   div.col {
     display: flex;
@@ -66,5 +99,19 @@
     cursor: pointer;
     border-color: darkgray;
     background-color: aliceblue;
+  }
+
+  h6 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
   }
 </style>
