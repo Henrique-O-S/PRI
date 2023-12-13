@@ -6,7 +6,7 @@
   let height;
   let showReadMore = company.company_description.length > 450;
   $: {
-    height = expanded ? "auto" : "600px";
+    height = expanded ? "auto" : "620px";
   }
 </script>
 

@@ -2,7 +2,12 @@
 <script>
   import { push, pop } from "svelte-spa-router";
   import Company from "./Company.svelte";
-  import { fixArticleText, getArticleCompanies, convertDateString } from "./general_functions.js";
+  import {
+    fixArticleText,
+    getArticleCompanies,
+    convertDateString,
+  } from "./general_functions.js";
+  import Sugestion from "./Sugestion.svelte";
   export let params = {};
   let companies;
   let company;
@@ -12,9 +17,11 @@
   let article_date = "";
   let article_link = "";
   let paragraphs = [];
+  let suggestions;
   $: {
     companies = [];
     getArticleAndCompanies(params.id);
+    suggestions = ["apple", "microsoft", "google", "amazon", "facebook"];
   }
   function updateCompany(inc) {
     company_index += inc;
@@ -38,10 +45,13 @@
       article_link = results.docs[0].article_link;
       paragraphs = fixArticleText(results.docs[0].article_text);
     } catch (error) {
-      console.error('Error fetching query results:', error);
+      console.error("Error fetching query results:", error);
     }
   }
-  
+
+  function searchSuggestion(query) {
+    push(`/results/${query}`);
+  }
 </script>
 
 <div class="content">
@@ -50,7 +60,10 @@
       <div class="row">
         <h2 class="backButton" on:click={() => pop()}>&#8592;</h2>
       </div>
-      <h1 class="articleTitle"><img src="/img/cnbc.png" alt={"cbnc.logo"} />{article_title}</h1>
+      <img src="/img/cnbc.png" alt={"cbnc.logo"} style="width: 7%;"/>
+      <h1 class="articleTitle">
+        {article_title}
+      </h1>
       <div class="row articleDetails">
         <h5 class="date">{convertDateString(article_date)}</h5>
         <a class="learnMore" href={article_link}>Learn more</a>
@@ -63,16 +76,6 @@
       {#each paragraphs as paragraph}
         <p>{paragraph}</p>
       {/each}
-      <div class="textFooter row">
-        <a
-          style="justify-self: end;"
-          class="learnMore"
-          on:click={() => {
-            let dummy = "works";
-            push(`/results/${dummy}`);
-          }}>More Like This...</a
-        >
-      </div>
     </section>
     <section class="companyInfo">
       {#if companies.length > 0}
@@ -82,6 +85,16 @@
       {/if}
     </section>
   </div>
+  <hr style="margin-top: 2rem; margin-bottom:0.5rem;" />
+  <div class="textFooter">
+    <h3 class="searchSuggestions">Search suggestions:</h3>
+    <div class="suggestions-row">
+      {#each suggestions as suggestion}
+        <Sugestion {suggestion} {searchSuggestion} />
+      {/each}
+    </div>
+  </div>
+  <div style="padding-bottom: 3rem;"> </div>
 </div>
 
 <style>
@@ -170,8 +183,24 @@
   }
 
   .textFooter {
-    margin-bottom: 2rem;
-    margin-top: 3rem;
-    justify-content: end;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .suggestions-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Adjust the gap between suggestions */
+    max-width: 1000px; /* Set a maximum width for the row */
+    margin: 0 auto; /* Center the row */
+    margin-top: 2rem;
+  }
+
+  .searchSuggestions {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
   }
 </style>
