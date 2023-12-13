@@ -17,7 +17,7 @@
     </div>
     <div class="result-content">
         <p>
-            <b>{convertDateString(result.article_date)} -</b>
+            <small>{convertDateString(result.article_date)} -</small>
             {result.article_text.slice(0, 200)}...
         </p>
     </div>

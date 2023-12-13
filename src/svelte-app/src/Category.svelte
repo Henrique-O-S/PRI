@@ -1,7 +1,6 @@
 <!-- src/Category.svelte -->
 <script>
     export let category;
-    console.log(category);
     export let selectCategory;
 </script>
 

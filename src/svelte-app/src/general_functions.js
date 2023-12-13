@@ -18,7 +18,6 @@ export async function getSuggestions(input) {
 }
 
 export async function getQuery(input, category = "", fromDate = "", toDate = "") {
-    console.log("Input: ", input, "Category: ", category, "From: ", fromDate, "To: ", toDate)
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -29,8 +28,6 @@ export async function getQuery(input, category = "", fromDate = "", toDate = "")
             to_date: toDate 
         })
     };
-
-    console.log("Request options: ", requestOptions.body)
 
     try {
     const response = await fetch('http://localhost:8001/user_query', requestOptions);
@@ -67,24 +64,37 @@ export async function getArticleCompanies(id) {
 }
 
 export function convertDateString(dateStr) {
+    if (dateStr === "") {
+        return "";
+    }
     let date = new Date(dateStr);
     return date.toISOString().replace('T', ' ').slice(0, 19);
 }
 
 export function fixArticleText(text) {
     text = text.split(/\. (?=[A-Z])/);
-    let paragraphs = [text[0] + ". "];
-    let currParagraph = 0;
-    for (let i = 1; i < text.length - 1; i++) {
+    let paragraphs = [];
+
+    // Check if the first paragraph has "letter:letter" and split it
+    if (text[0].includes(":")) {
+        const splitText = text[0].split(":");
+        paragraphs.push(splitText[0] + ":");
+        paragraphs.push(splitText[1]);
+    } else {
+        paragraphs.push(text[0] + ".");
+    }
+
+    let currParagraph = paragraphs.length - 1;
+    for (let i = 1; i < text.length; i++) {
         if (text[i].indexOf(" - ") !== -1) {
             currParagraph++;
-            paragraphs.push(text[i] + ". ");
+            paragraphs.push(text[i] + ".");
         } else {
-            paragraphs[currParagraph] += text[i] + ". ";
+            paragraphs[currParagraph] += text[i] + ".";
         }
     }
-    paragraphs.push(text[text.length - 1]);
 
     return paragraphs;
 }
+
 

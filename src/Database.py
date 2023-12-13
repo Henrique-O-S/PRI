@@ -5,6 +5,7 @@ from sqlalchemy.inspection import inspect
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime
+import re
 
 Base = declarative_base()
 
@@ -258,7 +259,8 @@ class Database:
         session = self.Session()
         articles = session.query(Article).all()
         for article in articles:
-            article.text = article.text.replace("Â", "-")
+            text = article.text.replace("Â", "-")
+            article.text = re.sub(r'\.(\s+)(\d)', r'.\2', text)
         session.close()
         return articles
 

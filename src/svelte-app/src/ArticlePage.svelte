@@ -2,10 +2,8 @@
 <script>
   import { push, pop } from "svelte-spa-router";
   import Company from "./Company.svelte";
-  import { fixArticleText, getArticleCompanies } from "./general_functions.js";
+  import { fixArticleText, getArticleCompanies, convertDateString } from "./general_functions.js";
   export let params = {};
-  console.log(params);
-  let article;
   let companies;
   let company;
   let company_index = 0;
@@ -54,7 +52,7 @@
       </div>
       <h1 class="articleTitle"><img src="/img/cnbc.png" alt={"cbnc.logo"} />{article_title}</h1>
       <div class="row articleDetails">
-        <h5 class="date">{article_date}</h5>
+        <h5 class="date">{convertDateString(article_date)}</h5>
         <a class="learnMore" href={article_link}>Learn more</a>
       </div>
     </div>
@@ -79,6 +77,8 @@
     <section class="companyInfo">
       {#if companies.length > 0}
         <Company {company} {updateCompany} />
+      {:else}
+        <h3>No companies found</h3>
       {/if}
     </section>
   </div>

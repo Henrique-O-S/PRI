@@ -9,7 +9,6 @@
   import {getCompanyResults, getSearchResults} from "./mockdata.js"
   import { getQuery } from './general_functions.js'
   export let params = {};
-  console.log(params);
   let selectedQuery;
   let searchResults = [];
   let companies;
@@ -46,7 +45,6 @@
       searchResults = results.results.docs
       companies = results.company_results
       company = companies[company_index]
-      console.log(results);
     } catch (error) {
       console.error('Error fetching query results:', error);
     }
@@ -58,7 +56,6 @@
     }
     categories = [...categories];
     selectedCategory = category.subName;
-    console.log(selectedCategory)
   }
 
   function applyFilter(startDate, endDate) {
@@ -118,7 +115,7 @@
       {#if company}
         <Company {company} {updateCompany} />
       {:else}
-        <p>No company found.</p>
+      <h3>No companies found</h3>
       {/if}
     </section>
   </div>
