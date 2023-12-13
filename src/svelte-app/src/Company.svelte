@@ -5,7 +5,7 @@
   let expanded;
   let height = false;
   $: {
-    height = expanded ? "auto" : "600px";
+    height = "auto";
   } 
 </script>
 
@@ -26,7 +26,11 @@
       {#if expanded}
         {company.company_description}
       {:else}
-        {company.company_description.slice(0, 450)}...
+        {#if company.company_description.length < 450}
+          {company.company_description}
+        {:else}
+          {company.company_description.slice(0, 450)}...
+        {/if}
       {/if}
     </span>
     <div class="row" style="justify-content: center;">

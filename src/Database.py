@@ -257,6 +257,8 @@ class Database:
     def get_all_articles(self):
         session = self.Session()
         articles = session.query(Article).all()
+        for article in articles:
+            article.text = article.text.replace("Â", "-")
         session.close()
         return articles
 

@@ -378,7 +378,7 @@ class SolrManager:
             document = self.query({
                 "q": f"id:{id}",
                 "fq": "doc_type:article",
-                "fl": "article_companies [child] company_name company_tag company_description",
+                "fl": "article_title article_link article_date article_text article_companies [child] company_name company_tag company_description",
                 "rows": 1
             })
             if len(document) == 0:

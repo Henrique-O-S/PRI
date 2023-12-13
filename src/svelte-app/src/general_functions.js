@@ -45,7 +45,7 @@ export async function getQuery(input, category = "", fromDate = "", toDate = "")
 }
 
 
-export async function getQuery(id) {
+export async function getArticleCompanies(id) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -69,5 +69,22 @@ export async function getQuery(id) {
 export function convertDateString(dateStr) {
     let date = new Date(dateStr);
     return date.toISOString().replace('T', ' ').slice(0, 19);
+}
+
+export function fixArticleText(text) {
+    text = text.split(/\. (?=[A-Z])/);
+    let paragraphs = [text[0] + ". "];
+    let currParagraph = 0;
+    for (let i = 1; i < text.length - 1; i++) {
+        if (text[i].indexOf(" - ") !== -1) {
+            currParagraph++;
+            paragraphs.push(text[i] + ". ");
+        } else {
+            paragraphs[currParagraph] += text[i] + ". ";
+        }
+    }
+    paragraphs.push(text[text.length - 1]);
+
+    return paragraphs;
 }
 

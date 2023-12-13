@@ -2,9 +2,7 @@
 <script>
     export let result = {};
     import { convertDateString } from "./general_functions.js";
-    console.log(result);
     import { push } from "svelte-spa-router";
-    result.article_id = 1
 </script>
 
 <div class="result">
@@ -12,7 +10,7 @@
         <img src="/img/cnbc.png" alt={"cbnc.logo"} />
         <span
             on:click={() => {
-                push(`/article/${result.article_id}`);
+                push(`/article/${result.id}`);
             }}
             class="link">{result.article_title}</span
         >
