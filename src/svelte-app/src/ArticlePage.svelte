@@ -4,9 +4,9 @@
   import Company from "./Company.svelte";
   export let params = {};
   console.log(params);
-  let selectedArticle;
   let article;
   let companies;
+  let selectedArticle;
   let company;
   let company_index = 0;
   $: {
@@ -36,83 +36,36 @@
 
     companies = [
       {
-        name: "Facebook",
-        tag: "FB",
-        description:
+        company_name: "Facebook",
+        company_tag: "FB",
+        company_description:
           "Facebook, Inc. is an American technology conglomerate based in Menlo Park, California.",
       },
       {
-        name: "Apple",
-        tag: "AAPL",
-        description:
-          "Apple Inc. is an American multinational technology company headquartered in Cupertino, California.",
+        company_name: "Apple",
+        company_tag: "AAPL",
+        company_description:
+          "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services.",
       },
       {
-        name: "Amazon",
-        tag: "AMZN",
-        description:
-          "Amazon.com, Inc. is an American multinational technology company based in Seattle, Washington.",
+        company_name: "Amazon",
+        company_tag: "AMZN",
+        company_description:
+          "Amazon.com, Inc. is an American multinational technology company based in Seattle, Washington, which focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
       },
       {
-        name: "Netflix",
-        tag: "NFLX",
-        description:
+        company_name: "Netflix",
+        company_tag: "NFLX",
+        company_description:
           "Netflix, Inc. is an American over-the-top content platform and production company headquartered in Los Gatos, California.",
       },
       {
-        name: "Google",
-        tag: "GOOGL",
-        description:
-          "Google LLC is an American multinational technology company that specializes in Internet-related services and products.",
+        company_name: "Google",
+        company_tag: "GOOGL",
+        company_description:
+          "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.",
       },
-      {
-        name: "Microsoft",
-        tag: "MSFT",
-        description:
-          "Microsoft Corporation is an American multinational technology company with headquarters in Redmond, Washington.",
-      },
-      {
-        name: "Tesla",
-        tag: "TSLA",
-        description:
-          "Tesla, Inc. is an American electric vehicle and clean energy company based in Palo Alto, California.",
-      },
-      {
-        name: "Twitter",
-        tag: "TWTR",
-        description:
-          "Twitter is an American microblogging and social networking service on which users post and interact with messages known as tweets.",
-      },
-      {
-        name: "Alphabet",
-        tag: "GOOGL",
-        description:
-          "Alphabet Inc. is an American multinational conglomerate headquartered in Mountain View, California.",
-      },
-      {
-        name: "Intel",
-        tag: "INTC",
-        description:
-          "Intel Corporation is an American multinational corporation and technology company headquartered in Santa Clara, California.",
-      },
-      {
-        name: "Nvidia",
-        tag: "NVDA",
-        description:
-          "Nvidia Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California.",
-      },
-      {
-        name: "PayPal",
-        tag: "PYPL",
-        description:
-          "PayPal Holdings, Inc. is an American company operating an online payments system in majority of countries that supports online money transfers.",
-      },
-      {
-        name: "Adobe",
-        tag: "ADBE",
-        description:
-          "Adobe Inc. is an American multinational computer software company headquartered in San Jose, California.",
-      },
+
     ];
     company = companies[company_index];
   }

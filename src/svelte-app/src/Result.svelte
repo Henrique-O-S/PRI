@@ -4,30 +4,28 @@
     import { convertDateString } from "./general_functions.js";
     console.log(result);
     import { push } from "svelte-spa-router";
+    result.article_id = 1
 </script>
 
 <div class="result">
     <div class="result-header">
         <img src="/img/cnbc.png" alt={"cbnc.logo"} />
-        <a href={result.article_link} class="link">{result.article_title}</a>
+        <span
+            on:click={() => {
+                push(`/article/${result.article_id}`);
+            }}
+            class="link">{result.article_title}</span
+        >
     </div>
     <div class="result-content">
         <p>
             <b>{convertDateString(result.article_date)} -</b>
-            {result.article_text.slice(0,200)}...
+            {result.article_text.slice(0, 200)}...
         </p>
-        <span
-            on:click={() => {
-                push(`/article/${result.id}`);
-            }}
-            class="link">{result.title}</span
-        >
-        <p>{result.description}</p>
     </div>
 </div>
 
 <style>
-    h3,
     span,
     p {
         text-align: left;
@@ -76,6 +74,7 @@
         color: rgb(81, 81, 225);
         margin-bottom: 0.5rem;
         font-size: 1.4rem;
+        font-weight: 600;
     }
 
     .link:hover {
