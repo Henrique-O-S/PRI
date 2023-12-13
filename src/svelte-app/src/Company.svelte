@@ -2,11 +2,12 @@
 <script>
   export let company;
   export let updateCompany;
-  let expanded;
-  let height = false;
+  let expanded = false;
+  let height;
+  let showReadMore = company.company_description.length > 450;
   $: {
-    height = "auto";
-  } 
+    height = expanded ? "auto" : "600px";
+  }
 </script>
 
 <div class="col" style="margin-top: 2rem; gap: 2rem;">
@@ -33,25 +34,27 @@
         {/if}
       {/if}
     </span>
-    <div class="row" style="justify-content: center;">
-      {#if expanded}
-        <h6
-          on:click={() => {
-            expanded = !expanded;
-          }}
-        >
-          Read less &#9650
-        </h6>
-      {:else}
-        <h6
-          on:click={() => {
-            expanded = !expanded;
-          }}
-        >
-          Read more &#9660
-        </h6>
-      {/if}
-    </div>
+    {#if showReadMore}
+      <div class="row" style="justify-content: center;">
+        {#if expanded}
+          <h6
+            on:click={() => {
+              expanded = !expanded;
+            }}
+          >
+            Read less &#9650
+          </h6>
+        {:else}
+          <h6
+            on:click={() => {
+              expanded = !expanded;
+            }}
+          >
+            Read more &#9660
+          </h6>
+        {/if}
+      </div>
+    {/if}
   </div>
   <div class="row" style="justify-content: center;">
     <button on:click={() => updateCompany(-1)}>&#9664; </button>
@@ -92,7 +95,8 @@
   .companyDescription {
     font-size: 1.1rem;
     font-weight: 500;
-    text-align: start;
+    text-align: center;
+    display: flex;
   }
 
   button {
