@@ -111,6 +111,23 @@ def post_query(item: dict):
     
     return {"response": result}
 
+@app.post("/article_companies")
+def post_query(item: dict):
+    """
+    Expects data in the following format:
+    {
+        "id": "article_id"
+    }
+    """
+    if 'id' not in item:
+        raise HTTPException(status_code=422, detail="The 'id' field is required.")
+    
+    input_id = item['id']
+
+    result = solr.query_article(id=input_id)
+    
+    return {"response": result}
+
 @app.post("/semantic_query")
 def post_semantic_query(item: dict):
     """

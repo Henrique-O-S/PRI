@@ -185,7 +185,7 @@ class SolrManager:
             'qf': '',
             'fq': 'doc_type:article',
             'bq': '',
-            'fl': 'article_title article_link article_date article_text',
+            'fl': 'article_title article_link article_date article_text id',
             'rows': rows
         }
         if from_date and to_date:
@@ -366,6 +366,61 @@ class SolrManager:
                 return []
         except Exception as e:
             print(f"Exception occurred during suggestion retrieval: {str(e)}")
+            return []
+        
+# --------------------------------------------------------------------
+
+    def query_article(self, id):
+        if not id:
+            print("Please provide either id or content to find similar documents.")
+            return []
+        try:
+            document = self.query({
+                "q": f"id:{id}",
+                "fq": "doc_type:article",
+                "fl": "article_companies [child] company_name company_tag company_description",
+                "rows": 1
+            })
+            if len(document) == 0:
+                print(f"Document with ID {id} not found.")
+                return []
+        except Exception as e:
+            print(f"An error occurred while fetching document: {str(e)}")
+            return []
+        return document
+    
+    def more_like_this(self, id=None, content=None, mltfl='article_title', rows=10):
+        if not id and not content:
+            print("Please provide either id or content to find similar documents.")
+            return []
+        if id:
+            try:
+                document = self.query({
+                    "q": f"id:{id}",
+                    "fq": "doc_type:article",
+                    "rows": 1
+                })
+                if len(document) == 0:
+                    print(f"Document with ID {id} not found.")
+                    return []
+                content = document.docs[0][mltfl]
+            except Exception as e:
+                print(f"An error occurred while fetching document: {str(e)}")
+                return []
+        content = content.replace(':', '')
+        try:
+            similar_docs = self.query({
+                'q': mltfl + ':(' + content + ')',
+                'fq': 'doc_type:article',
+                'mlt': 'true',
+                'mlt.fl': mltfl,
+                'mlt.mindf': 1,
+                'mlt.mintf': 1,
+                'rows': rows
+            })
+            return similar_docs
+        except Exception as e:
+            print(f"An error occurred during More Like This query: {str(e)}")
             return []
 
 # --------------------------------------------------------------------
