@@ -27,7 +27,7 @@
     border: 1px solid lightgray;
     border-radius: 15px;
     padding: 2rem;
-    height: 400px;
+    height: 600px;
   }
   div.col {
     display: flex;

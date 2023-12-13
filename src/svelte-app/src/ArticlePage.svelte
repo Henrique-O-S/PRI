@@ -18,8 +18,7 @@
       url: "https://www.facebook.com/tools/ads-manager",
     };
     // split article text according to ". CAPITAL_LETTER"
-    article.sentences = article.text
-      .split(/\. (?=[A-Z])/)
+    article.sentences = article.text.split(/\. (?=[A-Z])/);
     console.log(article.sentences);
 
     article.paragraphs = [article.sentences[0] + ". "];
@@ -29,7 +28,7 @@
         currParagraph++;
         article.paragraphs.push(article.sentences[i] + ". ");
       } else {
-        article.paragraphs[currParagraph] += (article.sentences[i] + ". ");
+        article.paragraphs[currParagraph] += article.sentences[i] + ". ";
       }
     }
     console.log(article.paragraphs);
@@ -65,7 +64,6 @@
         company_description:
           "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.",
       },
-
     ];
     company = companies[company_index];
   }
@@ -98,7 +96,16 @@
       {#each article.paragraphs as paragraph}
         <p>{paragraph}</p>
       {/each}
-      <div style="margin-bottom: 2rem;"></div>
+      <div class="textFooter row">
+        <a
+          style="justify-self: end;"
+          class="learnMore"
+          on:click={() => {
+            let dummy = "works";
+            push(`/results/${dummy}`);
+          }}>More Like This...</a
+        >
+      </div>
     </section>
     <section class="companyInfo">
       <Company {company} {updateCompany} />
@@ -189,5 +196,11 @@
     font-size: 1rem;
     cursor: pointer;
     color: rgb(81, 81, 225);
+  }
+
+  .textFooter {
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    justify-content: end;
   }
 </style>
