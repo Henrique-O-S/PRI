@@ -4,10 +4,12 @@
   import MainPageInput from "./MainPageInput.svelte";
   import ResultsPage from "./ResultsPage.svelte";
   import NotFoundPage from "./NotFoundPage.svelte";
+    import ArticlePage from "./ArticlePage.svelte";
 
   let routes = {
     "/": MainPageInput,
     "/results/:query": ResultsPage,
+    "/article/:id": ArticlePage,
     "*": NotFoundPage,
   };
   function redirectToHome() {

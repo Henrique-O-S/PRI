@@ -111,6 +111,7 @@
       {:else}
         <p>No results found.</p>
       {/if}
+      <div style="margin-bottom: 2rem;"></div>
     </section>
     <section class="companyInfo">
       {#if company}

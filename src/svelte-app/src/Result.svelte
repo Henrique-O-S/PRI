@@ -2,6 +2,8 @@
 <script>
     export let result = {};
     import { convertDateString } from "./general_functions.js";
+    console.log(result);
+    import { push } from "svelte-spa-router";
 </script>
 
 <div class="result">
@@ -14,16 +16,29 @@
             <b>{convertDateString(result.article_date)} -</b>
             {result.article_text.slice(0,200)}...
         </p>
+        <span
+            on:click={() => {
+                push(`/article/${result.id}`);
+            }}
+            class="link">{result.title}</span
+        >
+        <p>{result.description}</p>
     </div>
 </div>
 
 <style>
-    a,
+    h3,
+    span,
     p {
         text-align: left;
         width: fit-content;
     }
 
+    .result-content span {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
     p {
         font-weight: 500;
     }
