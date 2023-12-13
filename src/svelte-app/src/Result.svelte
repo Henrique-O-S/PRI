@@ -75,4 +75,9 @@
         text-decoration: underline;
         cursor: pointer;
     }
+
+    small{
+        opacity: 0.4;
+        font-weight: 600;
+    }
 </style>
