@@ -19,8 +19,9 @@
   let time = 0.0;
   let length = 0;
   let selectedCategory = "";
-  let selectedStartDate = ""
-  let selectedEndDate = ""
+  let selectedStartDate = "";
+  let selectedEndDate = "";
+  let id = "";
   $: {
     selectedQuery = params.query;
     companies = getCompanyResults();
