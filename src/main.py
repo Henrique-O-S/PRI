@@ -213,6 +213,46 @@ def post_semantic_query(item: dict):
     
     return {"response": result}
 
+# --------------------------------------------------------------------
+
+@app.post("/more_like_this")
+def post_more_like_this(item: dict):
+    """
+    Expects data in the following format:
+    {
+        "id": "id",
+        "content": "content",  // can be ""
+    }
+    """
+    if 'id' not in item or 'content' not in item:
+        raise HTTPException(status_code=422, detail="The 'id' and 'content' fields are required.")
+    
+    content = item['content'] if item['content'] != "" else None
+    id = item['id']
+
+    result = solr.more_like_this(id=id, content=content)
+
+    if hasattr(result, 'docs'):
+        for doc in result.docs:
+            del doc['doc_type']
+            del doc['id']
+            del doc['article_text']
+            del doc['article_keywords']
+            del doc['article_date']
+            del doc['article_link']
+            del doc['vector']
+            del doc['suggestions']
+            del doc['_version_']
+
+        new_response = {
+            'docs': result.docs,
+        }
+        result = new_response
+    
+    return {"response": result}
+
+# --------------------------------------------------------------------
+
 if __name__ == "__main__":
     init_solr()
     uvicorn.run(app, port=8001)

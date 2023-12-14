@@ -389,7 +389,7 @@ class SolrManager:
             return []
         return document
     
-    def more_like_this(self, id=None, content=None, mltfl='article_title', rows=10):
+    def more_like_this(self, id=None, content=None, mltfl='article_text', rows=5):
         if not id and not content:
             print("Please provide either id or content to find similar documents.")
             return []
