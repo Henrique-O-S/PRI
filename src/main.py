@@ -8,7 +8,7 @@ db = 'sqlite:///../data/articles.db'
 solr = SolrManager(db_file=db)
 
 def init_solr():
-    if 1: # Set to 0 to skip Solr initialization, if you have already initialized Solr
+    if 0: # Set to 0 to skip Solr initialization, if you have already initialized Solr
         print("Initializing Solr...")
         solr.reload_core()
         schema = 'solr/schema.json'
@@ -42,6 +42,8 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
+# --------------------------------------------------------------------
+
 @app.post("/suggestions")
 def post_suggestions(item: dict):
     """
@@ -57,6 +59,8 @@ def post_suggestions(item: dict):
     suggestions = solr.suggest(input)
 
     return {"response": suggestions}
+
+# --------------------------------------------------------------------
 
 @app.post("/user_query")
 def post_query(item: dict):
@@ -111,6 +115,8 @@ def post_query(item: dict):
     
     return {"response": result}
 
+# --------------------------------------------------------------------
+
 @app.post("/article_companies")
 def post_query(item: dict):
     """
@@ -127,6 +133,8 @@ def post_query(item: dict):
     result = solr.query_article(id=input_id)
     
     return {"response": result}
+
+# --------------------------------------------------------------------
 
 @app.post("/semantic_query")
 def post_semantic_query(item: dict):
