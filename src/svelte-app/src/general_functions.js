@@ -24,8 +24,8 @@ export async function getQuery(input, category = "", fromDate = "", toDate = "")
         body: JSON.stringify({
             text: input,
             category: category,
-            from_date: fromDate,
-            to_date: toDate
+            from_date: fromDate.toString(),
+            to_date: toDate.toString()
         })
     };
 

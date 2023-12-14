@@ -181,11 +181,11 @@ class SolrManager:
             'rows': rows
         }
         if from_date and to_date:
-            params['fq'] += f" article_date:[{from_date} TO {to_date}]"
+            params['fq'] += f" AND article_date:[{from_date} TO {to_date}]"
         elif from_date:
-            params['fq'] += f" article_date:[{from_date} TO *]"
+            params['fq'] += f" AND article_date:[{from_date} TO *]"
         elif to_date:
-            params['fq'] += f" article_date:[* TO {to_date}]"
+            params['fq'] += f" AND article_date:[* TO {to_date}]"
         if from_date or to_date:
             params['sort'] = 'article_date desc'
         company_results = []

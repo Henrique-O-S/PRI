@@ -127,7 +127,6 @@ def post_query(item: dict):
             raise HTTPException(status_code=422, detail="Incorrect date range, 'from_date' should be before 'to_date'")
 
     result = solr.user_query(input=input_text, category=input_category, from_date=input_from_date, to_date=input_to_date, rows=100)
-
     del result['params']
 
     if hasattr(result['results'], 'docs'):
