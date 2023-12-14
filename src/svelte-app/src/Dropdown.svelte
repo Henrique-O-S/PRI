@@ -5,6 +5,8 @@
     { query: "Tesla dipped" },
     { query: "advanced micron devices" },
     { query: "cyber security stocks" },
+    { query: "Apple advances in artificial intelligence" },
+    { query: "software companies are grinding" },
   ];
 
   export let selectedQuery = "";

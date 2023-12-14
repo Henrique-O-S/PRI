@@ -114,31 +114,34 @@ class SolrManager:
             for company in companies:
                 combined_text += " " + company.description
             suggestions = [
+                "fluctuations in nvidia earnings",
+                "advanced micro devices",
+                "company acquisitions",
                 "energy stocks slide in market",
                 "stocks fall post price cuts",
-                "surge in AI-focused companies",
-                "CEO visit boosts stock price",
+                "surge in AI companies",
                 "legacy automaker gains investor confidence",
                 "crypto services see market rise",
                 "Disney media stock soars",
                 "electric vehicle chargers get upgrade",
                 "energy stocks hit by oil prices",
-                "AI-focused tech stock soars",
-                "FDA accepts cancer treatment",
+                "artificial intelligent tech stock soars",
                 "cybersecurity solutions get analyst upgrade",
                 "semiconductor companies see mixed results",
                 "Tesla stock impacted by short squeeze",
                 "biotech company impacted by vaccine dose talks",
                 "semiconductor giant faces earnings concerns",
-                "tech company's quarterly performance",
+                "tech companies quarterly performance",
                 "positive reaction to software solutions",
-                "computer company's earnings beat",
+                "computer companies earnings beat",
                 "database software gets top pick status",
-                "Fortinet reports earnings beat",
+                "Broadcom reports earnings beat",
                 "pharmacy chain sees leadership change",
                 "mining company gets metals upgrade",
                 "cloud services impacted by acquisition deal",
-                "semiconductor company's market response"
+                "semiconductor companies market response",
+                "Apple advances in artificial intelligence",
+                "software companies are grinding"
             ]
             article_document = {  
                 'id': article.id,

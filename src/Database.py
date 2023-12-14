@@ -268,6 +268,8 @@ class Database:
     def get_all_companies(self):
         session = self.Session()
         companies = session.query(Company).all()
+        for company in companies:
+            company.description = company.description.replace('â€™', "'")
         session.close()
         return companies
     
@@ -277,6 +279,8 @@ class Database:
             associations = session.query(CompanyArticleAssociation).filter_by(article_id=article_id).all()
             company_ids = [association.company_id for association in associations]
             companies = session.query(Company).filter(Company.id.in_(company_ids)).all()
+            for company in companies:
+                company.description = company.description.replace('â€™', "'")
             session.close()
             return companies
         except Exception as e:
