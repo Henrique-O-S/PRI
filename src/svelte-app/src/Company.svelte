@@ -3,62 +3,34 @@
   export let company;
   export let updateCompany;
   let expanded = false;
-  let height;
-  let showReadMore = company.company_description.length > 450;
-  $: {
-    height = "auto" 
-  }
 </script>
 
 <div class="col" style="margin-top: 2rem; gap: 2rem;">
-  <div class="outer" style="height: {height};">
+  <div class="outer">
     <div class="col">
       <div class="row" style="justify-content: center;">
         <a
           class="companyName"
           href="https://www.cnbc.com/quotes/{company.company_tag}"
-          >{company.company_name}
-        </a>
+        >{company.company_name}</a>
       </div>
       <span class="companyTag">{company.company_tag}</span>
     </div>
     <hr />
-    <span class="companyDescription">
-      {#if expanded}
-        {company.company_description}
-      {:else}
-        {#if company.company_description.length < 450}
-          {company.company_description}
-        {:else}
-          {company.company_description.slice(0, 450)}...
-        {/if}
-      {/if}
+    <span class="companyDescription" class:expanded>
+      {company.company_description}
     </span>
-    {#if showReadMore}
+    {#if company.company_description.length > 450}
       <div class="row" style="justify-content: center;">
-        {#if expanded}
-          <h6
-            on:click={() => {
-              expanded = !expanded;
-            }}
-          >
-            Read less &#9650
-          </h6>
-        {:else}
-          <h6
-            on:click={() => {
-              expanded = !expanded;
-            }}
-          >
-            Read more &#9660
-          </h6>
-        {/if}
+        <h6 on:click={() => (expanded = !expanded)}>
+          {expanded ? "Read less ▲" : "Read more ▼"}
+        </h6>
       </div>
     {/if}
   </div>
   <div class="row" style="justify-content: center;">
-    <button on:click={() => updateCompany(-1)}>&#9664; </button>
-    <button on:click={() => updateCompany(1)}>&#9654; </button>
+    <button on:click={() => updateCompany(-1)}>&#9664;</button>
+    <button on:click={() => updateCompany(1)}>&#9654;</button>
   </div>
 </div>
 
@@ -69,11 +41,13 @@
     border-radius: 15px;
     padding: 2rem;
   }
+
   div.col {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
   hr {
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -81,22 +55,32 @@
     height: 1.5px;
     opacity: 30%;
   }
+
   .companyName {
     font-size: 2rem;
     font-weight: 700;
     text-decoration: none;
   }
+
   .companyTag {
     font-size: 1.5rem;
     font-weight: 500;
     opacity: 0.4;
     font-style: italic;
   }
+
   .companyDescription {
     font-size: 1.1rem;
     font-weight: 500;
     text-align: center;
     display: flex;
+    overflow: hidden; /* Prevents overflow */
+    max-height: 455px; /* Set your desired max height */
+    transition: max-height 0.3s ease; /* Smooth transition for height change */
+  }
+
+  .companyDescription.expanded {
+    max-height: none; /* Expands the description when expanded */
   }
 
   button {
@@ -121,5 +105,12 @@
   .row {
     display: flex;
     flex-direction: row;
+  }
+
+  /* Media query for smaller screens */
+  @media screen and (max-width: 768px) {
+    .companyDescription {
+      max-height: 80px; /* Adjust the max height for smaller screens */
+    }
   }
 </style>
