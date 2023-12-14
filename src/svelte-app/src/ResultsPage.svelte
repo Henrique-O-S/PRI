@@ -6,8 +6,8 @@
   import DateFilter from "./DateFilter.svelte";
   import Result from "./Result.svelte";
   import SearchBar from "./SearchBar.svelte";
-  import {getCompanyResults, getSearchResults} from "./mockdata.js"
-  import { getQuery } from './general_functions.js'
+  import { getCompanyResults, getSearchResults } from "./mockdata.js";
+  import { getQuery, getPredefinedQuery } from "./general_functions.js";
   export let params = {};
   let selectedQuery;
   let searchResults = [];
@@ -21,10 +21,20 @@
   let selectedStartDate = "";
   let selectedEndDate = "";
   let id = "";
+  let predefinedQueries = [
+    "Tesla dipped",
+    "advanced micron devices",
+    "cyber security stocks",
+  ];
   $: {
     selectedQuery = params.query;
     companies = getCompanyResults();
-    getResults(selectedQuery, selectedCategory, selectedStartDate, selectedEndDate);
+    getResults(
+      selectedQuery,
+      selectedCategory,
+      selectedStartDate,
+      selectedEndDate,
+    );
   }
   let width = "50%";
   let padding = "0.6rem";
@@ -39,14 +49,18 @@
 
   async function getResults(query, category, startDate, endDate) {
     try {
-      results = await getQuery(query, category, startDate, endDate);
-      time = results.time.toFixed(2)
-      length = results.results.docs.length
-      searchResults = results.results.docs
-      companies = results.company_results
-      company = companies[company_index]
+      if (query in predefinedQueries) {
+        results = await getPredefinedQuery(query);
+      } else {
+        results = await getQuery(query, category, startDate, endDate);
+      }
+      time = results.time.toFixed(2);
+      length = results.results.docs.length;
+      searchResults = results.results.docs;
+      companies = results.company_results;
+      company = companies[company_index];
     } catch (error) {
-      console.error('Error fetching query results:', error);
+      console.error("Error fetching query results:", error);
     }
   }
 
@@ -60,16 +74,16 @@
 
   function applyFilter(startDate, endDate) {
     if (endDate <= startDate) {
-      alert("End date must be after start date.")
-      return
+      alert("End date must be after start date.");
+      return;
     }
-    selectedStartDate = startDate + "T00:00:00Z"
-    selectedEndDate = endDate + "T00:00:00Z"
+    selectedStartDate = startDate + "T00:00:00Z";
+    selectedEndDate = endDate + "T00:00:00Z";
   }
 
   function resetFilter() {
-    selectedStartDate = ""
-    selectedEndDate = ""
+    selectedStartDate = "";
+    selectedEndDate = "";
   }
 
   function updateCompany(inc) {
@@ -89,7 +103,14 @@
       <div class="row">
         <h2 class="searchLogo" on:click={() => push("/")}>Stocks Guru</h2>
       </div>
-      <SearchBar {selectedQuery} {width} {padding} {selectedCategory} {selectedStartDate} {selectedEndDate} />
+      <SearchBar
+        {selectedQuery}
+        {width}
+        {padding}
+        {selectedCategory}
+        {selectedStartDate}
+        {selectedEndDate}
+      />
       <div class="row" style="gap: 0.5rem;">
         {#each categories as category}
           <Category {category} {selectCategory} />
@@ -115,7 +136,7 @@
       {#if company}
         <Company {company} {updateCompany} />
       {:else}
-      <h3>No companies found</h3>
+        <h3>No companies found</h3>
       {/if}
     </section>
   </div>
