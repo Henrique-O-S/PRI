@@ -117,13 +117,9 @@ class SolrManager:
                 "fluctuations in nvidia earnings",
                 "advanced micro devices",
                 "company acquisitions",
-                "energy stocks slide in market",
-                "stocks fall post price cuts",
-                "surge in AI companies",
-                "legacy automaker gains investor confidence",
+                "Apple advances in artificial intelligence",
+                "software companies are grinding"
                 "crypto services see market rise",
-                "Disney media stock soars",
-                "electric vehicle chargers get upgrade",
                 "energy stocks hit by oil prices",
                 "artificial intelligent tech stock soars",
                 "cybersecurity solutions get analyst upgrade",
@@ -131,17 +127,10 @@ class SolrManager:
                 "Tesla stock impacted by short squeeze",
                 "biotech company impacted by vaccine dose talks",
                 "semiconductor giant faces earnings concerns",
-                "tech companies quarterly performance",
                 "positive reaction to software solutions",
-                "computer companies earnings beat",
                 "database software gets top pick status",
-                "Broadcom reports earnings beat",
-                "pharmacy chain sees leadership change",
-                "mining company gets metals upgrade",
                 "cloud services impacted by acquisition deal",
                 "semiconductor companies market response",
-                "Apple advances in artificial intelligence",
-                "software companies are grinding"
             ]
             article_document = {  
                 'id': article.id,
@@ -180,7 +169,7 @@ class SolrManager:
         results = self.solr.search(**params)
         return results
     
-    def user_query(self, input, from_date = None, to_date = None, category = None, rows = 20):
+    def user_query(self, input, from_date = None, to_date = None, category = None, rows = 100):
         start_time = time.time()
         params = {
             'defType': 'edismax',
@@ -279,7 +268,7 @@ class SolrManager:
         results = self.query(params)
         return results
     
-    def semantic_query(self, input, from_date = None, to_date = None, category = None, rows = 20):
+    def semantic_query(self, input, from_date = None, to_date = None, category = None, rows = 100):
         start_time = time.time()
         embedding = self.get_embedding(input)
         embedding = "[" + ",".join(map(str, embedding)) + "]"

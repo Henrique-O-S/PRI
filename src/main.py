@@ -17,7 +17,7 @@ def init_solr():
         print("Applying stopwords and synonyms...")
         solr.apply_stopwords('solr/stopwords.txt')
         solr.apply_synonyms('solr/synonyms.txt')
-        solr.index_articles(100)
+        solr.index_articles(400)
         print("Configuring suggester...")
         solr.configure_suggester()
         print("Done.")
