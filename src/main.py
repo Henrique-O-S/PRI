@@ -126,7 +126,7 @@ def post_query(item: dict):
         if datetime.strptime(input_from_date, date_format) >= datetime.strptime(input_to_date, date_format):
             raise HTTPException(status_code=422, detail="Incorrect date range, 'from_date' should be before 'to_date'")
 
-    result = solr.user_query(input=input_text, category=input_category, from_date=input_from_date, to_date=input_to_date)
+    result = solr.user_query(input=input_text, category=input_category, from_date=input_from_date, to_date=input_to_date, rows=100)
 
     del result['params']
 

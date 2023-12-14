@@ -26,6 +26,9 @@
     "advanced micron devices",
     "cyber security stocks",
   ];
+  let currentPage = 1;
+  let itemsPerPage = 10; // Adjust as needed
+  let filteredResults;
   $: {
     selectedQuery = params.query;
     companies = getCompanyResults();
@@ -59,6 +62,7 @@
       searchResults = results.results.docs;
       companies = results.company_results;
       company = companies[company_index];
+      setPage(1);
     } catch (error) {
       console.error("Error fetching query results:", error);
     }
@@ -95,6 +99,17 @@
     }
     company = companies[company_index];
   }
+
+  function setPage(page) {
+    currentPage = page;
+    getPaginatedResults();
+  }
+
+  function getPaginatedResults() {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    filteredResults = searchResults.slice(startIndex, endIndex);
+  }
 </script>
 
 <div class="content">
@@ -121,16 +136,28 @@
   </section>
   <hr />
   <div class="row" style="gap:10rem; padding-right:3rem;">
-    <section class="results">
+    <section class="results col">
       <h5 class="time">{length} Results in {time} seconds</h5>
       {#if searchResults.length > 0}
-        {#each searchResults as result}
+        {#each filteredResults as result}
           <Result {result} />
         {/each}
+        <!-- Pagination controls -->
+        <div class="pagination">
+          {#if searchResults.length > itemsPerPage}
+            {#each Array.from({ length: Math.ceil(searchResults.length / itemsPerPage) }, (_, i) => i + 1) as page}
+              <button
+                class={currentPage === page ? "active" : ""}
+                on:click={() => setPage(page)}
+              >
+                {page}
+              </button>
+            {/each}
+          {/if}
+        </div>
       {:else}
         <p>No results found.</p>
       {/if}
-      <div style="margin-bottom: 2rem;"></div>
     </section>
     <section class="companyInfo">
       {#if company}
@@ -196,5 +223,27 @@
     background-color: silver;
     height: 1.5px;
     opacity: 30%;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .pagination button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: aliceblue;
+  }
+
+  .pagination button.active {
+    background-color: #333;
+    color: #fff;
   }
 </style>
