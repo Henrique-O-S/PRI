@@ -217,15 +217,15 @@ class SolrManager:
                 boosts['article_keywords'] += 6
                 child_boosts['company_name'] += 3
                 child_boosts['company_tag'] += 2
-                params['q'] += str(entity[0]) + "~1 "
+                params['q'] += str(entity[0]) + " "
             elif entity[1] == 'NOUN':
                 boosts['article_text'] += 1
                 boosts['article_keywords'] += 1
                 child_boosts['company_description'] += 1
                 child_boosts['company_keywords'] += 1
-                params['q'] += str(entity[0]) + " "
+                params['q'] += str(entity[0]) + "~1 "
             else:
-                params['q'] += str(entity[0]) + " "
+                params['q'] += str(entity[0]) + "~1 "
         if category:
             params['fq'] += " AND (article_keywords:" + category + " OR {!parent which='doc_type:article'}company_keywords:" + category + ")"
             results = self.sector_query(category)
@@ -255,7 +255,7 @@ class SolrManager:
     def company_query(self, company):
         params = {
             'defType': 'edismax',
-            'q': company + '~1',
+            'q': company,
             'qf': 'company_tag company_name',
             'fq': 'doc_type:company',
             'fl': 'company_name company_tag company_description',

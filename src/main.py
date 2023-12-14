@@ -44,6 +44,30 @@ def read_root():
 
 # --------------------------------------------------------------------
 
+@app.post("/predefined_query")
+def post_predefined_query(item: dict):
+    """
+    Expects data in the following format:
+    {
+        "params": {...}
+    }
+    """
+    if 'params' not in item:
+        raise HTTPException(status_code=422, detail="The 'params' field is required.")
+    
+    params = item['params']
+    results = solr.query(params)
+
+    new_response = {
+        'docs': results.docs,
+        'hits': results.hits
+    }
+    results = new_response
+    
+    return {"response": results}
+
+# --------------------------------------------------------------------
+
 @app.post("/suggestions")
 def post_suggestions(item: dict):
     """
