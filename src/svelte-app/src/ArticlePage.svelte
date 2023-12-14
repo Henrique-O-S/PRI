@@ -6,6 +6,7 @@
     fixArticleText,
     getArticleCompanies,
     convertDateString,
+    getMoreLikeThis,
   } from "./general_functions.js";
   import Sugestion from "./Sugestion.svelte";
   export let params = {};
@@ -22,6 +23,7 @@
     companies = [];
     getArticleAndCompanies(params.id);
     suggestions = ["apple", "microsoft", "google", "amazon", "facebook"];
+    moreLikeThis(params.id);
   }
   function updateCompany(inc) {
     company_index += inc;
@@ -44,6 +46,18 @@
       article_date = results.docs[0].article_date;
       article_link = results.docs[0].article_link;
       paragraphs = fixArticleText(results.docs[0].article_text);
+    } catch (error) {
+      console.error("Error fetching query results:", error);
+    }
+  }
+
+  async function moreLikeThis(id) {
+    try {
+      results = await getMoreLikeThis(id);
+
+      if('docs' in results) {
+        suggestions = results.docs.map((doc) => doc.article_title);
+      }
     } catch (error) {
       console.error("Error fetching query results:", error);
     }
@@ -87,7 +101,7 @@
   </div>
   <hr style="margin-top: 2rem; margin-bottom:0.5rem;" />
   <div class="textFooter">
-    <h3 class="searchSuggestions">Search suggestions:</h3>
+    <h3 class="searchSuggestions">You might be interested in:</h3>
     <div class="suggestions-row">
       {#each suggestions as suggestion}
         <Sugestion {suggestion} {searchSuggestion} />
@@ -192,7 +206,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem; /* Adjust the gap between suggestions */
-    max-width: 1000px; /* Set a maximum width for the row */
+    max-width: 1325px; /* Set a maximum width for the row */
     margin: 0 auto; /* Center the row */
     margin-top: 2rem;
   }

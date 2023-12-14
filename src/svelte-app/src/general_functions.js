@@ -41,6 +41,27 @@ export async function getQuery(input, category = "", fromDate = "", toDate = "")
     }
 }
 
+export async function getMoreLikeThis(id) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+            id: id,
+            content: ""
+        })
+    };
+
+    try {
+    const response = await fetch('http://localhost:8001/more_like_this', requestOptions);
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+        return await response.json().then(data => data.response);
+    } catch (error) {
+        console.error('Error fetching query response:', error);
+        return [];
+    }
+}
 
 export async function getArticleCompanies(id) {
     const requestOptions = {
@@ -85,14 +106,15 @@ export function fixArticleText(text) {
     }
 
     let currParagraph = paragraphs.length - 1;
-    for (let i = 1; i < text.length; i++) {
+    for (let i = 1; i < text.length - 1; i++) {
         if (text[i].indexOf(" - ") !== -1) {
             currParagraph++;
-            paragraphs.push(text[i] + ".");
+            paragraphs.push(text[i] + ". ");
         } else {
-            paragraphs[currParagraph] += text[i] + ".";
+            paragraphs[currParagraph] += text[i] + ". ";
         }
     }
+    paragraphs[currParagraph] += text[text.length - 1];
 
     return paragraphs;
 }

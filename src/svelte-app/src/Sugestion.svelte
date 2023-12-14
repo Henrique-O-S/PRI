@@ -21,7 +21,7 @@
         align-items: center;
         box-sizing: border-box;
         font-size: 1rem;
-        width: 300px;
+        width: 500px;
         position: relative;
     }
 
