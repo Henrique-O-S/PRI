@@ -40,4 +40,19 @@ The primary blocks in data-intensive systems include:
 - Stream messages between systems;
 - Periodically process data (batch processing);
 
+## 3. [Data Preparation](./pri2324-03-data-preparation.pdf)
 
+Once more, Ad Hoc Search is the most common type of search, where the user is looking for information on a specific topic.
+
+Regarding Data Preparation, we have the following stages:
+- Cleaning
+- Transformation, which includes:
+    - Normalization (e.g. converting to lowercase);
+    - Scaling values to a specific range (e.g. 0-1);
+    - Encoding (e.g. one-hot encoding);
+    - Binning (e.g. grouping values into bins of size X);
+- Synthetization of new data (e.g. combining two columns into one);
+- Reduction (e.g. removing outliers, redundant or even not useful data);
+
+
+TODO: talk about data pipeline on page 34
