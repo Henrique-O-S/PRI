@@ -146,3 +146,35 @@ Different **Query Parsers** can be used to match documents to a query:
 - The **Extended DisMax query parser (eDisMax)** is an improved version that is both forgiving in the syntax and also supports complex query expressions.
 - Both **DisMax** and **eDisMax** support **boosting/weighted fields** (e.g. *q=foo^5 bar*), which is a way to increase the score of a document if it contains a specific term.
 
+## 7. [Evaluation](./pri2324-07-ir-evaluation.pdf)
+
+Evaluation depends on the task, collection, information need, etc --> it is the most important part of the IR process:
+- Used to undertsand the use of a system by its users;
+- Make decisions on new features to implement;
+- **Effectiveness** vs **Efficiency** --> find the **right information** vs **how fast** we can **find information** at all;
+
+To measure the **effectiveness** of a system, we need:
+- A document collection (corpus);
+- A set of queries;
+- A set of relevance judgements (for each query, a set of relevant & non-relevant documents);
+
+**Relevance** is assessed relative to an **information need**, not a query:
+- (e.g.) Information on whether the **US** should **invade Iraq** --> This may be translated into a query such as **Iraq war**. A query is relevant IF it addresses the information need, not if it matches the query.
+- Kinds of relevance can be:
+    - **Topical Relevance (aboutness)** - the document is about the topic;
+    - **Situation Relevance (utility)** - the document is useful in the current situation;
+    - **Cognitive Relevance (pertinence)** - the document is useful for the current task;
+    - **Affective Relevance (satisfaction)** - the document is satisfying to the user;
+
+The metrics that are usually used to evaluate a system are:
+- **Precision** - the fraction of retrieved documents that are relevant;
+    - **P@k** - precision at k, i.e. the precision of the top k documents;
+    - **Average Precision (AvP)** - the average of the precision values obtained for each relevant document (AvP = (P1 + P2 + ... + Pn) / n);
+- **Recall** - the fraction of relevant documents that are retrieved;
+- **F-measure** - the harmonic mean of precision and recall (F1 = 2 * (P * R) / (P + R));
+- **Mean Average Precision (MAP)** - the average of the precision values obtained for each query (MAP = (AvP1 + AvP2 + ... + AvPn) / n);
+- **Precision-Recall Curves**: ![Alt text](image-2.png)
+
+## 8. [Concepts](./pri2324-08-ir-concepts.pdf)
+
+Ranked Retrieval - with the Boolean model, the documents are either relevant or not: in large documents collections, this is not feasible, so it is important to rank the documents according to their relevance instead
