@@ -177,4 +177,17 @@ The metrics that are usually used to evaluate a system are:
 
 ## 8. [Concepts](./pri2324-08-ir-concepts.pdf)
 
-Ranked Retrieval - with the Boolean model, the documents are either relevant or not: in large documents collections, this is not feasible, so it is important to rank the documents according to their relevance instead
+**Ranked Retrieval** - with the Boolean model, the documents are either relevant or not: in large documents collections, this is not feasible, so it is important to rank the documents according to their relevance instead.
+
+**Parametric Indexes** are inverted indexes that are built using a set of parameters that support parametric search, e.g. all documents from author Z containing word Y.
+
+**Zone Indexes** are inverted indexes that are built using a set of zones that support zone search, e.g. all documents from author Z containing word Y in the title.
+    - ![Alt text](image-1.png)
+
+**Document Frequency** is the number of documents in which a term appears --> can be used to calculate the **Inverse Document Frequency (IDF)** (![Alt text](image-3.png)), which is a measure of how much information the term provides, i.e. the more common a term is, the less information it provides.
+
+**tf-idf** is a measure of the importance of a term in a document, which is the product of the **term frequency (tf)** and the **inverse document frequency (idf)** ![Alt text](image-4.png)
+
+
+
+
