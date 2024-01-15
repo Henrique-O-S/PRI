@@ -169,12 +169,69 @@ key NLP tasks for IR
 - Relation Extraction
 - Sentiment analysis
 
+# IR
 
+![Alt text](image.png)
+
+# SOLR
+Textual fields go through a pipeline of analyzers, tokenizers, and filters.
+- Analyzers, receive a a textual field as input and generates a token stream.
+- Tokenizers, receive a character stream and produce a sequence of token objects.
+- Filters, examine tokens and transform them (keep, discard, create, modify).
+
+Analyzers can include one tokenizer and multiple filters. 
+
+# ir evaluation
+
+In order to evaluate relevance the information need must be clear.
+
+![Alt text](image-1.png)
+
+![Alt text](image-2.png)
+
+
+P(q1) = 4 relevant documents retrieved / 6 documents retrieved = 0.67
+R(q1) = 4 relevant docs retrieved / 8 existing relevant docs = 0.5
+
+Precision = true positives / (true positives + false positives)
+Recall = true positives / (true positives + false negatives)
 
 
 recall -> percentagem dos relevantes para conceito que estao presentes na lista
 precisao -> percentagem dos da lista que sao relevantes
 
+Boolean model provides no ranking
+
+![Alt text](image-3.png)
+
+# learning to rank
+
+![Alt text](image-4.png)
+
+# neural ir
+
+![Alt text](image-5.png)
+
+![Alt text](image-6.png)
+
+sparse vectors: 0 or 1 (words present)
+
+word embeddings /  dense vectors --> numerical value (categories)
+- The vector of a word does not change with the other words used in a sentence around it. 
+
+transformers caputre context of text (relations between words), an can be used in word embeddings to further tune the understanding of them --> now each worth is influenced by the rest
+
+![Alt text](image-7.png)
+
+![Alt text](image-8.png)
+
+![Alt text](image-9.png)
+
+semantic search --> meaning and intent behind a user query
+
+syntactic search --> structure and syntax of query
 
 
+![Alt text](image-10.png)
 
+![Alt text](image-11.png)
