@@ -12,12 +12,10 @@ The following topics are covered in this exam:
 - [Learning to Rank](#learning-to-rank-using-machine-learning-in-the-retrieval-process) (Q55-Q56)
 - [Neural Information Retrieval](#neural-information-retrieval-dense-vectors-embeddings-using-neural-models-in-the-retrieval-process) (Q57-Q61)
 - [Query Processing](#query-processing-query-processing-techniques-and-relevance-feedback-strategies) (Q62-Q65)
-- [Entity-oriented Search](#entity-oriented-search-producing-entity-descriptions-entity-ranking-and-entity-linking) (Q66-*)
-- [Search User Interfaces](#search-user-interfaces-user-interaction-with-search-systems-interaction-elements)
+- [Entity-oriented Search](#entity-oriented-search-producing-entity-descriptions-entity-ranking-and-entity-linking) (Q66-Q68)
+- [Search User Interfaces](#search-user-interfaces-user-interaction-with-search-systems-interaction-elements) (Q69-Q71)
 - [Solr](#solr-indexing-and-retrieval-configuration-query-processing-relevance-feedback-learning-to-rank-entity-oriented-search-user-interfaces)
 - [Project](#project-document-collection-indexing-retrieval-evaluation-user-interfaces-relevance-feedback-learning-to-rank-entity-oriented-search)
-
-
 
 
 ## Information Processing: Concepts & Techniques
@@ -29,27 +27,22 @@ The following topics are covered in this exam:
 
 ### Q2: Identify and describe the phases of the information processing lifecycle.
 - [x] The information processing lifecycle consists typically of the **continuous** phases: *create/generate*, *collect*, *record/store*, *process*, *distribute/transmit*, *consume/use* and *dispose*.
-*occurrence*, *access*, *processing*, *management/storage* and *usage* (monitoring, decision-making, etc...).
 - [ ] The information processing lifecycle consists typically of the **discrete** phases: *create/generate*, *collect*, *record/store*, *process*, *distribute/transmit*, *consume/use* and *dispose*.
 - [ ] The information processing lifecycle consists typically of the phases, in order: *record/store*, *collect*, *process*, *distribute/transmit*, *consume/use* and *dispose*.
 
-<!-- 
 **Explanation**:
 
 The information life cycle is the **continuous** process of creating/generating, collecting, recording/storing, processing, distributing/transmitting, consuming/using and disposing of information. After the usage phase, new information (or even the same), can be inserted into the system, and the cycle starts again.
--->
 
 ### Q3: What are the **3** main stages of *Data*?
 - [x] *raw*: focus on discovering the data itself; *processed/refined*: data is prepared for analysis; *production*: data is used into production processes;
 - [ ] *raw*: focus on discovering the data itself; *processed/refined*: data is prepared and doesn't require further processing; *production*: data is used into production processes;
 - [ ] *clean*: data is cleared from nullable values (e.g. defaults values to 0); *processed/refined*: data is prepared and doesn't require further processing; *production*: data is used into production processes;
 
-<!-- 
 Data moves through three main stages:
 - Raw: focus is on data discovery.
 - Refined: focus is on data preparation.
 - Production: focus is on integrating data into production.
--->
 
 ### Q4: What are the main stages of the ETL pattern?
 - [x] *Extract*: data is extracted from the source; *Transform*: data is transformed into the desired format; *Load*: data is loaded into the destination (e.g. database, json file).
@@ -57,7 +50,6 @@ Data moves through three main stages:
 
 ### Q5: What are the benefits of using ELT over ETL?
 - [x] **ELT** allows to load data into the destination first, and then transform it. This way, an engineer can extract the data, while the analyst can transform it.
-- [ ] **ETL** allows to load data into the destination first, and then transform it. This way, an engineer can extract the data, while the analyst can transform it.
 - [ ] **ELT** decouples responsabilities but it is not capable of handling large amounts of data, unlike **ETL**.
 
 ### Q6: What is the different between ELT and EtLT?
@@ -248,10 +240,10 @@ From here, we have |H1| = sqrt(2), |H2| = 1 and |H3| = sqrt(5).
 Now we can calculate the cosine similarity between the query and each document:
 
 - H1: (1 * 1 + 1 * 1) / (sqrt(2) * 1) = 1.41
-- H2: (1 * 1 + 1 * 0) / (sqrt(2) * 1) = 0.71
+- H2: (1 * 1 + 1 * 0) / (1 * 1) = 1
 - H3: (1 * 1 + 1 * 2) / (sqrt(2 * 5)) = 0.94
 
-Which leads to the following ranking: H1 > H3 > H2.
+Which leads to the following ranking: H1 > H2 > H3.
 
 ### Test exercices 6.8, 6.9, 6.10, 6.11, 6.15, 6.16, 6.17 and Examples 6.2, 6.3, 6.4. from the book ([page 156](../books/Introduction%20to%20Information%20Retrieval%20(Manning%20et%20al.,%202008).pdf#page=156))
 
