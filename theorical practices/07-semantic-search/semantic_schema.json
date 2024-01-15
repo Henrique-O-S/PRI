@@ -1,0 +1,46 @@
+{
+	"add-field-type": [
+        {
+            "name": "courseTitle",
+            "class": "solr.TextField",
+            "indexAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    {"class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class": "solr.LowerCaseFilterFactory"}
+                ]
+            },
+            "queryAnalyzer": {
+                "tokenizer": {
+                    "class": "solr.StandardTokenizerFactory"
+                },
+                "filters": [
+                    {"class": "solr.ASCIIFoldingFilterFactory", "preserveOriginal":true},
+                    {"class": "solr.LowerCaseFilterFactory"}
+                ]
+            }
+        },
+        {
+            "name": "courseVector",
+            "class": "solr.DenseVectorField",
+            "vectorDimension": 384,
+            "similarityFunction": "cosine",
+            "knnAlgorithm": "hnsw"
+        }
+    ],
+    "add-field": [
+        {
+            "name": "title",
+            "type": "courseTitle",
+            "indexed": true
+        },
+        {
+            "name": "vector",
+            "type": "courseVector",
+            "indexed": true,
+            "stored": true
+        }
+    ]
+}

@@ -1,0 +1,2 @@
+feeds.feedburner.com/PublicoRSS
+feeds.jn.pt/JN-Ultimas
